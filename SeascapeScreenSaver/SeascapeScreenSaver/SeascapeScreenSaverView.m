@@ -2,20 +2,15 @@
 //  SeascapeScreenSaverView.m
 //  SeascapeScreenSaver
 //
-// Based on: http://www.alejandrosegovia.net/2013/09/02/writing-a-mac-os-x-screensaver/
+//  Based on: http://www.alejandrosegovia.net/2013/09/02/writing-a-mac-os-x-screensaver/
+//  Another tutorial: http://www.mactech.com/articles/mactech/Vol.21/21.06/SaveOurScreens/index.html
 //
 //  Created by David Mitchell on 1/4/15.
 //  Copyright (c) 2015 David Mitchell. All rights reserved.
 //
 
 #import "SeascapeScreenSaverView.h"
-
 #import <OpenGL/gl.h>
-// Keep these. Add, as needed.
-//#import <OpenGL/glext.h>
-//#import <OpenGL/glu.h>
-//#import <OpenGL/OpenGL.h>
-//#import <GLUT/glut.h>
 
 @implementation SeascapeScreenSaverView
 
@@ -31,11 +26,10 @@
         
         // My stuff
         [self.glView.openGLContext makeCurrentContext];
-        self.renderer = [[SeascapeRenderer alloc] init];
-        
+        self.renderer = [[SeascapeRenderer alloc] init];        
         // End New Code
         
-        [self setAnimationTimeInterval:1/30.0];
+        [self setAnimationTimeInterval:1/60.0];
     }
     return self;
 }

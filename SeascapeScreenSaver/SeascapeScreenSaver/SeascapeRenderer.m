@@ -69,15 +69,14 @@ enum {
     
     m_u_iResolution.x = newSize.width;
     m_u_iResolution.y = newSize.height;
-    m_u_iResolution.z =   1.0;
+    m_u_iResolution.z = 1.0;
     
-    NSLog(@"Setting frame size: %f w by %f h", newSize.width, newSize.height);
+    NSLog(@"Setting frame size: %f w by %f h", m_u_iResolution.x, m_u_iResolution.y);
 }
 
 - (void)render
 {
     glClearColor(0.09765625f, 0.09765625f, 0.2375f, 1.0f);
-    //glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glClear(GL_COLOR_BUFFER_BIT);
 
     glUseProgram(program);
@@ -102,7 +101,6 @@ enum {
     glDisableVertexAttribArray(m_attributes.m_a_posHandle);  printOpenGLError();
     
     glUseProgram(0);
-    
 }
 
 /////////////////////////////////////////
@@ -162,6 +160,7 @@ enum {
 }
 
 #pragma mark VBO Stuff
+
 -(void) createVBO {
 
     NSLog(@"Creating VBO");
