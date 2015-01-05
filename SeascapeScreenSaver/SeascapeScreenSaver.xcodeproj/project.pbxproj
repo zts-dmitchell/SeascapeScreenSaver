@@ -1,0 +1,270 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		57F14D8F1A5A29C900948DDB /* SeascapeScreenSaverView.h in Headers */ = {isa = PBXBuildFile; fileRef = 57F14D8E1A5A29C900948DDB /* SeascapeScreenSaverView.h */; };
+		57F14D911A5A29C900948DDB /* SeascapeScreenSaverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 57F14D901A5A29C900948DDB /* SeascapeScreenSaverView.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		57F14D891A5A29C900948DDB /* SeascapeScreenSaver.saver */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SeascapeScreenSaver.saver; sourceTree = BUILT_PRODUCTS_DIR; };
+		57F14D8D1A5A29C900948DDB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		57F14D8E1A5A29C900948DDB /* SeascapeScreenSaverView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SeascapeScreenSaverView.h; sourceTree = "<group>"; };
+		57F14D901A5A29C900948DDB /* SeascapeScreenSaverView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SeascapeScreenSaverView.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		57F14D851A5A29C900948DDB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		57F14D7F1A5A29C900948DDB = {
+			isa = PBXGroup;
+			children = (
+				57F14D8B1A5A29C900948DDB /* SeascapeScreenSaver */,
+				57F14D8A1A5A29C900948DDB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		57F14D8A1A5A29C900948DDB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				57F14D891A5A29C900948DDB /* SeascapeScreenSaver.saver */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		57F14D8B1A5A29C900948DDB /* SeascapeScreenSaver */ = {
+			isa = PBXGroup;
+			children = (
+				57F14D8E1A5A29C900948DDB /* SeascapeScreenSaverView.h */,
+				57F14D901A5A29C900948DDB /* SeascapeScreenSaverView.m */,
+				57F14D8C1A5A29C900948DDB /* Supporting Files */,
+			);
+			path = SeascapeScreenSaver;
+			sourceTree = "<group>";
+		};
+		57F14D8C1A5A29C900948DDB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				57F14D8D1A5A29C900948DDB /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		57F14D861A5A29C900948DDB /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				57F14D8F1A5A29C900948DDB /* SeascapeScreenSaverView.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		57F14D881A5A29C900948DDB /* SeascapeScreenSaver */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 57F14D941A5A29C900948DDB /* Build configuration list for PBXNativeTarget "SeascapeScreenSaver" */;
+			buildPhases = (
+				57F14D841A5A29C900948DDB /* Sources */,
+				57F14D851A5A29C900948DDB /* Frameworks */,
+				57F14D861A5A29C900948DDB /* Headers */,
+				57F14D871A5A29C900948DDB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SeascapeScreenSaver;
+			productName = SeascapeScreenSaver;
+			productReference = 57F14D891A5A29C900948DDB /* SeascapeScreenSaver.saver */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		57F14D801A5A29C900948DDB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = "David Mitchell";
+				TargetAttributes = {
+					57F14D881A5A29C900948DDB = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+				};
+			};
+			buildConfigurationList = 57F14D831A5A29C900948DDB /* Build configuration list for PBXProject "SeascapeScreenSaver" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 57F14D7F1A5A29C900948DDB;
+			productRefGroup = 57F14D8A1A5A29C900948DDB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				57F14D881A5A29C900948DDB /* SeascapeScreenSaver */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		57F14D871A5A29C900948DDB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		57F14D841A5A29C900948DDB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				57F14D911A5A29C900948DDB /* SeascapeScreenSaverView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		57F14D921A5A29C900948DDB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		57F14D931A5A29C900948DDB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		57F14D951A5A29C900948DDB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = SeascapeScreenSaver/Info.plist;
+				INSTALL_PATH = "$(HOME)/Library/Screen Savers";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = saver;
+			};
+			name = Debug;
+		};
+		57F14D961A5A29C900948DDB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = SeascapeScreenSaver/Info.plist;
+				INSTALL_PATH = "$(HOME)/Library/Screen Savers";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = saver;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		57F14D831A5A29C900948DDB /* Build configuration list for PBXProject "SeascapeScreenSaver" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				57F14D921A5A29C900948DDB /* Debug */,
+				57F14D931A5A29C900948DDB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		57F14D941A5A29C900948DDB /* Build configuration list for PBXNativeTarget "SeascapeScreenSaver" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				57F14D951A5A29C900948DDB /* Debug */,
+				57F14D961A5A29C900948DDB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 57F14D801A5A29C900948DDB /* Project object */;
+}
