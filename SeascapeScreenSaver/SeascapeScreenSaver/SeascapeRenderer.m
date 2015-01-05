@@ -32,9 +32,12 @@ enum {
         
         if( ! program )
         {
+            NSLog(@"Failed properly load shaders. Going away");
             self = nil;
             return nil;
         }
+        
+        NSLog(@"Successfully loaded and compiled shaders. Ready for next step.");
         
         m_u_iResolution.x = 320;
         m_u_iResolution.y = 568;
@@ -67,6 +70,8 @@ enum {
     m_u_iResolution.x = newSize.width;
     m_u_iResolution.y = newSize.height;
     m_u_iResolution.z =   1.0;
+    
+    NSLog(@"Setting frame size: %f w by %f h", newSize.width, newSize.height);
 }
 
 - (void)render
@@ -109,6 +114,8 @@ enum {
     
 - (GLuint) bindAttributes
 {
+    NSLog(@"Binding attributes");
+    
     if( program < 1 )
     {
         NSLog(@"Error: program variable not set");
@@ -119,11 +126,13 @@ enum {
     // This needs to be done prior to linking.
     glBindAttribLocation(program, ATTRIB_POSITION, "pos");
     
-    return 0;
+    return GL_NO_ERROR;
 }
 
 - (GLuint) setPostLinkUniforms
 {
+    NSLog(@"Setting post link uniforms");
+    
     if( program < 1 )
     {
         NSLog(@"Error: program variable not set");
@@ -155,6 +164,7 @@ enum {
 #pragma mark VBO Stuff
 -(void) createVBO {
 
+    NSLog(@"Creating VBO");
 
     if(m_buffers.VertexBuffer != -1) {
         [self destroyVBO];
@@ -175,6 +185,8 @@ enum {
 
 -(void) destroyVBO {
  
+    NSLog(@"Destroying VBO");
+    
     if(m_buffers.VertexBuffer != -1) {
         
         glDeleteBuffers(1, &m_buffers.VertexBuffer);

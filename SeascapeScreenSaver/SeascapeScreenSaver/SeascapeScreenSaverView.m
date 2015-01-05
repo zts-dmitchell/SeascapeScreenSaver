@@ -30,6 +30,7 @@
         [self addSubview:self.glView];
         
         // My stuff
+        [self.glView.openGLContext makeCurrentContext];
         self.renderer = [[SeascapeRenderer alloc] init];
         
         // End New Code
@@ -124,7 +125,12 @@
 }
 #else
 - (void)animateOneFrame {
+    [self.glView.openGLContext makeCurrentContext];
+
     [self.renderer render];
+    
+    glFlush();
+    [self setNeedsDisplay:YES];
 }
 #endif
 

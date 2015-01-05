@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		57F14D8F1A5A29C900948DDB /* SeascapeScreenSaverView.h in Headers */ = {isa = PBXBuildFile; fileRef = 57F14D8E1A5A29C900948DDB /* SeascapeScreenSaverView.h */; };
 		57F14D911A5A29C900948DDB /* SeascapeScreenSaverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 57F14D901A5A29C900948DDB /* SeascapeScreenSaverView.m */; };
-		57F14D9A1A5A315400948DDB /* SeascapeVertexShader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 57F14D981A5A315400948DDB /* SeascapeVertexShader.vsh */; };
-		57F14D9B1A5A315400948DDB /* SeascapeFragmentShader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 57F14D991A5A315400948DDB /* SeascapeFragmentShader.fsh */; };
 		57F14D9E1A5A317500948DDB /* ShaderUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 57F14D9C1A5A317500948DDB /* ShaderUtil.h */; };
 		57F14D9F1A5A317500948DDB /* ShaderUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 57F14D9D1A5A317500948DDB /* ShaderUtil.m */; };
 		57F14DA21A5A31B400948DDB /* ESRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 57F14DA11A5A31B400948DDB /* ESRenderer.h */; };
@@ -18,6 +16,8 @@
 		57F14DA61A5A325300948DDB /* GLUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 57F14DA41A5A325300948DDB /* GLUtil.h */; };
 		57F14DA91A5A329A00948DDB /* SeascapeRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 57F14DA71A5A329A00948DDB /* SeascapeRenderer.h */; };
 		57F14DAA1A5A329A00948DDB /* SeascapeRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 57F14DA81A5A329A00948DDB /* SeascapeRenderer.m */; };
+		57F14DB11A5A3F0F00948DDB /* SeascapeVertexShader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 57F14D981A5A315400948DDB /* SeascapeVertexShader.vsh */; };
+		57F14DB21A5A3F0F00948DDB /* SeascapeFragmentShader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 57F14D991A5A315400948DDB /* SeascapeFragmentShader.fsh */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -180,8 +180,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				57F14D9A1A5A315400948DDB /* SeascapeVertexShader.vsh in Resources */,
-				57F14D9B1A5A315400948DDB /* SeascapeFragmentShader.fsh in Resources */,
+				57F14DB11A5A3F0F00948DDB /* SeascapeVertexShader.vsh in Resources */,
+				57F14DB21A5A3F0F00948DDB /* SeascapeFragmentShader.fsh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

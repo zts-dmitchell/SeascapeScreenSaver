@@ -21,14 +21,18 @@
 
 + (BOOL)compileShader:(GLuint *)shader type:(GLenum)type file:(NSString *)file
 {
+    NSLog(@"Compiling shader: %@", file);
+    
     GLint status;
     const GLchar *source;
     
     source = (GLchar *)[[NSString stringWithContentsOfFile:file encoding:NSUTF8StringEncoding error:nil] UTF8String];
-    if (!source)
-    {
-        NSLog(@"Failed to load vertex shader");
+    
+    if (!source) {
+        NSLog(@"Failed to load %d shader: %@", type, file);
         return FALSE;
+    } else {
+        NSLog(@"Loaded shader");
     }
     
     *shader = glCreateShader(type);
@@ -103,6 +107,9 @@
     return TRUE;
 }
 
+/*
+    Returns 0 on failure.
+ */
 + (GLuint)loadShaders: (NSString*) vertexShader
         withVertexExt: (NSString*) vertexExt
     andFragmentShader: (NSString*) fragmentShader
@@ -115,19 +122,31 @@
     // Create shader program.
     GLuint program = glCreateProgram(); printOpenGLError();
     
+    if(program == 0) {
+        NSLog(@"glCreateProgram call failed with 0.  Is the context set?");
+        return 0;
+    }
+    
     // Create and compile vertex shader.
-    //vertShaderPathname = [[NSBundle mainBundle] pathForResource:@"Shader" ofType:@"vsh"];
-    vertShaderPathname = [[NSBundle mainBundle] pathForResource:vertexShader ofType:vertexExt];
+    vertShaderPathname = [[NSBundle bundleForClass:[self class]] pathForResource:vertexShader ofType:vertexExt];
+    
+    if (vertShaderPathname == nil) {
+        NSLog(@"Nil getting path to vertex shader: %@.%@", vertexShader, vertexExt);
+        glDeleteProgram(program);
+        return 0;
+    } else {
+        NSLog(@"Got path to vertex shader: %@", vertShaderPathname);
+    }
+    
     if (![self compileShader:&vertShader type:GL_VERTEX_SHADER file:vertShaderPathname])
     {
-        NSLog(@"Failed to compile vertex shader");
+        NSLog(@"Failed to compile vertex shader: %@.%@", vertexShader, vertexExt);
         glDeleteProgram(program);
         return 0;
     }
     
     // Create and compile fragment shader.
-    //fragShaderPathname = [[NSBundle mainBundle] pathForResource:@"Shader" ofType:@"fsh"];
-    fragShaderPathname = [[NSBundle mainBundle] pathForResource:fragmentShader ofType:fragmentExt];
+    fragShaderPathname = [[NSBundle bundleForClass:[self class]] pathForResource:fragmentShader ofType:fragmentExt];
     
     NSString* fileInfo = [NSString stringWithFormat:@"Loading file: %@", fragShaderPathname];
 
