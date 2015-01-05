@@ -9,6 +9,15 @@
 /* Begin PBXBuildFile section */
 		57F14D8F1A5A29C900948DDB /* SeascapeScreenSaverView.h in Headers */ = {isa = PBXBuildFile; fileRef = 57F14D8E1A5A29C900948DDB /* SeascapeScreenSaverView.h */; };
 		57F14D911A5A29C900948DDB /* SeascapeScreenSaverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 57F14D901A5A29C900948DDB /* SeascapeScreenSaverView.m */; };
+		57F14D9A1A5A315400948DDB /* SeascapeVertexShader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 57F14D981A5A315400948DDB /* SeascapeVertexShader.vsh */; };
+		57F14D9B1A5A315400948DDB /* SeascapeFragmentShader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 57F14D991A5A315400948DDB /* SeascapeFragmentShader.fsh */; };
+		57F14D9E1A5A317500948DDB /* ShaderUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 57F14D9C1A5A317500948DDB /* ShaderUtil.h */; };
+		57F14D9F1A5A317500948DDB /* ShaderUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 57F14D9D1A5A317500948DDB /* ShaderUtil.m */; };
+		57F14DA21A5A31B400948DDB /* ESRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 57F14DA11A5A31B400948DDB /* ESRenderer.h */; };
+		57F14DA51A5A325300948DDB /* GLUtil.c in Sources */ = {isa = PBXBuildFile; fileRef = 57F14DA31A5A325300948DDB /* GLUtil.c */; };
+		57F14DA61A5A325300948DDB /* GLUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 57F14DA41A5A325300948DDB /* GLUtil.h */; };
+		57F14DA91A5A329A00948DDB /* SeascapeRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 57F14DA71A5A329A00948DDB /* SeascapeRenderer.h */; };
+		57F14DAA1A5A329A00948DDB /* SeascapeRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 57F14DA81A5A329A00948DDB /* SeascapeRenderer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -16,6 +25,15 @@
 		57F14D8D1A5A29C900948DDB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		57F14D8E1A5A29C900948DDB /* SeascapeScreenSaverView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SeascapeScreenSaverView.h; sourceTree = "<group>"; };
 		57F14D901A5A29C900948DDB /* SeascapeScreenSaverView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SeascapeScreenSaverView.m; sourceTree = "<group>"; };
+		57F14D981A5A315400948DDB /* SeascapeVertexShader.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = SeascapeVertexShader.vsh; sourceTree = "<group>"; };
+		57F14D991A5A315400948DDB /* SeascapeFragmentShader.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = SeascapeFragmentShader.fsh; sourceTree = "<group>"; };
+		57F14D9C1A5A317500948DDB /* ShaderUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShaderUtil.h; sourceTree = "<group>"; };
+		57F14D9D1A5A317500948DDB /* ShaderUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShaderUtil.m; sourceTree = "<group>"; };
+		57F14DA11A5A31B400948DDB /* ESRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESRenderer.h; sourceTree = "<group>"; };
+		57F14DA31A5A325300948DDB /* GLUtil.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = GLUtil.c; sourceTree = "<group>"; };
+		57F14DA41A5A325300948DDB /* GLUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLUtil.h; sourceTree = "<group>"; };
+		57F14DA71A5A329A00948DDB /* SeascapeRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeascapeRenderer.h; sourceTree = "<group>"; };
+		57F14DA81A5A329A00948DDB /* SeascapeRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeascapeRenderer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,7 +50,8 @@
 		57F14D7F1A5A29C900948DDB = {
 			isa = PBXGroup;
 			children = (
-				57F14D8B1A5A29C900948DDB /* SeascapeScreenSaver */,
+				57F14D971A5A312800948DDB /* Shaders */,
+				57F14D8B1A5A29C900948DDB /* Classes */,
 				57F14D8A1A5A29C900948DDB /* Products */,
 			);
 			sourceTree = "<group>";
@@ -45,13 +64,17 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		57F14D8B1A5A29C900948DDB /* SeascapeScreenSaver */ = {
+		57F14D8B1A5A29C900948DDB /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				57F14DA01A5A317F00948DDB /* Utilities */,
+				57F14DA71A5A329A00948DDB /* SeascapeRenderer.h */,
+				57F14DA81A5A329A00948DDB /* SeascapeRenderer.m */,
 				57F14D8E1A5A29C900948DDB /* SeascapeScreenSaverView.h */,
 				57F14D901A5A29C900948DDB /* SeascapeScreenSaverView.m */,
 				57F14D8C1A5A29C900948DDB /* Supporting Files */,
 			);
+			name = Classes;
 			path = SeascapeScreenSaver;
 			sourceTree = "<group>";
 		};
@@ -63,6 +86,28 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		57F14D971A5A312800948DDB /* Shaders */ = {
+			isa = PBXGroup;
+			children = (
+				57F14D981A5A315400948DDB /* SeascapeVertexShader.vsh */,
+				57F14D991A5A315400948DDB /* SeascapeFragmentShader.fsh */,
+			);
+			name = Shaders;
+			sourceTree = "<group>";
+		};
+		57F14DA01A5A317F00948DDB /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				57F14DA31A5A325300948DDB /* GLUtil.c */,
+				57F14DA41A5A325300948DDB /* GLUtil.h */,
+				57F14DA11A5A31B400948DDB /* ESRenderer.h */,
+				57F14D9C1A5A317500948DDB /* ShaderUtil.h */,
+				57F14D9D1A5A317500948DDB /* ShaderUtil.m */,
+			);
+			name = Utilities;
+			path = ..;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -71,6 +116,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				57F14D8F1A5A29C900948DDB /* SeascapeScreenSaverView.h in Headers */,
+				57F14DA21A5A31B400948DDB /* ESRenderer.h in Headers */,
+				57F14DA91A5A329A00948DDB /* SeascapeRenderer.h in Headers */,
+				57F14D9E1A5A317500948DDB /* ShaderUtil.h in Headers */,
+				57F14DA61A5A325300948DDB /* GLUtil.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,6 +180,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57F14D9A1A5A315400948DDB /* SeascapeVertexShader.vsh in Resources */,
+				57F14D9B1A5A315400948DDB /* SeascapeFragmentShader.fsh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,7 +192,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57F14DA51A5A325300948DDB /* GLUtil.c in Sources */,
+				57F14D9F1A5A317500948DDB /* ShaderUtil.m in Sources */,
 				57F14D911A5A29C900948DDB /* SeascapeScreenSaverView.m in Sources */,
+				57F14DAA1A5A329A00948DDB /* SeascapeRenderer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
