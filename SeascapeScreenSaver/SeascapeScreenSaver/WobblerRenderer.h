@@ -1,6 +1,6 @@
 //
-//  ES2EarthWobblerRenderer.h
-//  Earth Wobbler
+//  WobblerRenderer.h
+//  Wobbler
 //
 //  Created by David Mitchell on 2/20/11.
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
@@ -54,7 +54,7 @@ typedef struct _Parameter {
     if ((p.current[i] < p.min[i]) || (p.current[i] > p.max[i])) \
         p.delta[i] = -p.delta[i]; } } )
 
-@interface ES2EarthWobblerRenderer : NSObject <ESRenderer, Attributes>
+@interface WobblerRenderer : NSObject <ESRenderer, Attributes>
 {
 @private
     GLuint program;
@@ -64,6 +64,7 @@ typedef struct _Parameter {
     AttributeHandles m_attributes;
     
     Parameter StartRad;
+    NSSize m_screenSize;
 
 }
 

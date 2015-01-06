@@ -11,10 +11,13 @@
 
 #import "SeascapeScreenSaverView.h"
 #import "SeascapeRenderer.h"
-#import "ES2EarthWobblerRenderer.h"
+#import "WobblerRenderer.h"
 #import <OpenGL/gl.h>
 
 @implementation SeascapeScreenSaverView
+
+id<ESRenderer> renderers[2];
+
 
 - (instancetype)initWithFrame:(NSRect)frame isPreview:(BOOL)isPreview
 {
@@ -28,11 +31,15 @@
         
         // My stuff
         [self.glView.openGLContext makeCurrentContext];
-        //self.renderer = [[SeascapeRenderer alloc] init];
-        self.renderer = [[ES2EarthWobblerRenderer alloc] init];
+        renderers[0] = [[SeascapeRenderer alloc] init];
+        renderers[1] = [[WobblerRenderer alloc] init];
+        
+        self.frameNumber = 0;
+        self.currentRendererId = 0;
+        self.renderer = renderers[self.currentRendererId];
         // End New Code
         
-        [self setAnimationTimeInterval:1/60.0];
+        [self setAnimationTimeInterval:1/30.0];
     }
     return self;
 }
@@ -122,8 +129,19 @@
 }
 #else
 - (void)animateOneFrame {
-    [self.glView.openGLContext makeCurrentContext];
+    
+    if(++self.frameNumber % 10000 == 0) {
+        NSLog(@"Number of frames for %@ so far: %lu", [self.renderer name], self.frameNumber);
 
+        [self.glView.openGLContext makeCurrentContext];
+        
+        [self stopAnimation];
+        
+        self.currentRendererId = !self.currentRendererId;
+        self.renderer = renderers[self.currentRendererId];
+        [self startAnimation];
+    }
+    
     [self.renderer render];
     
     glFlush();
@@ -133,8 +151,13 @@
 
 - (void)setFrameSize:(NSSize)newSize
 {
+    self.screenSize = newSize;
     [super setFrameSize:newSize];
     [self.glView setFrameSize:newSize];
+    
+    self.renderer = renderers[1];
+    [self.renderer setFrameSize:newSize];
+    self.renderer = renderers[0];
     [self.renderer setFrameSize:newSize];
 }
 

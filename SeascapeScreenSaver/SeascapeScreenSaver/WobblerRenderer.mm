@@ -1,12 +1,12 @@
 //
-//  ES2Renderer.m
-//  Earth Wobbler
+//  WobblerRenderer.mm
+//  Wobbler
 //
 //  Created by David Mitchell on 2/20/11.
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#include "ES2EarthWobblerRenderer.h"
+#include "WobblerRenderer.h"
 #include "ShaderUtil.h"
 #include "ImageLoader.h"
 
@@ -23,7 +23,7 @@ enum {
     NUM_ATTRIBUTES
 };
 
-@interface ES2EarthWobblerRenderer(PrivateMethods)
+@interface WobblerRenderer(PrivateMethods)
 - (BOOL) setupTextures;
 - (BOOL) makeSphereWithRadius: (GLfloat) radius
                   andLatitude: (GLint) latitude
@@ -31,7 +31,7 @@ enum {
 
 @end
 
-@implementation ES2EarthWobblerRenderer
+@implementation WobblerRenderer
 
 mat4 m_translation;
 
@@ -58,61 +58,6 @@ mat4 m_translation;
         }
         
         m_buffers.VertexBuffer = m_buffers.IndexBuffer = -1;
-        /*
-        const GLfloat squareVertices[] = {
-            1,  1, 1,  -1,  1, 1,  -1, -1, 1,  1, -1, 1,
-            1, 1, 1,   1,-1, 1,   1,-1,-1,   1, 1,-1,    // v0-v3-v4-v5 right
-            1, 1, 1,   1, 1,-1,  -1, 1,-1,  -1, 1, 1,    // v0-v5-v6-v1 top
-            -1, 1, 1,  -1, 1,-1,  -1,-1,-1,  -1,-1, 1,    // v1-v6-v7-v2 left
-            -1,-1,-1,   1,-1,-1,   1,-1, 1,  -1,-1, 1,    // v7-v4-v3-v2 bottom
-            1,-1,-1,  -1,-1,-1,  -1, 1,-1,   1, 1,-1    // v4-v7-v6-v5 back
-        };
-        
-        const GLfloat texCoords[] = {
-             1, 1,   0, 1,   0, 0,   1, 0,    // v0-v1-v2-v3 front
-             0, 1,   0, 0,   1, 0,   1, 1,    // v0-v3-v4-v5 right
-             1, 0,   1, 1,   0, 1,   0, 0,    // v0-v5-v6-v1 top
-             1, 1,   0, 1,   0, 0,   1, 0,    // v1-v6-v7-v2 left
-             0, 0,   1, 0,   1, 1,   0, 1,    // v7-v4-v3-v2 bottom
-             0, 0,   1, 0,   1, 1,   0, 1    // v4-v7-v6-v5 back
-        };
-
-        const GLushort indices[] = {
-            0, 1, 2,   0, 2, 3,
-            4, 5, 6,   4, 6, 7,    // right
-            8, 9,10,   8,10,11,    // top
-            12,13,14,  12,14,15,    // left
-            16,17,18,  16,18,19,    // bottom
-            20,21,22,  20,22,23   // back            
-        };
-                
-        m_buffers.IndexCount = sizeof(indices)/sizeof(indices[0]);
-        int verticesCount = sizeof(squareVertices)/sizeof(squareVertices[0]);
-        int texCoordsCount = sizeof(texCoords)/sizeof(texCoords[0]);
-        
-        GLuint vertexBuffer;
-        glGenBuffers(1, &vertexBuffer);
-        glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
-        glBufferData(GL_ARRAY_BUFFER, verticesCount * sizeof(GLfloat),
-                     squareVertices, GL_STATIC_DRAW);
-        
-        GLuint texCoordsBuffer;
-        glGenBuffers(1, &texCoordsBuffer);
-        glBindBuffer(GL_ARRAY_BUFFER, texCoordsBuffer);
-        glBufferData(GL_ARRAY_BUFFER, texCoordsCount * sizeof(GLfloat),                     
-                     texCoords, GL_STATIC_DRAW);
-        
-        GLuint indexBuffer;
-        glGenBuffers(1, &indexBuffer);
-        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer);
-        glBufferData(GL_ELEMENT_ARRAY_BUFFER, m_buffers.IndexCount * sizeof(GLushort),
-                     indices, GL_STATIC_DRAW);
-        
-        m_buffers.VertexBuffer = vertexBuffer;
-        m_buffers.TexCoordBuffer = texCoordsBuffer;
-        m_buffers.IndexBuffer  = indexBuffer;
-        */
-        
         glUseProgram(program);
         
         glEnable(GL_TEXTURE_2D);
@@ -140,15 +85,22 @@ mat4 m_translation;
     // TODO: Cleanup vertex buffers;
     [ShaderUtil cleanup:program];
     
-    NSLog(@"ES2EarthWobblerRenderer going away ...");
+    NSLog(@"WobblerRenderer going away ...");
+}
+
+- (NSString*) name {
+    return @"Wobbler";
 }
 
 - (void)setFrameSize:(NSSize)newSize {
+    
+    m_screenSize = newSize;
+    
     NSLog(@"Setting frame size: %f w by %f h", newSize.width, newSize.height);
 }
 
-float percentageX = 0.0;
-float percentageY = 0.0;
+float percentageX = -1.0;
+float percentageY = 1.0;
 
 - (void)render
 {
@@ -198,8 +150,8 @@ float percentageY = 0.0;
     
     // Set the projection transform.
     //float h = 4.0f * 480.0 / 320.0; //size.y / size.x;
-    static float aspect = 320.0 / 480.0;
-    static float zoom = 0.64;
+    static float aspect = m_screenSize.width / m_screenSize.height;
+    static float zoom = 0.764;
     float lr, bt;
     if( aspect > 1.0 )
     {
@@ -218,6 +170,9 @@ float percentageY = 0.0;
     
     ///////////////
     // Other uniform stuff
+    float radianAngle = angle * Pi / 180.0 * .0002; // further descale by .02.
+    percentageX = sinf(radianAngle);
+    percentageY = cosf(radianAngle);
     glUniform2f(m_uniforms.Percentage, percentageX, percentageY);
     
     PARAMETER_ANIMATE(StartRad);
@@ -348,16 +303,6 @@ float percentageY = 0.0;
         {
             GLushort first = (latNumber * (longitude+1)) + longNumber;
             GLushort second = first + longitude + 1;
-            
-            /* Original.
-            indexData[ positionIndex++ ] = first;
-            indexData[ positionIndex++ ] = second;
-            indexData[ positionIndex++ ] = first + 1;
-            
-            indexData[ positionIndex++ ] = second;
-            indexData[ positionIndex++ ] = second + 1;
-            indexData[ positionIndex++ ] = first + 1;    
-            */
             
             // Reverse the image.
             indexData[ positionIndex++ ] = first + 1;

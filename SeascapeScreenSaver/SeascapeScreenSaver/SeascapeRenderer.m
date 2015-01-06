@@ -65,6 +65,10 @@ enum {
     NSLog(@"SeascapeRenderer going away ...");
 }
 
+- (NSString*) name {
+    return @"Seascape";
+}
+
 - (void)setFrameSize:(NSSize)newSize {
     
     m_u_iResolution.x = newSize.width;

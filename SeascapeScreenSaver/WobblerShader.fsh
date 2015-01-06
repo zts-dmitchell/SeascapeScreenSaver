@@ -1,6 +1,6 @@
 //
-//  Shader.fsh
-//  Earth Wobbler
+//  WobblerShader.fsh
+//  Wobbler
 //
 //  Created by David Mitchell on 2/19/11.
 //  Copyright 2011 __MyCompanyName__. All rights reserved.

@@ -1,6 +1,6 @@
 //
-//  Shader.vsh
-//  Earth Wobbler
+//  WobblerShader.vsh
+//  Wobbler
 //
 //  Created by David Mitchell on 2/19/11.
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
