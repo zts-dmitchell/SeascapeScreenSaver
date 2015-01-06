@@ -6,6 +6,7 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 #import <Foundation/Foundation.h>
+#import <AppKit/AppKit.h>
 
 typedef struct _ImageData
 {
@@ -14,13 +15,17 @@ typedef struct _ImageData
     unsigned char* bytes;
 } ImageData;
 
+#ifdef __cplusplus
+extern "C"
+NSBitmapImageRep *LoadImage(NSString *path, int shouldFlipVertical);
+#endif
 
 @interface ImageLoader : NSObject {
 
 }
 
-+ (ImageData*) load: (NSString*) path 
-    withShouldFlipVertical: (BOOL) shouldFlipVertical;
++ (ImageData*) load: (NSString*) path
+withShouldFlipVertical: (BOOL) shouldFlipVertical;
 + (void) freeImage: (ImageData*) image;
 
 @end

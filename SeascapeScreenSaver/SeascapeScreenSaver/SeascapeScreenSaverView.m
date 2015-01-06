@@ -28,8 +28,8 @@
         
         // My stuff
         [self.glView.openGLContext makeCurrentContext];
-        self.renderer = [[SeascapeRenderer alloc] init];
-        //self.renderer = [[ES2EarthWobblerRenderer alloc] init];
+        //self.renderer = [[SeascapeRenderer alloc] init];
+        self.renderer = [[ES2EarthWobblerRenderer alloc] init];
         // End New Code
         
         [self setAnimationTimeInterval:1/60.0];

@@ -13,6 +13,8 @@
 #include "Vector.h"
 #include "Matrix.h"
 
+#import <AppKit/AppKit.h>
+
 // Attribute index.
 enum {
     ATTRIB_NORMAL,
@@ -243,7 +245,8 @@ float percentageY = 0.0;
 {
     NSBundle *bundle;
     NSString * string;
-    ImageData* imageData = nil;
+    NSBitmapImageRep *bitmapimagerep;
+    NSRect rect;
     
     bundle = [NSBundle bundleForClass: [self class]];
     
@@ -258,15 +261,16 @@ float percentageY = 0.0;
     }
     else 
     {
-        imageData = [ImageLoader load: string withShouldFlipVertical:false];
+        bitmapimagerep = LoadImage(string, 0    );
         
-        if( imageData == nil )
+        if( bitmapimagerep == nil )
         {
-            NSLog(@"Unable to load image file." );
+            NSLog(@"Unable to load image file: %@", string );
             return false;
         }            
     }
     
+    rect = NSMakeRect(0, 0, [bitmapimagerep pixelsWide], [bitmapimagerep pixelsHigh]);
     
     /* day texture */
     glActiveTexture(GL_TEXTURE0);
@@ -276,16 +280,14 @@ float percentageY = 0.0;
     glBindTexture(GL_TEXTURE_2D, m_texture);
     glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
     
-    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
-    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, rect.size.width, rect.size.height, 0,
+                 (([bitmapimagerep hasAlpha])?(GL_RGBA):(GL_RGB)), GL_UNSIGNED_BYTE,
+                 [bitmapimagerep bitmapData]);
     
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, imageData->width, imageData->height,
-                 0, GL_RGBA, GL_UNSIGNED_BYTE, imageData->bytes);
-    
-    //[ImageLoader freeImage:imageData];
-  
     return true;
 }
 

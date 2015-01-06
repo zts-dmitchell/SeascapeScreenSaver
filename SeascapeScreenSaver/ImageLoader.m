@@ -21,7 +21,6 @@
     return n;
 }
 
-
 + (ImageData*) load: (NSString*) path withShouldFlipVertical: (BOOL) shouldFlipVertical
 {
     if( shouldFlipVertical )
@@ -105,3 +104,34 @@ CGImageSourceRef nsImageToCGImageRef(NSImage* image)
 }
 
 @end
+
+
+NSBitmapImageRep *LoadImage(NSString *path, int shouldFlipVertical)
+{
+    NSBitmapImageRep *bitmapimagerep;
+    NSImage *image;
+    image = [[NSImage alloc] initWithContentsOfFile: path];
+    
+    bitmapimagerep = [[NSBitmapImageRep alloc] initWithData:[image TIFFRepresentation]];
+    
+    if (shouldFlipVertical)
+    {
+        long bytesPerRow, lowRow, highRow;
+        unsigned char *pixelData, *swapRow;
+        
+        bytesPerRow = [bitmapimagerep bytesPerRow];
+        pixelData = [bitmapimagerep bitmapData];
+        
+        swapRow = (unsigned char *)malloc(bytesPerRow);
+        for (lowRow = 0, highRow = [bitmapimagerep pixelsHigh]-1; lowRow < highRow; lowRow++, highRow--)
+        {
+            memcpy(swapRow, &pixelData[lowRow*bytesPerRow], bytesPerRow);
+            memcpy(&pixelData[lowRow*bytesPerRow], &pixelData[highRow*bytesPerRow], bytesPerRow);
+            memcpy(&pixelData[highRow*bytesPerRow], swapRow, bytesPerRow);
+        }
+        free(swapRow);
+    }
+    
+    return bitmapimagerep;
+}
+
