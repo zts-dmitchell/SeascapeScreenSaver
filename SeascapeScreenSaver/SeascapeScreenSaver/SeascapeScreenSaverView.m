@@ -10,6 +10,8 @@
 //
 
 #import "SeascapeScreenSaverView.h"
+#import "SeascapeRenderer.h"
+#import "ES2EarthWobblerRenderer.h"
 #import <OpenGL/gl.h>
 
 @implementation SeascapeScreenSaverView
@@ -26,7 +28,8 @@
         
         // My stuff
         [self.glView.openGLContext makeCurrentContext];
-        self.renderer = [[SeascapeRenderer alloc] init];        
+        self.renderer = [[SeascapeRenderer alloc] init];
+        //self.renderer = [[ES2EarthWobblerRenderer alloc] init];
         // End New Code
         
         [self setAnimationTimeInterval:1/60.0];

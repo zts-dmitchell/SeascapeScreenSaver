@@ -10,12 +10,12 @@
 //
 
 #import <ScreenSaver/ScreenSaver.h>
-#import "SeascapeRenderer.h"
+#import "ESRenderer.h"
 
 @interface SeascapeScreenSaverView : ScreenSaverView
 
 @property (nonatomic, retain) NSOpenGLView* glView;
-@property (nonatomic, strong) SeascapeRenderer* renderer;
+@property (nonatomic, strong) id<ESRenderer> renderer;
 
 - (NSOpenGLView*) createGLView;
 

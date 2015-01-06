@@ -9,16 +9,16 @@
 #import "ESRenderer.h"
 #import "ShaderUtil.h"
 
-typedef struct vec2 {
+typedef struct SeascapeVec2 {
     GLfloat x;
     GLfloat y;
-}vec2;
+}SeascapeVec2;
 
-typedef struct vec3 {
+typedef struct SeascapeVec3 {
     GLfloat x;
     GLfloat y;
     GLfloat z;
-}vec3;
+}SeascapeVec3;
 
 typedef struct SeascapeBuffers {
     GLuint VertexBuffer;
@@ -45,8 +45,8 @@ typedef struct SeascapeAttributeHandles {
     SeascapeAttributeHandles m_attributes;
     
     GLfloat m_u_iGlobalTime;
-    vec3  m_u_iResolution;
-    vec2 m_a_pos;
+    SeascapeVec3  m_u_iResolution;
+    SeascapeVec3 m_a_pos;
     GLfloat m_u_iSeaChoppy;
     GLfloat m_u_iSeaHeight;
     GLfloat m_u_iSpeed;

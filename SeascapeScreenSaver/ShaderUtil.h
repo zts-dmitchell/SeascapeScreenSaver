@@ -5,7 +5,7 @@
 //  Created by David Mitchell on 2/20/11.
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
-
+#pragma once
 #import <Foundation/Foundation.h>
 #import <OpenGL/gl.h>
 
