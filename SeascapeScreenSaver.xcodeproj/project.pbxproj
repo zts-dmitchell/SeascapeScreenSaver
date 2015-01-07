@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		57C109F01A5DB4C7002D4F58 /* SeascapeRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 57C109D81A5DB4C7002D4F58 /* SeascapeRenderer.h */; };
-		57C109F11A5DB4C7002D4F58 /* SeascapeRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 57C109D91A5DB4C7002D4F58 /* SeascapeRenderer.m */; };
 		57C109F21A5DB4C7002D4F58 /* SeascapeScreenSaverView.h in Headers */ = {isa = PBXBuildFile; fileRef = 57C109DA1A5DB4C7002D4F58 /* SeascapeScreenSaverView.h */; };
 		57C109F31A5DB4C7002D4F58 /* SeascapeScreenSaverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 57C109DB1A5DB4C7002D4F58 /* SeascapeScreenSaverView.m */; };
 		57C109F41A5DB4C7002D4F58 /* ESRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 57C109DD1A5DB4C7002D4F58 /* ESRenderer.h */; };
@@ -23,15 +21,16 @@
 		57C109FD1A5DB4C7002D4F58 /* WobblerRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 57C109E61A5DB4C7002D4F58 /* WobblerRenderer.h */; };
 		57C109FE1A5DB4C7002D4F58 /* WobblerRenderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 57C109E71A5DB4C7002D4F58 /* WobblerRenderer.mm */; };
 		57C109FF1A5DB4C7002D4F58 /* Day.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 57C109EA1A5DB4C7002D4F58 /* Day.jpg */; };
-		57C10A001A5DB4C7002D4F58 /* SeascapeFragmentShader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 57C109EC1A5DB4C7002D4F58 /* SeascapeFragmentShader.fsh */; };
-		57C10A011A5DB4C7002D4F58 /* SeascapeVertexShader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 57C109ED1A5DB4C7002D4F58 /* SeascapeVertexShader.vsh */; };
 		57C10A021A5DB4C7002D4F58 /* WobblerShader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 57C109EE1A5DB4C7002D4F58 /* WobblerShader.fsh */; };
 		57C10A031A5DB4C7002D4F58 /* WobblerShader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 57C109EF1A5DB4C7002D4F58 /* WobblerShader.vsh */; };
+		57C10A0D1A5DBAC5002D4F58 /* ShaderToy in Resources */ = {isa = PBXBuildFile; fileRef = 57C10A0C1A5DBAC5002D4F58 /* ShaderToy */; };
+		57C10A131A5DBAEA002D4F58 /* Mountains.h in Headers */ = {isa = PBXBuildFile; fileRef = 57C10A0F1A5DBAEA002D4F58 /* Mountains.h */; };
+		57C10A141A5DBAEA002D4F58 /* Mountains.m in Sources */ = {isa = PBXBuildFile; fileRef = 57C10A101A5DBAEA002D4F58 /* Mountains.m */; };
+		57C10A151A5DBAEA002D4F58 /* SeascapeRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 57C10A111A5DBAEA002D4F58 /* SeascapeRenderer.h */; };
+		57C10A161A5DBAEA002D4F58 /* SeascapeRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 57C10A121A5DBAEA002D4F58 /* SeascapeRenderer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		57C109D81A5DB4C7002D4F58 /* SeascapeRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeascapeRenderer.h; sourceTree = "<group>"; };
-		57C109D91A5DB4C7002D4F58 /* SeascapeRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeascapeRenderer.m; sourceTree = "<group>"; };
 		57C109DA1A5DB4C7002D4F58 /* SeascapeScreenSaverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeascapeScreenSaverView.h; sourceTree = "<group>"; };
 		57C109DB1A5DB4C7002D4F58 /* SeascapeScreenSaverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeascapeScreenSaverView.m; sourceTree = "<group>"; };
 		57C109DD1A5DB4C7002D4F58 /* ESRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESRenderer.h; sourceTree = "<group>"; };
@@ -46,10 +45,13 @@
 		57C109E61A5DB4C7002D4F58 /* WobblerRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WobblerRenderer.h; sourceTree = "<group>"; };
 		57C109E71A5DB4C7002D4F58 /* WobblerRenderer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = WobblerRenderer.mm; sourceTree = "<group>"; };
 		57C109EA1A5DB4C7002D4F58 /* Day.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Day.jpg; sourceTree = "<group>"; };
-		57C109EC1A5DB4C7002D4F58 /* SeascapeFragmentShader.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = SeascapeFragmentShader.fsh; sourceTree = "<group>"; };
-		57C109ED1A5DB4C7002D4F58 /* SeascapeVertexShader.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = SeascapeVertexShader.vsh; sourceTree = "<group>"; };
 		57C109EE1A5DB4C7002D4F58 /* WobblerShader.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = WobblerShader.fsh; sourceTree = "<group>"; };
 		57C109EF1A5DB4C7002D4F58 /* WobblerShader.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = WobblerShader.vsh; sourceTree = "<group>"; };
+		57C10A0C1A5DBAC5002D4F58 /* ShaderToy */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ShaderToy; sourceTree = "<group>"; };
+		57C10A0F1A5DBAEA002D4F58 /* Mountains.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mountains.h; sourceTree = "<group>"; };
+		57C10A101A5DBAEA002D4F58 /* Mountains.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mountains.m; sourceTree = "<group>"; };
+		57C10A111A5DBAEA002D4F58 /* SeascapeRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeascapeRenderer.h; sourceTree = "<group>"; };
+		57C10A121A5DBAEA002D4F58 /* SeascapeRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeascapeRenderer.m; sourceTree = "<group>"; };
 		57F14D891A5A29C900948DDB /* SeascapeScreenSaver.saver */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SeascapeScreenSaver.saver; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -67,8 +69,7 @@
 		57C109D71A5DB4C7002D4F58 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				57C109D81A5DB4C7002D4F58 /* SeascapeRenderer.h */,
-				57C109D91A5DB4C7002D4F58 /* SeascapeRenderer.m */,
+				57C10A0E1A5DBAEA002D4F58 /* ShaderToy */,
 				57C109DA1A5DB4C7002D4F58 /* SeascapeScreenSaverView.h */,
 				57C109DB1A5DB4C7002D4F58 /* SeascapeScreenSaverView.m */,
 				57C109DC1A5DB4C7002D4F58 /* Utilities */,
@@ -115,13 +116,23 @@
 		57C109EB1A5DB4C7002D4F58 /* Shaders */ = {
 			isa = PBXGroup;
 			children = (
-				57C109EC1A5DB4C7002D4F58 /* SeascapeFragmentShader.fsh */,
-				57C109ED1A5DB4C7002D4F58 /* SeascapeVertexShader.vsh */,
+				57C10A0C1A5DBAC5002D4F58 /* ShaderToy */,
 				57C109EE1A5DB4C7002D4F58 /* WobblerShader.fsh */,
 				57C109EF1A5DB4C7002D4F58 /* WobblerShader.vsh */,
 			);
 			name = Shaders;
 			path = SeascapeScreenSaver/Shaders;
+			sourceTree = "<group>";
+		};
+		57C10A0E1A5DBAEA002D4F58 /* ShaderToy */ = {
+			isa = PBXGroup;
+			children = (
+				57C10A0F1A5DBAEA002D4F58 /* Mountains.h */,
+				57C10A101A5DBAEA002D4F58 /* Mountains.m */,
+				57C10A111A5DBAEA002D4F58 /* SeascapeRenderer.h */,
+				57C10A121A5DBAEA002D4F58 /* SeascapeRenderer.m */,
+			);
+			path = ShaderToy;
 			sourceTree = "<group>";
 		};
 		57F14D7F1A5A29C900948DDB = {
@@ -151,11 +162,12 @@
 			files = (
 				57C109FA1A5DB4C7002D4F58 /* ShaderUtil.h in Headers */,
 				57C109FC1A5DB4C7002D4F58 /* Vector.h in Headers */,
+				57C10A151A5DBAEA002D4F58 /* SeascapeRenderer.h in Headers */,
 				57C109F21A5DB4C7002D4F58 /* SeascapeScreenSaverView.h in Headers */,
 				57C109F91A5DB4C7002D4F58 /* Matrix.h in Headers */,
+				57C10A131A5DBAEA002D4F58 /* Mountains.h in Headers */,
 				57C109F71A5DB4C7002D4F58 /* ImageLoader.h in Headers */,
 				57C109F41A5DB4C7002D4F58 /* ESRenderer.h in Headers */,
-				57C109F01A5DB4C7002D4F58 /* SeascapeRenderer.h in Headers */,
 				57C109F61A5DB4C7002D4F58 /* GLUtil.h in Headers */,
 				57C109FD1A5DB4C7002D4F58 /* WobblerRenderer.h in Headers */,
 			);
@@ -218,11 +230,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57C10A0D1A5DBAC5002D4F58 /* ShaderToy in Resources */,
 				57C10A021A5DB4C7002D4F58 /* WobblerShader.fsh in Resources */,
-				57C10A011A5DB4C7002D4F58 /* SeascapeVertexShader.vsh in Resources */,
 				57C10A031A5DB4C7002D4F58 /* WobblerShader.vsh in Resources */,
 				57C109FF1A5DB4C7002D4F58 /* Day.jpg in Resources */,
-				57C10A001A5DB4C7002D4F58 /* SeascapeFragmentShader.fsh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,8 +247,9 @@
 				57C109F51A5DB4C7002D4F58 /* GLUtil.c in Sources */,
 				57C109FB1A5DB4C7002D4F58 /* ShaderUtil.m in Sources */,
 				57C109FE1A5DB4C7002D4F58 /* WobblerRenderer.mm in Sources */,
-				57C109F11A5DB4C7002D4F58 /* SeascapeRenderer.m in Sources */,
 				57C109F81A5DB4C7002D4F58 /* ImageLoader.m in Sources */,
+				57C10A141A5DBAEA002D4F58 /* Mountains.m in Sources */,
+				57C10A161A5DBAEA002D4F58 /* SeascapeRenderer.m in Sources */,
 				57C109F31A5DB4C7002D4F58 /* SeascapeScreenSaverView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

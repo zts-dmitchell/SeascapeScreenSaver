@@ -100,8 +100,6 @@ mat4 m_translation;
     NSLog(@"Setting frame size: %f w by %f h", newSize.width, newSize.height);
 }
 
-float percentageX = -1.0;
-float percentageY = 1.0;
 
 - (void)render
 {
