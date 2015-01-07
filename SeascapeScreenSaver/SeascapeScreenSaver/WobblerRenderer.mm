@@ -151,7 +151,6 @@ float percentageY = 1.0;
     glUniformMatrix3fv(m_uniforms.NormalMatrix, 1, 0, normalMatrix.Pointer());
     
     // Set the projection transform.
-    //float h = 4.0f * 480.0 / 320.0; //size.y / size.x;
     const static float aspect = m_screenSize.width / m_screenSize.height;
     const static float zoom = 0.764;
     float lr, bt;
