@@ -17,208 +17,464 @@ const float PI	 	= 3.14159265359;
 const float EPSILON	= 1e-3;
 float EPSILON_NRM	= 0.1 / iResolution.x;
 
-// sea
-const int ITER_GEOMETRY = 3;
-const int ITER_FRAGMENT = 5;
-float SEA_HEIGHT = iSeaHeight; // Default: 0.6
-float SEA_CHOPPY = iSeaChoppy; // Default: 4.0
-const float SEA_SPEED = 0.8 / .50;
-const float SEA_FREQ = 0.16;
-const vec3 SEA_BASE = vec3(0.1,0.19,0.22);
-const vec3 SEA_WATER_COLOR = vec3(0.8,0.9,0.6);
-float SEA_TIME = iGlobalTime * SEA_SPEED;
-mat2 octave_m = mat2(1.6,1.2,-1.2,1.6);
+// Mountains. By David Hoskins - 2013
+// https://www.shadertoy.com/view/4slGD4
+// A ray-marched version of my terrain renderer which uses
+// streaming texture normals for speed:-
+// http://www.youtube.com/watch?v=qzkBnCBpQAM
 
-// math
-float hash( in vec2 p ) {
-    float h = dot(p,vec2(127.1,311.7));
-    return fract(sin(h)*43758.5453123);
+// It uses binary subdivision to accurately find the height map.
+// Lots of thanks to Iñigo and his noise functions!
+
+// Video of my OpenGL version that
+// http://www.youtube.com/watch?v=qzkBnCBpQAM
+
+// Stereo version code thanks to Croqueteer :)
+//#define STEREO
+
+float treeLine = 0.0;
+float treeCol = 0.0;
+
+
+vec3 sunLight  = normalize( vec3(  0.4, 0.4,  0.48 ) );
+vec3 sunColour = vec3(1.0, .9, .83);
+float specular = 0.0;
+vec3 cameraPos;
+float ambient;
+
+// This peturbs the fractal positions for each iteration down...
+// Helps make nice twisted landscapes...
+const mat2 rotate2D = mat2(1.3623, 1.7531, -1.7131, 1.4623);
+
+// Alternative rotation:-
+// const mat2 rotate2D = mat2(1.2323, 1.999231, -1.999231, 1.22);
+
+//--------------------------------------------------------------------------
+// Noise functions...
+float Hash( float n )
+{
+    return  texture2D( iChannel0, vec2(n*.2784, n*.13144), -100.0 ).x;
 }
 
-mat3 fromEuler(vec3 ang) {
-    vec2 a1 = vec2(sin(ang.x),cos(ang.x));
-    vec2 a2 = vec2(sin(ang.y),cos(ang.y));
-    vec2 a3 = vec2(sin(ang.z),cos(ang.z));
-    
-    mat3 m;
-
-    m[0] = vec3(a1.y * a3.y + a1.x * a2.x * a3.x, a1.y * a2.x * a3.x + a3.y * a1.x, -a2.y * a3.x);
-    m[1] = vec3(-a2.y*a1.x,a1.y*a2.y,a2.x);
-    m[2] = vec3(a3.y*a1.x*a2.x+a1.y*a3.x,a1.x*a3.x-a1.y*a3.y*a2.x,a2.y*a3.y);
-    return m;
+//--------------------------------------------------------------------------
+vec2 Hash2(float n)
+{
+    return texture2D( iChannel0, vec2(n*.177331, n*.166927), -100.0 ).xz;
 }
 
-float noise(in vec2 p) {
-    
-    vec2 i = floor(p);
-
-    // fract returns the fractional part of x. This is calculated as x - floor(x).
-    vec2 f = p - i; //fract( p );
-    
-    vec2 u = f*f*(3.0-2.0*f);
-
-    return -1.0+2.0*mix( mix( hash( i + vec2(0.0,0.0) ),
-                              hash( i + vec2(1.0,0.0) ), u.x),
-                        
-                         mix( hash( i + vec2(0.0,1.0) ),
-                              hash( i + vec2(1.0,1.0) ), u.x),
-                         u.y);
+float Noise( in vec2 x )
+{
+    vec2 p = floor(x);
+    vec2 f = fract(x);
+    f = f*f*(3.0-2.0*f);
+    float n = p.x + p.y*57.0;
+    float res = mix(mix( Hash(n+  0.0), Hash(n+  1.0),f.x),
+                    mix( Hash(n+ 57.0), Hash(n+ 58.0),f.x),f.y);
+    return res;
 }
 
-// lighting
-float diffuse(vec3 n,vec3 l,float p) {
-    return pow(dot(n,l) * 0.4 + 0.6,p);
+vec2 Noise2( in vec2 x )
+{
+    vec2 p = floor(x);
+    vec2 f = fract(x);
+    f = f*f*(3.0-2.0*f);
+    float n = p.x + p.y * 57.0;
+    vec2 res = mix(mix( Hash2(n+  0.0), Hash2(n+  1.0),f.x),
+                   mix( Hash2(n+ 57.0), Hash2(n+ 58.0),f.x),f.y);
+    return res;
 }
 
-float specular(vec3 n,vec3 l,vec3 e,float s) {
-    float nrm = (s + 8.0) / (PI * 8.0);
-    return pow(max(dot(reflect(e,n),l),0.0),s) * nrm;
+//--------------------------------------------------------------------------
+float Trees(vec2 p)
+{
+    return (texture2D(iChannel1,0.04*p).x * treeLine);
 }
 
-// sky
-#ifdef ORIG_SKY
-vec3 getSkyColor(vec3 e) {
-    e.y = max(e.y,0.0);
-    vec3 ret;
-    ret.x = pow(1.0-e.y,2.0);
-    ret.y = 1.0-e.y;
-    ret.z = 0.6+(1.0-e.y)*0.4;
-    return ret;
-}
-#else
-// sky
-vec3 getSkyColor(vec3 e) {
-    e.y = max(e.y,0.0);
-    vec3 ret;
-    ret.y = 1.0-e.y;
-    ret.x = pow(ret.y,2.0);
-    //ret.z = 0.6+(1.0-e.y)*0.4;
-    //ret.z = 0.6+(ret.y)*0.4;
-    ret.z = 0.6+(ret.y)*0.4;
-    return ret;
-}
-#endif
 
-// sea
-float sea_octave(vec2 uv, float choppy) {
-    uv += noise(uv);
-    vec2 wv = 1.0-abs(sin(uv));
-    vec2 swv = abs(cos(uv));
-    wv = mix(wv,swv,wv);
-    return pow(1.0-pow(wv.x * wv.y,0.65),choppy);
-}
+//--------------------------------------------------------------------------
+// Low def version for ray-marching through the height field...
+// Thanks to IQ for all the noise stuff...
 
-float map(vec3 p) {
-    float freq = SEA_FREQ;
-    float amp = SEA_HEIGHT;
-    float choppy = SEA_CHOPPY;
-    vec2 uv = p.xz; uv.x *= 0.75;
-    
-    float d, h = 0.0;
-    for(int i = 0; i < ITER_GEOMETRY; i++) {
-        d = sea_octave((uv+SEA_TIME)*freq,choppy);
-        d += sea_octave((uv-SEA_TIME)*freq,choppy);
-        h += d * amp;
-        uv *= octave_m; freq *= 1.9; amp *= 0.22;
-        choppy = mix(choppy,1.0,0.2);
+float Terrain( in vec2 p)
+{
+    vec2 pos = p*0.05;
+    float w = (Noise(pos*.25)*0.75+.15);
+    w = 66.0 * w * w;
+    vec2 dxy = vec2(0.0, 0.0);
+    float f = .0;
+    for (int i = 0; i < 5; i++)
+    {
+        f += w * Noise(pos);
+        w = -w * 0.4;	//...Flip negative and positive for variation
+        pos = rotate2D * pos;
     }
+    float ff = Noise(pos*.002);
+    
+    f += pow(abs(ff), 5.0)*275.-5.0;
+    return f;
+}
+
+//--------------------------------------------------------------------------
+// Map to lower resolution for height field mapping for Scene function...
+float Map(in vec3 p)
+{
+    float h = Terrain(p.xz);
+    
+    float ff = Noise(p.xz*.3) + Noise(p.xz*3.3)*.5;
+    treeLine = smoothstep(ff, .0+ff*2.0, h) * smoothstep(1.0+ff*3.0, .4+ff, h) ;
+    treeCol = Trees(p.xz);
+    h += treeCol;
+    
     return p.y - h;
 }
 
-float map_detailed(vec3 p) {
-    float freq = SEA_FREQ;
-    float amp = SEA_HEIGHT;
-    float choppy = SEA_CHOPPY;
-    vec2 uv = p.xz; uv.x *= 0.75;
-    
-    float d, h = 0.0;
-    for(int i = 0; i < ITER_FRAGMENT; i++) {
-        d = sea_octave((uv+SEA_TIME)*freq,choppy);
-        d += sea_octave((uv-SEA_TIME)*freq,choppy);
-        h += d * amp;
-        uv *= octave_m; freq *= 1.9; amp *= 0.22;
-        choppy = mix(choppy,1.0,0.2);
+//--------------------------------------------------------------------------
+// High def version only used for grabbing normal information.
+float Terrain2( in vec2 p)
+{
+    // There's some real magic numbers in here!
+    // The Noise calls add large mountain ranges for more variation over distances...
+    vec2 pos = p*0.05;
+    float w = (Noise(pos*.25)*0.75+.15);
+    w = 66.0 * w * w;
+    vec2 dxy = vec2(0.0, 0.0);
+    float f = .0;
+    for (int i = 0; i < 5; i++)
+    {
+        f += w * Noise(pos);
+        w =  - w * 0.4;	//...Flip negative and positive for varition
+        pos = rotate2D * pos;
     }
-    return p.y - h;
+    float ff = Noise(pos*.002);
+    f += pow(abs(ff), 5.0)*275.-5.0;
+    
+    
+    treeCol = Trees(p);
+    f += treeCol;
+    if (treeCol > 0.0) return f;
+    
+    
+    // That's the last of the low resolution, now go down further for the Normal data...
+    for (int i = 0; i < 6; i++)
+    {
+        f += w * Noise(pos);
+        w =  - w * 0.43;
+        pos = rotate2D * pos;
+    }
+    
+    return f;
 }
 
-vec3 getSeaColor(vec3 p, vec3 n, vec3 l, vec3 eye, vec3 dist) {
-    float fresnel = 1.0 - max(dot(n,-eye),0.0);
-    fresnel = pow(fresnel,3.0) * 0.65;
+//--------------------------------------------------------------------------
+float FractalNoise(in vec2 xy)
+{
+    float w = .7;
+    float f = 0.0;
     
-    vec3 reflected = getSkyColor(reflect(eye,n));
-    vec3 refracted = SEA_BASE + diffuse(n,l,80.0) * SEA_WATER_COLOR * 0.12;
-    
-    vec3 color = mix(refracted,reflected,fresnel);
-    
-    float atten = max(1.0 - dot(dist,dist) * 0.001, 0.0);
-    color += SEA_WATER_COLOR * (p.y - SEA_HEIGHT) * 0.18 * atten;
-    
-    color += vec3(specular(n,l,eye,60.0));
-    
-    return color;
+    for (int i = 0; i < 4; i++)
+    {
+        f += Noise(xy) * w;
+        w *= 0.5;
+        xy *= 2.3;
+    }
+    return f;
 }
 
-// tracing
-vec3 getNormal(vec3 p, float eps) {
-    vec3 n;
-    n.y = map_detailed(p);
-    n.x = map_detailed(vec3(p.x+eps,p.y,p.z)) - n.y;
-    n.z = map_detailed(vec3(p.x,p.y,p.z+eps)) - n.y;
-    n.y = eps;
-    return normalize(n);
+//--------------------------------------------------------------------------
+// Simply Perlin clouds that fade to the horizon...
+// 200 units above the ground...
+vec3 GetClouds(in vec3 sky, in vec3 rd)
+{
+    if (rd.y < 0.01) return sky;
+    float v = (200.0-cameraPos.y)/rd.y;
+    rd.xz *= v;
+    rd.xz += cameraPos.xz;
+    rd.xz *= .010;
+    float f = (FractalNoise(rd.xz) -.55) * 5.0;
+    // Uses the ray's y component for horizon fade of fixed colour clouds...
+    sky = mix(sky, vec3(.55, .55, .52), clamp(f*rd.y-.1, 0.0, 1.0));
+    
+    return sky;
 }
 
-float heightMapTracing(vec3 ori, vec3 dir, out vec3 p) {
-    float tm = 0.0;
-    float tx = 1000.0;
-    float hx = map(ori + dir * tx);
-    if(hx > 0.0) return tx;
-    float hm = map(ori + dir * tm);
-    float tmid = 0.0;
-    for(int i = 0; i < NUM_STEPS; i++) {
-        tmid = mix(tm,tx, hm/(hm-hx));
-        p = ori + dir * tmid;
-        float hmid = map(p);
-        if(hmid < 0.0) {
-            tx = tmid;
-            hx = hmid;
-        } else {
-            tm = tmid;
-            hm = hmid;
+//--------------------------------------------------------------------------
+// Grab all sky information for a given ray from camera
+vec3 GetSky(in vec3 rd)
+{
+    float sunAmount = max( dot( rd, sunLight), 0.0 );
+    float v = pow(1.0-max(rd.y,0.0),5.)*.5;
+    vec3  sky = vec3(v*sunColour.x*0.4+0.18, v*sunColour.y*0.4+0.22, v*sunColour.z*0.4+.4);
+    // Wide glare effect...
+    sky = sky + sunColour * pow(sunAmount, 6.5)*.32;
+    // Actual sun...
+    sky = sky+ sunColour * min(pow(sunAmount, 1150.0), .3)*.65;
+    return sky;
+}
+
+//--------------------------------------------------------------------------
+// Merge mountains into the sky background for correct disappearance...
+vec3 ApplyFog( in vec3  rgb, in float dis, in vec3 dir)
+{
+    float fogAmount = exp(-dis* 0.00005);
+    return mix(GetSky(dir), rgb, fogAmount );
+}
+
+//--------------------------------------------------------------------------
+// Calculate sun light...
+void DoLighting(inout vec3 mat, in vec3 pos, in vec3 normal, in vec3 eyeDir, in float dis)
+{
+    float h = dot(sunLight,normal);
+    float c = max(h, 0.0)+ambient;
+    mat = mat * sunColour * c ;
+    // Specular...
+    if (h > 0.0)
+    {
+        vec3 R = reflect(sunLight, normal);
+        float specAmount = pow( max(dot(R, normalize(eyeDir)), 0.0), 3.0)*specular;
+        mat = mix(mat, sunColour, specAmount);
+    }
+}
+
+//--------------------------------------------------------------------------
+// Hack the height, position, and normal data to create the coloured landscape
+vec3 TerrainColour(vec3 pos, vec3 normal, float dis)
+{
+    vec3 mat;
+    specular = .0;
+    ambient = .1;
+    vec3 dir = normalize(pos-cameraPos);
+    
+    vec3 matPos = pos * 2.0;// ... I had change scale halfway though, this lazy multiply allow me to keep the graphic scales I had
+    
+    float disSqrd = dis * dis;// Squaring it gives better distance scales.
+    
+    float f = clamp(Noise(matPos.xz*.05), 0.0,1.0);//*10.8;
+    f += Noise(matPos.xz*.1+normal.yz*1.08)*.85;
+    f *= .55;
+    vec3 m = mix(vec3(.63*f+.2, .7*f+.1, .7*f+.1), vec3(f*.43+.1, f*.3+.2, f*.35+.1), f*.65);
+    mat = m*vec3(f*m.x+.36, f*m.y+.30, f*m.z+.28);
+    // Should have used smoothstep to add colours, but left it using 'if' for sanity...
+    if (normal.y < .5)
+    {
+        float v = normal.y;
+        float c = (.5-normal.y) * 4.0;
+        c = clamp(c*c, 0.1, 1.0);
+        f = Noise(vec2(matPos.x*.09, matPos.z*.095+matPos.yy*0.15));
+        f += Noise(vec2(matPos.x*2.233, matPos.z*2.23))*0.5;
+        mat = mix(mat, vec3(.4*f), c);
+        specular+=.1;
+    }
+    
+    // Grass. Use the normal to decide when to plonk grass down...
+    if (matPos.y < 45.35 && normal.y > .65)
+    {        
+        m = vec3(Noise(matPos.xz*.023)*.5+.15, Noise(matPos.xz*.03)*.6+.25, 0.0);
+        m *= (normal.y- 0.65)*.6;
+        mat = mix(mat, m, clamp((normal.y-.65)*1.3 * (45.35-matPos.y)*0.1, 0.0, 1.0));
+    }
+    
+    if (treeCol > 0.0)
+    {
+        mat = vec3(.02+Noise(matPos.xz*5.0)*.03, .05, .0);
+        normal = normalize(normal+vec3(Noise(matPos.xz*33.0)*1.0-.5, .0, Noise(matPos.xz*33.0)*1.0-.5));
+        specular = .0;
+    }
+    
+    // Snow topped mountains...
+    if (matPos.y > 80.0 && normal.y > .42)
+    {
+        float snow = clamp((matPos.y - 80.0 - Noise(matPos.xz * .1)*28.0) * 0.035, 0.0, 1.0);
+        mat = mix(mat, vec3(.7,.7,.8), snow);
+        specular += snow;
+        ambient+=snow *.3;
+    }
+    // Beach effect...
+    if (matPos.y < 1.45)
+    {
+        if (normal.y > .4)
+        {
+            f = Noise(matPos.xz * .084)*1.5;
+            f = clamp((1.45-f-matPos.y) * 1.34, 0.0, .67);
+            float t = (normal.y-.4);
+            t = (t*t);
+            mat = mix(mat, vec3(.09+t, .07+t, .03+t), f);
+        }
+        // Cheap under water darkening...it's wet after all...
+        if (matPos.y < 0.0)
+        {
+            mat *= .5;
         }
     }
-    return tmid;
+    
+    DoLighting(mat, pos, normal,dir, disSqrd);
+    
+    // Do the water...
+    if (matPos.y < 0.0)
+    {
+        // Pull back along the ray direction to get water surface point at y = 0.0 ...
+        float time = (iGlobalTime)*.03;
+        vec3 watPos = matPos;
+        watPos += -dir * (watPos.y/dir.y);
+        // Make some dodgy waves...
+        float tx = cos(watPos.x*.052) *4.5;
+        float tz = sin(watPos.z*.072) *4.5;
+        vec2 co = Noise2(vec2(watPos.x*4.7+1.3+tz, watPos.z*4.69+time*35.0-tx));
+        co += Noise2(vec2(watPos.z*8.6+time*13.0-tx, watPos.x*8.712+tz))*.4;
+        vec3 nor = normalize(vec3(co.x, 20.0, co.y));
+        nor = normalize(reflect(dir, nor));//normalize((-2.0*(dot(dir, nor))*nor)+dir);
+        // Mix it in at depth transparancy to give beach cues..
+        mat = mix(mat, GetClouds(GetSky(nor)*vec3(.5,.6,1.0), nor)*.7, clamp((watPos.y-matPos.y)*.35, .2, .9));
+        // Add some extra water glint...
+        float sunAmount = max( dot(nor, sunLight), 0.0 );
+        mat = mat + sunColour * pow(sunAmount, 228.5)*.6;
+    }
+    mat = ApplyFog(mat, disSqrd, dir);
+    return mat;
 }
 
-// main
-void main(void) {
-    vec2 uv = gl_FragCoord.xy / iResolution.xy;
-    uv = uv * 2.0 - 1.0;
-    uv.x *= iResolution.x / iResolution.y;
-    float time = iGlobalTime * 0.3;
-    
-    // ray
-    //vec3 ang = vec3(sin(time*3.0)*0.1,sin(time)*0.2+0.3,time);
-    vec3 ang = vec3(0.0,0.0,0.0); // In radians
-    vec3 ori = vec3(iSpeed*time,3.5,0.);
-    //vec3 ori = vec3(time*0.10,3.5,*5.0);
-    vec3 dir = normalize(vec3(uv.xy,-2.0)); dir.z += length(uv) * 0.15;
-    dir = normalize(dir) * fromEuler(ang);
-
-    // tracing
-    vec3 p;
-    heightMapTracing(ori,dir,p);
-    vec3 dist = p - ori;
-    vec3 n = getNormal(p, dot(dist,dist) * EPSILON_NRM);
-    vec3 light = normalize(vec3(0.0,1.0,0.8));
-    
-    // color
-    vec3 color = mix(
-                     getSkyColor(dir),
-                     getSeaColor(p,n,light,dir,dist),
-                     pow(smoothstep(0.0,-0.05,dir.y),0.3));
-    
-    // post
-    gl_FragColor = vec4(pow(color,vec3(0.75)), 1.0);
+//--------------------------------------------------------------------------
+float BinarySubdivision(in vec3 rO, in vec3 rD, float t, float oldT)
+{
+    // Home in on the surface by dividing by two and split...
+    for (int n = 0; n < 4; n++)
+    {
+        float halfwayT = (oldT + t ) * .5;
+        vec3 p = rO + halfwayT*rD;
+        if (Map(p) < 0.5)
+        {
+            t = halfwayT;
+        }else
+        {
+            oldT = halfwayT;
+        }
+    }
+    return t;
 }
+
+//--------------------------------------------------------------------------
+bool Scene(in vec3 rO, in vec3 rD, out float resT )
+{
+    float t = 1.2 + Hash(rD.x * 123.0 + rD.y*130.0);
+    float oldT = 0.0;
+    float delta = 0.0;
+    bool fin = false;
+    bool res = false;
+    vec2 distances;
+    for( int j=0; j< 150; j++ )
+    {
+        if (fin || t > 240.0) break;
+        vec3 p = rO + t*rD;
+        //if (t > 240.0 || p.y > 195.0) break;
+        float h = Map(p); // ...Get this positions height mapping.
+        // Are we inside, and close enough to fudge a hit?...
+        if( h < 0.5)
+        {
+            fin = true;
+            distances = vec2(t, oldT);
+            break;
+        }
+        // Delta ray advance - a fudge between the height returned
+        // and the distance already travelled.
+        // It's a really fiddly compromise between speed and accuracy
+        // Too large a step and the tops of ridges get missed.
+        delta = max(0.01, 0.3*h) + (t*0.0065);
+        oldT = t;
+        t += delta;
+    }
+    if (fin) resT = BinarySubdivision(rO, rD, distances.x, distances.y);
+    
+    return fin;
+}
+
+//--------------------------------------------------------------------------
+vec3 CameraPath( float t )
+{
+    float m = 1.0+(iMouse.x/iResolution.x)*300.0;
+    t = (iGlobalTime*1.5+m+657.0)*.006 + t;
+    vec2 p = 476.0*vec2( sin(3.5*t), cos(1.5*t) );
+    return vec3(335.0-p.x, 0.6, 318.0+p.y);
+}
+
+//--------------------------------------------------------------------------
+// Some would say, most of the magic is done in post! :D
+vec3 PostEffects(vec3 rgb, vec2 uv)
+{
+    //#define CONTRAST 1.1
+    //#define SATURATION 1.12
+    //#define BRIGHTNESS 1.3
+    //rgb = pow(abs(rgb), vec3(0.45));
+    //rgb = mix(vec3(.5), mix(vec3(dot(vec3(.2125, .7154, .0721), rgb*BRIGHTNESS)), rgb*BRIGHTNESS, SATURATION), CONTRAST);
+    rgb = (1.0 - exp(-rgb * 6.0)) * 1.0024;
+    //rgb = clamp(rgb+Hash(rgb.rb+uv)*.05, 0.0, 1.0);
+    return rgb;
+}
+
+//--------------------------------------------------------------------------
+void main(void)
+{
+    vec2 xy = -1.0 + 2.0*gl_FragCoord.xy / iResolution.xy;
+    vec2 uv = xy * vec2(iResolution.x/iResolution.y,1.0);
+    vec3 camTar;
+    
+#ifdef STEREO
+    float isCyan = mod(gl_FragCoord.x + mod(gl_FragCoord.y,2.0),2.0);
+#endif
+    
+    // Use several forward heights, of decreasing influence with distance from the camera.
+    float h = 0.0;
+    float f = 1.0;
+    for (int i = 0; i < 7; i++)
+    {
+        h += Terrain(CameraPath((1.0-f)*.008).xz) * f;
+        f -= .1;
+    }
+    cameraPos.xz = CameraPath(0.0).xz;
+    camTar.xz	 = CameraPath(.005).xz;
+    camTar.y = cameraPos.y = max((h*.23)+3.5, 1.0);
+    
+    float roll = 0.15*sin(iGlobalTime*.2);
+    vec3 cw = normalize(camTar-cameraPos);
+    vec3 cp = vec3(sin(roll), cos(roll),0.0);
+    vec3 cu = normalize(cross(cw,cp));
+    vec3 cv = normalize(cross(cu,cw));
+    vec3 rd = normalize( uv.x*cu + uv.y*cv + 1.5*cw );
+    
+#ifdef STEREO
+    cameraPos += .45*cu*isCyan; // move camera to the right - the rd vector is still good
+#endif
+    
+    vec3 col;
+    float distance;
+    if( !Scene(cameraPos,rd, distance) )
+    {
+        // Missed scene, now just get the sky value...
+        col = GetSky(rd);
+        col = GetClouds(col, rd);
+    }
+    else
+    {
+        // Get world coordinate of landscape...
+        vec3 pos = cameraPos + distance * rd;
+        // Get normal from sampling the high definition height map
+        // Use the distance to sample larger gaps to help stop aliasing...
+        float p = min(.3, .0005+.00005 * distance*distance);
+        vec3 nor  	= vec3(0.0,		    Terrain2(pos.xz), 0.0);
+        vec3 v2		= nor-vec3(p,		Terrain2(pos.xz+vec2(p,0.0)), 0.0);
+        vec3 v3		= nor-vec3(0.0,		Terrain2(pos.xz+vec2(0.0,-p)), -p);
+        nor = cross(v2, v3);
+        nor = normalize(nor);
+        
+        // Get the colour using all available data...
+        col = TerrainColour(pos, nor, distance);
+    }
+    
+    col = PostEffects(col, uv);
+    
+#ifdef STEREO	
+    col *= vec3( isCyan, 1.0-isCyan, 1.0-isCyan );	
+#endif
+    
+    gl_FragColor=vec4(col,1.0);
+}
+
+//--------------------------------------------------------------------------

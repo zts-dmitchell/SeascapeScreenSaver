@@ -26,7 +26,6 @@ enum {
 
 @implementation MountainsRenderer
 
-
 - (id)init
 {
     if ((self = [super init]))

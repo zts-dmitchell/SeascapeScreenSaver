@@ -28,6 +28,8 @@
 		57C10A141A5DBAEA002D4F58 /* Mountains.m in Sources */ = {isa = PBXBuildFile; fileRef = 57C10A101A5DBAEA002D4F58 /* Mountains.m */; };
 		57C10A151A5DBAEA002D4F58 /* SeascapeRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 57C10A111A5DBAEA002D4F58 /* SeascapeRenderer.h */; };
 		57C10A161A5DBAEA002D4F58 /* SeascapeRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 57C10A121A5DBAEA002D4F58 /* SeascapeRenderer.m */; };
+		57C10A1A1A5DF068002D4F58 /* cmRenderUtils.js in Resources */ = {isa = PBXBuildFile; fileRef = 57C10A181A5DF068002D4F58 /* cmRenderUtils.js */; };
+		57C10A1B1A5DF068002D4F58 /* effects.js in Resources */ = {isa = PBXBuildFile; fileRef = 57C10A191A5DF068002D4F58 /* effects.js */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +54,8 @@
 		57C10A101A5DBAEA002D4F58 /* Mountains.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mountains.m; sourceTree = "<group>"; };
 		57C10A111A5DBAEA002D4F58 /* SeascapeRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeascapeRenderer.h; sourceTree = "<group>"; };
 		57C10A121A5DBAEA002D4F58 /* SeascapeRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeascapeRenderer.m; sourceTree = "<group>"; };
+		57C10A181A5DF068002D4F58 /* cmRenderUtils.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = cmRenderUtils.js; sourceTree = "<group>"; };
+		57C10A191A5DF068002D4F58 /* effects.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = effects.js; sourceTree = "<group>"; };
 		57F14D891A5A29C900948DDB /* SeascapeScreenSaver.saver */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SeascapeScreenSaver.saver; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -135,9 +139,20 @@
 			path = ShaderToy;
 			sourceTree = "<group>";
 		};
+		57C10A171A5DF068002D4F58 /* JavaScript */ = {
+			isa = PBXGroup;
+			children = (
+				57C10A181A5DF068002D4F58 /* cmRenderUtils.js */,
+				57C10A191A5DF068002D4F58 /* effects.js */,
+			);
+			name = JavaScript;
+			path = SeascapeScreenSaver/JavaScript;
+			sourceTree = "<group>";
+		};
 		57F14D7F1A5A29C900948DDB = {
 			isa = PBXGroup;
 			children = (
+				57C10A171A5DF068002D4F58 /* JavaScript */,
 				57C109D71A5DB4C7002D4F58 /* Classes */,
 				57C109E81A5DB4C7002D4F58 /* Resources */,
 				57C109EB1A5DB4C7002D4F58 /* Shaders */,
@@ -233,6 +248,8 @@
 				57C10A0D1A5DBAC5002D4F58 /* ShaderToy in Resources */,
 				57C10A021A5DB4C7002D4F58 /* WobblerShader.fsh in Resources */,
 				57C10A031A5DB4C7002D4F58 /* WobblerShader.vsh in Resources */,
+				57C10A1B1A5DF068002D4F58 /* effects.js in Resources */,
+				57C10A1A1A5DF068002D4F58 /* cmRenderUtils.js in Resources */,
 				57C109FF1A5DB4C7002D4F58 /* Day.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
