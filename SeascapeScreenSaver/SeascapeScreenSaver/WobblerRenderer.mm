@@ -45,9 +45,9 @@ mat4 m_translation;
         StartRad.max[0] = 60;
         StartRad.delta[0] = 0.01;
         
-        program = [ShaderUtil loadShaders:@"EarthWobblerShader"
+        program = [ShaderUtil loadShaders:@"WobblerShader"
                             withVertexExt:@"vsh"
-                        andFragmentShader:@"EarthWobblerShader"
+                        andFragmentShader:@"WobblerShader"
                            andFragmentExt:@"fsh"
                            withAttributes:self];
         
@@ -64,7 +64,8 @@ mat4 m_translation;
         glEnable(GL_DEPTH_TEST);
         glEnable(GL_CULL_FACE);
 
-        [self makeSphereWithRadius:0.5 andLatitude:16 andLongitude:16];
+        //[self makeSphereWithRadius:0.5 andLatitude:16 andLongitude:16];
+        [self makeSphereWithRadius:0.65 andLatitude:32 andLongitude:32];
         
         [self setupTextures];
         

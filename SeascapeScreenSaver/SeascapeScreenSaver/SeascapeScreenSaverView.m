@@ -129,12 +129,12 @@ id<ESRenderer> renderers[2];
 }
 #else
 - (void)animateOneFrame {
-    
+
+    [self.glView.openGLContext makeCurrentContext];
+
     if(++self.frameNumber % 10000 == 0) {
         NSLog(@"Number of frames for %@ so far: %lu", [self.renderer name], self.frameNumber);
 
-        [self.glView.openGLContext makeCurrentContext];
-        
         [self stopAnimation];
         
         self.currentRendererId = !self.currentRendererId;
@@ -155,9 +155,9 @@ id<ESRenderer> renderers[2];
     [super setFrameSize:newSize];
     [self.glView setFrameSize:newSize];
     
-    self.renderer = renderers[1];
-    [self.renderer setFrameSize:newSize];
     self.renderer = renderers[0];
+    [self.renderer setFrameSize:newSize];
+    self.renderer = renderers[1];
     [self.renderer setFrameSize:newSize];
 }
 
