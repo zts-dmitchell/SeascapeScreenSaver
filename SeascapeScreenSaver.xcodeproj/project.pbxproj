@@ -51,7 +51,6 @@
 		57C109C61A5DB19E002D4F58 /* ShaderUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShaderUtil.m; path = Classes/Utilities/ShaderUtil.m; sourceTree = SOURCE_ROOT; };
 		57C109C71A5DB19E002D4F58 /* Vector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Vector.h; path = Classes/Utilities/Vector.h; sourceTree = SOURCE_ROOT; };
 		57F14D891A5A29C900948DDB /* SeascapeScreenSaver.saver */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SeascapeScreenSaver.saver; sourceTree = BUILT_PRODUCTS_DIR; };
-		57F14D8D1A5A29C900948DDB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,7 +102,6 @@
 		57F14D8C1A5A29C900948DDB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				57F14D8D1A5A29C900948DDB /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
