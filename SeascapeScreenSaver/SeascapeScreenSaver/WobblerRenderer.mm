@@ -64,7 +64,7 @@ mat4 m_translation;
         glEnable(GL_DEPTH_TEST);
         glEnable(GL_CULL_FACE);
 
-        //[self makeSphereWithRadius:0.5 andLatitude:16 andLongitude:16];
+        //[self makeSphereWithRadius:0.5 andLatitude:2 andLongitude:2];
         [self makeSphereWithRadius:0.65 andLatitude:32 andLongitude:32];
         
         [self setupTextures];
@@ -105,7 +105,8 @@ float percentageY = 1.0;
 
 - (void)render
 {
-    glClearColor(0.09765625f, 0.09765625f, 0.2375f, 1.0f);
+    //glClearColor(0.09765625f, 0.09765625f, 0.2375f, 1.0f);
+    glClearColor(.01, .01, .01, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
     glUseProgram(program);
@@ -151,8 +152,8 @@ float percentageY = 1.0;
     
     // Set the projection transform.
     //float h = 4.0f * 480.0 / 320.0; //size.y / size.x;
-    static float aspect = m_screenSize.width / m_screenSize.height;
-    static float zoom = 0.764;
+    const static float aspect = m_screenSize.width / m_screenSize.height;
+    const static float zoom = 0.764;
     float lr, bt;
     if( aspect > 1.0 )
     {

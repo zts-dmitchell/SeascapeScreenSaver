@@ -39,7 +39,7 @@ id<ESRenderer> renderers[2];
         self.renderer = renderers[self.currentRendererId];
         // End New Code
         
-        [self setAnimationTimeInterval:1/30.0];
+        [self setAnimationTimeInterval:1/60.0];
     }
     return self;
 }
@@ -155,9 +155,9 @@ id<ESRenderer> renderers[2];
     [super setFrameSize:newSize];
     [self.glView setFrameSize:newSize];
     
-    self.renderer = renderers[0];
-    [self.renderer setFrameSize:newSize];
     self.renderer = renderers[1];
+    [self.renderer setFrameSize:newSize];
+    self.renderer = renderers[0];
     [self.renderer setFrameSize:newSize];
 }
 

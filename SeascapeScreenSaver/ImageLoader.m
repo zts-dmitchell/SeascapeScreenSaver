@@ -21,7 +21,7 @@
     return n;
 }
 
-+ (ImageData*) load: (NSString*) path withShouldFlipVertical: (BOOL) shouldFlipVertical
++ (ImageData*) load:(NSString*) path withShouldFlipVertical:(BOOL) shouldFlipVertical
 {
     if( shouldFlipVertical )
         NSLog(@"shouldFlipVertical not implemented");

@@ -75,7 +75,8 @@ void main()
     // Experimental
     vec4 AmbientMaterial = vec4(0.25, 0.25, 0.45, 1.0);
     vec4 DiffuseMaterial = vec4(0.2, 0.21, 0.21, 1.0);
-    vec4 SpecularMaterial = vec4(0.210, 0.210, 0.210, 1.0);
+    //vec4 SpecularMaterial = vec4(0.210, 0.210, 0.210, 1.0);
+    vec4 SpecularMaterial = vec4(0.50, 0.50, 0.50, 1.0);
     
     vec3 normalizedNormal = normalize(vVaryingNormal);
     
@@ -85,6 +86,8 @@ void main()
     gl_FragColor = diff * DiffuseMaterial;
     
     gl_FragColor += AmbientMaterial;
+    
+    //gl_FragColor += SpecularMaterial;
     
     perturb.x *= Percentage.x;
     perturb.y *= Percentage.y;

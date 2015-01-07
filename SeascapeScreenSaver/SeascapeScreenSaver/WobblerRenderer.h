@@ -65,7 +65,6 @@ typedef struct _Parameter {
     
     Parameter StartRad;
     NSSize m_screenSize;
-
 }
 
 @end

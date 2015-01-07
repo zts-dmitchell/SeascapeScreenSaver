@@ -48,9 +48,9 @@ mat3 fromEuler(vec3 ang) {
     return m;
 }
 
-float noise( in vec2 p ) {
+float noise(in vec2 p) {
     
-    vec2 i = floor( p );
+    vec2 i = floor(p);
 
     // fract returns the fractional part of x. This is calculated as x - floor(x).
     vec2 f = p - i; //fract( p );
