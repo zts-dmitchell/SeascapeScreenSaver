@@ -27,8 +27,6 @@
 		57C10A141A5DBAEA002D4F58 /* MountainsRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 57C10A101A5DBAEA002D4F58 /* MountainsRenderer.m */; };
 		57C10A151A5DBAEA002D4F58 /* SeascapeRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 57C10A111A5DBAEA002D4F58 /* SeascapeRenderer.h */; };
 		57C10A161A5DBAEA002D4F58 /* SeascapeRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 57C10A121A5DBAEA002D4F58 /* SeascapeRenderer.m */; };
-		57C10A1E1A5E5B41002D4F58 /* Mountains.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 57C10A1C1A5E5B41002D4F58 /* Mountains.fsh */; };
-		57C10A1F1A5E5B41002D4F58 /* Mountains.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 57C10A1D1A5E5B41002D4F58 /* Mountains.vsh */; };
 		57C10A251A5E5BA2002D4F58 /* Mountains.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 57C10A211A5E5BA2002D4F58 /* Mountains.fsh */; };
 		57C10A261A5E5BA2002D4F58 /* Mountains.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 57C10A221A5E5BA2002D4F58 /* Mountains.vsh */; };
 		57C10A271A5E5BA2002D4F58 /* SeascapeFragmentShader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 57C10A231A5E5BA2002D4F58 /* SeascapeFragmentShader.fsh */; };
@@ -58,8 +56,6 @@
 		57C10A121A5DBAEA002D4F58 /* SeascapeRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeascapeRenderer.m; sourceTree = "<group>"; };
 		57C10A181A5DF068002D4F58 /* cmRenderUtils.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = cmRenderUtils.js; sourceTree = "<group>"; };
 		57C10A191A5DF068002D4F58 /* effects.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = effects.js; sourceTree = "<group>"; };
-		57C10A1C1A5E5B41002D4F58 /* Mountains.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = Mountains.fsh; path = SeascapeScreenSaver/Shaders/ShaderToy/Mountains.fsh; sourceTree = "<group>"; };
-		57C10A1D1A5E5B41002D4F58 /* Mountains.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = Mountains.vsh; path = SeascapeScreenSaver/Shaders/ShaderToy/Mountains.vsh; sourceTree = "<group>"; };
 		57C10A211A5E5BA2002D4F58 /* Mountains.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Mountains.fsh; sourceTree = "<group>"; };
 		57C10A221A5E5BA2002D4F58 /* Mountains.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Mountains.vsh; sourceTree = "<group>"; };
 		57C10A231A5E5BA2002D4F58 /* SeascapeFragmentShader.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = SeascapeFragmentShader.fsh; sourceTree = "<group>"; };
@@ -171,8 +167,6 @@
 		57F14D7F1A5A29C900948DDB = {
 			isa = PBXGroup;
 			children = (
-				57C10A1C1A5E5B41002D4F58 /* Mountains.fsh */,
-				57C10A1D1A5E5B41002D4F58 /* Mountains.vsh */,
 				57C10A171A5DF068002D4F58 /* JavaScript */,
 				57C109D71A5DB4C7002D4F58 /* Classes */,
 				57C109E81A5DB4C7002D4F58 /* Resources */,
@@ -270,8 +264,6 @@
 				57C10A251A5E5BA2002D4F58 /* Mountains.fsh in Resources */,
 				57C10A271A5E5BA2002D4F58 /* SeascapeFragmentShader.fsh in Resources */,
 				57C10A261A5E5BA2002D4F58 /* Mountains.vsh in Resources */,
-				57C10A1E1A5E5B41002D4F58 /* Mountains.fsh in Resources */,
-				57C10A1F1A5E5B41002D4F58 /* Mountains.vsh in Resources */,
 				57C10A021A5DB4C7002D4F58 /* WobblerShader.fsh in Resources */,
 				57C10A031A5DB4C7002D4F58 /* WobblerShader.vsh in Resources */,
 				57C109FF1A5DB4C7002D4F58 /* Day.jpg in Resources */,
