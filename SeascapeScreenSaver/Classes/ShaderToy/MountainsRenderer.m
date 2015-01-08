@@ -17,7 +17,6 @@
 // Attribute index.
 enum {
     ATTRIB_VERTEX,
-//    ATTRIB_TEXCOORD,
 };
 
 @interface MountainsRenderer(PrivateMethods)
@@ -64,6 +63,8 @@ enum {
     glDeleteTextures(1, &m_textures.m_iChannel0);
     glDeleteTextures(1, &m_textures.m_iChannel1);
     
+    m_textures.m_iChannel0 = m_textures.m_iChannel1 = -1;
+    
     [self destroyVBO];
 
     [ShaderUtil cleanup:program];
@@ -90,8 +91,6 @@ enum {
 
     glUseProgram(program);
     
-    //glEnableVertexAttribArray(ATTRIB_TEXCOORD);
-    
     glBindBuffer(GL_ARRAY_BUFFER, m_buffers.VertexBuffer);
     glVertexAttribPointer(m_attributes.pos, 2, GL_FLOAT, GL_FALSE, 0, 0);
     glEnableVertexAttribArray(m_attributes.pos);
@@ -104,8 +103,6 @@ enum {
     m_iGlobalTime += 0.01;
     glUniform1f(m_uniforms.iGlobalTimeHandle, m_iGlobalTime); printOpenGLError();
     
-    //glBindBuffer(GL_ARRAY_BUFFER, m_buffers.TexCoordBuffer);
-    //glVertexAttribPointer(ATTRIB_TEXCOORD, 2, GL_FLOAT, GL_FALSE, 0, 0);
     glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_2D, m_textures.m_iChannel0);
     
@@ -129,8 +126,8 @@ enum {
     
     bundle = [NSBundle bundleForClass: [self class]];
     
-    iChannel0Str = [bundle pathForResource: @"Day" ofType: @"jpg"];
-    iChannel1Str = [bundle pathForResource: @"Day" ofType: @"jpg"];
+    iChannel0Str = [bundle pathForResource: @"tex11" ofType: @"png"];
+    iChannel1Str = [bundle pathForResource: @"tex11" ofType: @"png"];
     
     if( iChannel0Str == nil )
     {
@@ -140,7 +137,7 @@ enum {
         NSLog(@"Unable to load second image file." );
         return false;
     } else {
-        bitmapimagerep0 = LoadImage(iChannel0Str, 0    );
+        bitmapimagerep0 = LoadImage(iChannel0Str, 0);
         
         if( bitmapimagerep0 == nil ) {
             NSLog(@"Unable to load first image file: %@", iChannel0Str );
@@ -155,9 +152,9 @@ enum {
         }
     }
     
+    /* Channel 0 Texture */
     rect = NSMakeRect(0, 0, [bitmapimagerep0 pixelsWide], [bitmapimagerep0 pixelsHigh]);
     
-    /* Channel 0 Texture */
     glActiveTexture(GL_TEXTURE0);
     
     // Load the texture
@@ -173,9 +170,9 @@ enum {
                  (([bitmapimagerep0 hasAlpha])?(GL_RGBA):(GL_RGB)), GL_UNSIGNED_BYTE,
                  [bitmapimagerep0 bitmapData]);
 
+    /* Channel 1 Texture */
     rect = NSMakeRect(0, 0, [bitmapimagerep1 pixelsWide], [bitmapimagerep1 pixelsHigh]);
     
-    /* Channel 1 Texture */
     glActiveTexture(GL_TEXTURE1);
     
     // Load the texture
@@ -187,10 +184,30 @@ enum {
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    
     glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, rect.size.width, rect.size.height, 0,
                  (([bitmapimagerep1 hasAlpha])?(GL_RGBA):(GL_RGB)), GL_UNSIGNED_BYTE,
                  [bitmapimagerep1 bitmapData]);
 
+    /*
+     function createGLTexture( ctx, image, format, texture )
+     {
+     if( ctx==null ) return;
+     
+     ctx.bindTexture(   ctx.TEXTURE_2D, texture);
+     ctx.pixelStorei(   ctx.UNPACK_FLIP_Y_WEBGL, false );
+     
+     ctx.texImage2D(    ctx.TEXTURE_2D, 0, format, ctx.RGBA, ctx.UNSIGNED_BYTE, image);
+     
+     ctx.texParameteri( ctx.TEXTURE_2D, ctx.TEXTURE_MAG_FILTER, ctx.LINEAR);
+     ctx.texParameteri( ctx.TEXTURE_2D, ctx.TEXTURE_MIN_FILTER, ctx.LINEAR_MIPMAP_LINEAR);
+     ctx.texParameteri( ctx.TEXTURE_2D, ctx.TEXTURE_WRAP_S, ctx.REPEAT);
+     ctx.texParameteri( ctx.TEXTURE_2D, ctx.TEXTURE_WRAP_T, ctx.REPEAT);
+     ctx.generateMipmap(ctx.TEXTURE_2D);
+     ctx.bindTexture(ctx.TEXTURE_2D, null);
+     }
+     
+     */
     return true;
 }
 
@@ -212,7 +229,6 @@ enum {
     // Bind attribute locations.
     // This needs to be done prior to linking.
     glBindAttribLocation(program, ATTRIB_VERTEX, "pos");
-    //glBindAttribLocation(program, ATTRIB_TEXCOORD, "vTexCoord");
     
     return 0;
 }

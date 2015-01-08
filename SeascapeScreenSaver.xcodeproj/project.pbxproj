@@ -31,6 +31,8 @@
 		57C10A261A5E5BA2002D4F58 /* Mountains.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 57C10A221A5E5BA2002D4F58 /* Mountains.vsh */; };
 		57C10A271A5E5BA2002D4F58 /* SeascapeFragmentShader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 57C10A231A5E5BA2002D4F58 /* SeascapeFragmentShader.fsh */; };
 		57C10A281A5E5BA2002D4F58 /* SeascapeVertexShader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 57C10A241A5E5BA2002D4F58 /* SeascapeVertexShader.vsh */; };
+		57C10A2B1A5E5FEF002D4F58 /* tex11.png in Resources */ = {isa = PBXBuildFile; fileRef = 57C10A291A5E5FEF002D4F58 /* tex11.png */; };
+		57C10A2C1A5E5FEF002D4F58 /* tex12.png in Resources */ = {isa = PBXBuildFile; fileRef = 57C10A2A1A5E5FEF002D4F58 /* tex12.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +62,8 @@
 		57C10A221A5E5BA2002D4F58 /* Mountains.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Mountains.vsh; sourceTree = "<group>"; };
 		57C10A231A5E5BA2002D4F58 /* SeascapeFragmentShader.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = SeascapeFragmentShader.fsh; sourceTree = "<group>"; };
 		57C10A241A5E5BA2002D4F58 /* SeascapeVertexShader.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = SeascapeVertexShader.vsh; sourceTree = "<group>"; };
+		57C10A291A5E5FEF002D4F58 /* tex11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tex11.png; sourceTree = "<group>"; };
+		57C10A2A1A5E5FEF002D4F58 /* tex12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tex12.png; sourceTree = "<group>"; };
 		57F14D891A5A29C900948DDB /* SeascapeScreenSaver.saver */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SeascapeScreenSaver.saver; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -116,6 +120,8 @@
 		57C109E91A5DB4C7002D4F58 /* textures */ = {
 			isa = PBXGroup;
 			children = (
+				57C10A291A5E5FEF002D4F58 /* tex11.png */,
+				57C10A2A1A5E5FEF002D4F58 /* tex12.png */,
 				57C109EA1A5DB4C7002D4F58 /* Day.jpg */,
 			);
 			path = textures;
@@ -267,6 +273,8 @@
 				57C10A021A5DB4C7002D4F58 /* WobblerShader.fsh in Resources */,
 				57C10A031A5DB4C7002D4F58 /* WobblerShader.vsh in Resources */,
 				57C109FF1A5DB4C7002D4F58 /* Day.jpg in Resources */,
+				57C10A2B1A5E5FEF002D4F58 /* tex11.png in Resources */,
+				57C10A2C1A5E5FEF002D4F58 /* tex12.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
