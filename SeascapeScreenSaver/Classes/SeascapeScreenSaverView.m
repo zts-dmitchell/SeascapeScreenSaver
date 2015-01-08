@@ -12,6 +12,7 @@
 #import "SeascapeScreenSaverView.h"
 #import "SeascapeRenderer.h"
 #import "WobblerRenderer.h"
+#import "MountainsRenderer.h"
 #import <OpenGL/gl.h>
 
 @implementation SeascapeScreenSaverView
@@ -31,7 +32,8 @@ id<ESRenderer> renderers[2];
         
         // My stuff
         [self.glView.openGLContext makeCurrentContext];
-        renderers[0] = [[SeascapeRenderer alloc] init];
+        renderers[0] = [[MountainsRenderer alloc] init];
+        //renderers[0] = [[SeascapeRenderer alloc] init];
         renderers[1] = [[WobblerRenderer alloc] init];
         
         self.frameNumber = 0;

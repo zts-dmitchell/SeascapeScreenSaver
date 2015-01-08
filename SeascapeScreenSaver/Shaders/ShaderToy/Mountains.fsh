@@ -6,11 +6,11 @@
 precision highp float;
 #endif
 
-uniform float iGlobalTime;
-uniform vec3  iResolution;
-uniform float iSeaHeight;
-uniform float iSeaChoppy;
-uniform float iSpeed;
+uniform vec2      iMouse;
+uniform float     iGlobalTime;
+uniform vec3      iResolution;
+uniform sampler2D iChannel0;
+uniform sampler2D iChannel1;
 
 const int NUM_STEPS = 8;
 const float PI	 	= 3.14159265359;

@@ -178,7 +178,6 @@ mat4 m_translation;
 	glUniform1fv(m_uniforms.StartRad, 1, PARAMETER_CURRENT(StartRad));
     
     glActiveTexture(GL_TEXTURE0);
-    
     glBindTexture(GL_TEXTURE_2D, m_texture);
 
     glDrawElements(GL_TRIANGLES, m_buffers.IndexCount, GL_UNSIGNED_SHORT, 0);
