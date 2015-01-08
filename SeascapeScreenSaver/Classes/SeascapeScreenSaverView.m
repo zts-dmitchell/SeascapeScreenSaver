@@ -17,8 +17,8 @@
 
 @implementation SeascapeScreenSaverView
 
-id<ESRenderer> renderers[2];
-
+const int g_countOfRenderers = 1;
+id<ESRenderer> renderers[g_countOfRenderers];
 
 - (instancetype)initWithFrame:(NSRect)frame isPreview:(BOOL)isPreview
 {
@@ -32,9 +32,9 @@ id<ESRenderer> renderers[2];
         
         // My stuff
         [self.glView.openGLContext makeCurrentContext];
-        renderers[0] = [[MountainsRenderer alloc] init];
-        //renderers[0] = [[SeascapeRenderer alloc] init];
-        renderers[1] = [[WobblerRenderer alloc] init];
+        renderers[0] = [[SeascapeRenderer alloc] init];
+        //renderers[1] = [[WobblerRenderer alloc] init];
+        //renderers[2] = [[MountainsRenderer alloc] init];
         
         self.frameNumber = 0;
         self.currentRendererId = 0;
@@ -106,7 +106,6 @@ id<ESRenderer> renderers[2];
         1.0f, -1.0f, 0.0f,
         0.0f, 1.0f, 0.0f,
         -1.0f, -1.0f, 0.0f
-        
     };
     
     static float colors[] = {
@@ -134,15 +133,16 @@ id<ESRenderer> renderers[2];
 
     [self.glView.openGLContext makeCurrentContext];
 
-    if(++self.frameNumber % 10000 == 0) {
-        NSLog(@"Number of frames for %@ so far: %lu", [self.renderer name], self.frameNumber);
-
-        [self stopAnimation];
-        
-        self.currentRendererId = !self.currentRendererId;
-        self.renderer = renderers[self.currentRendererId];
-        [self startAnimation];
-    }
+//    if(++self.frameNumber % 100 == 0) {
+//        NSLog(@"Number of frames for %@ so far: %lu", [self.renderer name], self.frameNumber);
+//
+//        [self stopAnimation];
+//        
+//        self.renderer = renderers[ self.currentRendererId++ % g_countOfRenderers ];
+//        NSLog(@"Switched to new renderer: %@", [self.renderer name]);
+//
+//        [self startAnimation];
+//    }
     
     [self.renderer render];
     
@@ -157,10 +157,14 @@ id<ESRenderer> renderers[2];
     [super setFrameSize:newSize];
     [self.glView setFrameSize:newSize];
     
-    self.renderer = renderers[1];
-    [self.renderer setFrameSize:newSize];
-    self.renderer = renderers[0];
-    [self.renderer setFrameSize:newSize];
+    //self.renderer = renderers[2];
+    //[self.renderer setFrameSize:newSize];
+    //self.renderer = renderers[1];
+    //[self.renderer setFrameSize:newSize];
+    for(int i=0; i<g_countOfRenderers; ++i) {
+        self.renderer = renderers[i];
+        [self.renderer setFrameSize:newSize];
+    }
 }
 
 @end
