@@ -29,13 +29,13 @@ enum {
 {
     if ((self = [super init]))
     {
-        program = [ShaderUtil loadShaders:@"Mountains"
+        m_program = [ShaderUtil loadShaders:@"Mountains"
                             withVertexExt:@"vsh"
                         andFragmentShader:@"Mountains"
                            andFragmentExt:@"fsh"
                            withAttributes:self];
 
-        if( ! program )
+        if( ! m_program )
         {
             self = nil;
             return nil;
@@ -43,9 +43,10 @@ enum {
         
         m_buffers.VertexBuffer = -1;
         m_iGlobalTime = 0.0;
-        m_iMouse.x = m_iMouse.y = 100;
+        m_iMouse.x = m_iMouse.y = 3;
+        m_bIsLoaded = false;
         
-        glUseProgram(program);
+        glUseProgram(m_program);
         
         //glEnable(GL_TEXTURE_2D);
         [self createVBO];
@@ -67,7 +68,7 @@ enum {
     
     [self destroyVBO];
 
-    [ShaderUtil cleanup:program];
+    [ShaderUtil cleanup:m_program];
     
     NSLog(@"MountainsRenderer going away ...");
 }
@@ -78,6 +79,8 @@ enum {
 
 - (void)setFrameSize:(NSSize)newSize {
     
+    m_bIsLoaded = false;
+
     m_iResolution.x = newSize.width;
     m_iResolution.y = newSize.height;
     
@@ -89,7 +92,7 @@ enum {
     glClearColor(.01, .01, .01, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
 
-    glUseProgram(program);
+    glUseProgram(m_program);
     
     glBindBuffer(GL_ARRAY_BUFFER, m_buffers.VertexBuffer);
     glVertexAttribPointer(m_attributes.pos, 2, GL_FLOAT, GL_FALSE, 0, 0);
@@ -97,24 +100,28 @@ enum {
     
     //////////////////////////////////////////
     // Other uniform stuff
-    // Set resolution, first!!
-    glUniform3f(m_uniforms.iResolutionHandle, m_iResolution.x, m_iResolution.y, m_iResolution.z); printOpenGLError();
-    
     m_iGlobalTime += 0.01;
     glUniform1f(m_uniforms.iGlobalTimeHandle, m_iGlobalTime); printOpenGLError();
     
-    glActiveTexture(GL_TEXTURE0);
-    glBindTexture(GL_TEXTURE_2D, m_textures.m_iChannel0);
+    if( !m_bIsLoaded ) {
+       
+        m_bIsLoaded = true;
+        
+        glUniform3f(m_uniforms.iResolutionHandle, m_iResolution.x, m_iResolution.y, m_iResolution.z); printOpenGLError();
+        glUniform2f(m_uniforms.iMouseHandle, m_iMouse.x, m_iMouse.y);
     
-    glActiveTexture(GL_TEXTURE1);
-    glBindTexture(GL_TEXTURE_2D, m_textures.m_iChannel1);
+        // Textures
+        glActiveTexture(GL_TEXTURE0);
+        glBindTexture(GL_TEXTURE_2D, m_textures.m_iChannel0);
+
+        glActiveTexture(GL_TEXTURE1);
+        glBindTexture(GL_TEXTURE_2D, m_textures.m_iChannel1);
+    }
     
     glDrawArrays(GL_TRIANGLES, 0, 6);  printOpenGLError();
     glDisableVertexAttribArray(m_attributes.pos);  printOpenGLError();
 
-    glDisableVertexAttribArray(ATTRIB_VERTEX);
-
-    glUseProgram(0);    
+    glUseProgram(0);
 }
 
 - (BOOL) setupTextures
@@ -215,12 +222,14 @@ enum {
 // Protocol Implementations
 - (void) setProgram: (GLuint) newProgram
 {
-    program = newProgram;
+    m_bIsLoaded = false;
+
+    m_program = newProgram;
 }
     
 - (GLuint) bindAttributes
 {
-    if( program < 1 )
+    if( m_program < 1 )
     {
         NSLog(@"Error: program variable not set. Make sure the context has been set.");
         return GL_INVALID_VALUE;
@@ -228,20 +237,20 @@ enum {
     
     // Bind attribute locations.
     // This needs to be done prior to linking.
-    glBindAttribLocation(program, ATTRIB_VERTEX, "pos");
+    glBindAttribLocation(m_program, ATTRIB_VERTEX, "pos");
     
     return 0;
 }
 
 - (GLuint) setPostLinkUniforms
 {
-    if( program < 1 )
+    if( m_program < 1 )
     {
         NSLog(@"Error: program variable not set");
         return GL_INVALID_VALUE;
     }
         
-    m_attributes.pos = glGetAttribLocation(program, "pos");
+    m_attributes.pos = glGetAttribLocation(m_program, "pos");
     
     if( m_attributes.pos == -1 )
         NSLog(@"Failed to get attribute location for 'pos'");
@@ -251,15 +260,15 @@ enum {
     //if( m_attributes.TextureCoord == -1 )
     //    NSLog(@"Failed to get attribue location for vTexCoord");
     
-    m_uniforms.iGlobalTimeHandle = glGetUniformLocation(program, "iGlobalTime");
-    m_uniforms.iResolutionHandle = glGetUniformLocation(program, "iResolution");
-    
-    m_uniforms.iChannel0Handle = glGetUniformLocation(program, "iChannel0");
+    m_uniforms.iGlobalTimeHandle = glGetUniformLocation(m_program, "iGlobalTime");
+    m_uniforms.iResolutionHandle = glGetUniformLocation(m_program, "iResolution");
+    m_uniforms.iMouseHandle      = glGetUniformLocation(m_program, "iMouse");
+    m_uniforms.iChannel0Handle   = glGetUniformLocation(m_program, "iChannel0");
     
     if( m_uniforms.iChannel0Handle == -1 )
         NSLog(@"Failed to get uniform location for 'iChannel0'");
     
-    m_uniforms.iChannel1Handle = glGetUniformLocation(program, "iChannel1");
+    m_uniforms.iChannel1Handle = glGetUniformLocation(m_program, "iChannel1");
     
     if( m_uniforms.iChannel1Handle == -1 )
         NSLog(@"Failed to get uniform location for 'iChannel1'");
@@ -293,6 +302,8 @@ enum {
 
 -(void) destroyVBO {
     
+    m_bIsLoaded = false;
+
     NSLog(@"Destroying VBO");
     
     if(m_buffers.VertexBuffer != -1) {

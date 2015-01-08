@@ -90,7 +90,6 @@ float Trees(vec2 p)
     return (texture2D(iChannel1,0.04*p).x * treeLine);
 }
 
-
 //--------------------------------------------------------------------------
 // Low def version for ray-marching through the height field...
 // Thanks to IQ for all the noise stuff...

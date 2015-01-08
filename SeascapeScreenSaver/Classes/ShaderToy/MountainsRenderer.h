@@ -11,10 +11,10 @@
 
 typedef struct MountainsBuffers {
     GLuint VertexBuffer;
-    //GLuint TexCoordBuffer;
 }MountainsBuffers;
 
 typedef struct MountainsUniformHandles {
+    GLint iMouseHandle;
     GLint iGlobalTimeHandle;
     GLint iResolutionHandle;
     GLint iChannel0Handle;
@@ -23,7 +23,6 @@ typedef struct MountainsUniformHandles {
 
 typedef struct MountainsAttributeHandles {
     GLint pos;
-    //GLint TextureCoord;
 }MountainsAttributeHandles;
 
 typedef struct MountainTexture {
@@ -45,14 +44,15 @@ typedef struct MountainVec3 {
 @interface MountainsRenderer : NSObject <ESRenderer, Attributes>
 {
 @private
-    GLuint program;
+    GLuint m_program;
     MountainsBuffers m_buffers;
     MountainsUniformHandles m_uniforms;
     MountainsAttributeHandles m_attributes;
     MountainTextures m_textures;
     GLfloat m_iGlobalTime;
     MountainVec2  m_iMouse;
-    MountainVec3  m_iResolution;  
+    MountainVec3  m_iResolution;
+    bool m_bIsLoaded;
 }
 
 @end
