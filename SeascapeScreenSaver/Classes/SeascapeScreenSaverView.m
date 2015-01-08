@@ -15,10 +15,13 @@
 #import "MountainsRenderer.h"
 #import <OpenGL/gl.h>
 
+@interface SeascapeScreenSaverView(PrivateMethods)
+@property (nonatomic, assign) NSSize screenSize;
+@end
+
 @implementation SeascapeScreenSaverView
 
-const int g_countOfRenderers = 1;
-id<ESRenderer> renderers[g_countOfRenderers];
+const int g_countOfRenderers = 3;
 
 - (instancetype)initWithFrame:(NSRect)frame isPreview:(BOOL)isPreview
 {
@@ -32,13 +35,10 @@ id<ESRenderer> renderers[g_countOfRenderers];
         
         // My stuff
         [self.glView.openGLContext makeCurrentContext];
-        renderers[0] = [[SeascapeRenderer alloc] init];
-        //renderers[1] = [[WobblerRenderer alloc] init];
-        //renderers[2] = [[MountainsRenderer alloc] init];
         
         self.frameNumber = 0;
         self.currentRendererId = 0;
-        self.renderer = renderers[self.currentRendererId];
+        self.renderer = [self nextRenderer];
         // End New Code
         
         [self setAnimationTimeInterval:1/60.0];
@@ -133,16 +133,17 @@ id<ESRenderer> renderers[g_countOfRenderers];
 
     [self.glView.openGLContext makeCurrentContext];
 
-//    if(++self.frameNumber % 100 == 0) {
-//        NSLog(@"Number of frames for %@ so far: %lu", [self.renderer name], self.frameNumber);
-//
-//        [self stopAnimation];
-//        
-//        self.renderer = renderers[ self.currentRendererId++ % g_countOfRenderers ];
-//        NSLog(@"Switched to new renderer: %@", [self.renderer name]);
-//
-//        [self startAnimation];
-//    }
+    if(++self.frameNumber % 10000 == 0) {
+        NSLog(@"Number of frames for %@ so far: %lu", [self.renderer name], self.frameNumber);
+
+        [self stopAnimation];
+        
+        //self.renderer = renderers[ self.currentRendererId++ % g_countOfRenderers ];
+        self.renderer = [self nextRenderer];
+        NSLog(@"Switched to new renderer: %@", [self.renderer name]);
+
+        [self startAnimation];
+    }
     
     [self.renderer render];
     
@@ -154,17 +155,36 @@ id<ESRenderer> renderers[g_countOfRenderers];
 - (void)setFrameSize:(NSSize)newSize
 {
     self.screenSize = newSize;
+    
     [super setFrameSize:newSize];
     [self.glView setFrameSize:newSize];
     
-    //self.renderer = renderers[2];
-    //[self.renderer setFrameSize:newSize];
-    //self.renderer = renderers[1];
-    //[self.renderer setFrameSize:newSize];
-    for(int i=0; i<g_countOfRenderers; ++i) {
-        self.renderer = renderers[i];
+    if(self.renderer != nil)
         [self.renderer setFrameSize:newSize];
-    }
 }
 
+#pragma mark Iterater Stuff
+
+-(id<ESRenderer>) nextRenderer {
+
+        self.renderer = nil;
+
+    switch(self.currentRendererId++ % g_countOfRenderers) {
+        case 2:
+            self.renderer = [[MountainsRenderer alloc] init];
+            break;
+            
+        case 1:
+            self.renderer = [[WobblerRenderer alloc] init];
+            break;
+            
+        default:
+            NSLog(@"Unknown renderer"); // Fall through
+        case 0: self.renderer = [[SeascapeRenderer alloc] init];
+    }
+    
+    [self.renderer setFrameSize:self.screenSize];
+    
+    return self.renderer;
+}
 @end
