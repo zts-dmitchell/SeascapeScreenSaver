@@ -1,15 +1,13 @@
 //
-//  MountainsRenderer.mm
-//  Wobbler
+//  MountainsRenderer.m
 //
 //  Created by David Mitchell on 2/20/11.
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#include "MountainsRenderer.h"
-#include "ShaderUtil.h"
+#import "MountainsRenderer.h"
+#import "ShaderUtil.h"
 #import "ImageLoader.h"
-
 #import <AppKit/AppKit.h>
 
 #include "GLUtil.h"
@@ -25,18 +23,18 @@ enum {
 
 @implementation MountainsRenderer
 
-- (id)init
-{
-    if ((self = [super init]))
-    {
+- (id)init {
+    
+    if ((self = [super init])) {
+        
         m_program = [ShaderUtil loadShaders:@"Mountains"
-                            withVertexExt:@"vsh"
-                        andFragmentShader:@"Mountains"
-                           andFragmentExt:@"fsh"
-                           withAttributes:self];
+                              withVertexExt:@"vsh"
+                          andFragmentShader:@"Mountains"
+                             andFragmentExt:@"fsh"
+                             withAttributes:self];
 
-        if( ! m_program )
-        {
+        if( ! m_program ) {
+            
             self = nil;
             return nil;
         }
@@ -48,7 +46,6 @@ enum {
         
         glUseProgram(m_program);
         
-        //glEnable(GL_TEXTURE_2D);
         [self createVBO];
         
         [self setupTextures];
@@ -59,8 +56,8 @@ enum {
     return self;
 }
 
-- (void) dealloc
-{
+- (void) dealloc {
+    
     glDeleteTextures(1, &m_textures.m_iChannel0);
     glDeleteTextures(1, &m_textures.m_iChannel1);
     
@@ -87,8 +84,8 @@ enum {
     NSLog(@"Setting frame size: %f w by %f h", newSize.width, newSize.height);
 }
 
-- (void)render
-{
+- (void)render {
+    
     glClearColor(.01, .01, .01, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
 
@@ -124,8 +121,8 @@ enum {
     glUseProgram(0);
 }
 
-- (BOOL) setupTextures
-{
+- (BOOL) setupTextures {
+    
     NSBundle *bundle;
     NSString * iChannel0Str, *iChannel1Str;
     NSBitmapImageRep *bitmapimagerep0, *bitmapimagerep1;
@@ -134,10 +131,9 @@ enum {
     bundle = [NSBundle bundleForClass: [self class]];
     
     iChannel0Str = [bundle pathForResource: @"tex11" ofType: @"png"];
-    iChannel1Str = [bundle pathForResource: @"Day" ofType: @"jpg"];
+    iChannel1Str = [bundle pathForResource: @"Day"   ofType: @"jpg"];
     
-    if( iChannel0Str == nil )
-    {
+    if( iChannel0Str == nil ) {
         NSLog(@"Unable to load first image file." );
         return false;
     } else if( iChannel1Str == nil) {
@@ -173,6 +169,7 @@ enum {
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glGenerateMipmap(GL_TEXTURE_2D);
     glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, rect.size.width, rect.size.height, 0,
                  (([bitmapimagerep0 hasAlpha])?(GL_RGBA):(GL_RGB)), GL_UNSIGNED_BYTE,
                  [bitmapimagerep0 bitmapData]);
@@ -191,7 +188,7 @@ enum {
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-    
+    glGenerateMipmap(GL_TEXTURE_2D);
     glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, rect.size.width, rect.size.height, 0,
                  (([bitmapimagerep1 hasAlpha])?(GL_RGBA):(GL_RGB)), GL_UNSIGNED_BYTE,
                  [bitmapimagerep1 bitmapData]);
@@ -220,15 +217,14 @@ enum {
 
 /////////////////////////////////////////
 // Protocol Implementations
-- (void) setProgram: (GLuint) newProgram
-{
+- (void) setProgram: (GLuint) newProgram {
+    
     m_bIsLoaded = false;
 
     m_program = newProgram;
 }
     
-- (GLuint) bindAttributes
-{
+- (GLuint) bindAttributes {
     if( m_program < 1 )
     {
         NSLog(@"Error: program variable not set. Make sure the context has been set.");
@@ -242,8 +238,8 @@ enum {
     return 0;
 }
 
-- (GLuint) setPostLinkUniforms
-{
+- (GLuint) setPostLinkUniforms {
+    
     if( m_program < 1 )
     {
         NSLog(@"Error: program variable not set");
@@ -255,11 +251,6 @@ enum {
     if( m_attributes.pos == -1 )
         NSLog(@"Failed to get attribute location for 'pos'");
 
-    //m_attributes.TextureCoord = glGetAttribLocation(program, "vTexCoord");
-    
-    //if( m_attributes.TextureCoord == -1 )
-    //    NSLog(@"Failed to get attribue location for vTexCoord");
-    
     m_uniforms.iGlobalTimeHandle = glGetUniformLocation(m_program, "iGlobalTime");
     m_uniforms.iResolutionHandle = glGetUniformLocation(m_program, "iResolution");
     m_uniforms.iMouseHandle      = glGetUniformLocation(m_program, "iMouse");
@@ -273,7 +264,6 @@ enum {
     if( m_uniforms.iChannel1Handle == -1 )
         NSLog(@"Failed to get uniform location for 'iChannel1'");
     
-
     return GL_NO_ERROR;
 }
 
@@ -288,7 +278,7 @@ enum {
     }
     
     GLfloat vertices[] = { -1.0, -1.0,   1.0, -1.0,   -1.0,  1.0,
-        1.0, -1.0,   1.0,  1.0,   -1.0,  1.0 };
+                            1.0, -1.0,   1.0,  1.0,   -1.0,  1.0 };
     
     // Gen
     // Bind
