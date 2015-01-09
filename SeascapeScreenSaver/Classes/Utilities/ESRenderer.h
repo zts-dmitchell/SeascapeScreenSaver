@@ -14,6 +14,5 @@
 - (void)setFrameSize:(NSSize)newSize;
 - (void)render;
 - (NSString*) name;
-//- (BOOL)resizeFromLayer:(CAEAGLLayer *)layer;
 
 @end

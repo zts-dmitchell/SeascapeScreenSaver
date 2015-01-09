@@ -106,7 +106,7 @@ CGImageSourceRef nsImageToCGImageRef(NSImage* image)
 @end
 
 
-NSBitmapImageRep *LoadImage(NSString *path, int shouldFlipVertical)
+NSBitmapImageRep* LoadImage(NSString *path, int shouldFlipVertical)
 {
     NSBitmapImageRep *bitmapimagerep;
     NSImage *image;

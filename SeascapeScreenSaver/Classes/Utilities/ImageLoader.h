@@ -16,8 +16,13 @@ typedef struct _ImageData
 } ImageData;
 
 #ifdef __cplusplus
-extern "C"
+extern "C" {
+#endif
+    
+    
 NSBitmapImageRep *LoadImage(NSString *path, int shouldFlipVertical);
+#ifdef __cplusplus
+}
 #endif
 
 @interface ImageLoader : NSObject {

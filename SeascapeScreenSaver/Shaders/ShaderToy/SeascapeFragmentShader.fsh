@@ -203,7 +203,8 @@ void main(void) {
     vec3 ang = vec3(0.0,0.0,0.0); // In radians
     vec3 ori = vec3(iSpeed*time,3.5,0.);
     //vec3 ori = vec3(time*0.10,3.5,*5.0);
-    vec3 dir = normalize(vec3(uv.xy,-2.0)); dir.z += length(uv) * 0.15;
+    vec3 dir = normalize(vec3(uv.xy,-2.0));
+    dir.z += length(uv) * 0.15;
     dir = normalize(dir) * fromEuler(ang);
 
     // tracing

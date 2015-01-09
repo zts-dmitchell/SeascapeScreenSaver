@@ -100,8 +100,6 @@ mat4 m_translation;
     NSLog(@"Setting frame size: %f w by %f h", newSize.width, newSize.height);
 }
 
-float percentageX = -1.0;
-float percentageY = 1.0;
 
 - (void)render
 {
@@ -180,7 +178,6 @@ float percentageY = 1.0;
 	glUniform1fv(m_uniforms.StartRad, 1, PARAMETER_CURRENT(StartRad));
     
     glActiveTexture(GL_TEXTURE0);
-    
     glBindTexture(GL_TEXTURE_2D, m_texture);
 
     glDrawElements(GL_TRIANGLES, m_buffers.IndexCount, GL_UNSIGNED_SHORT, 0);
