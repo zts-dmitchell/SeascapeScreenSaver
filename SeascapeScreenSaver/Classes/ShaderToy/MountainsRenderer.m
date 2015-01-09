@@ -103,9 +103,9 @@ enum {
     m_iGlobalTime += 0.1;
     glUniform1f(m_uniforms.iGlobalTimeHandle, m_iGlobalTime); printOpenGLError();
     
-    //if( !m_bIsLoaded ) {
+    if( !m_bIsLoaded ) {
        
-        //m_bIsLoaded = true;
+        m_bIsLoaded = true;
         
         glUniform3f(m_uniforms.iResolutionHandle, m_iResolution.x, m_iResolution.y, m_iResolution.z); printOpenGLError();
         glUniform2f(m_uniforms.iMouseHandle, m_iMouse.x, m_iMouse.y);
@@ -116,7 +116,7 @@ enum {
 
         glActiveTexture(GL_TEXTURE1);
         glBindTexture(GL_TEXTURE_2D, m_textures.m_iChannel1);
-    //}
+    }
     
     glDrawArrays(GL_TRIANGLES, 0, 6);  printOpenGLError();
     glDisableVertexAttribArray(m_attributes.pos);  printOpenGLError();
@@ -134,7 +134,7 @@ enum {
     bundle = [NSBundle bundleForClass: [self class]];
     
     iChannel0Str = [bundle pathForResource: @"tex11" ofType: @"png"];
-    iChannel1Str = [bundle pathForResource: @"tex11" ofType: @"png"];
+    iChannel1Str = [bundle pathForResource: @"Day" ofType: @"jpg"];
     
     if( iChannel0Str == nil )
     {

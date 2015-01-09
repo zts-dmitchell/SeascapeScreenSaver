@@ -21,7 +21,7 @@
 
 @implementation SeascapeScreenSaverView
 
-const int g_countOfRenderers = 3;
+const int g_countOfRenderers = 3; // Disable the Mountains.3;
 
 - (instancetype)initWithFrame:(NSRect)frame isPreview:(BOOL)isPreview
 {
@@ -133,12 +133,11 @@ const int g_countOfRenderers = 3;
 
     [self.glView.openGLContext makeCurrentContext];
 
-    if(++self.frameNumber % 10000 == 0) {
+    if(++self.frameNumber % 100 == 0) {
         NSLog(@"Number of frames for %@ so far: %lu", [self.renderer name], self.frameNumber);
 
         [self stopAnimation];
         
-        //self.renderer = renderers[ self.currentRendererId++ % g_countOfRenderers ];
         self.renderer = [self nextRenderer];
         NSLog(@"Switched to new renderer: %@", [self.renderer name]);
 
@@ -151,7 +150,6 @@ const int g_countOfRenderers = 3;
     [self setNeedsDisplay:YES];
 }
 #endif
-
 - (void)setFrameSize:(NSSize)newSize
 {
     self.screenSize = newSize;
