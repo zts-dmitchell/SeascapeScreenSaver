@@ -15,6 +15,7 @@
 #import "MountainsRenderer.h"
 #import "SomewhereIn1993Renderer.h"
 #import "SymmetricOriginsRenderer.h"
+#import "MorningCityRenderer.h"
 
 #import <OpenGL/gl.h>
 
@@ -183,8 +184,9 @@ const int g_countOfRenderers = 2; // Disable the Mountains.3;
             NSLog(@"Unknown renderer"); // Fall through
         //case 0: self.renderer = [[SeascapeRenderer alloc] init];
         //case 0: self.renderer = [[SymmetricOriginsRenderer alloc] init];
-        case 0: self.renderer = [[SomewhereIn1993Renderer alloc] init];
-
+        //case 0: self.renderer = [[SomewhereIn1993Renderer alloc] init];
+        case 0: self.renderer = [[MorningCityRenderer alloc] init];
+            
     }
     
     [self.renderer setFrameSize:self.screenSize];
