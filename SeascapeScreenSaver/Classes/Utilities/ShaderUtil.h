@@ -19,12 +19,14 @@
 
 
 @interface ShaderUtil : NSObject
-{
-}
 
 + (GLuint)loadShaders: (NSString*) vertexShader
         withVertexExt: (NSString*) vertexExt
     andFragmentShader: (NSString*) fragmentShader
+       andFragmentExt: (NSString*) fragmentExt
+       withAttributes: (id <Attributes>) attribute;
+
++ (GLuint)loadShaders: (NSString*) fragmentShader
        andFragmentExt: (NSString*) fragmentExt
        withAttributes: (id <Attributes>) attribute;
 

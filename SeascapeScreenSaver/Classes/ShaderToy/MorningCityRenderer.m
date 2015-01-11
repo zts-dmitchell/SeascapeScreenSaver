@@ -1,12 +1,12 @@
 //
-//  SeascapeRenderer.mm
-//  Earth Wobbler
+//  MorningCityRenderer.mm
+//  MorningCity
 //
 //  Created by David Mitchell on 2/20/11.
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "SeascapeRenderer.h"
+#import "MorningCityRenderer.h"
 #import "ShaderUtil.h"
 #import "GLUtil.h"
 
@@ -15,16 +15,16 @@ enum {
     ATTRIB_POSITION
 };
 
-@interface SeascapeRenderer(PrivateMethods)
+@interface MorningCityRenderer(PrivateMethods)
 @end
 
-@implementation SeascapeRenderer
+@implementation MorningCityRenderer
 
 - (id)init
 {
     if ((self = [super init]))
     {
-        program = [ShaderUtil loadShaders:@"SeascapeFragmentShader"
+        program = [ShaderUtil loadShaders:@"MorningCity"
                            andFragmentExt:@"fsh"
                            withAttributes:self];
         
@@ -39,11 +39,9 @@ enum {
         
         m_u_iResolution.x = 320;
         m_u_iResolution.y = 568;
+        m_iMouse.x = m_iMouse.y = 3;
+
         m_buffers.VertexBuffer = -1;
-        m_u_iSeaChoppy = 4.0;
-        m_u_iSeaHeight = 0.6;
-        m_u_iSpeed = 10.0;
-        
         
         glUseProgram(program);
         
@@ -60,11 +58,11 @@ enum {
     [self destroyVBO];
     [ShaderUtil cleanup:program];
     
-    NSLog(@"SeascapeRenderer going away ...");
+    NSLog(@"MorningCityRenderer going away ...");
 }
 
 - (NSString*) name {
-    return @"Seascape";
+    return @"MorningCity";
 }
 
 - (void)setFrameSize:(NSSize)newSize {
@@ -88,16 +86,13 @@ enum {
     glEnableVertexAttribArray(m_attributes.m_a_posHandle);
     
     //////////////////////////////////////////
-    // Other uniform stuff
-    // Set resolution, first!!
+    // Uniform stuff
+    glUniform2f(m_uniforms.iMouseHandle, m_iMouse.x, m_iMouse.y);
+
     glUniform3f(m_uniforms.m_u_iResolutionHandle, m_u_iResolution.x, m_u_iResolution.y, m_u_iResolution.z); printOpenGLError();
     
     m_u_iGlobalTime += 0.01;
     glUniform1f(m_uniforms.m_u_iGlobalTimeHandle, m_u_iGlobalTime); printOpenGLError();
-    
-    glUniform1f(m_uniforms.m_u_iSeaChoppyHandle, m_u_iSeaChoppy);
-    glUniform1f(m_uniforms.m_u_iSeaHeightHandle, m_u_iSeaHeight);
-    glUniform1f(m_uniforms.m_u_iSpeedHandle, m_u_iSpeed);
     
     glDrawArrays(GL_TRIANGLES, 0, 6);  printOpenGLError();
     glDisableVertexAttribArray(m_attributes.m_a_posHandle);  printOpenGLError();
@@ -154,10 +149,7 @@ enum {
     if( m_uniforms.m_u_iResolutionHandle == -1 )
         NSLog(@"Failed to get uniform location for 'iResolution'");
     
-    m_uniforms.m_u_iSeaChoppyHandle = glGetUniformLocation(program, "iSeaChoppy");
-    m_uniforms.m_u_iSeaHeightHandle = glGetUniformLocation(program, "iSeaHeight");
-    m_uniforms.m_u_iSpeedHandle = glGetUniformLocation(program, "iSpeed");
-    
+    m_uniforms.iMouseHandle = glGetUniformLocation(program, "iMouse");
     return GL_NO_ERROR;
 }
 

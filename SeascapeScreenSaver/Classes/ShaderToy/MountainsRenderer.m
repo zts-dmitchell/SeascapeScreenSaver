@@ -28,8 +28,6 @@ enum {
     if ((self = [super init])) {
         
         m_program = [ShaderUtil loadShaders:@"Mountains"
-                              withVertexExt:@"vsh"
-                          andFragmentShader:@"Mountains"
                              andFragmentExt:@"fsh"
                              withAttributes:self];
 

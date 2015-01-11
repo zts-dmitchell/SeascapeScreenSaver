@@ -107,6 +107,17 @@
     return TRUE;
 }
 
++ (GLuint)loadShaders: (NSString*) fragmentShader
+       andFragmentExt: (NSString*) fragmentExt
+       withAttributes: (id <Attributes>) attribute
+{
+    return [ShaderUtil loadShaders:@"CommonVertexShader"
+                     withVertexExt:@"vsh"
+                 andFragmentShader:fragmentShader
+                    andFragmentExt:fragmentExt
+                    withAttributes:attribute];
+}
+
 /*
     Returns 0 on failure.
  */
@@ -178,7 +189,6 @@
             return 0;
         }
     }
-
     
     // Link program.
     if (![self linkProgram:program])
