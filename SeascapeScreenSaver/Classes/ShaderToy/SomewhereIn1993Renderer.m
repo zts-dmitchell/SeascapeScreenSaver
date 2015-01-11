@@ -1,12 +1,12 @@
 //
-//  SymmetricOriginsRenderer.mm
+//  SomewhereIn1993Renderer.mm
 //  Earth Wobbler
 //
 //  Created by David Mitchell on 2/20/11.
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "SymmetricOriginsRenderer.h"
+#import "SomewhereIn1993Renderer.h"
 #import "ShaderUtil.h"
 #import "GLUtil.h"
 
@@ -15,16 +15,16 @@ enum {
     ATTRIB_POSITION
 };
 
-@interface SymmetricOriginsRenderer(PrivateMethods)
+@interface SomewhereIn1993Renderer(PrivateMethods)
 @end
 
-@implementation SymmetricOriginsRenderer
+@implementation SomewhereIn1993Renderer
 
 - (id)init
 {
     if ((self = [super init]))
     {
-        program = [ShaderUtil loadShaders:@"SymmetricOrigins"
+        program = [ShaderUtil loadShaders:@"SomewhereIn1993"
                            andFragmentExt:@"fsh"
                            withAttributes:self];
         
@@ -58,11 +58,11 @@ enum {
     [self destroyVBO];
     [ShaderUtil cleanup:program];
     
-    NSLog(@"SymmetricOriginsRenderer going away ...");
+    NSLog(@"SomewhereIn1993Renderer going away ...");
 }
 
 - (NSString*) name {
-    return @"SymmetricOrigins";
+    return @"SomewhereIn1993";
 }
 
 - (void)setFrameSize:(NSSize)newSize {
@@ -88,7 +88,7 @@ enum {
     //////////////////////////////////////////
     // Uniform stuff
     glUniform2f(m_uniforms.iMouseHandle, m_iMouse.x, m_iMouse.y);
-    
+
     glUniform3f(m_uniforms.m_u_iResolutionHandle, m_u_iResolution.x, m_u_iResolution.y, m_u_iResolution.z); printOpenGLError();
     
     m_u_iGlobalTime += 0.01;

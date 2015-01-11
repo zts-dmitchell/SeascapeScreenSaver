@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		571804841A620942006BB4C5 /* SomewhereIn1993.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 571804831A620942006BB4C5 /* SomewhereIn1993.fsh */; };
+		571804871A620951006BB4C5 /* SomewhereIn1993Renderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 571804851A620951006BB4C5 /* SomewhereIn1993Renderer.m */; };
+		571804881A620951006BB4C5 /* SomewhereIn1993Renderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 571804861A620951006BB4C5 /* SomewhereIn1993Renderer.h */; };
 		577E02DF1A60F42D007F9E2C /* SymmetricOrigins.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 577E02DD1A60F42D007F9E2C /* SymmetricOrigins.fsh */; };
 		577E02E01A60F42D007F9E2C /* CommonVertexShader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 577E02DE1A60F42D007F9E2C /* CommonVertexShader.vsh */; };
 		577E02E31A60F586007F9E2C /* SymmetricOriginsRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 577E02E11A60F586007F9E2C /* SymmetricOriginsRenderer.h */; };
@@ -38,6 +41,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		571804831A620942006BB4C5 /* SomewhereIn1993.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = SomewhereIn1993.fsh; sourceTree = "<group>"; };
+		571804851A620951006BB4C5 /* SomewhereIn1993Renderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SomewhereIn1993Renderer.m; sourceTree = "<group>"; };
+		571804861A620951006BB4C5 /* SomewhereIn1993Renderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SomewhereIn1993Renderer.h; sourceTree = "<group>"; };
 		577E02DD1A60F42D007F9E2C /* SymmetricOrigins.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = SymmetricOrigins.fsh; sourceTree = "<group>"; };
 		577E02DE1A60F42D007F9E2C /* CommonVertexShader.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = CommonVertexShader.vsh; sourceTree = "<group>"; };
 		577E02E11A60F586007F9E2C /* SymmetricOriginsRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SymmetricOriginsRenderer.h; sourceTree = "<group>"; };
@@ -145,6 +151,8 @@
 		57C10A0E1A5DBAEA002D4F58 /* ShaderToy */ = {
 			isa = PBXGroup;
 			children = (
+				571804861A620951006BB4C5 /* SomewhereIn1993Renderer.h */,
+				571804851A620951006BB4C5 /* SomewhereIn1993Renderer.m */,
 				577E02E11A60F586007F9E2C /* SymmetricOriginsRenderer.h */,
 				577E02E21A60F586007F9E2C /* SymmetricOriginsRenderer.m */,
 				57C10A0F1A5DBAEA002D4F58 /* MountainsRenderer.h */,
@@ -168,6 +176,7 @@
 		57C10A201A5E5BA2002D4F58 /* ShaderToy */ = {
 			isa = PBXGroup;
 			children = (
+				571804831A620942006BB4C5 /* SomewhereIn1993.fsh */,
 				577E02DD1A60F42D007F9E2C /* SymmetricOrigins.fsh */,
 				577E02DE1A60F42D007F9E2C /* CommonVertexShader.vsh */,
 				57C10A211A5E5BA2002D4F58 /* Mountains.fsh */,
@@ -209,6 +218,7 @@
 				57C109F21A5DB4C7002D4F58 /* SeascapeScreenSaverView.h in Headers */,
 				57C109F91A5DB4C7002D4F58 /* Matrix.h in Headers */,
 				57C10A131A5DBAEA002D4F58 /* MountainsRenderer.h in Headers */,
+				571804881A620951006BB4C5 /* SomewhereIn1993Renderer.h in Headers */,
 				57C109F71A5DB4C7002D4F58 /* ImageLoader.h in Headers */,
 				57C109F41A5DB4C7002D4F58 /* ESRenderer.h in Headers */,
 				57C109F61A5DB4C7002D4F58 /* GLUtil.h in Headers */,
@@ -279,6 +289,7 @@
 				57C10A021A5DB4C7002D4F58 /* WobblerShader.fsh in Resources */,
 				577E02DF1A60F42D007F9E2C /* SymmetricOrigins.fsh in Resources */,
 				57C10A031A5DB4C7002D4F58 /* WobblerShader.vsh in Resources */,
+				571804841A620942006BB4C5 /* SomewhereIn1993.fsh in Resources */,
 				57C109FF1A5DB4C7002D4F58 /* Day.jpg in Resources */,
 				57C10A2B1A5E5FEF002D4F58 /* tex11.png in Resources */,
 				57C10A2C1A5E5FEF002D4F58 /* tex12.png in Resources */,
@@ -299,6 +310,7 @@
 				577E02E41A60F586007F9E2C /* SymmetricOriginsRenderer.m in Sources */,
 				57C10A141A5DBAEA002D4F58 /* MountainsRenderer.m in Sources */,
 				57C10A161A5DBAEA002D4F58 /* SeascapeRenderer.m in Sources */,
+				571804871A620951006BB4C5 /* SomewhereIn1993Renderer.m in Sources */,
 				57C109F31A5DB4C7002D4F58 /* SeascapeScreenSaverView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
