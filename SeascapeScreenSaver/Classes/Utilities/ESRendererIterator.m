@@ -47,6 +47,7 @@
     [self addRenderer:@"SomewhereIn1993Renderer"];
     [self addRenderer:@"SymmetricOriginsRenderer"];
     [self addRenderer:@"MorningCityRenderer"];
+    [self addRenderer:@"MusicPiratesRenderer"];
 }
 
 -(void) addRenderer:(NSString*) rendererClassName {
