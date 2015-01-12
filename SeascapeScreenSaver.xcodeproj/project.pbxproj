@@ -13,6 +13,9 @@
 		5718048B1A620CD9006BB4C5 /* MorningCityRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 571804891A620CD9006BB4C5 /* MorningCityRenderer.m */; };
 		5718048C1A620CD9006BB4C5 /* MorningCityRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 5718048A1A620CD9006BB4C5 /* MorningCityRenderer.h */; };
 		5718048E1A620CE3006BB4C5 /* MorningCity.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 5718048D1A620CE3006BB4C5 /* MorningCity.fsh */; };
+		571804921A636CE1006BB4C5 /* CircularIterator.m in Sources */ = {isa = PBXBuildFile; fileRef = 571804911A636CE1006BB4C5 /* CircularIterator.m */; };
+		571804941A63704C006BB4C5 /* ESRendererIterator.h in Headers */ = {isa = PBXBuildFile; fileRef = 571804931A63704C006BB4C5 /* ESRendererIterator.h */; };
+		571804961A637317006BB4C5 /* ESRendererIterator.m in Sources */ = {isa = PBXBuildFile; fileRef = 571804951A637317006BB4C5 /* ESRendererIterator.m */; };
 		577E02DF1A60F42D007F9E2C /* SymmetricOrigins.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 577E02DD1A60F42D007F9E2C /* SymmetricOrigins.fsh */; };
 		577E02E01A60F42D007F9E2C /* CommonVertexShader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 577E02DE1A60F42D007F9E2C /* CommonVertexShader.vsh */; };
 		577E02E31A60F586007F9E2C /* SymmetricOriginsRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 577E02E11A60F586007F9E2C /* SymmetricOriginsRenderer.h */; };
@@ -50,6 +53,11 @@
 		571804891A620CD9006BB4C5 /* MorningCityRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MorningCityRenderer.m; sourceTree = "<group>"; };
 		5718048A1A620CD9006BB4C5 /* MorningCityRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MorningCityRenderer.h; sourceTree = "<group>"; };
 		5718048D1A620CE3006BB4C5 /* MorningCity.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = MorningCity.fsh; sourceTree = "<group>"; };
+		5718048F1A632CC8006BB4C5 /* CircularIterator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CircularIterator.h; sourceTree = "<group>"; };
+		571804901A636C61006BB4C5 /* CircularIteratorProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CircularIteratorProtocol.h; sourceTree = "<group>"; };
+		571804911A636CE1006BB4C5 /* CircularIterator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircularIterator.m; sourceTree = "<group>"; };
+		571804931A63704C006BB4C5 /* ESRendererIterator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESRendererIterator.h; sourceTree = "<group>"; };
+		571804951A637317006BB4C5 /* ESRendererIterator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESRendererIterator.m; sourceTree = "<group>"; };
 		577E02DD1A60F42D007F9E2C /* SymmetricOrigins.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = SymmetricOrigins.fsh; sourceTree = "<group>"; };
 		577E02DE1A60F42D007F9E2C /* CommonVertexShader.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = CommonVertexShader.vsh; sourceTree = "<group>"; };
 		577E02E11A60F586007F9E2C /* SymmetricOriginsRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SymmetricOriginsRenderer.h; sourceTree = "<group>"; };
@@ -120,6 +128,11 @@
 				57C109E31A5DB4C7002D4F58 /* ShaderUtil.h */,
 				57C109E41A5DB4C7002D4F58 /* ShaderUtil.m */,
 				57C109E51A5DB4C7002D4F58 /* Vector.h */,
+				571804901A636C61006BB4C5 /* CircularIteratorProtocol.h */,
+				5718048F1A632CC8006BB4C5 /* CircularIterator.h */,
+				571804911A636CE1006BB4C5 /* CircularIterator.m */,
+				571804931A63704C006BB4C5 /* ESRendererIterator.h */,
+				571804951A637317006BB4C5 /* ESRendererIterator.m */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -233,6 +246,7 @@
 				57C109F41A5DB4C7002D4F58 /* ESRenderer.h in Headers */,
 				57C109F61A5DB4C7002D4F58 /* GLUtil.h in Headers */,
 				57C109FD1A5DB4C7002D4F58 /* WobblerRenderer.h in Headers */,
+				571804941A63704C006BB4C5 /* ESRendererIterator.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,10 +331,12 @@
 				57C109F51A5DB4C7002D4F58 /* GLUtil.c in Sources */,
 				57C109FB1A5DB4C7002D4F58 /* ShaderUtil.m in Sources */,
 				57C109FE1A5DB4C7002D4F58 /* WobblerRenderer.mm in Sources */,
+				571804921A636CE1006BB4C5 /* CircularIterator.m in Sources */,
 				57C109F81A5DB4C7002D4F58 /* ImageLoader.m in Sources */,
 				577E02E41A60F586007F9E2C /* SymmetricOriginsRenderer.m in Sources */,
 				57C10A141A5DBAEA002D4F58 /* MountainsRenderer.m in Sources */,
 				5718048B1A620CD9006BB4C5 /* MorningCityRenderer.m in Sources */,
+				571804961A637317006BB4C5 /* ESRendererIterator.m in Sources */,
 				57C10A161A5DBAEA002D4F58 /* SeascapeRenderer.m in Sources */,
 				571804871A620951006BB4C5 /* SomewhereIn1993Renderer.m in Sources */,
 				57C109F31A5DB4C7002D4F58 /* SeascapeScreenSaverView.m in Sources */,
