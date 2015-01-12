@@ -35,7 +35,7 @@
 -(void) render;
 -(NSString*) getClassName;
 @property(nonatomic, assign) NSSize screenSize;
-@property(nonatomic, strong) id renderer;
+@property(nonatomic, strong) id<ESRenderer> renderer;
 @end
 
 #endif
