@@ -37,9 +37,5 @@
     return [self.objects objectAtIndex:self.position++ % count];
 }
 
--(unsigned long) count {
-    return [self.objects count];
-}
-
 @end
 

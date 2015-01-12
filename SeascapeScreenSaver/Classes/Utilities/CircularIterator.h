@@ -16,7 +16,6 @@
 -(id) init;
 -(void) addObject:(NSString*) className;
 -(id) next;
--(unsigned long) count;
 
 @property(nonatomic, strong) NSMutableArray* objects;
 @property(nonatomic, assign) int position;

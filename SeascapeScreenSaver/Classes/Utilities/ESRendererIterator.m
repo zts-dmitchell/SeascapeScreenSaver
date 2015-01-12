@@ -36,7 +36,7 @@
     
     self.screenSize = screenSize;
     
-    [self.renderer setScreenSize:screenSize];
+    [self.renderer setFrameSize:screenSize];
 }
 
 -(void) addDefaultRenderers {
