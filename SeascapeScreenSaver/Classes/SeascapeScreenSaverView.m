@@ -42,7 +42,8 @@ const int g_countOfRenderers = 2; // Disable the Mountains.3;
         
         self.frameNumber = 0;
         self.currentRendererId = 0;
-        self.renderer = [self nextRenderer];
+        //self.renderer = [self nextRenderer];
+        self.rendererIterator = [[ESRendererIterator alloc] init];
         // End New Code
         
         [self setAnimationTimeInterval:1/60.0];
@@ -137,18 +138,20 @@ const int g_countOfRenderers = 2; // Disable the Mountains.3;
 
     [self.glView.openGLContext makeCurrentContext];
 
-    if(++self.frameNumber % 10000 == 0) {
-        NSLog(@"Number of frames for %@ so far: %lu", [self.renderer name], self.frameNumber);
+    if(++self.frameNumber % 100 == 0) {
+        //NSLog(@"Number of frames for %@ so far: %lu", [self.renderer name], self.frameNumber);
 
         [self stopAnimation];
         
-        self.renderer = [self nextRenderer];
-        NSLog(@"Switched to new renderer: %@", [self.renderer name]);
+        [self.rendererIterator setNext];
+        //self.renderer = [self nextRenderer];
+        //NSLog(@"Switched to new renderer: %@", [self.renderer name]);
 
         [self startAnimation];
     }
     
-    [self.renderer render];
+    //[self.renderer render];
+    [self.rendererIterator render];
     
     glFlush();
     [self setNeedsDisplay:YES];
@@ -161,12 +164,13 @@ const int g_countOfRenderers = 2; // Disable the Mountains.3;
     [super setFrameSize:newSize];
     [self.glView setFrameSize:newSize];
     
-    if(self.renderer != nil)
-        [self.renderer setFrameSize:newSize];
+    //if(self.renderer != nil)
+        //[self.renderer setFrameSize:newSize];
+    [self.rendererIterator setFrameSize:newSize];
 }
 
 #pragma mark Iterater Stuff
-
+/*
 -(id<ESRenderer>) nextRenderer {
 
         self.renderer = nil;
@@ -193,4 +197,5 @@ const int g_countOfRenderers = 2; // Disable the Mountains.3;
     
     return self.renderer;
 }
+ */
 @end
