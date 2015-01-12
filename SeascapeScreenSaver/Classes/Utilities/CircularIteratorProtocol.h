@@ -9,8 +9,6 @@
 #ifndef SeascapeScreenSaver_CircularIteratorProtocol_h
 #define SeascapeScreenSaver_CircularIteratorProtocol_h
 
-
-
 @protocol CircularIteratorProtocol <NSObject>
 
 @required

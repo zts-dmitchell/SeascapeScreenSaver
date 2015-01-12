@@ -10,12 +10,6 @@
 //
 
 #import "SeascapeScreenSaverView.h"
-#import "SeascapeRenderer.h"
-#import "WobblerRenderer.h"
-#import "MountainsRenderer.h"
-#import "SomewhereIn1993Renderer.h"
-#import "SymmetricOriginsRenderer.h"
-#import "MorningCityRenderer.h"
 
 #import <OpenGL/gl.h>
 
@@ -24,8 +18,6 @@
 @end
 
 @implementation SeascapeScreenSaverView
-
-const int g_countOfRenderers = 2; // Disable the Mountains.3;
 
 - (instancetype)initWithFrame:(NSRect)frame isPreview:(BOOL)isPreview
 {
@@ -42,7 +34,6 @@ const int g_countOfRenderers = 2; // Disable the Mountains.3;
         
         self.frameNumber = 0;
         self.currentRendererId = 0;
-        //self.renderer = [self nextRenderer];
         self.rendererIterator = [[ESRendererIterator alloc] init];
         // End New Code
         
@@ -138,19 +129,17 @@ const int g_countOfRenderers = 2; // Disable the Mountains.3;
 
     [self.glView.openGLContext makeCurrentContext];
 
-    if(++self.frameNumber % 100 == 0) {
-        //NSLog(@"Number of frames for %@ so far: %lu", [self.renderer name], self.frameNumber);
+    if(self.frameNumber++ % 10000 == 0) {
+        NSLog(@"Number of frames for %@ so far: %lu", [self.rendererIterator getClassName], self.frameNumber);
 
         [self stopAnimation];
         
         [self.rendererIterator setNext];
-        //self.renderer = [self nextRenderer];
-        //NSLog(@"Switched to new renderer: %@", [self.renderer name]);
+        NSLog(@"Switched to new renderer: %@", [self.rendererIterator getClassName]);
 
         [self startAnimation];
     }
     
-    //[self.renderer render];
     [self.rendererIterator render];
     
     glFlush();
@@ -164,38 +153,7 @@ const int g_countOfRenderers = 2; // Disable the Mountains.3;
     [super setFrameSize:newSize];
     [self.glView setFrameSize:newSize];
     
-    //if(self.renderer != nil)
-        //[self.renderer setFrameSize:newSize];
     [self.rendererIterator setFrameSize:newSize];
 }
 
-#pragma mark Iterater Stuff
-/*
--(id<ESRenderer>) nextRenderer {
-
-        self.renderer = nil;
-
-    switch(self.currentRendererId++ % g_countOfRenderers) {
-        case 2:
-            self.renderer = [[MountainsRenderer alloc] init];
-            break;
-            
-        case 1:
-            self.renderer = [[WobblerRenderer alloc] init];
-            break;
-            
-        default:
-            NSLog(@"Unknown renderer"); // Fall through
-        //case 0: self.renderer = [[SeascapeRenderer alloc] init];
-        //case 0: self.renderer = [[SymmetricOriginsRenderer alloc] init];
-        //case 0: self.renderer = [[SomewhereIn1993Renderer alloc] init];
-        case 0: self.renderer = [[MorningCityRenderer alloc] init];
-            
-    }
-    
-    [self.renderer setFrameSize:self.screenSize];
-    
-    return self.renderer;
-}
- */
 @end

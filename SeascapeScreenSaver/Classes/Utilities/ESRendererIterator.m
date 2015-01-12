@@ -70,4 +70,7 @@
     [self.renderer render];
 }
 
+-(NSString*) getClassName {
+    return [self.renderer description];
+}
 @end

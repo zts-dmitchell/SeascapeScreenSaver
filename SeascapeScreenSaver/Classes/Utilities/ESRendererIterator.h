@@ -33,7 +33,7 @@
 -(void) addRenderer:(NSString*) renderer;
 -(void) setNext;
 -(void) render;
-
+-(NSString*) getClassName;
 @property(nonatomic, assign) NSSize screenSize;
 @property(nonatomic, strong) id renderer;
 @end
