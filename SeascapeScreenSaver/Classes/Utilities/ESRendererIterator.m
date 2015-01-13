@@ -32,11 +32,40 @@
     return self;
 }
 
+-(id) initWithArrayOfRenderers:(NSArray*) arrayOfRenderers {
+
+    self = [super init];
+    
+    if(self != nil) {
+        
+        if(arrayOfRenderers == nil) {
+            NSLog(@"'arrayOfRenderers' is nil! Using default list of renderers.");
+            [self addDefaultRenderers];
+        } else {
+            [self addRenderersFromArray:arrayOfRenderers];
+        }
+    }
+    
+    return self;
+}
+
 -(void) setFrameSize:(NSSize) screenSize {
     
     self.screenSize = screenSize;
     
     [self.renderer setFrameSize:screenSize];
+}
+
+-(void) addRenderersFromArray:(NSArray*) arrayOfRenderers {
+
+    for(NSString* renderer in arrayOfRenderers) {
+        if(NSClassFromString(renderer) == nil) {
+            NSLog(@"Renderer class not found: %@", renderer);
+        } else {
+            NSLog(@"Adding renderer: %@", renderer);
+            [self addRenderer:renderer];
+        }
+    }
 }
 
 -(void) addDefaultRenderers {
@@ -67,7 +96,6 @@
 }
 
 -(void) render {
-    NSLog(@"About to render");
     [self.renderer render];
 }
 

@@ -10,6 +10,7 @@
 //
 
 #import "SeascapeScreenSaverView.h"
+#import "PropertiesLoader.h"
 
 #import <OpenGL/gl.h>
 
@@ -34,7 +35,22 @@
         
         self.frameNumber = 0;
         self.currentRendererId = 0;
-        self.rendererIterator = [[ESRendererIterator alloc] init];
+        
+        self.properties = [PropertiesLoader loadProperties:@"properties" ofType:@"plist"];
+        
+        // get iterationsPerRenderer:
+        NSDictionary* runInfo = [self.properties objectForKey:@"run-info"];
+        
+        NSNumber* objNumber = [runInfo objectForKey:@"iterations-per-renderer"];
+        
+        self.iterationsPerRenderer = [objNumber intValue];
+        
+        NSLog(@"############## Iterations per renderer: %lu", self.iterationsPerRenderer);
+        
+        NSArray* renderers = [self.properties objectForKey:@"renderers"];
+        
+        self.rendererIterator = [[ESRendererIterator alloc] initWithArrayOfRenderers:renderers];
+        
         // End New Code
         
         [self setAnimationTimeInterval:1/60.0];
@@ -129,13 +145,12 @@
 
     [self.glView.openGLContext makeCurrentContext];
 
-    if(self.frameNumber++ % 10000 == 0) {
-        NSLog(@"Number of frames for %@ so far: %lu", [self.rendererIterator getClassName], self.frameNumber);
+    if(self.frameNumber++ % self.iterationsPerRenderer == 0) {
 
         [self stopAnimation];
         
         [self.rendererIterator setNext];
-        NSLog(@"Switched to new renderer: %@", [self.rendererIterator getClassName]);
+        NSLog(@"Switched to new renderer, '%@', after %lu frames.", [self.rendererIterator getClassName], self.frameNumber);
 
         [self startAnimation];
     }

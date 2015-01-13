@@ -19,7 +19,9 @@
 @property (nonatomic, assign) int currentRendererId;
 @property (nonatomic, assign) unsigned long frameNumber;
 @property (nonatomic, assign) NSSize screenSize;
+@property (nonatomic, assign) unsigned long iterationsPerRenderer;
 @property (nonatomic, strong) ESRendererIterator* rendererIterator;
+@property (nonatomic, strong) NSDictionary* properties;
 - (NSOpenGLView*) createGLView;
 
 @end
