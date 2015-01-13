@@ -96,7 +96,6 @@
 }
 
 -(void) render {
-    NSLog(@"About to render");
     [self.renderer render];
 }
 
