@@ -29,6 +29,7 @@
 @interface ESRendererIterator : CircularIterator
 
 -(id) init;
+-(id) initWithArrayOfRenderers:(NSArray*) arrayOfRenderers;
 -(void) setFrameSize:(NSSize) screenSize;
 -(void) addRenderer:(NSString*) renderer;
 -(void) setNext;
