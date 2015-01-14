@@ -169,9 +169,12 @@ enum {
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     glGenerateMipmap(GL_TEXTURE_2D);
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, rect.size.width, rect.size.height, 0,
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, rect.size.width, rect.size.height, 0,
                  (([bitmapimagerep0 hasAlpha])?(GL_RGBA):(GL_RGB)), GL_UNSIGNED_BYTE,
                  [bitmapimagerep0 bitmapData]);
+    
+    m_uniforms.iChannel0Handle = glGetUniformLocation(m_program, "iChannel0");
+    glUniform1i(m_program, 0);
     
     /* Channel 1 Texture */
     rect = NSMakeRect(0, 0, [bitmapimagerep1 pixelsWide], [bitmapimagerep1 pixelsHigh]);
@@ -188,10 +191,15 @@ enum {
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     glGenerateMipmap(GL_TEXTURE_2D);
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, rect.size.width, rect.size.height, 0,
-                 (([bitmapimagerep1 hasAlpha])?(GL_RGBA):(GL_RGB)), GL_UNSIGNED_BYTE,
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, rect.size.width, rect.size.height, 0,
+                 (([bitmapimagerep1 hasAlpha])?(GL_RGBA):(GL_RGB)),
+                 GL_UNSIGNED_BYTE,
                  [bitmapimagerep1 bitmapData]);
     
+    m_uniforms.iChannel1Handle = glGetUniformLocation(m_program, "iChannel1");
+    glUniform1i(m_program, 1);
+    
+
     /*
      function createGLTexture( ctx, image, format, texture )
      {

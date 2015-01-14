@@ -69,7 +69,7 @@
 - (NSOpenGLView *)createGLView
 {
     NSOpenGLPixelFormatAttribute attribs[] = {
-        NSOpenGLPFAAccelerated,
+        NSOpenGLPFAAccelerated, NSOpenGLPFANoRecovery,
         0
     };
     
