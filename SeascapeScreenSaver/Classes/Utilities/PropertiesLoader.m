@@ -12,6 +12,23 @@
 
 @implementation PropertiesLoader
 
++(NSDictionary*) loadProperties {
+    
+    NSDictionary* dict = [PropertiesLoader loadProperties:@"SeascapeScreenSaver" ofType:@"plist"];
+    
+    if(dict == nil) {
+        NSLog(@"Failed to load main prooperties file: 'SeascapeScreenSaver.plist'. Loading default properties");
+        
+        dict = [PropertiesLoader loadProperties:@"starter.SeascapeScreenSaver" ofType:@"plist"];
+
+        if(dict == nil) {
+            NSLog(@"Failed to load default properties file, 'starter.SeascapeScreenSaver.plist'. What happens next may not be good.");
+        }
+    }
+    
+    return dict;
+}
+
 +(NSDictionary*) loadProperties:(NSString*) propertiesFile ofType:(NSString*) ext {
     
     NSString* path = [[NSBundle

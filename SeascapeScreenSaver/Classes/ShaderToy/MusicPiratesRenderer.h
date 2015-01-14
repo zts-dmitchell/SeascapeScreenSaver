@@ -6,8 +6,8 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#include "ESRenderer.h"
-#include "ShaderUtil.h"
+#import "ESRenderer.h"
+#import "ShaderUtil.h"
 
 typedef struct MusicPiratesBuffers {
     GLuint VertexBuffer;

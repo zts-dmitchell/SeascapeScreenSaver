@@ -1,0 +1,38 @@
+Notes Regarding the Refactorization of the ShaderToy Classes.
+
+
+Motivation: To prevent having to duplicate, for the most part, ShaderToy renderer classes whenever a new ShaderToy renderer is added.  The process of adding a new ShaderToy will be to determine which class to use (e.g., those that use textures vs. those that don't), add the fragment shader and, done.
+
+
+Create a texture class for those ShaderToys that require them:
+
+    ShaderToyTexture* shaderToyTexture =
+        [[ShaderToyTexture alloc] initWithTextures:arrayOfTextures];
+
+    ShaderTexture* texture = [[ShaderTexture alloc] init];
+
+    // Internally, iterate over arrayOfTextures
+    [texture addTexture:@"tex11" ofType:@"png"];
+    [texture addTexture:@"tex12" ofType:@"png"];
+
+    // Part of setup phase
+    [texture setPostLinkUniforms];
+
+    // Running phase
+    [texture render]; // Calls activate and bind
+
+    // Cleanup phase
+    [texture destroy];
+
+    addTexture
+    uniform
+    setPostLinkUniforms
+    destroy
+
+    ShaderToyRenderer* shaderToyRenderer =
+        [ShaderToyRenderer rendererWithFragment:fragment.fsh ofType "fsh" andTexture:shaderToyTexture];
+
+    // Or, no texute
+    ShaderToyRenderer* shaderToyRenderer =
+        [ShaderToyRenderer rendererWithFragment:fragment.fsh ofType "fsh"];
+

@@ -8,14 +8,7 @@
 #pragma once
 #import <Foundation/Foundation.h>
 #import <OpenGL/gl.h>
-
-@protocol Attributes <NSObject>
-
-- (void) setProgram: (GLuint) program;
-@optional
-- (GLuint) bindAttributes;
-- (GLuint) setPostLinkUniforms;
-@end
+#import "Attributes.h"
 
 
 @interface ShaderUtil : NSObject

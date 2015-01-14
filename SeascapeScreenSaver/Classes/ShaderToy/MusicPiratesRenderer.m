@@ -8,6 +8,7 @@
 #import "MusicPiratesRenderer.h"
 #import "ShaderUtil.h"
 #import "ImageLoader.h"
+#import "ShaderTexture.h"
 #import <AppKit/AppKit.h>
 
 #include "GLUtil.h"
@@ -252,6 +253,7 @@ enum {
     m_uniforms.iGlobalTimeHandle = glGetUniformLocation(m_program, "iGlobalTime");
     m_uniforms.iResolutionHandle = glGetUniformLocation(m_program, "iResolution");
     m_uniforms.iMouseHandle      = glGetUniformLocation(m_program, "iMouse");
+    
     m_uniforms.iChannel0Handle   = glGetUniformLocation(m_program, "iChannel0");
     
     if( m_uniforms.iChannel0Handle == -1 )
@@ -275,8 +277,9 @@ enum {
         [self destroyVBO];
     }
     
-    GLfloat vertices[] = { -1.0, -1.0,   1.0, -1.0,   -1.0,  1.0,
-                            1.0, -1.0,   1.0,  1.0,   -1.0,  1.0 };
+    const GLfloat vertices[] =
+        { -1.0, -1.0,   1.0, -1.0,   -1.0,  1.0,
+           1.0, -1.0,   1.0,  1.0,   -1.0,  1.0 };
     
     // Gen
     // Bind

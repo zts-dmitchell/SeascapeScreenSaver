@@ -36,20 +36,27 @@
         self.frameNumber = 0;
         self.currentRendererId = 0;
         
-        self.properties = [PropertiesLoader loadProperties:@"properties" ofType:@"plist"];
+        // It knows what to load.
+        self.properties = [PropertiesLoader loadProperties];
         
-        // get iterationsPerRenderer:
-        NSDictionary* runInfo = [self.properties objectForKey:@"run-info"];
+        if(self.properties != nil) {
+            // get iterationsPerRenderer:
+            NSDictionary* runInfo = [self.properties objectForKey:@"run-info"];
+            
+            NSNumber* objNumber = [runInfo objectForKey:@"iterations-per-renderer"];
+            
+            self.iterationsPerRenderer = [objNumber intValue];
+            
+            NSLog(@"Iterations per renderer: %lu", self.iterationsPerRenderer);
+            
+            NSArray* renderers = [self.properties objectForKey:@"renderers"];
+            
+            self.rendererIterator = [[ESRendererIterator alloc] initWithArrayOfRenderers:renderers];
+        } else {
+            
+            
+        }
         
-        NSNumber* objNumber = [runInfo objectForKey:@"iterations-per-renderer"];
-        
-        self.iterationsPerRenderer = [objNumber intValue];
-        
-        NSLog(@"############## Iterations per renderer: %lu", self.iterationsPerRenderer);
-        
-        NSArray* renderers = [self.properties objectForKey:@"renderers"];
-        
-        self.rendererIterator = [[ESRendererIterator alloc] initWithArrayOfRenderers:renderers];
         
         // End New Code
         

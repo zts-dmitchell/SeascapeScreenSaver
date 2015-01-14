@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>renderers</key>
+	<array>
+		<string>MusicPiratesRenderer</string>
+		<string>SymmetricOriginsRenderer</string>
+		<string>SomewhereIn1993Renderer</string>
+		<string>SeascapeRenderer</string>
+		<string>MountainsRenderer</string>
+		<string>MorningCityRenderer</string>
+	</array>
+	<key>run-info</key>
+	<dict>
+		<key>current-frame</key>
+		<integer>1</integer>
+		<key>current-renderer</key>
+		<string>SeascapeRenderer</string>
+		<key>iterations-per-renderer</key>
+		<integer>10000</integer>
+	</dict>
+</dict>
+</plist>
