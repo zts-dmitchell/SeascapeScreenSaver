@@ -16,7 +16,7 @@ Create a texture class for those ShaderToys that require them:
     [texture addTexture:@"tex12" ofType:@"png"];
 
     // Part of setup phase
-    [texture setPostLinkUniforms];
+    [texture setupTextures:m_program];
 
     // Running phase
     [texture render]; // Calls activate and bind
