@@ -164,6 +164,7 @@
 				57C109E31A5DB4C7002D4F58 /* ShaderUtil.h */,
 				57C109E41A5DB4C7002D4F58 /* ShaderUtil.m */,
 				57C109E51A5DB4C7002D4F58 /* Vector.h */,
+				571804B11A6500BD006BB4C5 /* Attributes.h */,
 				571804901A636C61006BB4C5 /* CircularIteratorProtocol.h */,
 				5718048F1A632CC8006BB4C5 /* CircularIterator.h */,
 				571804911A636CE1006BB4C5 /* CircularIterator.m */,
@@ -173,7 +174,6 @@
 				571804A31A6492C2006BB4C5 /* PropertiesLoader.m */,
 				571804AB1A64FF1D006BB4C5 /* ShaderTexture.h */,
 				571804AD1A64FF6D006BB4C5 /* ShaderTexture.m */,
-				571804B11A6500BD006BB4C5 /* Attributes.h */,
 				571804B61A65A9AA006BB4C5 /* ShaderTextureData.h */,
 				571804B41A65A98A006BB4C5 /* ShaderTextureData.m */,
 			);

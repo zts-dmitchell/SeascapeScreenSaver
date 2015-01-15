@@ -14,7 +14,8 @@
 -(id) init {
     self = [super init];
     if(self != nil) {
-        self.textureHandle = -1;
+        self.textureNumber = 0;
+        self.textureHandle = 0;
         self.uniformHandle = -1;
         self.pathToTexture = nil;
     }

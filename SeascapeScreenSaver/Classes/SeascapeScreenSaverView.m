@@ -51,9 +51,11 @@
             
             NSArray* renderers = [self.properties objectForKey:@"renderers"];
             
+            assert(renderers != nil);
+            
             self.rendererIterator = [[ESRendererIterator alloc] initWithArrayOfRenderers:renderers];
         } else {
-            
+            NSLog(@"Unable to load properties.");
             
         }
         

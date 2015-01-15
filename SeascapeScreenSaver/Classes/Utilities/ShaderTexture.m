@@ -35,10 +35,13 @@
     if(data.pathToTexture == nil) {
         NSLog(@"Unable to find texture: %@.%@", filename, ext);
         return false;
+    } else {
+        NSLog(@"Successfully loaded path-to-texture: %@", data.pathToTexture);
     }
     
     const unsigned int count = (unsigned int)self.shaderTextureData.count;
     
+    NSLog(@"Setting texture-number: %d", count);
     data.textureNumber = count;
     
     [self.shaderTextureData addObject:data];
@@ -50,7 +53,8 @@
 
 typedef void (^CompletionBlockWithProgram)(ShaderTextureData*, GLuint);
 
-void (^setupTextures)(ShaderTextureData*, GLuint) =^ (ShaderTextureData* data, GLuint program) {
+void (^prepareATexture)(ShaderTextureData*, GLuint) =^ (ShaderTextureData* data, GLuint program) {
+    
     NSLog(@"Setup textures");
     
     NSBitmapImageRep *bitmapimagerep = LoadImage(data.pathToTexture, 0);
@@ -81,38 +85,38 @@ void (^setupTextures)(ShaderTextureData*, GLuint) =^ (ShaderTextureData* data, G
                  (([bitmapimagerep hasAlpha])?(GL_RGBA):(GL_RGB)), GL_UNSIGNED_BYTE,
                  [bitmapimagerep bitmapData]);
     
-    char szUniformName[20];
+    char szUniformName[32];
     
-    sprintf(szUniformName, "iChannel%d", data.textureNumber);
+    snprintf(szUniformName, 32, "iChannel%d", data.textureNumber);
     
     data.uniformHandle = glGetUniformLocation(program, szUniformName);
     
     glUniform1i(program, data.textureNumber);
+    
+    glBindTexture(GL_TEXTURE_2D, 0);
+
 };
 
 void (^renderTextures)(ShaderTextureData*,GLuint) =^ (ShaderTextureData* data, GLuint ignored) {
-    NSLog(@"Rendering textures");
+    
     glActiveTexture(GL_TEXTURE_2D + data.textureNumber);
     glBindTexture(GL_TEXTURE_2D, data.textureHandle);
 };
 
 void (^deleteTextures)(ShaderTextureData*, GLuint) =^ (ShaderTextureData* data, GLuint ignored) {
-    NSLog(@"Deleting textures");
+    
+    if(data.textureHandle == 0) {
+        NSLog(@"Texture not initialzied: %@", data.pathToTexture);
+        return;
+    }
+    
+    NSLog(@"Deleting texture: %@", data.pathToTexture);
     GLuint texture = data.textureHandle;
     glDeleteTextures(1, &texture);
-    data.textureHandle = -1;
+    data.textureHandle = 0;
+    
+    NSLog(@"Done deleting texture.");
 };
-
-//-(void) iterator:(CompletionBlock) completionBlock {
-//    
-//    const unsigned long count = (unsigned long)self.shaderTextureData.count;
-//
-//    for(int i=0; i<count; ++i) {
-//        
-//        ShaderTextureData* data = [self.shaderTextureData objectAtIndex:i];
-//        completionBlock(data);
-//    }
-//}
 
 -(void) iterator:(CompletionBlockWithProgram) completionBlock withProgram:(GLuint) program {
     
@@ -121,16 +125,14 @@ void (^deleteTextures)(ShaderTextureData*, GLuint) =^ (ShaderTextureData* data, 
     for(int i=0; i<count; ++i) {
         
         ShaderTextureData* data = [self.shaderTextureData objectAtIndex:i];
-        
-        //if(
+    
         completionBlock(data, program);
     }
 }
 
--(void) setupTextures:(GLuint) program {
-    self.program = program;
+-(void) prepareTextures:(GLuint) program {
     
-    [self iterator:setupTextures withProgram:program];
+    [self iterator:prepareATexture withProgram:program];
 }
 
 
@@ -144,17 +146,21 @@ void (^deleteTextures)(ShaderTextureData*, GLuint) =^ (ShaderTextureData* data, 
 #pragma mark Drawing/Rendering
 -(void) render {
     
+#ifdef RENDER_WITH_ITERATOR
     [self iterator:renderTextures withProgram:0];
+#else
 //    const unsigned long count = (unsigned long)self.shaderTextureData.count;
-//
-//    ShaderTextureData* data;
-//
-//    for(int i=0; i<count; ++i) {
-//        
-//        // Textures
-//        glActiveTexture(data.textureId);
-//        glBindTexture(GL_TEXTURE_2D, data.textureHandle);
-//    }
+
+    ShaderTextureData* data;
+    const unsigned long count = (unsigned long)self.shaderTextureData.count;
+
+    for(int i=0; i<count; ++i) {
+        
+        // Textures
+        glActiveTexture(GL_TEXTURE_2D + data.textureNumber);
+        glBindTexture(GL_TEXTURE_2D, data.textureHandle);
+    }
+#endif
 }
 
 @end

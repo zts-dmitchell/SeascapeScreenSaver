@@ -14,15 +14,9 @@
 
 -(id) init;
 -(bool) addTexture:(NSString*) filename ofType:(NSString*) ext;
--(void) setupTextures:(GLuint) program;
+-(void) prepareTextures:(GLuint) program;
 -(void) render;
+//-(void) dealloc;
 
-/*
-// Protocol Stuff
-- (void) setProgram: (GLuint) program;
-- (GLuint) bindAttributes;
-- (GLuint) setPostLinkUniforms;
-*/
 @property (nonatomic, strong) NSMutableArray* shaderTextureData;
-@property (nonatomic, assign) GLuint program;
 @end
