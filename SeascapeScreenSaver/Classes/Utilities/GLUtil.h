@@ -14,7 +14,7 @@ extern "C" {
 int GLUtil_CheckExtension( const char* pExtensionToCheck );
 
 // Utility Functions
-#if 0
+#if 1
 #define printOpenGLError() printOglError(__FILE__, __LINE__)
 #else
 #define printOpenGLError()

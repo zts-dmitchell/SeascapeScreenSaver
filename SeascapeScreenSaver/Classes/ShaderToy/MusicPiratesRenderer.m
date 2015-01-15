@@ -12,6 +12,9 @@
 
 #import <AppKit/AppKit.h>
 
+#define SHADERTEXTURE
+
+
 // Attribute index.
 enum {
     ATTRIB_VERTEX,
@@ -37,8 +40,9 @@ enum {
             return nil;
         }
         
+#ifdef SHADERTEXTURE
         self.shaderTextures = [[ShaderTexture alloc] init];
-        
+#endif
         m_buffers.VertexBuffer = -1;
         m_iGlobalTime = 0.0;
         m_iMouse.x = m_iMouse.y = 3;
@@ -58,9 +62,10 @@ enum {
 
 - (void) dealloc {
     
-//    glDeleteTextures(1, &m_textures.m_iChannel0);
-//    glDeleteTextures(1, &m_textures.m_iChannel1);
-    
+#ifndef SHADERTEXTURE
+    glDeleteTextures(1, &m_textures.m_iChannel0);
+    glDeleteTextures(1, &m_textures.m_iChannel1);
+#endif
     m_textures.m_iChannel0 = m_textures.m_iChannel1 = -1;
     
     [self destroyVBO];
@@ -100,7 +105,16 @@ enum {
     m_iGlobalTime += 0.1;
     glUniform1f(m_uniforms.iGlobalTimeHandle, m_iGlobalTime); printOpenGLError();
     
+#ifdef SHADERTEXTURE
     [self.shaderTextures render];
+#else
+    // Textures
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D, m_textures.m_iChannel0);
+
+    glActiveTexture(GL_TEXTURE1);
+    glBindTexture(GL_TEXTURE_2D, m_textures.m_iChannel1);
+#endif
     
     if( !m_bIsLoaded ) {
        
@@ -117,118 +131,121 @@ enum {
 //        glBindTexture(GL_TEXTURE_2D, m_textures.m_iChannel1);
     }
     
+    
     glDrawArrays(GL_TRIANGLES, 0, 6);  printOpenGLError();
     glDisableVertexAttribArray(m_attributes.pos);  printOpenGLError();
 
-    glBindTexture(GL_TEXTURE_2D, 0);
+    //glBindTexture(GL_TEXTURE_2D, 0);
 
     glUseProgram(0);
 }
 
 - (BOOL) setupTextures {
-    
+
+#ifdef SHADERTEXTURE
     [self.shaderTextures addTexture:@"tex03" ofType:@"jpg"];
-    [self.shaderTextures addTexture:@"Day" ofType:@"jpg"];
+    [self.shaderTextures addTexture:@"tex12" ofType:@"png"];
     
     [self.shaderTextures prepareTextures:m_program];
+#else
+    NSBundle *bundle;
+    NSString * iChannel0Str, *iChannel1Str;
+    NSBitmapImageRep *bitmapimagerep0, *bitmapimagerep1;
+    NSRect rect;
     
-//    NSBundle *bundle;
-//    NSString * iChannel0Str, *iChannel1Str;
-//    NSBitmapImageRep *bitmapimagerep0, *bitmapimagerep1;
-//    NSRect rect;
-//    
-//    bundle = [NSBundle bundleForClass: [self class]];
-//    
-//    iChannel0Str = [bundle pathForResource: @"tex03" ofType: @"jpg"];
-//    iChannel1Str = [bundle pathForResource: @"Day"   ofType: @"jpg"];
-//    
-//    if( iChannel0Str == nil ) {
-//        NSLog(@"Unable to load first image file." );
-//        return false;
-//    } else if( iChannel1Str == nil) {
-//        NSLog(@"Unable to load second image file." );
-//        return false;
-//    } else {
-//        bitmapimagerep0 = LoadImage(iChannel0Str, 0);
-//        
-//        if( bitmapimagerep0 == nil ) {
-//            NSLog(@"Unable to load first image file: %@", iChannel0Str );
-//            return false;
-//        }
-//        
-//        bitmapimagerep1 = LoadImage(iChannel1Str, 0);
-//        
-//        if( bitmapimagerep1 == nil ) {
-//            NSLog(@"Unable to load second image file: %@", iChannel1Str );
-//            return false;
-//        }
-//    }
-//    
-//    /* Channel 0 Texture */
-//    rect = NSMakeRect(0, 0, [bitmapimagerep0 pixelsWide], [bitmapimagerep0 pixelsHigh]);
-//    
-//    glActiveTexture(GL_TEXTURE0);
-//    
-//    // Load the texture
-//    glGenTextures(1, &m_textures.m_iChannel0);
-//    glBindTexture(GL_TEXTURE_2D, m_textures.m_iChannel0);
-//    glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
-//    
-//    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-//    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-//    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-//    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-//    glGenerateMipmap(GL_TEXTURE_2D);
-//    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, rect.size.width, rect.size.height, 0,
-//                 (([bitmapimagerep0 hasAlpha])?(GL_RGBA):(GL_RGB)), GL_UNSIGNED_BYTE,
-//                 [bitmapimagerep0 bitmapData]);
-//    
-//    m_uniforms.iChannel0Handle = glGetUniformLocation(m_program, "iChannel0");
-//    glUniform1i(m_program, 0);
-//    
-//    /* Channel 1 Texture */
-//    rect = NSMakeRect(0, 0, [bitmapimagerep1 pixelsWide], [bitmapimagerep1 pixelsHigh]);
-//    
-//    glActiveTexture(GL_TEXTURE1);
-//    
-//    // Load the texture
-//    glGenTextures(1, &m_textures.m_iChannel1);
-//    glBindTexture(GL_TEXTURE_2D, m_textures.m_iChannel1);
-//    glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
-//    
-//    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-//    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-//    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-//    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-//    glGenerateMipmap(GL_TEXTURE_2D);
-//    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, rect.size.width, rect.size.height, 0,
-//                 (([bitmapimagerep1 hasAlpha])?(GL_RGBA):(GL_RGB)),
-//                 GL_UNSIGNED_BYTE,
-//                 [bitmapimagerep1 bitmapData]);
-//    
-//    m_uniforms.iChannel1Handle = glGetUniformLocation(m_program, "iChannel1");
-//    glUniform1i(m_program, 1);
-//    
-//
-//    /*
-//     function createGLTexture( ctx, image, format, texture )
-//     {
-//     if( ctx==null ) return;
-//     
-//     ctx.bindTexture(   ctx.TEXTURE_2D, texture);
-//     ctx.pixelStorei(   ctx.UNPACK_FLIP_Y_WEBGL, false );
-//     
-//     ctx.texImage2D(    ctx.TEXTURE_2D, 0, format, ctx.RGBA, ctx.UNSIGNED_BYTE, image);
-//     
-//     ctx.texParameteri( ctx.TEXTURE_2D, ctx.TEXTURE_MAG_FILTER, ctx.LINEAR);
-//     ctx.texParameteri( ctx.TEXTURE_2D, ctx.TEXTURE_MIN_FILTER, ctx.LINEAR_MIPMAP_LINEAR);
-//     ctx.texParameteri( ctx.TEXTURE_2D, ctx.TEXTURE_WRAP_S, ctx.REPEAT);
-//     ctx.texParameteri( ctx.TEXTURE_2D, ctx.TEXTURE_WRAP_T, ctx.REPEAT);
-//     ctx.generateMipmap(ctx.TEXTURE_2D);
-//     ctx.bindTexture(ctx.TEXTURE_2D, null);
-//     }
-//     
-//     */
+    bundle = [NSBundle bundleForClass: [self class]];
+    
+    iChannel0Str = [bundle pathForResource: @"tex03" ofType: @"jpg"];
+    iChannel1Str = [bundle pathForResource: @"Day"   ofType: @"jpg"];
+    
+    if( iChannel0Str == nil ) {
+        NSLog(@"Unable to load first image file." );
+        return false;
+    } else if( iChannel1Str == nil) {
+        NSLog(@"Unable to load second image file." );
+        return false;
+    } else {
+        bitmapimagerep0 = LoadImage(iChannel0Str, 0);
+        
+        if( bitmapimagerep0 == nil ) {
+            NSLog(@"Unable to load first image file: %@", iChannel0Str );
+            return false;
+        }
+        
+        bitmapimagerep1 = LoadImage(iChannel1Str, 0);
+        
+        if( bitmapimagerep1 == nil ) {
+            NSLog(@"Unable to load second image file: %@", iChannel1Str );
+            return false;
+        }
+    }
+    
+    /* Channel 0 Texture */
+    rect = NSMakeRect(0, 0, [bitmapimagerep0 pixelsWide], [bitmapimagerep0 pixelsHigh]);
+    
+    glActiveTexture(GL_TEXTURE0);
+    
+    // Load the texture
+    glGenTextures(1, &m_textures.m_iChannel0);
+    glBindTexture(GL_TEXTURE_2D, m_textures.m_iChannel0);
+    glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
+    
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glGenerateMipmap(GL_TEXTURE_2D);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, rect.size.width, rect.size.height, 0,
+                 (([bitmapimagerep0 hasAlpha])?(GL_RGBA):(GL_RGB)), GL_UNSIGNED_BYTE,
+                 [bitmapimagerep0 bitmapData]);
+    
+    m_uniforms.iChannel0Handle = glGetUniformLocation(m_program, "iChannel0");
+    glUniform1i(m_uniforms.iChannel0Handle, 0);
+    
+    /* Channel 1 Texture */
+    rect = NSMakeRect(0, 0, [bitmapimagerep1 pixelsWide], [bitmapimagerep1 pixelsHigh]);
+    
+    glActiveTexture(GL_TEXTURE1);
+    
+    // Load the texture
+    glGenTextures(1, &m_textures.m_iChannel1);
+    glBindTexture(GL_TEXTURE_2D, m_textures.m_iChannel1);
+    glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
+    
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glGenerateMipmap(GL_TEXTURE_2D);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, rect.size.width, rect.size.height, 0,
+                 (([bitmapimagerep1 hasAlpha])?(GL_RGBA):(GL_RGB)),
+                 GL_UNSIGNED_BYTE,
+                 [bitmapimagerep1 bitmapData]);
+    
+    m_uniforms.iChannel1Handle = glGetUniformLocation(m_program, "iChannel1");
+    glUniform1i(m_uniforms.iChannel1Handle, 1);
+    
+
+    /*
+     function createGLTexture( ctx, image, format, texture )
+     {
+     if( ctx==null ) return;
+     
+     ctx.bindTexture(   ctx.TEXTURE_2D, texture);
+     ctx.pixelStorei(   ctx.UNPACK_FLIP_Y_WEBGL, false );
+     
+     ctx.texImage2D(    ctx.TEXTURE_2D, 0, format, ctx.RGBA, ctx.UNSIGNED_BYTE, image);
+     
+     ctx.texParameteri( ctx.TEXTURE_2D, ctx.TEXTURE_MAG_FILTER, ctx.LINEAR);
+     ctx.texParameteri( ctx.TEXTURE_2D, ctx.TEXTURE_MIN_FILTER, ctx.LINEAR_MIPMAP_LINEAR);
+     ctx.texParameteri( ctx.TEXTURE_2D, ctx.TEXTURE_WRAP_S, ctx.REPEAT);
+     ctx.texParameteri( ctx.TEXTURE_2D, ctx.TEXTURE_WRAP_T, ctx.REPEAT);
+     ctx.generateMipmap(ctx.TEXTURE_2D);
+     ctx.bindTexture(ctx.TEXTURE_2D, null);
+     }
+     
+     */
+#endif
     return true;
 }
 
@@ -272,16 +289,17 @@ enum {
     m_uniforms.iResolutionHandle = glGetUniformLocation(m_program, "iResolution");
     m_uniforms.iMouseHandle      = glGetUniformLocation(m_program, "iMouse");
     
-//    m_uniforms.iChannel0Handle   = glGetUniformLocation(m_program, "iChannel0");
-//    
-//    if( m_uniforms.iChannel0Handle == -1 )
-//        NSLog(@"Failed to get uniform location for 'iChannel0'");
-//    
-//    m_uniforms.iChannel1Handle = glGetUniformLocation(m_program, "iChannel1");
-//    
-//    if( m_uniforms.iChannel1Handle == -1 )
-//        NSLog(@"Failed to get uniform location for 'iChannel1'");
+#ifndef SHADERTEXTURE
+    m_uniforms.iChannel0Handle   = glGetUniformLocation(m_program, "iChannel0");
     
+    if( m_uniforms.iChannel0Handle == -1 )
+        NSLog(@"Failed to get uniform location for 'iChannel0'");
+    
+    m_uniforms.iChannel1Handle = glGetUniformLocation(m_program, "iChannel1");
+    
+    if( m_uniforms.iChannel1Handle == -1 )
+        NSLog(@"Failed to get uniform location for 'iChannel1'");
+#endif
     return GL_NO_ERROR;
 }
 

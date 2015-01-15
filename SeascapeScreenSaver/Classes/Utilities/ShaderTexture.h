@@ -16,7 +16,6 @@
 -(bool) addTexture:(NSString*) filename ofType:(NSString*) ext;
 -(void) prepareTextures:(GLuint) program;
 -(void) render;
-//-(void) dealloc;
 
 @property (nonatomic, strong) NSMutableArray* shaderTextureData;
 @end

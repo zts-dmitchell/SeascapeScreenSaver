@@ -10,6 +10,7 @@
 #import <AppKit/AppKit.h>
 #import "ShaderTexture.h"
 #import "ImageLoader.h"
+#include "GLUtil.h"
 
 @implementation ShaderTexture
 
@@ -66,41 +67,49 @@ void (^prepareATexture)(ShaderTextureData*, GLuint) =^ (ShaderTextureData* data,
     
     NSRect rect = NSMakeRect(0, 0, [bitmapimagerep pixelsWide], [bitmapimagerep pixelsHigh]);
     
-    glActiveTexture(GL_TEXTURE_2D + data.textureNumber);
+    NSLog(@"Prepping texture: %d. w: %ld, h: %ld",
+          data.textureNumber,
+          (long)[bitmapimagerep pixelsWide], (long)[bitmapimagerep pixelsHigh]);
+    
+    glActiveTexture(GL_TEXTURE0 + data.textureNumber); printOpenGLError();
     
     // Load the texture
     GLuint texture;
     
-    glGenTextures(1, &texture);
+    glGenTextures(1, &texture); printOpenGLError();
     data.textureHandle = texture;
+    NSLog(@"textureHandle: %d", texture);
 
-    glBindTexture(GL_TEXTURE_2D, data.textureHandle);
-    glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
-    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-    glGenerateMipmap(GL_TEXTURE_2D);
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, rect.size.width, rect.size.height, 0,
-                 (([bitmapimagerep hasAlpha])?(GL_RGBA):(GL_RGB)), GL_UNSIGNED_BYTE,
-                 [bitmapimagerep bitmapData]);
+    glBindTexture(GL_TEXTURE_2D, data.textureHandle); printOpenGLError();
+    glPixelStorei(GL_UNPACK_ALIGNMENT, 1);  printOpenGLError();
+    
+    const bool hasAlpha = [bitmapimagerep hasAlpha];
+    
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, rect.size.width, rect.size.height, 0,
+                 ((hasAlpha)?(GL_RGBA):(GL_RGB)), GL_UNSIGNED_BYTE,
+                 [bitmapimagerep bitmapData]); printOpenGLError();
+    
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT); printOpenGLError();
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT); printOpenGLError();
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR); printOpenGLError();
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR); printOpenGLError();
+    glGenerateMipmap(GL_TEXTURE_2D); printOpenGLError();
     
     char szUniformName[32];
     
     snprintf(szUniformName, 32, "iChannel%d", data.textureNumber);
+    NSLog(@"Uniform name: '%s', with number: %d", szUniformName, data.textureNumber);
+    data.uniformHandle = glGetUniformLocation(program, szUniformName); printOpenGLError();
     
-    data.uniformHandle = glGetUniformLocation(program, szUniformName);
+    glUniform1i(data.uniformHandle, data.textureNumber); printOpenGLError();
     
-    glUniform1i(program, data.textureNumber);
-    
-    glBindTexture(GL_TEXTURE_2D, 0);
-
+    glBindTexture(GL_TEXTURE_2D, 0); printOpenGLError();
 };
 
 void (^renderTextures)(ShaderTextureData*,GLuint) =^ (ShaderTextureData* data, GLuint ignored) {
     
-    glActiveTexture(GL_TEXTURE_2D + data.textureNumber);
-    glBindTexture(GL_TEXTURE_2D, data.textureHandle);
+    glActiveTexture(GL_TEXTURE0 + data.textureNumber); printOpenGLError();
+    glBindTexture(GL_TEXTURE_2D, data.textureHandle);  printOpenGLError();
 };
 
 void (^deleteTextures)(ShaderTextureData*, GLuint) =^ (ShaderTextureData* data, GLuint ignored) {
@@ -112,7 +121,7 @@ void (^deleteTextures)(ShaderTextureData*, GLuint) =^ (ShaderTextureData* data, 
     
     NSLog(@"Deleting texture: %@", data.pathToTexture);
     GLuint texture = data.textureHandle;
-    glDeleteTextures(1, &texture);
+    glDeleteTextures(1, &texture); printOpenGLError();
     data.textureHandle = 0;
     
     NSLog(@"Done deleting texture.");
@@ -132,9 +141,22 @@ void (^deleteTextures)(ShaderTextureData*, GLuint) =^ (ShaderTextureData* data, 
 
 -(void) prepareTextures:(GLuint) program {
     
-    [self iterator:prepareATexture withProgram:program];
-}
+    glEnable(GL_TEXTURE_2D); printOpenGLError();
 
+#ifdef RENDER_WITH_ITERATOR
+    [self iterator:prepareATexture withProgram:program];
+#else
+    ShaderTextureData* data;
+    const unsigned long count = (unsigned long)self.shaderTextureData.count;
+    
+    for(int i=0; i<count; ++i) {
+       
+        data = [self.shaderTextureData objectAtIndex:i];
+
+        prepareATexture(data, program);
+    }
+#endif
+}
 
 #pragma mark Cleanup
 
@@ -144,21 +166,22 @@ void (^deleteTextures)(ShaderTextureData*, GLuint) =^ (ShaderTextureData* data, 
 }
 
 #pragma mark Drawing/Rendering
+
 -(void) render {
     
 #ifdef RENDER_WITH_ITERATOR
     [self iterator:renderTextures withProgram:0];
 #else
-//    const unsigned long count = (unsigned long)self.shaderTextureData.count;
-
     ShaderTextureData* data;
     const unsigned long count = (unsigned long)self.shaderTextureData.count;
 
     for(int i=0; i<count; ++i) {
         
         // Textures
-        glActiveTexture(GL_TEXTURE_2D + data.textureNumber);
-        glBindTexture(GL_TEXTURE_2D, data.textureHandle);
+        data = [self.shaderTextureData objectAtIndex:i];
+
+        glActiveTexture(GL_TEXTURE0 + data.textureNumber); printOpenGLError();
+        glBindTexture(GL_TEXTURE_2D, data.textureHandle);  printOpenGLError();
     }
 #endif
 }
