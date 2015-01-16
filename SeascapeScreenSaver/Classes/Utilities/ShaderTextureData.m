@@ -16,7 +16,6 @@
     if(self != nil) {
         self.textureNumber = 0;
         self.textureHandle = 0;
-        self.uniformHandle = -1;
         self.pathToTexture = nil;
     }
     return self;

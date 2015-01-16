@@ -17,8 +17,8 @@
 
 @property (nonatomic, assign) GLuint textureNumber;
 @property (nonatomic, assign) GLuint textureHandle;
-@property (nonatomic, assign) GLint  uniformHandle;
 @property (nonatomic, strong) NSString* pathToTexture;
+
 @end
 
 #endif

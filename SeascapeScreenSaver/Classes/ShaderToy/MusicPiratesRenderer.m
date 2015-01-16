@@ -129,8 +129,7 @@ enum {
 //
 //        glActiveTexture(GL_TEXTURE1);
 //        glBindTexture(GL_TEXTURE_2D, m_textures.m_iChannel1);
-    }
-    
+    }    
     
     glDrawArrays(GL_TRIANGLES, 0, 6);  printOpenGLError();
     glDisableVertexAttribArray(m_attributes.pos);  printOpenGLError();
@@ -143,8 +142,10 @@ enum {
 - (BOOL) setupTextures {
 
 #ifdef SHADERTEXTURE
+    //[self.shaderTextures addTexture:@"tex03" ofType:@"jpg"];
+    //[self.shaderTextures addTexture:@"tex12" ofType:@"png"];
     [self.shaderTextures addTexture:@"tex03" ofType:@"jpg"];
-    [self.shaderTextures addTexture:@"tex12" ofType:@"png"];
+    [self.shaderTextures addTexture:@"Day"   ofType:@"jpg"];
     
     [self.shaderTextures prepareTextures:m_program];
 #else

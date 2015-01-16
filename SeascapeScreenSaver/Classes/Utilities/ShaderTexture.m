@@ -56,7 +56,7 @@ typedef void (^CompletionBlockWithProgram)(ShaderTextureData*, GLuint);
 
 void (^prepareATexture)(ShaderTextureData*, GLuint) =^ (ShaderTextureData* data, GLuint program) {
     
-    NSLog(@"Setup textures");
+    NSLog(@"Preparing a texture: %@", data.pathToTexture);
     
     NSBitmapImageRep *bitmapimagerep = LoadImage(data.pathToTexture, 0);
     
@@ -78,30 +78,33 @@ void (^prepareATexture)(ShaderTextureData*, GLuint) =^ (ShaderTextureData* data,
     
     glGenTextures(1, &texture); printOpenGLError();
     data.textureHandle = texture;
-    NSLog(@"textureHandle: %d", texture);
 
     glBindTexture(GL_TEXTURE_2D, data.textureHandle); printOpenGLError();
     glPixelStorei(GL_UNPACK_ALIGNMENT, 1);  printOpenGLError();
     
-    const bool hasAlpha = [bitmapimagerep hasAlpha];
-    
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, rect.size.width, rect.size.height, 0,
-                 ((hasAlpha)?(GL_RGBA):(GL_RGB)), GL_UNSIGNED_BYTE,
-                 [bitmapimagerep bitmapData]); printOpenGLError();
+    // Doc same both must be the same.
+    const GLint formatAndInternalFormat = [bitmapimagerep hasAlpha] ? GL_RGBA : GL_RGB;
     
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT); printOpenGLError();
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT); printOpenGLError();
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR); printOpenGLError();
-    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR); printOpenGLError();
-    glGenerateMipmap(GL_TEXTURE_2D); printOpenGLError();
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);//_MIPMAP_LINEAR); printOpenGLError();
+    //glGenerateMipmap(GL_TEXTURE_2D); printOpenGLError();
+    glTexImage2D(GL_TEXTURE_2D, 0, formatAndInternalFormat,
+                 rect.size.width, rect.size.height, 0,
+                 formatAndInternalFormat, GL_UNSIGNED_BYTE,
+                 [bitmapimagerep bitmapData]); printOpenGLError();
+    
     
     char szUniformName[32];
     
     snprintf(szUniformName, 32, "iChannel%d", data.textureNumber);
-    NSLog(@"Uniform name: '%s', with number: %d", szUniformName, data.textureNumber);
-    data.uniformHandle = glGetUniformLocation(program, szUniformName); printOpenGLError();
+    NSLog(@"Alpha? %d.  Uniform name: '%s', with number: %d",
+          [bitmapimagerep hasAlpha], szUniformName, data.textureNumber);
     
-    glUniform1i(data.uniformHandle, data.textureNumber); printOpenGLError();
+    GLint uniformHandle = glGetUniformLocation(program, szUniformName); printOpenGLError();
+    
+    glUniform1i(uniformHandle, data.textureNumber); printOpenGLError();
     
     glBindTexture(GL_TEXTURE_2D, 0); printOpenGLError();
 };

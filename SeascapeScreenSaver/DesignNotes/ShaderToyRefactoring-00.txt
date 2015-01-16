@@ -6,8 +6,8 @@ Motivation: To prevent having to duplicate, for the most part, ShaderToy rendere
 
 Create a texture class for those ShaderToys that require them:
 
-    ShaderToyTexture* shaderToyTexture =
-        [[ShaderToyTexture alloc] initWithTextures:arrayOfTextures];
+    ShaderTexture* ShaderTexture =
+        [[ShaderTexture alloc] initWithTextures:arrayOfTextures];
 
     ShaderTexture* texture = [[ShaderTexture alloc] init];
 
@@ -22,15 +22,10 @@ Create a texture class for those ShaderToys that require them:
     [texture render]; // Calls activate and bind
 
     // Cleanup phase
-    [texture destroy];
-
-    addTexture
-    uniform
-    setPostLinkUniforms
-    destroy
+    //[texture destroy]; Done in dealloc
 
     ShaderToyRenderer* shaderToyRenderer =
-        [ShaderToyRenderer rendererWithFragment:fragment.fsh ofType "fsh" andTexture:shaderToyTexture];
+        [ShaderToyRenderer rendererWithFragment:fragment.fsh ofType "fsh" andTexture:ShaderTexture];
 
     // Or, no texute
     ShaderToyRenderer* shaderToyRenderer =
