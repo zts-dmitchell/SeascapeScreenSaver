@@ -13,7 +13,7 @@
 
 @interface CircularIterator : NSObject <CircularIteratorProtocol>
 
--(id) init;
+-(instancetype) init;
 -(void) addObject:(NSString*) className;
 -(id) next;
 

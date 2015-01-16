@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "ESRendererIterator.h"
+#import "RendererIterator.h"
 #import "ESRenderer.h"
 
 // Renderers:
@@ -19,9 +19,9 @@
 #import "MorningCityRenderer.h"
 
 
-@implementation ESRendererIterator
+@implementation RendererIterator
 
--(id) init {
+-(instancetype) init {
     
     self = [super init];
     
@@ -32,7 +32,7 @@
     return self;
 }
 
--(id) initWithArrayOfRenderers:(NSArray*) arrayOfRenderers {
+-(instancetype) initWithArrayOfRenderers:(NSArray*) arrayOfRenderers {
 
     self = [super init];
     

@@ -11,7 +11,7 @@
 
 @implementation CircularIterator
 
--(id) init {
+-(instancetype) init {
     
     self = [super init];
     

@@ -16,7 +16,7 @@
 
 #pragma mark Setup/Initialization
 
--(id) init {
+-(instancetype) init {
     
     self = [super init];
     if(self != nil) {
@@ -28,6 +28,8 @@
 
 -(bool) addTexture:(NSString*) filename ofType:(NSString*) ext {
   
+    glEnable(GL_TEXTURE_2D); printOpenGLError();
+
     ShaderTextureData* data = [[ShaderTextureData alloc] init];
 
     // This also tests whether the texture will be displayed
@@ -144,8 +146,6 @@ void (^deleteTextures)(ShaderTextureData*, GLuint) =^ (ShaderTextureData* data, 
 
 -(void) prepareTextures:(GLuint) program {
     
-    glEnable(GL_TEXTURE_2D); printOpenGLError();
-
 #ifdef RENDER_WITH_ITERATOR
     [self iterator:prepareATexture withProgram:program];
 #else
@@ -153,7 +153,7 @@ void (^deleteTextures)(ShaderTextureData*, GLuint) =^ (ShaderTextureData* data, 
     const unsigned long count = (unsigned long)self.shaderTextureData.count;
     
     for(int i=0; i<count; ++i) {
-       
+
         data = [self.shaderTextureData objectAtIndex:i];
 
         prepareATexture(data, program);

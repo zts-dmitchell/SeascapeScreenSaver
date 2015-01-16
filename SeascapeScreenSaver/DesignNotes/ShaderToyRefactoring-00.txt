@@ -24,8 +24,16 @@ Create a texture class for those ShaderToys that require them:
     // Cleanup phase
     //[texture destroy]; Done in dealloc
 
+// Needed:
+Textures0..n, TextureExt0..n
+Fragment Shader
+
+    ShaderToyDriver* shaderToyDriver = [[ShaderToyDriver alloc] init];
+
+    // Read renderers from properties file.
+
     ShaderToyRenderer* shaderToyRenderer =
-        [ShaderToyRenderer rendererWithFragment:fragment.fsh ofType "fsh" andTexture:ShaderTexture];
+        [ShaderToyRenderer rendererWithFragment:fragment.fsh ofType "fsh" andTexture:shaderTexture];
 
     // Or, no texute
     ShaderToyRenderer* shaderToyRenderer =

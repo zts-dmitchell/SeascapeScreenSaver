@@ -13,7 +13,7 @@
 
 @interface ShaderTextureData : NSObject
 
--(id) init;
+-(instancetype) init;
 
 @property (nonatomic, assign) GLuint textureNumber;
 @property (nonatomic, assign) GLuint textureHandle;

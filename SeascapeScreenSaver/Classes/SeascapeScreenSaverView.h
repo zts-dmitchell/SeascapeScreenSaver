@@ -11,7 +11,7 @@
 
 #import <ScreenSaver/ScreenSaver.h>
 #import "ESRenderer.h"
-#import "ESRendererIterator.h"
+#import "RendererIterator.h"
 
 @interface SeascapeScreenSaverView : ScreenSaverView
 
@@ -20,7 +20,7 @@
 @property (nonatomic, assign) unsigned long frameNumber;
 @property (nonatomic, assign) NSSize screenSize;
 @property (nonatomic, assign) unsigned long iterationsPerRenderer;
-@property (nonatomic, strong) ESRendererIterator* rendererIterator;
+@property (nonatomic, strong) RendererIterator* rendererIterator;
 @property (nonatomic, strong) NSDictionary* properties;
 - (NSOpenGLView*) createGLView;
 

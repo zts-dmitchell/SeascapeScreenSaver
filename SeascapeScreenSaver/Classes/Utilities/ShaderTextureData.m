@@ -11,7 +11,7 @@
 
 @implementation ShaderTextureData
 
--(id) init {
+-(instancetype) init {
     self = [super init];
     if(self != nil) {
         self.textureNumber = 0;

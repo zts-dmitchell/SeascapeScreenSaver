@@ -53,10 +53,10 @@
             
             assert(renderers != nil);
             
-            self.rendererIterator = [[ESRendererIterator alloc] initWithArrayOfRenderers:renderers];
+            self.rendererIterator = [[RendererIterator alloc] initWithArrayOfRenderers:renderers];
+            
         } else {
             NSLog(@"Unable to load properties.");
-            
         }
         
         
@@ -114,8 +114,6 @@
     return nil;
 }
 
-#pragma mark Code from Website:
-
 #ifdef ORIG_AOF
 - (void)animateOneFrame
 {
@@ -150,6 +148,9 @@
     return;
 }
 #else
+
+#pragma mark Code from Website:
+
 - (void)animateOneFrame {
 
     [self.glView.openGLContext makeCurrentContext];
@@ -159,7 +160,9 @@
         [self stopAnimation];
         
         [self.rendererIterator setNext];
-        NSLog(@"Switched to new renderer, '%@', after %lu frames.", [self.rendererIterator getClassName], self.frameNumber);
+        
+        NSLog(@"Switched to new renderer, '%@', after %lu frames.",
+              [self.rendererIterator getClassName], self.frameNumber - 1);
 
         [self startAnimation];
     }
@@ -170,6 +173,7 @@
     [self setNeedsDisplay:YES];
 }
 #endif
+
 - (void)setFrameSize:(NSSize)newSize
 {
     self.screenSize = newSize;

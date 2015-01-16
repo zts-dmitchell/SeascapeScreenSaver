@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		571367E81A68E65800B4193B /* ShaderToyRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 571367E71A68E65800B4193B /* ShaderToyRenderer.m */; };
 		571804841A620942006BB4C5 /* SomewhereIn1993.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 571804831A620942006BB4C5 /* SomewhereIn1993.fsh */; };
 		571804871A620951006BB4C5 /* SomewhereIn1993Renderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 571804851A620951006BB4C5 /* SomewhereIn1993Renderer.m */; };
 		571804881A620951006BB4C5 /* SomewhereIn1993Renderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 571804861A620951006BB4C5 /* SomewhereIn1993Renderer.h */; };
@@ -14,8 +15,8 @@
 		5718048C1A620CD9006BB4C5 /* MorningCityRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 5718048A1A620CD9006BB4C5 /* MorningCityRenderer.h */; };
 		5718048E1A620CE3006BB4C5 /* MorningCity.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 5718048D1A620CE3006BB4C5 /* MorningCity.fsh */; };
 		571804921A636CE1006BB4C5 /* CircularIterator.m in Sources */ = {isa = PBXBuildFile; fileRef = 571804911A636CE1006BB4C5 /* CircularIterator.m */; };
-		571804941A63704C006BB4C5 /* ESRendererIterator.h in Headers */ = {isa = PBXBuildFile; fileRef = 571804931A63704C006BB4C5 /* ESRendererIterator.h */; };
-		571804961A637317006BB4C5 /* ESRendererIterator.m in Sources */ = {isa = PBXBuildFile; fileRef = 571804951A637317006BB4C5 /* ESRendererIterator.m */; };
+		571804941A63704C006BB4C5 /* RendererIterator.h in Headers */ = {isa = PBXBuildFile; fileRef = 571804931A63704C006BB4C5 /* RendererIterator.h */; };
+		571804961A637317006BB4C5 /* RendererIterator.m in Sources */ = {isa = PBXBuildFile; fileRef = 571804951A637317006BB4C5 /* RendererIterator.m */; };
 		571804991A639ED6006BB4C5 /* MusicPiratesRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 571804971A639ED6006BB4C5 /* MusicPiratesRenderer.m */; };
 		5718049A1A639ED6006BB4C5 /* MusicPiratesRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 571804981A639ED6006BB4C5 /* MusicPiratesRenderer.h */; };
 		5718049C1A639EF0006BB4C5 /* MusicPirates.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 5718049B1A639EF0006BB4C5 /* MusicPirates.fsh */; };
@@ -60,6 +61,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		571367E71A68E65800B4193B /* ShaderToyRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShaderToyRenderer.m; sourceTree = "<group>"; };
+		571367E91A68E67500B4193B /* ShaderToyRenderer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShaderToyRenderer.h; sourceTree = "<group>"; };
 		571804831A620942006BB4C5 /* SomewhereIn1993.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = SomewhereIn1993.fsh; sourceTree = "<group>"; };
 		571804851A620951006BB4C5 /* SomewhereIn1993Renderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SomewhereIn1993Renderer.m; sourceTree = "<group>"; };
 		571804861A620951006BB4C5 /* SomewhereIn1993Renderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SomewhereIn1993Renderer.h; sourceTree = "<group>"; };
@@ -69,8 +72,8 @@
 		5718048F1A632CC8006BB4C5 /* CircularIterator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CircularIterator.h; sourceTree = "<group>"; };
 		571804901A636C61006BB4C5 /* CircularIteratorProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CircularIteratorProtocol.h; sourceTree = "<group>"; };
 		571804911A636CE1006BB4C5 /* CircularIterator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircularIterator.m; sourceTree = "<group>"; };
-		571804931A63704C006BB4C5 /* ESRendererIterator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESRendererIterator.h; sourceTree = "<group>"; };
-		571804951A637317006BB4C5 /* ESRendererIterator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESRendererIterator.m; sourceTree = "<group>"; };
+		571804931A63704C006BB4C5 /* RendererIterator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RendererIterator.h; sourceTree = "<group>"; };
+		571804951A637317006BB4C5 /* RendererIterator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RendererIterator.m; sourceTree = "<group>"; };
 		571804971A639ED6006BB4C5 /* MusicPiratesRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicPiratesRenderer.m; sourceTree = "<group>"; };
 		571804981A639ED6006BB4C5 /* MusicPiratesRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicPiratesRenderer.h; sourceTree = "<group>"; };
 		5718049B1A639EF0006BB4C5 /* MusicPirates.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = MusicPirates.fsh; sourceTree = "<group>"; };
@@ -168,8 +171,8 @@
 				571804901A636C61006BB4C5 /* CircularIteratorProtocol.h */,
 				5718048F1A632CC8006BB4C5 /* CircularIterator.h */,
 				571804911A636CE1006BB4C5 /* CircularIterator.m */,
-				571804931A63704C006BB4C5 /* ESRendererIterator.h */,
-				571804951A637317006BB4C5 /* ESRendererIterator.m */,
+				571804931A63704C006BB4C5 /* RendererIterator.h */,
+				571804951A637317006BB4C5 /* RendererIterator.m */,
 				571804A11A6492AB006BB4C5 /* PropertiesLoader.h */,
 				571804A31A6492C2006BB4C5 /* PropertiesLoader.m */,
 				571804AB1A64FF1D006BB4C5 /* ShaderTexture.h */,
@@ -228,6 +231,8 @@
 				57C10A101A5DBAEA002D4F58 /* MountainsRenderer.m */,
 				57C10A111A5DBAEA002D4F58 /* SeascapeRenderer.h */,
 				57C10A121A5DBAEA002D4F58 /* SeascapeRenderer.m */,
+				571367E91A68E67500B4193B /* ShaderToyRenderer.h */,
+				571367E71A68E65800B4193B /* ShaderToyRenderer.m */,
 			);
 			path = ShaderToy;
 			sourceTree = "<group>";
@@ -301,7 +306,7 @@
 				571804A21A6492AB006BB4C5 /* PropertiesLoader.h in Headers */,
 				5718049A1A639ED6006BB4C5 /* MusicPiratesRenderer.h in Headers */,
 				57C109FD1A5DB4C7002D4F58 /* WobblerRenderer.h in Headers */,
-				571804941A63704C006BB4C5 /* ESRendererIterator.h in Headers */,
+				571804941A63704C006BB4C5 /* RendererIterator.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,7 +403,8 @@
 				57C10A141A5DBAEA002D4F58 /* MountainsRenderer.m in Sources */,
 				571804991A639ED6006BB4C5 /* MusicPiratesRenderer.m in Sources */,
 				5718048B1A620CD9006BB4C5 /* MorningCityRenderer.m in Sources */,
-				571804961A637317006BB4C5 /* ESRendererIterator.m in Sources */,
+				571804961A637317006BB4C5 /* RendererIterator.m in Sources */,
+				571367E81A68E65800B4193B /* ShaderToyRenderer.m in Sources */,
 				57C10A161A5DBAEA002D4F58 /* SeascapeRenderer.m in Sources */,
 				571804871A620951006BB4C5 /* SomewhereIn1993Renderer.m in Sources */,
 				57C109F31A5DB4C7002D4F58 /* SeascapeScreenSaverView.m in Sources */,

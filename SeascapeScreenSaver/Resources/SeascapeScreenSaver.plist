@@ -2,6 +2,27 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>ShaderToys</key>
+	<dict>
+		<key>Seascape</key>
+		<array/>
+		<key>Mountains</key>
+		<array>
+			<string>tex11.png</string>
+			<string>Day.jpg</string>
+		</array>
+		<key>SymmetricOrigins</key>
+		<array/>
+		<key>SomewhereIn1993</key>
+		<array/>
+		<key>MusicPirates</key>
+		<array>
+			<string>tex03.jpg</string>
+			<string>Day.jpg</string>
+		</array>
+		<key>MorningCity</key>
+		<array/>
+	</dict>
 	<key>renderers</key>
 	<array>
 		<string>MusicPiratesRenderer</string>

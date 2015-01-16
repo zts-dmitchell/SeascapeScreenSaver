@@ -7,12 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-//#import "Attributes.h"
 #import "ShaderTextureData.h"
 
-@interface ShaderTexture : NSObject //<Attributes>
+@interface ShaderTexture : NSObject
 
--(id) init;
+-(instancetype) init;
 -(bool) addTexture:(NSString*) filename ofType:(NSString*) ext;
 -(void) prepareTextures:(GLuint) program;
 -(void) render;

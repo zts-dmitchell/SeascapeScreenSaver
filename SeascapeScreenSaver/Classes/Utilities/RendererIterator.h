@@ -26,10 +26,10 @@
  [rendererIter render];
  */
 
-@interface ESRendererIterator : CircularIterator
+@interface RendererIterator : CircularIterator
 
--(id) init;
--(id) initWithArrayOfRenderers:(NSArray*) arrayOfRenderers;
+-(instancetype) init;
+-(instancetype) initWithArrayOfRenderers:(NSArray*) arrayOfRenderers;
 -(void) setFrameSize:(NSSize) screenSize;
 -(void) addRenderer:(NSString*) renderer;
 -(void) setNext;
