@@ -36,7 +36,7 @@
 		577E02E41A60F586007F9E2C /* SymmetricOriginsRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 577E02E21A60F586007F9E2C /* SymmetricOriginsRenderer.m */; };
 		57C109F21A5DB4C7002D4F58 /* SeascapeScreenSaverView.h in Headers */ = {isa = PBXBuildFile; fileRef = 57C109DA1A5DB4C7002D4F58 /* SeascapeScreenSaverView.h */; };
 		57C109F31A5DB4C7002D4F58 /* SeascapeScreenSaverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 57C109DB1A5DB4C7002D4F58 /* SeascapeScreenSaverView.m */; };
-		57C109F41A5DB4C7002D4F58 /* ESRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 57C109DD1A5DB4C7002D4F58 /* ESRenderer.h */; };
+		57C109F41A5DB4C7002D4F58 /* Renderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 57C109DD1A5DB4C7002D4F58 /* Renderer.h */; };
 		57C109F51A5DB4C7002D4F58 /* GLUtil.c in Sources */ = {isa = PBXBuildFile; fileRef = 57C109DE1A5DB4C7002D4F58 /* GLUtil.c */; };
 		57C109F61A5DB4C7002D4F58 /* GLUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 57C109DF1A5DB4C7002D4F58 /* GLUtil.h */; };
 		57C109F71A5DB4C7002D4F58 /* ImageLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = 57C109E01A5DB4C7002D4F58 /* ImageLoader.h */; };
@@ -94,7 +94,7 @@
 		577E02E21A60F586007F9E2C /* SymmetricOriginsRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SymmetricOriginsRenderer.m; sourceTree = "<group>"; };
 		57C109DA1A5DB4C7002D4F58 /* SeascapeScreenSaverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeascapeScreenSaverView.h; sourceTree = "<group>"; };
 		57C109DB1A5DB4C7002D4F58 /* SeascapeScreenSaverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeascapeScreenSaverView.m; sourceTree = "<group>"; };
-		57C109DD1A5DB4C7002D4F58 /* ESRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESRenderer.h; sourceTree = "<group>"; };
+		57C109DD1A5DB4C7002D4F58 /* Renderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Renderer.h; sourceTree = "<group>"; };
 		57C109DE1A5DB4C7002D4F58 /* GLUtil.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = GLUtil.c; sourceTree = "<group>"; };
 		57C109DF1A5DB4C7002D4F58 /* GLUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLUtil.h; sourceTree = "<group>"; };
 		57C109E01A5DB4C7002D4F58 /* ImageLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageLoader.h; sourceTree = "<group>"; };
@@ -158,7 +158,7 @@
 		57C109DC1A5DB4C7002D4F58 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				57C109DD1A5DB4C7002D4F58 /* ESRenderer.h */,
+				57C109DD1A5DB4C7002D4F58 /* Renderer.h */,
 				57C109DE1A5DB4C7002D4F58 /* GLUtil.c */,
 				57C109DF1A5DB4C7002D4F58 /* GLUtil.h */,
 				57C109E01A5DB4C7002D4F58 /* ImageLoader.h */,
@@ -301,7 +301,7 @@
 				57C109F71A5DB4C7002D4F58 /* ImageLoader.h in Headers */,
 				571804AC1A64FF1D006BB4C5 /* ShaderTexture.h in Headers */,
 				571804B21A6500BD006BB4C5 /* Attributes.h in Headers */,
-				57C109F41A5DB4C7002D4F58 /* ESRenderer.h in Headers */,
+				57C109F41A5DB4C7002D4F58 /* Renderer.h in Headers */,
 				57C109F61A5DB4C7002D4F58 /* GLUtil.h in Headers */,
 				571804A21A6492AB006BB4C5 /* PropertiesLoader.h in Headers */,
 				5718049A1A639ED6006BB4C5 /* MusicPiratesRenderer.h in Headers */,

@@ -6,7 +6,7 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "ESRenderer.h"
+#import "Renderer.h"
 #import "ShaderUtil.h"
 
 typedef struct MorningCityVec2 {
@@ -34,7 +34,7 @@ typedef struct MorningCityAttributeHandles {
     GLint m_a_posHandle;
 }MorningCityAttributeHandles;
 
-@interface MorningCityRenderer : NSObject <ESRenderer, Attributes>
+@interface MorningCityRenderer : NSObject <Renderer, Attributes>
 {
 @private
     GLuint program;

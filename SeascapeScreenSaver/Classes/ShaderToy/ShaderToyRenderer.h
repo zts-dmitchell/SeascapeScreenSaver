@@ -9,7 +9,7 @@
 #ifndef SeascapeScreenSaver_ShaderToyRenderer_h
 #define SeascapeScreenSaver_ShaderToyRenderer_h
 #import <OpenGL/gl.h>
-#import "ESRenderer.h"
+#import "Renderer.h"
 #import "Attributes.h"
 #import "ShaderTexture.h"
 
@@ -38,7 +38,7 @@ typedef struct ShaderToyVec3 {
     GLfloat z;
 }ShaderToyVec3;
 
-@interface ShaderToyRenderer : NSObject <ESRenderer, Attributes>
+@interface ShaderToyRenderer : NSObject <Renderer, Attributes>
 {
 @private
     GLuint m_program;

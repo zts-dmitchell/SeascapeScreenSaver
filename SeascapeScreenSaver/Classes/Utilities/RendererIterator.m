@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "RendererIterator.h"
-#import "ESRenderer.h"
+#import "Renderer.h"
 
 // Renderers:
 #import "SeascapeRenderer.h"

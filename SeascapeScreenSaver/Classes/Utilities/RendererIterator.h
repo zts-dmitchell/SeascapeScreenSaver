@@ -10,7 +10,7 @@
 #define SeascapeScreenSaver_ESRendererIterator_h
 
 #import "CircularIterator.h"
-#import "ESRenderer.h"
+#import "Renderer.h"
 
 /*
  // Extends CircularIterator
@@ -36,7 +36,7 @@
 -(void) render;
 -(NSString*) getClassName;
 @property(nonatomic, assign) NSSize screenSize;
-@property(nonatomic, strong) id<ESRenderer> renderer;
+@property(nonatomic, strong) id<Renderer> renderer;
 @end
 
 #endif

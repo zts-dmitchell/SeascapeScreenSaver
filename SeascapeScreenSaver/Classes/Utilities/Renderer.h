@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <OpenGL/gl.h>
 
-@protocol ESRenderer <NSObject>
+@protocol Renderer <NSObject>
 
 - (void)setFrameSize:(NSSize)newSize;
 - (void)render;

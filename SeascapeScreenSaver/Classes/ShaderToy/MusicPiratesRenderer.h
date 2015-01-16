@@ -6,7 +6,7 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "ESRenderer.h"
+#import "Renderer.h"
 #import "ShaderUtil.h"
 #import "ShaderTexture.h"
 
@@ -42,7 +42,7 @@ typedef struct MountainVec3 {
     GLfloat z;
 }MountainVec3;
 
-@interface MusicPiratesRenderer : NSObject <ESRenderer, Attributes>
+@interface MusicPiratesRenderer : NSObject <Renderer, Attributes>
 {
 @private
     GLuint m_program;

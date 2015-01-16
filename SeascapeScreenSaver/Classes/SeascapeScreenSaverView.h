@@ -10,7 +10,7 @@
 //
 
 #import <ScreenSaver/ScreenSaver.h>
-#import "ESRenderer.h"
+#import "Renderer.h"
 #import "RendererIterator.h"
 
 @interface SeascapeScreenSaverView : ScreenSaverView

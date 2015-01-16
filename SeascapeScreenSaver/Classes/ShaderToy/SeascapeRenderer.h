@@ -6,7 +6,7 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "ESRenderer.h"
+#import "Renderer.h"
 #import "ShaderUtil.h"
 
 typedef struct SeascapeVec2 {
@@ -36,7 +36,7 @@ typedef struct SeascapeAttributeHandles {
     GLint m_a_posHandle;
 }SeascapeAttributeHandles;
 
-@interface SeascapeRenderer : NSObject <ESRenderer, Attributes>
+@interface SeascapeRenderer : NSObject <Renderer, Attributes>
 {
 @private
     GLuint program;

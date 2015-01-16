@@ -6,7 +6,7 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "ESRenderer.h"
+#import "Renderer.h"
 #import "ShaderUtil.h"
 
 typedef struct SymmetricOriginsVec2 {
@@ -34,7 +34,7 @@ typedef struct SymmetricOriginsAttributeHandles {
     GLint m_a_posHandle;
 }SymmetricOriginsAttributeHandles;
 
-@interface SymmetricOriginsRenderer : NSObject <ESRenderer, Attributes>
+@interface SymmetricOriginsRenderer : NSObject <Renderer, Attributes>
 {
 @private
     GLuint program;
