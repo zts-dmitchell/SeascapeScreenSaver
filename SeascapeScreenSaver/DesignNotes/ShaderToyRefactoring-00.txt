@@ -39,3 +39,21 @@ Fragment Shader
     ShaderToyRenderer* shaderToyRenderer =
         [ShaderToyRenderer rendererWithFragment:fragment.fsh ofType "fsh"];
 
+SeascapeScreenSaverView
+    - Uses RendererIterator instance to render scene.
+
+    RendererIterator
+        PropertiesLoader
+            - Contains names of shaders and textures used for them
+
+        ShaderTexture
+            - Creates an instance by passing texture from PropertiesLoader
+            -
+        ShaderToyRenderer
+            - Receives shader name and ShaderTexture instance
+
+Creates ShaderTexture
+
+        ShaderTexture
+        ShaderToyRenderer
+        PropertiesLoader

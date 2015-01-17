@@ -11,7 +11,7 @@
 
 @interface ShaderTexture : NSObject
 
--(instancetype) init;
+-(instancetype) initWithArrayOfTextureFiles:(NSArray*) initWithArrayOfTextureFiles;
 -(bool) addTexture:(NSString*) filename ofType:(NSString*) ext;
 -(void) prepareTextures:(GLuint) program;
 -(void) render;

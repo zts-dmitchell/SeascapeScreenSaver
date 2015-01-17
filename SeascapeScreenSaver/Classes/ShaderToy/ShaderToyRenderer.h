@@ -52,6 +52,7 @@ typedef struct ShaderToyVec3 {
     bool m_bIsLoaded;
 }
 
+-(instancetype) initWithShaderName:(NSString*) shader andShaderTextures:(NSArray*) arrayOfTextureFiles;
 @property (nonatomic, strong) ShaderTexture* shaderTextures;
 
 @end

@@ -23,7 +23,8 @@
 - (instancetype)initWithFrame:(NSRect)frame isPreview:(BOOL)isPreview
 {
     self = [super initWithFrame:frame isPreview:isPreview];
-    if (self) {
+    
+    if(self) {
         
         // New code:
         // Stuff from web
@@ -33,32 +34,7 @@
         // My stuff
         [self.glView.openGLContext makeCurrentContext];
         
-        self.frameNumber = 0;
-        self.currentRendererId = 0;
-        
-        // It knows what to load.
-        self.properties = [PropertiesLoader loadProperties];
-        
-        if(self.properties != nil) {
-            // get iterationsPerRenderer:
-            NSDictionary* runInfo = [self.properties objectForKey:@"run-info"];
-            
-            NSNumber* objNumber = [runInfo objectForKey:@"iterations-per-renderer"];
-            
-            self.iterationsPerRenderer = [objNumber intValue];
-            
-            NSLog(@"Iterations per renderer: %lu", self.iterationsPerRenderer);
-            
-            NSArray* renderers = [self.properties objectForKey:@"renderers"];
-            
-            assert(renderers != nil);
-            
-            self.rendererIterator = [[RendererIterator alloc] initWithArrayOfRenderers:renderers];
-            
-        } else {
-            NSLog(@"Unable to load properties.");
-        }
-        
+        self.rendererIterator = [[RendererIterator alloc] initWithAnimationController:self];
         
         // End New Code
         
@@ -154,18 +130,6 @@
 - (void)animateOneFrame {
 
     [self.glView.openGLContext makeCurrentContext];
-
-    if(self.frameNumber++ % self.iterationsPerRenderer == 0) {
-
-        [self stopAnimation];
-        
-        [self.rendererIterator setNext];
-        
-        NSLog(@"Switched to new renderer, '%@', after %lu frames.",
-              [self.rendererIterator getClassName], self.frameNumber - 1);
-
-        [self startAnimation];
-    }
     
     [self.rendererIterator render];
     

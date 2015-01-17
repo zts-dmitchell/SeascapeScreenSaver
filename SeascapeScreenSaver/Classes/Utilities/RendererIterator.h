@@ -11,6 +11,7 @@
 
 #import "CircularIterator.h"
 #import "Renderer.h"
+#import "AnimationController.h"
 
 /*
  // Extends CircularIterator
@@ -30,13 +31,21 @@
 
 -(instancetype) init;
 -(instancetype) initWithArrayOfRenderers:(NSArray*) arrayOfRenderers;
+-(instancetype) initWithAnimationController:(id<AnimationController>) animationController;
 -(void) setFrameSize:(NSSize) screenSize;
 -(void) addRenderer:(NSString*) renderer;
 -(void) setNext;
 -(void) render;
 -(NSString*) getClassName;
-@property(nonatomic, assign) NSSize screenSize;
+
 @property(nonatomic, strong) id<Renderer> renderer;
+@property (nonatomic, strong) id<AnimationController> animationController;
+//@property (nonatomic, strong) NSDictionary* properties;
+@property (nonatomic, strong) NSDictionary* shaderToys;
+@property(nonatomic, assign) NSSize screenSize;
+@property (nonatomic, assign) unsigned long iterationsPerRenderer;
+@property (nonatomic, assign) unsigned long frameNumber;
+
 @end
 
 #endif

@@ -27,11 +27,12 @@ enum {
 
 @implementation ShaderToyRenderer
 
-- (id)init {
+
+-(instancetype) initWithShaderName:(NSString*) shader andShaderTextures:(NSArray*) arrayOfTextureFiles {
     
-    if ((self = [super init])) {
+    if((self = [super init])) {
         
-        m_program = [ShaderUtil loadShaders:@"MusicPirates"
+        m_program = [ShaderUtil loadShaders:shader
                              andFragmentExt:@"fsh"
                              withAttributes:self];
         
@@ -41,15 +42,15 @@ enum {
             return nil;
         }
         
-        self.shaderTextures = [[ShaderTexture alloc] init];
-
+        self.shaderTextures = [[ShaderTexture alloc] initWithArrayOfTextureFiles:arrayOfTextureFiles];
+        
         m_bIsLoaded = false;
         
         glUseProgram(m_program);
         
         [self createVBO];
         
-        [self setupTextures];
+        [self.shaderTextures prepareTextures:m_program];
         
         glUseProgram(0);
     }
@@ -110,18 +111,6 @@ enum {
     glDisableVertexAttribArray(m_attributes.pos);  printOpenGLError();
     
     glUseProgram(0);
-}
-
-- (BOOL) setupTextures {
-    
-    //[self.shaderTextures addTexture:@"tex03" ofType:@"jpg"];
-    //[self.shaderTextures addTexture:@"tex12" ofType:@"png"];
-    [self.shaderTextures addTexture:@"tex03" ofType:@"jpg"];
-    [self.shaderTextures addTexture:@"Day"   ofType:@"jpg"];
-    
-    [self.shaderTextures prepareTextures:m_program];
-
-    return true;
 }
 
 /////////////////////////////////////////

@@ -16,14 +16,31 @@
 
 #pragma mark Setup/Initialization
 
--(instancetype) init {
+-(instancetype) initWithArrayOfTextureFiles:(NSArray *)arrayOfTextureFiles {
     
     self = [super init];
     if(self != nil) {
+        
         self.shaderTextureData = [[NSMutableArray alloc] init];
+        
+        if(arrayOfTextureFiles != nil)
+            [self addTextures:arrayOfTextureFiles];
     }
     
     return self;
+}
+
+-(bool) addTextures:(NSArray*) arrayOfTextures {
+
+    for(NSString* file in arrayOfTextures) {
+        
+        NSString* stringByDeletingPathExtension = [file stringByDeletingPathExtension];
+        NSString* pathExtension = [file pathExtension];
+        
+        [self addTexture:stringByDeletingPathExtension ofType:pathExtension];
+    }
+    
+    return true;
 }
 
 -(bool) addTexture:(NSString*) filename ofType:(NSString*) ext {

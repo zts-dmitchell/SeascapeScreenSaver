@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "RendererIterator.h"
 #import "Renderer.h"
+#import "PropertiesLoader.h"
+#import "ShaderToyRenderer.h"
 
 // Renderers:
 #import "SeascapeRenderer.h"
@@ -49,6 +51,62 @@
     return self;
 }
 
+-(instancetype) initWithAnimationController:(id<AnimationController>) animationController {
+    
+    self = [super init];
+    
+    if(self != nil) {
+        
+        if(! [self initializeRenderers]) {
+            self = nil;
+            return self;
+        }
+        
+        self.animationController = animationController;
+    }
+    
+    return self;
+}
+
+-(BOOL) initializeRenderers {
+    
+    // It knows what to load.
+    NSDictionary* properties = [PropertiesLoader loadProperties];
+    
+    if(properties != nil) {
+        
+        // get iterationsPerRenderer:
+        NSDictionary* runInfo = [properties objectForKey:@"run-info"];
+        
+        NSNumber* objNumber = [runInfo objectForKey:@"iterations-per-renderer"];
+        
+        self.iterationsPerRenderer = [objNumber intValue];
+        
+        NSLog(@"Iterations per renderer: %lu", self.iterationsPerRenderer);
+        
+        self.frameNumber = 0;
+
+        self.shaderToys = [properties objectForKey:@"ShaderToys"];
+        
+        if(self.shaderToys == nil) {
+            NSLog(@"Unable to find 'ShaderToys' object. Adding deprecated default renderers.");
+            [self addDefaultRenderers];
+            return true;
+        }
+        
+        [self addRenderer:@"MorningCity"];
+        
+        //NSArray* renderers = [properties objectForKey:@"renderers"];
+        //assert(renderers != nil);
+        
+    } else {
+        NSLog(@"Unable to load properties.");
+        return false;
+    }
+    
+    return true;
+}
+
 -(void) setFrameSize:(NSSize) screenSize {
     
     self.screenSize = screenSize;
@@ -86,16 +144,32 @@
 
 -(void) setNext {
 
+    [self.animationController stopAnimation];
+
     NSString* rendererClassName = [self next];
+    
     NSLog(@"setNext: %@", rendererClassName);
     
-    Class c = NSClassFromString(rendererClassName);
+    //Class c = NSClassFromString(rendererClassName);
+    self.renderer = [[ShaderToyRenderer alloc] initWithShaderName:rendererClassName andShaderTextures:nil];
     
-    self.renderer = [[c alloc] init];
+    
     [self.renderer setFrameSize:self.screenSize];
+
+    [self.animationController startAnimation];
 }
 
 -(void) render {
+    
+    if(self.frameNumber++ % self.iterationsPerRenderer == 0) {
+        
+        [self setNext];
+        
+        NSLog(@"Switched to new renderer, '%@', after %lu frames.",
+              [self getClassName], self.frameNumber - 1);
+        
+    }
+    
     [self.renderer render];
 }
 
