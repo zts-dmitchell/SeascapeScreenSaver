@@ -23,34 +23,6 @@
 
 @implementation RendererIterator
 
--(instancetype) init {
-    
-    self = [super init];
-    
-    if(self != nil) {
-        [self addDefaultRenderers];
-    }
-    
-    return self;
-}
-
--(instancetype) initWithArrayOfRenderers:(NSArray*) arrayOfRenderers {
-
-    self = [super init];
-    
-    if(self != nil) {
-        
-        if(arrayOfRenderers == nil) {
-            NSLog(@"'arrayOfRenderers' is nil! Using default list of renderers.");
-            [self addDefaultRenderers];
-        } else {
-            [self addRenderersFromArray:arrayOfRenderers];
-        }
-    }
-    
-    return self;
-}
-
 -(instancetype) initWithAnimationController:(id<AnimationController>) animationController {
     
     self = [super init];
@@ -94,11 +66,13 @@
             return true;
         }
         
-        [self addRenderer:@"MorningCity"];
-        
-        //NSArray* renderers = [properties objectForKey:@"renderers"];
-        //assert(renderers != nil);
-        
+        NSArray* allKeys = [self.shaderToys allKeys];
+        NSArray* value;
+        for(int i=0; i<allKeys.count; ++i) {
+            
+            value = [allKeys objectAtIndex:i];
+            [self addRenderer:[value description]];
+        }
     } else {
         NSLog(@"Unable to load properties.");
         return false;
@@ -149,10 +123,9 @@
     NSString* rendererClassName = [self next];
     
     NSLog(@"setNext: %@", rendererClassName);
+    NSArray* textures = [self.shaderToys objectForKey:rendererClassName];
     
-    //Class c = NSClassFromString(rendererClassName);
-    self.renderer = [[ShaderToyRenderer alloc] initWithShaderName:rendererClassName andShaderTextures:nil];
-    
+    self.renderer = [[ShaderToyRenderer alloc] initWithShaderName:rendererClassName andShaderTextures:textures];
     
     [self.renderer setFrameSize:self.screenSize];
 

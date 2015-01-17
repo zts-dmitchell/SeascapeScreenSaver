@@ -29,8 +29,6 @@
 
 @interface RendererIterator : CircularIterator
 
--(instancetype) init;
--(instancetype) initWithArrayOfRenderers:(NSArray*) arrayOfRenderers;
 -(instancetype) initWithAnimationController:(id<AnimationController>) animationController;
 -(void) setFrameSize:(NSSize) screenSize;
 -(void) addRenderer:(NSString*) renderer;
@@ -40,7 +38,6 @@
 
 @property(nonatomic, strong) id<Renderer> renderer;
 @property (nonatomic, strong) id<AnimationController> animationController;
-//@property (nonatomic, strong) NSDictionary* properties;
 @property (nonatomic, strong) NSDictionary* shaderToys;
 @property(nonatomic, assign) NSSize screenSize;
 @property (nonatomic, assign) unsigned long iterationsPerRenderer;
