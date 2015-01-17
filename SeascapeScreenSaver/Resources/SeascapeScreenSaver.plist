@@ -4,6 +4,10 @@
 <dict>
 	<key>ShaderToys</key>
 	<dict>
+		<key>RacingGame</key>
+		<array>
+			<string>tex16.png</string>
+		</array>
 		<key>Seascape</key>
 		<array/>
 		<key>Mountains</key>

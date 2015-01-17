@@ -53,6 +53,8 @@
 		57C10A2B1A5E5FEF002D4F58 /* tex11.png in Resources */ = {isa = PBXBuildFile; fileRef = 57C10A291A5E5FEF002D4F58 /* tex11.png */; };
 		57C10A2C1A5E5FEF002D4F58 /* tex12.png in Resources */ = {isa = PBXBuildFile; fileRef = 57C10A2A1A5E5FEF002D4F58 /* tex12.png */; };
 		57D56E9A1A69D1A40041C679 /* AnimationController.h in Headers */ = {isa = PBXBuildFile; fileRef = 57D56E991A69D1A40041C679 /* AnimationController.h */; };
+		57D56E9C1A6A2ED20041C679 /* tex16.png in Resources */ = {isa = PBXBuildFile; fileRef = 57D56E9B1A6A2ED20041C679 /* tex16.png */; };
+		57D56E9E1A6A2F1F0041C679 /* RacingGame.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 57D56E9D1A6A2F1F0041C679 /* RacingGame.fsh */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -114,6 +116,8 @@
 		57C10A291A5E5FEF002D4F58 /* tex11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tex11.png; sourceTree = "<group>"; };
 		57C10A2A1A5E5FEF002D4F58 /* tex12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tex12.png; sourceTree = "<group>"; };
 		57D56E991A69D1A40041C679 /* AnimationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationController.h; sourceTree = "<group>"; };
+		57D56E9B1A6A2ED20041C679 /* tex16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tex16.png; sourceTree = "<group>"; };
+		57D56E9D1A6A2F1F0041C679 /* RacingGame.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = RacingGame.fsh; sourceTree = "<group>"; };
 		57F14D891A5A29C900948DDB /* SeascapeScreenSaver.saver */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SeascapeScreenSaver.saver; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -194,6 +198,7 @@
 		57C109E91A5DB4C7002D4F58 /* textures */ = {
 			isa = PBXGroup;
 			children = (
+				57D56E9B1A6A2ED20041C679 /* tex16.png */,
 				5718049D1A63A104006BB4C5 /* tex03.jpg */,
 				57C10A291A5E5FEF002D4F58 /* tex11.png */,
 				57C10A2A1A5E5FEF002D4F58 /* tex12.png */,
@@ -247,6 +252,7 @@
 		57C10A201A5E5BA2002D4F58 /* ShaderToy */ = {
 			isa = PBXGroup;
 			children = (
+				57D56E9D1A6A2F1F0041C679 /* RacingGame.fsh */,
 				5718049B1A639EF0006BB4C5 /* MusicPirates.fsh */,
 				5718048D1A620CE3006BB4C5 /* MorningCity.fsh */,
 				571804831A620942006BB4C5 /* SomewhereIn1993.fsh */,
@@ -369,9 +375,11 @@
 				571804AA1A64DC17006BB4C5 /* starter.SeascapeScreenSaver.plist in Resources */,
 				5718049E1A63A104006BB4C5 /* tex03.jpg in Resources */,
 				5718048E1A620CE3006BB4C5 /* MorningCity.fsh in Resources */,
+				57D56E9C1A6A2ED20041C679 /* tex16.png in Resources */,
 				577E02E01A60F42D007F9E2C /* CommonVertexShader.vsh in Resources */,
 				57C10A251A5E5BA2002D4F58 /* Mountains.fsh in Resources */,
 				57C10A271A5E5BA2002D4F58 /* SeascapeFragmentShader.fsh in Resources */,
+				57D56E9E1A6A2F1F0041C679 /* RacingGame.fsh in Resources */,
 				5718049C1A639EF0006BB4C5 /* MusicPirates.fsh in Resources */,
 				57C10A021A5DB4C7002D4F58 /* WobblerShader.fsh in Resources */,
 				577E02DF1A60F42D007F9E2C /* SymmetricOrigins.fsh in Resources */,
