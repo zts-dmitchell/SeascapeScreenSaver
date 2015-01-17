@@ -8,6 +8,8 @@
 		<array>
 			<string>tex16.png</string>
 		</array>
+		<key>Tokyo</key>
+		<array/>
 		<key>Seascape</key>
 		<array/>
 		<key>Mountains</key>
@@ -43,7 +45,7 @@
 		<key>current-renderer</key>
 		<string>SeascapeRenderer</string>
 		<key>iterations-per-renderer</key>
-		<integer>1000</integer>
+		<integer>500</integer>
 	</dict>
 </dict>
 </plist>

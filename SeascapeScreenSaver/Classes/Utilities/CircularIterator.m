@@ -30,6 +30,10 @@
     [self.objects addObject:className];
 }
 
+-(int) count {
+    return (int)self.objects.count;
+}
+
 -(id) next {
     
     int count = (int)self.objects.count;

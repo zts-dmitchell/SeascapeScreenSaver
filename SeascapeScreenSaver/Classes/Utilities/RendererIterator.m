@@ -119,6 +119,15 @@
 
 -(void) setNext {
 
+    // If there's only one object, return.
+    if([self count] == 1 && self.renderer != nil) {
+        NSLog(@"Returning without setting new renderer.  There's only one.");
+        return;
+    } else {
+        NSLog(@"ShaderToys count: %i.", [self count]);
+        
+    }
+    
     [self.animationController stopAnimation];
 
     NSString* rendererClassName = [self next];
@@ -136,6 +145,7 @@
 -(void) render {
     
     if(self.frameNumber++ % self.iterationsPerRenderer == 0) {
+        
         
         [self setNext];
         

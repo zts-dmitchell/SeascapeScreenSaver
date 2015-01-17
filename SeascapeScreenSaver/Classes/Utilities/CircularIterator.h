@@ -15,6 +15,7 @@
 
 -(instancetype) init;
 -(void) addObject:(NSString*) className;
+-(int) count;
 -(id) next;
 
 @property(nonatomic, strong) NSMutableArray* objects;

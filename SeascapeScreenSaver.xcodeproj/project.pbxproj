@@ -55,6 +55,7 @@
 		57D56E9A1A69D1A40041C679 /* AnimationController.h in Headers */ = {isa = PBXBuildFile; fileRef = 57D56E991A69D1A40041C679 /* AnimationController.h */; };
 		57D56E9C1A6A2ED20041C679 /* tex16.png in Resources */ = {isa = PBXBuildFile; fileRef = 57D56E9B1A6A2ED20041C679 /* tex16.png */; };
 		57D56E9E1A6A2F1F0041C679 /* RacingGame.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 57D56E9D1A6A2F1F0041C679 /* RacingGame.fsh */; };
+		57D56EA01A6AD5D50041C679 /* Tokyo.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 57D56E9F1A6AD5D50041C679 /* Tokyo.fsh */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -118,6 +119,7 @@
 		57D56E991A69D1A40041C679 /* AnimationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationController.h; sourceTree = "<group>"; };
 		57D56E9B1A6A2ED20041C679 /* tex16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tex16.png; sourceTree = "<group>"; };
 		57D56E9D1A6A2F1F0041C679 /* RacingGame.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = RacingGame.fsh; sourceTree = "<group>"; };
+		57D56E9F1A6AD5D50041C679 /* Tokyo.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Tokyo.fsh; sourceTree = "<group>"; };
 		57F14D891A5A29C900948DDB /* SeascapeScreenSaver.saver */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SeascapeScreenSaver.saver; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -252,6 +254,7 @@
 		57C10A201A5E5BA2002D4F58 /* ShaderToy */ = {
 			isa = PBXGroup;
 			children = (
+				57D56E9F1A6AD5D50041C679 /* Tokyo.fsh */,
 				57D56E9D1A6A2F1F0041C679 /* RacingGame.fsh */,
 				5718049B1A639EF0006BB4C5 /* MusicPirates.fsh */,
 				5718048D1A620CE3006BB4C5 /* MorningCity.fsh */,
@@ -377,6 +380,7 @@
 				5718048E1A620CE3006BB4C5 /* MorningCity.fsh in Resources */,
 				57D56E9C1A6A2ED20041C679 /* tex16.png in Resources */,
 				577E02E01A60F42D007F9E2C /* CommonVertexShader.vsh in Resources */,
+				57D56EA01A6AD5D50041C679 /* Tokyo.fsh in Resources */,
 				57C10A251A5E5BA2002D4F58 /* Mountains.fsh in Resources */,
 				57C10A271A5E5BA2002D4F58 /* Seascape.fsh in Resources */,
 				57D56E9E1A6A2F1F0041C679 /* RacingGame.fsh in Resources */,
