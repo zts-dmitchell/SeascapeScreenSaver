@@ -94,7 +94,7 @@ enum {
     
     //////////////////////////////////////////
     // Other uniform stuff
-    m_iGlobalTime += 0.1;
+    m_iGlobalTime += 0.08;
     glUniform1f(m_uniforms.iGlobalTimeHandle, m_iGlobalTime); printOpenGLError();
     
     [self.shaderTextures render];

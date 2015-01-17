@@ -73,6 +73,7 @@
             value = [allKeys objectAtIndex:i];
             [self addRenderer:[value description]];
         }
+
     } else {
         NSLog(@"Unable to load properties.");
         return false;

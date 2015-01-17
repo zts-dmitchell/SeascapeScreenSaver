@@ -38,7 +38,7 @@
         
         // End New Code
         
-        [self setAnimationTimeInterval:1/60.0];
+        [self setAnimationTimeInterval:1/30.0];
     }
     return self;
 }
