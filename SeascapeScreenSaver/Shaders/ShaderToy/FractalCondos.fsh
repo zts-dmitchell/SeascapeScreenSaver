@@ -1,15 +1,3 @@
-// "Seascape" by Alexander Alekseev aka TDM - 2014
-// License Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
-//#extension GL_OES_standard_derivatives : enable
-//
-#ifdef GL_ES
-precision highp float;
-#endif
-
-uniform vec2  iMouse;
-uniform float iGlobalTime;
-uniform vec3  iResolution;
-
 // Fractal Condos by eiffie
 // This is a test of an auto-overstep method and lighting without normals.
 // You can test the speed difference by commenting this out:

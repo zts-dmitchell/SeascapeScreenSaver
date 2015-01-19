@@ -18,6 +18,11 @@
 		<array/>
 		<key>Seascape</key>
 		<array/>
+		<key>MainSequenceStar</key>
+		<array>
+			<string>tex11.png</string>
+			<string>Day.jpg</string>
+		</array>
 		<key>Mountains</key>
 		<array>
 			<string>tex11.png</string>
