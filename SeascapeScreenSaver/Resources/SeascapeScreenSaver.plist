@@ -8,6 +8,8 @@
 		<array>
 			<string>tex16.png</string>
 		</array>
+		<key>CubesAndSpheres</key>
+		<array/>
 		<key>MengerJourney</key>
 		<array/>
 		<key>FractalCondos</key>
@@ -24,6 +26,13 @@
 		<array>
 			<string>tex11.png</string>
 			<string>Day.jpg</string>
+		</array>
+		<key>Venice</key>
+		<array>
+			<string>tex09.jpg</string>
+			<string>tex00.jpg</string>
+			<string>tex11.png</string>
+			<string>tex05.jpg</string>
 		</array>
 		<key>Mountains</key>
 		<array>
