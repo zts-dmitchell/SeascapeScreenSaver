@@ -80,6 +80,10 @@ enum {
     m_iResolution.y = newSize.height;
     
     NSLog(@"Setting frame size: %f w by %f h", newSize.width, newSize.height);
+    
+    m_iMouse.x = newSize.width / 2.0;
+    m_iMouse.y = newSize.height / 2.0;
+    m_iMouse.z = 0.0;
 }
 
 - (void)render {

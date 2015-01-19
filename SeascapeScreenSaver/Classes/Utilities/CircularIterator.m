@@ -38,8 +38,11 @@
     
     int count = (int)self.objects.count;
     
-    return [self.objects objectAtIndex:self.position++ % count];
+    self.currentClassname = [self.objects objectAtIndex:self.position++ % count];
+    
+    return self.currentClassname;
 }
+
 
 @end
 

@@ -34,7 +34,6 @@
 -(void) addRenderer:(NSString*) renderer;
 -(void) setNext;
 -(void) render;
--(NSString*) getClassName;
 
 @property(nonatomic, strong) id<Renderer> renderer;
 @property (nonatomic, strong) id<AnimationController> animationController;

@@ -20,6 +20,7 @@
 
 @property(nonatomic, strong) NSMutableArray* objects;
 @property(nonatomic, assign) int position;
+@property(nonatomic, strong) NSString* currentClassname;
 @end
 
 

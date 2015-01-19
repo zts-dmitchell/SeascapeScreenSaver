@@ -125,7 +125,6 @@
         return;
     } else {
         NSLog(@"ShaderToys count: %i.", [self count]);
-        
     }
     
     [self.animationController stopAnimation];
@@ -146,18 +145,13 @@
     
     if(self.frameNumber++ % self.iterationsPerRenderer == 0) {
         
-        
         [self setNext];
         
         NSLog(@"Switched to new renderer, '%@', after %lu frames.",
-              [self getClassName], self.frameNumber - 1);
-        
+              self.currentClassname, self.frameNumber - 1);
     }
     
     [self.renderer render];
 }
 
--(NSString*) getClassName {
-    return [self.renderer description];
-}
 @end
