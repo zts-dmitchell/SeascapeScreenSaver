@@ -24,8 +24,8 @@
 		<array/>
 		<key>MainSequenceStar</key>
 		<array>
-			<string>tex11.png</string>
-			<string>Day.jpg</string>
+			<string>tex09.jpg</string>
+			<string>tex09.jpg</string>
 		</array>
 		<key>Venice</key>
 		<array>
@@ -46,7 +46,7 @@
 		<key>MusicPirates</key>
 		<array>
 			<string>tex03.jpg</string>
-			<string>Day.jpg</string>
+			<string>tex05.jpg</string>
 		</array>
 		<key>MorningCity</key>
 		<array/>
