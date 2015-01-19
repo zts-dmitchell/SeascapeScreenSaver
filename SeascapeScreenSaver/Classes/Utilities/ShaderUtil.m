@@ -13,7 +13,6 @@
 #define DEBUG
 
 @interface ShaderUtil (PrivateMethods)
-+ (BOOL)compileShader;
 + (BOOL)linkProgram:(GLuint)prog;
 @end
 
@@ -21,6 +20,7 @@
 @implementation ShaderUtil
 
 + (BOOL)compileShader:(GLuint *)shader type:(GLenum)type file:(NSString *)file
+         withPreamble:(NSString*) preamble
 {
     NSLog(@"Compiling shader: %@", file);
     
@@ -34,6 +34,10 @@
         return FALSE;
     } else {
         NSLog(@"Loaded shader");
+    }
+    
+    if(preamble != nil) {
+        source = (GLchar *)[[NSString stringWithFormat:@"%@\n%s", preamble, source] UTF8String];
     }
     
     *shader = glCreateShader(type); printOpenGLError();
@@ -110,11 +114,38 @@
        andFragmentExt: (NSString*) fragmentExt
        withAttributes: (id <Attributes>) attribute
 {
+    NSString* fragmentPreamble = @"#ifdef GL_ES\n"
+        "precision highp float;\n"
+        "#endif\n\n"
+        "uniform vec4  iMouse;\n"
+        "uniform float iGlobalTime;\n"
+        "uniform vec3  iResolution;\n"
+        "uniform sampler2D iChannel0;\n"
+        "uniform sampler2D iChannel1;\n"
+        "uniform sampler2D iChannel2;\n"
+        "uniform sampler2D iChannel3;\n\n";
+    
     return [ShaderUtil loadShaders:@"CommonVertexShader"
                      withVertexExt:@"vsh"
                  andFragmentShader:fragmentShader
                     andFragmentExt:fragmentExt
-                    withAttributes:attribute];
+               andFragmentPreamble:fragmentPreamble
+                     andAttributes:attribute];
+}
+
+/* orig: */
++ (GLuint)loadShaders: (NSString*) vertexShader
+        withVertexExt: (NSString*) vertexExt
+    andFragmentShader: (NSString*) fragmentShader
+       andFragmentExt: (NSString*) fragmentExt
+       withAttributes: (id <Attributes>) attribute {
+    
+    return [ShaderUtil loadShaders:vertexShader
+                     withVertexExt:vertexExt
+                 andFragmentShader:fragmentShader
+                    andFragmentExt:fragmentExt
+                andFragmentPreamble:nil
+                     andAttributes:attribute];
 }
 
 /*
@@ -124,7 +155,8 @@
         withVertexExt: (NSString*) vertexExt
     andFragmentShader: (NSString*) fragmentShader
        andFragmentExt: (NSString*) fragmentExt
-       withAttributes: (id <Attributes>) attribute
+  andFragmentPreamble: (NSString*) fragmentPreamble
+        andAttributes: (id <Attributes>) attribute
 {
     GLuint vertShader, fragShader;
     NSString *vertShaderPathname, *fragShaderPathname;
@@ -148,7 +180,7 @@
         NSLog(@"Got path to vertex shader: %@", vertShaderPathname);
     }
     
-    if (![self compileShader:&vertShader type:GL_VERTEX_SHADER file:vertShaderPathname])
+    if (![self compileShader:&vertShader type:GL_VERTEX_SHADER file:vertShaderPathname withPreamble:nil])
     {
         NSLog(@"Failed to compile vertex shader: %@.%@", vertexShader, vertexExt);
         glDeleteProgram(program);
@@ -162,7 +194,7 @@
 
     NSLog(fileInfo, fragShaderPathname);
     
-    if (![self compileShader:&fragShader type:GL_FRAGMENT_SHADER file:fragShaderPathname])
+    if (![self compileShader:&fragShader type:GL_FRAGMENT_SHADER file:fragShaderPathname withPreamble:fragmentPreamble])
     {
         NSLog(@"Failed to compile fragment shader");
         glDeleteProgram(program);

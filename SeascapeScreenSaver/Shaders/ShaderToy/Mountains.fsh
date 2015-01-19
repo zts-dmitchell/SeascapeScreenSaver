@@ -1,17 +1,3 @@
-// "Seascape" by Alexander Alekseev aka TDM - 2014
-// License Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
-//#extension GL_OES_standard_derivatives : enable
-//
-#ifdef GL_ES
-precision highp float;
-#endif
-
-uniform vec2      iMouse;
-uniform float     iGlobalTime;
-uniform vec3      iResolution;
-uniform sampler2D iChannel0;
-uniform sampler2D iChannel1;
-
 const int NUM_STEPS = 8;
 const float PI	 	= 3.14159265359;
 const float EPSILON	= 1e-3;
