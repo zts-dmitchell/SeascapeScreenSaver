@@ -45,6 +45,7 @@ enum {
         self.shaderTextures = [[ShaderTexture alloc] initWithArrayOfTextureFiles:arrayOfTextureFiles];
         
         m_bIsLoaded = false;
+        m_iMouse.x = m_iMouse.y = m_iMouse.z = m_iMouse.w = 100.0;
         
         glUseProgram(m_program);
         
@@ -104,7 +105,7 @@ enum {
         m_bIsLoaded = true;
         
         glUniform3f(m_uniforms.iResolutionHandle, m_iResolution.x, m_iResolution.y, m_iResolution.z); printOpenGLError();
-        glUniform2f(m_uniforms.iMouseHandle, m_iMouse.x, m_iMouse.y);
+        glUniform4f(m_uniforms.iMouseHandle, m_iMouse.x, m_iMouse.y, m_iMouse.z, m_iMouse.w);
     }
     
     glDrawArrays(GL_TRIANGLES, 0, 6);  printOpenGLError();

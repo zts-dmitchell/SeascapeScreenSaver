@@ -27,10 +27,12 @@ typedef struct ShaderToyAttributeHandles {
     GLint pos;
 }ShaderToyAttributeHandles;
 
-typedef struct ShaderToyVec2 {
+typedef struct ShaderToyVec4 {
     GLfloat x;
     GLfloat y;
-}ShaderToyVec2;
+    GLfloat z;
+    GLfloat w;
+}ShaderToyVec4;
 
 typedef struct ShaderToyVec3 {
     GLfloat x;
@@ -46,7 +48,7 @@ typedef struct ShaderToyVec3 {
     ShaderToyUniformHandles m_uniforms;
     ShaderToyAttributeHandles m_attributes;
     GLfloat m_iGlobalTime;
-    ShaderToyVec2  m_iMouse;
+    ShaderToyVec4  m_iMouse;
     ShaderToyVec3  m_iResolution;
     
     bool m_bIsLoaded;

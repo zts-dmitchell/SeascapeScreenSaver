@@ -10,6 +10,7 @@
 #import <OpenGL/gl.h>
 #import "GLUtil.h"
 
+#define DEBUG
 
 @interface ShaderUtil (PrivateMethods)
 + (BOOL)compileShader;
@@ -35,25 +36,23 @@
         NSLog(@"Loaded shader");
     }
     
-    *shader = glCreateShader(type);
-    glShaderSource(*shader, 1, &source, NULL);
-    glCompileShader(*shader);
+    *shader = glCreateShader(type); printOpenGLError();
+    glShaderSource(*shader, 1, &source, NULL); printOpenGLError();
+    glCompileShader(*shader); printOpenGLError();
     
-#if defined(DEBUG)
-    GLint logLength;
-    glGetShaderiv(*shader, GL_INFO_LOG_LENGTH, &logLength);
-    if (logLength > 0)
+    GLint vertex_compiled;
+    glGetShaderiv(*shader, GL_COMPILE_STATUS, &vertex_compiled);
+    if (vertex_compiled != GL_TRUE)
     {
-        GLchar *log = (GLchar *)malloc(logLength);
-        glGetShaderInfoLog(*shader, logLength, &logLength, log);
-        NSLog(@"Shader compile log:\n%s", log);
-        free(log);
+        GLsizei log_length = 0;
+        GLchar message[1024];
+        glGetShaderInfoLog(*shader, 1024, &log_length, message);
+        // Write the error to a log
+        NSLog(@"Shader compile log: %s", message);
     }
-#endif
     
     glGetShaderiv(*shader, GL_COMPILE_STATUS, &status);
-    if (status == 0)
-    {
+    if (status == 0) {
         glDeleteShader(*shader);
         return FALSE;
     }

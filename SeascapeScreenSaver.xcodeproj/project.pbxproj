@@ -56,6 +56,8 @@
 		57D56E9C1A6A2ED20041C679 /* tex16.png in Resources */ = {isa = PBXBuildFile; fileRef = 57D56E9B1A6A2ED20041C679 /* tex16.png */; };
 		57D56E9E1A6A2F1F0041C679 /* RacingGame.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 57D56E9D1A6A2F1F0041C679 /* RacingGame.fsh */; };
 		57D56EA01A6AD5D50041C679 /* Tokyo.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 57D56E9F1A6AD5D50041C679 /* Tokyo.fsh */; };
+		57D56EA21A6AFF430041C679 /* FractalCondos.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 57D56EA11A6AFF430041C679 /* FractalCondos.fsh */; };
+		57D56EA41A6B00CF0041C679 /* Generators.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 57D56EA31A6B00CF0041C679 /* Generators.fsh */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -120,6 +122,8 @@
 		57D56E9B1A6A2ED20041C679 /* tex16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tex16.png; sourceTree = "<group>"; };
 		57D56E9D1A6A2F1F0041C679 /* RacingGame.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = RacingGame.fsh; sourceTree = "<group>"; };
 		57D56E9F1A6AD5D50041C679 /* Tokyo.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Tokyo.fsh; sourceTree = "<group>"; };
+		57D56EA11A6AFF430041C679 /* FractalCondos.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = FractalCondos.fsh; sourceTree = "<group>"; };
+		57D56EA31A6B00CF0041C679 /* Generators.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Generators.fsh; sourceTree = "<group>"; };
 		57F14D891A5A29C900948DDB /* SeascapeScreenSaver.saver */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SeascapeScreenSaver.saver; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -254,6 +258,8 @@
 		57C10A201A5E5BA2002D4F58 /* ShaderToy */ = {
 			isa = PBXGroup;
 			children = (
+				57D56EA31A6B00CF0041C679 /* Generators.fsh */,
+				57D56EA11A6AFF430041C679 /* FractalCondos.fsh */,
 				57D56E9F1A6AD5D50041C679 /* Tokyo.fsh */,
 				57D56E9D1A6A2F1F0041C679 /* RacingGame.fsh */,
 				5718049B1A639EF0006BB4C5 /* MusicPirates.fsh */,
@@ -381,6 +387,7 @@
 				57D56E9C1A6A2ED20041C679 /* tex16.png in Resources */,
 				577E02E01A60F42D007F9E2C /* CommonVertexShader.vsh in Resources */,
 				57D56EA01A6AD5D50041C679 /* Tokyo.fsh in Resources */,
+				57D56EA41A6B00CF0041C679 /* Generators.fsh in Resources */,
 				57C10A251A5E5BA2002D4F58 /* Mountains.fsh in Resources */,
 				57C10A271A5E5BA2002D4F58 /* Seascape.fsh in Resources */,
 				57D56E9E1A6A2F1F0041C679 /* RacingGame.fsh in Resources */,
@@ -388,6 +395,7 @@
 				57C10A021A5DB4C7002D4F58 /* WobblerShader.fsh in Resources */,
 				577E02DF1A60F42D007F9E2C /* SymmetricOrigins.fsh in Resources */,
 				57C10A031A5DB4C7002D4F58 /* WobblerShader.vsh in Resources */,
+				57D56EA21A6AFF430041C679 /* FractalCondos.fsh in Resources */,
 				571804841A620942006BB4C5 /* SomewhereIn1993.fsh in Resources */,
 				57C109FF1A5DB4C7002D4F58 /* Day.jpg in Resources */,
 				57C10A2B1A5E5FEF002D4F58 /* tex11.png in Resources */,

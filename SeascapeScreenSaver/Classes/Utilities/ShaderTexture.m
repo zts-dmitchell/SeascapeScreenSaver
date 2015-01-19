@@ -161,6 +161,8 @@ void (^deleteTextures)(ShaderTextureData*, GLuint) =^ (ShaderTextureData* data, 
     }
 }
 
+#define RENDER_WITH_ITERATOR
+
 -(void) prepareTextures:(GLuint) program {
     
 #ifdef RENDER_WITH_ITERATOR

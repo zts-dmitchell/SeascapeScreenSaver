@@ -8,6 +8,12 @@
 		<array>
 			<string>tex16.png</string>
 		</array>
+		<key>FractalCondos</key>
+		<array/>
+		<key>Generators</key>
+		<array>
+			<string>tex16.png</string>
+		</array>
 		<key>Tokyo</key>
 		<array/>
 		<key>Seascape</key>
@@ -43,7 +49,7 @@
 		<key>current-frame</key>
 		<integer>1</integer>
 		<key>current-renderer</key>
-		<string>SeascapeRenderer</string>
+		<string>Seascape</string>
 		<key>iterations-per-renderer</key>
 		<integer>500</integer>
 	</dict>
