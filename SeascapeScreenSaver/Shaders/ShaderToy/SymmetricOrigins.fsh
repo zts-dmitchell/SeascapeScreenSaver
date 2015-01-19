@@ -25,9 +25,9 @@ float EPSILON_NRM	= 0.1 / iResolution.x;
  */
 
 // This will lower the framerate, but looks kinda cool
-#define TOO_MUCH_FRACTAL
+//#define TOO_MUCH_FRACTAL
 
-#define MOVING_SUN
+//#define MOVING_SUN
 float outerSphereRad = 3.5;
 
 // noise functions

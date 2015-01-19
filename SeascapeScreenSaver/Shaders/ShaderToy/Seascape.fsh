@@ -6,11 +6,9 @@
 precision highp float;
 #endif
 
-uniform float iGlobalTime;
-uniform vec3  iResolution;
-uniform float iSeaHeight;
-uniform float iSeaChoppy;
-uniform float iSpeed;
+uniform vec2      iMouse;
+uniform float     iGlobalTime;
+uniform vec3      iResolution;
 
 const int NUM_STEPS = 8;
 const float PI	 	= 3.14159265359;
@@ -20,9 +18,9 @@ float EPSILON_NRM	= 0.1 / iResolution.x;
 // sea
 const int ITER_GEOMETRY = 3;
 const int ITER_FRAGMENT = 5;
-float SEA_HEIGHT = iSeaHeight; // Default: 0.6
-float SEA_CHOPPY = iSeaChoppy; // Default: 4.0
-const float SEA_SPEED = 0.8 / .50;
+float SEA_HEIGHT = 0.6;
+float SEA_CHOPPY = 4.0;
+const float SEA_SPEED = 0.8;
 const float SEA_FREQ = 0.16;
 const vec3 SEA_BASE = vec3(0.1,0.19,0.22);
 const vec3 SEA_WATER_COLOR = vec3(0.8,0.9,0.6);
@@ -201,7 +199,7 @@ void main(void) {
     // ray
     //vec3 ang = vec3(sin(time*3.0)*0.1,sin(time)*0.2+0.3,time);
     vec3 ang = vec3(0.0,0.0,0.0); // In radians
-    vec3 ori = vec3(iSpeed*time,3.5,0.);
+    vec3 ori = vec3(time,3.5,0.);
     //vec3 ori = vec3(time*0.10,3.5,*5.0);
     vec3 dir = normalize(vec3(uv.xy,-2.0));
     dir.z += length(uv) * 0.15;

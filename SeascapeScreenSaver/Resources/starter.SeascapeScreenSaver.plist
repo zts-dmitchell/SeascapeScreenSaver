@@ -18,7 +18,7 @@
 		<key>current-renderer</key>
 		<string>SeascapeRenderer</string>
 		<key>iterations-per-renderer</key>
-		<integer>100</integer>
+		<integer>10000</integer>
 	</dict>
 </dict>
 </plist>

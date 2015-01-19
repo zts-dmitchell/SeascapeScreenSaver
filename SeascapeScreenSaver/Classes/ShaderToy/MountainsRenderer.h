@@ -6,7 +6,7 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#include "ESRenderer.h"
+#include "Renderer.h"
 #include "ShaderUtil.h"
 
 typedef struct MountainsBuffers {
@@ -41,7 +41,7 @@ typedef struct MountainVec3 {
     GLfloat z;
 }MountainVec3;
 
-@interface MountainsRenderer : NSObject <ESRenderer, Attributes>
+@interface MountainsRenderer : NSObject <Renderer, Attributes>
 {
 @private
     GLuint m_program;

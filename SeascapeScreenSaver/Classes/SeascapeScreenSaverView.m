@@ -23,7 +23,8 @@
 - (instancetype)initWithFrame:(NSRect)frame isPreview:(BOOL)isPreview
 {
     self = [super initWithFrame:frame isPreview:isPreview];
-    if (self) {
+    
+    if(self) {
         
         // New code:
         // Stuff from web
@@ -33,27 +34,11 @@
         // My stuff
         [self.glView.openGLContext makeCurrentContext];
         
-        self.frameNumber = 0;
-        self.currentRendererId = 0;
-        
-        self.properties = [PropertiesLoader loadProperties:@"properties" ofType:@"plist"];
-        
-        // get iterationsPerRenderer:
-        NSDictionary* runInfo = [self.properties objectForKey:@"run-info"];
-        
-        NSNumber* objNumber = [runInfo objectForKey:@"iterations-per-renderer"];
-        
-        self.iterationsPerRenderer = [objNumber intValue];
-        
-        NSLog(@"############## Iterations per renderer: %lu", self.iterationsPerRenderer);
-        
-        NSArray* renderers = [self.properties objectForKey:@"renderers"];
-        
-        self.rendererIterator = [[ESRendererIterator alloc] initWithArrayOfRenderers:renderers];
+        self.rendererIterator = [[RendererIterator alloc] initWithAnimationController:self];
         
         // End New Code
         
-        [self setAnimationTimeInterval:1/60.0];
+        [self setAnimationTimeInterval:1/30.0];
     }
     return self;
 }
@@ -62,7 +47,7 @@
 - (NSOpenGLView *)createGLView
 {
     NSOpenGLPixelFormatAttribute attribs[] = {
-        NSOpenGLPFAAccelerated,
+        NSOpenGLPFAAccelerated, NSOpenGLPFANoRecovery,
         0
     };
     
@@ -105,8 +90,6 @@
     return nil;
 }
 
-#pragma mark Code from Website:
-
 #ifdef ORIG_AOF
 - (void)animateOneFrame
 {
@@ -141,19 +124,12 @@
     return;
 }
 #else
+
+#pragma mark Code from Website:
+
 - (void)animateOneFrame {
 
     [self.glView.openGLContext makeCurrentContext];
-
-    if(self.frameNumber++ % self.iterationsPerRenderer == 0) {
-
-        [self stopAnimation];
-        
-        [self.rendererIterator setNext];
-        NSLog(@"Switched to new renderer, '%@', after %lu frames.", [self.rendererIterator getClassName], self.frameNumber);
-
-        [self startAnimation];
-    }
     
     [self.rendererIterator render];
     
@@ -161,6 +137,7 @@
     [self setNeedsDisplay:YES];
 }
 #endif
+
 - (void)setFrameSize:(NSSize)newSize
 {
     self.screenSize = newSize;

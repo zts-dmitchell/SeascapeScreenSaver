@@ -6,7 +6,7 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "ESRenderer.h"
+#import "Renderer.h"
 #import "ShaderUtil.h"
 
 typedef struct SomewhereIn1993Vec2 {
@@ -34,7 +34,7 @@ typedef struct SomewhereIn1993AttributeHandles {
     GLint m_a_posHandle;
 }SomewhereIn1993AttributeHandles;
 
-@interface SomewhereIn1993Renderer : NSObject <ESRenderer, Attributes>
+@interface SomewhereIn1993Renderer : NSObject <Renderer, Attributes>
 {
 @private
     GLuint program;

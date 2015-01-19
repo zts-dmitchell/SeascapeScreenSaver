@@ -11,6 +11,7 @@
 
 @interface PropertiesLoader : NSObject
 
++(NSDictionary*) loadProperties;
 +(NSDictionary*) loadProperties:(NSString*) propertiesFile ofType:(NSString*) ext;
 
 @end

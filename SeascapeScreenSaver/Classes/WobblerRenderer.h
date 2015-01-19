@@ -6,7 +6,7 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#include "ESRenderer.h"
+#include "Renderer.h"
 #include "ShaderUtil.h"
 
 typedef struct Buffers {
@@ -54,7 +54,7 @@ typedef struct _Parameter {
     if ((p.current[i] < p.min[i]) || (p.current[i] > p.max[i])) \
         p.delta[i] = -p.delta[i]; } } )
 
-@interface WobblerRenderer : NSObject <ESRenderer, Attributes>
+@interface WobblerRenderer : NSObject <Renderer, Attributes>
 {
 @private
     GLuint program;

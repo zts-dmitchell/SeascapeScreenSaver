@@ -13,12 +13,14 @@
 
 @interface CircularIterator : NSObject <CircularIteratorProtocol>
 
--(id) init;
+-(instancetype) init;
 -(void) addObject:(NSString*) className;
+-(int) count;
 -(id) next;
 
 @property(nonatomic, strong) NSMutableArray* objects;
 @property(nonatomic, assign) int position;
+@property(nonatomic, strong) NSString* currentClassname;
 @end
 
 

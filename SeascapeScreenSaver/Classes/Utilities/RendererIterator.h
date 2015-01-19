@@ -10,7 +10,8 @@
 #define SeascapeScreenSaver_ESRendererIterator_h
 
 #import "CircularIterator.h"
-#import "ESRenderer.h"
+#import "Renderer.h"
+#import "AnimationController.h"
 
 /*
  // Extends CircularIterator
@@ -26,17 +27,21 @@
  [rendererIter render];
  */
 
-@interface ESRendererIterator : CircularIterator
+@interface RendererIterator : CircularIterator
 
--(id) init;
--(id) initWithArrayOfRenderers:(NSArray*) arrayOfRenderers;
+-(instancetype) initWithAnimationController:(id<AnimationController>) animationController;
 -(void) setFrameSize:(NSSize) screenSize;
 -(void) addRenderer:(NSString*) renderer;
 -(void) setNext;
 -(void) render;
--(NSString*) getClassName;
+
+@property(nonatomic, strong) id<Renderer> renderer;
+@property (nonatomic, strong) id<AnimationController> animationController;
+@property (nonatomic, strong) NSDictionary* shaderToys;
 @property(nonatomic, assign) NSSize screenSize;
-@property(nonatomic, strong) id<ESRenderer> renderer;
+@property (nonatomic, assign) unsigned long iterationsPerRenderer;
+@property (nonatomic, assign) unsigned long frameNumber;
+
 @end
 
 #endif

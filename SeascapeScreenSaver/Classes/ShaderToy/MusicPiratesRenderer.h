@@ -6,8 +6,9 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#include "ESRenderer.h"
-#include "ShaderUtil.h"
+#import "Renderer.h"
+#import "ShaderUtil.h"
+#import "ShaderTexture.h"
 
 typedef struct MusicPiratesBuffers {
     GLuint VertexBuffer;
@@ -41,7 +42,7 @@ typedef struct MountainVec3 {
     GLfloat z;
 }MountainVec3;
 
-@interface MusicPiratesRenderer : NSObject <ESRenderer, Attributes>
+@interface MusicPiratesRenderer : NSObject <Renderer, Attributes>
 {
 @private
     GLuint m_program;
@@ -55,4 +56,5 @@ typedef struct MountainVec3 {
     bool m_bIsLoaded;
 }
 
+@property (nonatomic, strong) ShaderTexture* shaderTextures;
 @end

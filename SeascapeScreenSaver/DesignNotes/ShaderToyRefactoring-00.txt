@@ -1,0 +1,59 @@
+Notes Regarding the Refactorization of the ShaderToy Classes.
+
+
+Motivation: To prevent having to duplicate, for the most part, ShaderToy renderer classes whenever a new ShaderToy renderer is added.  The process of adding a new ShaderToy will be to determine which class to use (e.g., those that use textures vs. those that don't), add the fragment shader and, done.
+
+
+Create a texture class for those ShaderToys that require them:
+
+    ShaderTexture* ShaderTexture =
+        [[ShaderTexture alloc] initWithTextures:arrayOfTextures];
+
+    ShaderTexture* texture = [[ShaderTexture alloc] init];
+
+    // Internally, iterate over arrayOfTextures
+    [texture addTexture:@"tex11" ofType:@"png"];
+    [texture addTexture:@"tex12" ofType:@"png"];
+
+    // Part of setup phase
+    [texture setupTextures:m_program];
+
+    // Running phase
+    [texture render]; // Calls activate and bind
+
+    // Cleanup phase
+    //[texture destroy]; Done in dealloc
+
+// Needed:
+Textures0..n, TextureExt0..n
+Fragment Shader
+
+    ShaderToyDriver* shaderToyDriver = [[ShaderToyDriver alloc] init];
+
+    // Read renderers from properties file.
+
+    ShaderToyRenderer* shaderToyRenderer =
+        [ShaderToyRenderer rendererWithFragment:fragment.fsh ofType "fsh" andTexture:shaderTexture];
+
+    // Or, no texute
+    ShaderToyRenderer* shaderToyRenderer =
+        [ShaderToyRenderer rendererWithFragment:fragment.fsh ofType "fsh"];
+
+SeascapeScreenSaverView
+    - Uses RendererIterator instance to render scene.
+
+    RendererIterator
+        PropertiesLoader
+            - Contains names of shaders and textures used for them
+
+        ShaderTexture
+            - Creates an instance by passing texture from PropertiesLoader
+            -
+        ShaderToyRenderer
+            - Receives shader name and ShaderTexture instance
+
+Creates ShaderTexture
+
+        ShaderTexture
+        ShaderToyRenderer
+        PropertiesLoader

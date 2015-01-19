@@ -8,9 +8,12 @@
 #import "MusicPiratesRenderer.h"
 #import "ShaderUtil.h"
 #import "ImageLoader.h"
+#import "GLUtil.h"
+
 #import <AppKit/AppKit.h>
 
-#include "GLUtil.h"
+#define SHADERTEXTURE
+
 
 // Attribute index.
 enum {
@@ -37,6 +40,9 @@ enum {
             return nil;
         }
         
+#ifdef SHADERTEXTURE
+        self.shaderTextures = [[ShaderTexture alloc] init];
+#endif
         m_buffers.VertexBuffer = -1;
         m_iGlobalTime = 0.0;
         m_iMouse.x = m_iMouse.y = 3;
@@ -56,9 +62,10 @@ enum {
 
 - (void) dealloc {
     
+#ifndef SHADERTEXTURE
     glDeleteTextures(1, &m_textures.m_iChannel0);
     glDeleteTextures(1, &m_textures.m_iChannel1);
-    
+#endif
     m_textures.m_iChannel0 = m_textures.m_iChannel1 = -1;
     
     [self destroyVBO];
@@ -98,6 +105,17 @@ enum {
     m_iGlobalTime += 0.1;
     glUniform1f(m_uniforms.iGlobalTimeHandle, m_iGlobalTime); printOpenGLError();
     
+#ifdef SHADERTEXTURE
+    [self.shaderTextures render];
+#else
+    // Textures
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D, m_textures.m_iChannel0);
+
+    glActiveTexture(GL_TEXTURE1);
+    glBindTexture(GL_TEXTURE_2D, m_textures.m_iChannel1);
+#endif
+    
     if( !m_bIsLoaded ) {
        
         m_bIsLoaded = true;
@@ -105,22 +123,32 @@ enum {
         glUniform3f(m_uniforms.iResolutionHandle, m_iResolution.x, m_iResolution.y, m_iResolution.z); printOpenGLError();
         glUniform2f(m_uniforms.iMouseHandle, m_iMouse.x, m_iMouse.y);
     
-        // Textures
-        glActiveTexture(GL_TEXTURE0);
-        glBindTexture(GL_TEXTURE_2D, m_textures.m_iChannel0);
-
-        glActiveTexture(GL_TEXTURE1);
-        glBindTexture(GL_TEXTURE_2D, m_textures.m_iChannel1);
-    }
+//        // Textures
+//        glActiveTexture(GL_TEXTURE0);
+//        glBindTexture(GL_TEXTURE_2D, m_textures.m_iChannel0);
+//
+//        glActiveTexture(GL_TEXTURE1);
+//        glBindTexture(GL_TEXTURE_2D, m_textures.m_iChannel1);
+    }    
     
     glDrawArrays(GL_TRIANGLES, 0, 6);  printOpenGLError();
     glDisableVertexAttribArray(m_attributes.pos);  printOpenGLError();
+
+    //glBindTexture(GL_TEXTURE_2D, 0);
 
     glUseProgram(0);
 }
 
 - (BOOL) setupTextures {
+
+#ifdef SHADERTEXTURE
+    //[self.shaderTextures addTexture:@"tex03" ofType:@"jpg"];
+    //[self.shaderTextures addTexture:@"tex12" ofType:@"png"];
+    [self.shaderTextures addTexture:@"tex03" ofType:@"jpg"];
+    [self.shaderTextures addTexture:@"Day"   ofType:@"jpg"];
     
+    [self.shaderTextures prepareTextures:m_program];
+#else
     NSBundle *bundle;
     NSString * iChannel0Str, *iChannel1Str;
     NSBitmapImageRep *bitmapimagerep0, *bitmapimagerep1;
@@ -168,9 +196,12 @@ enum {
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     glGenerateMipmap(GL_TEXTURE_2D);
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, rect.size.width, rect.size.height, 0,
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, rect.size.width, rect.size.height, 0,
                  (([bitmapimagerep0 hasAlpha])?(GL_RGBA):(GL_RGB)), GL_UNSIGNED_BYTE,
                  [bitmapimagerep0 bitmapData]);
+    
+    m_uniforms.iChannel0Handle = glGetUniformLocation(m_program, "iChannel0");
+    glUniform1i(m_uniforms.iChannel0Handle, 0);
     
     /* Channel 1 Texture */
     rect = NSMakeRect(0, 0, [bitmapimagerep1 pixelsWide], [bitmapimagerep1 pixelsHigh]);
@@ -187,10 +218,15 @@ enum {
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     glGenerateMipmap(GL_TEXTURE_2D);
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, rect.size.width, rect.size.height, 0,
-                 (([bitmapimagerep1 hasAlpha])?(GL_RGBA):(GL_RGB)), GL_UNSIGNED_BYTE,
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, rect.size.width, rect.size.height, 0,
+                 (([bitmapimagerep1 hasAlpha])?(GL_RGBA):(GL_RGB)),
+                 GL_UNSIGNED_BYTE,
                  [bitmapimagerep1 bitmapData]);
     
+    m_uniforms.iChannel1Handle = glGetUniformLocation(m_program, "iChannel1");
+    glUniform1i(m_uniforms.iChannel1Handle, 1);
+    
+
     /*
      function createGLTexture( ctx, image, format, texture )
      {
@@ -210,6 +246,7 @@ enum {
      }
      
      */
+#endif
     return true;
 }
 
@@ -252,6 +289,8 @@ enum {
     m_uniforms.iGlobalTimeHandle = glGetUniformLocation(m_program, "iGlobalTime");
     m_uniforms.iResolutionHandle = glGetUniformLocation(m_program, "iResolution");
     m_uniforms.iMouseHandle      = glGetUniformLocation(m_program, "iMouse");
+    
+#ifndef SHADERTEXTURE
     m_uniforms.iChannel0Handle   = glGetUniformLocation(m_program, "iChannel0");
     
     if( m_uniforms.iChannel0Handle == -1 )
@@ -261,7 +300,7 @@ enum {
     
     if( m_uniforms.iChannel1Handle == -1 )
         NSLog(@"Failed to get uniform location for 'iChannel1'");
-    
+#endif
     return GL_NO_ERROR;
 }
 
@@ -275,8 +314,9 @@ enum {
         [self destroyVBO];
     }
     
-    GLfloat vertices[] = { -1.0, -1.0,   1.0, -1.0,   -1.0,  1.0,
-                            1.0, -1.0,   1.0,  1.0,   -1.0,  1.0 };
+    const GLfloat vertices[] =
+        { -1.0, -1.0,   1.0, -1.0,   -1.0,  1.0,
+           1.0, -1.0,   1.0,  1.0,   -1.0,  1.0 };
     
     // Gen
     // Bind

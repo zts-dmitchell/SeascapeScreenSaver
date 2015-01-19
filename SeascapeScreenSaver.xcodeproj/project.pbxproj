@@ -7,29 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		571367E81A68E65800B4193B /* ShaderToyRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 571367E71A68E65800B4193B /* ShaderToyRenderer.m */; };
 		571804841A620942006BB4C5 /* SomewhereIn1993.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 571804831A620942006BB4C5 /* SomewhereIn1993.fsh */; };
-		571804871A620951006BB4C5 /* SomewhereIn1993Renderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 571804851A620951006BB4C5 /* SomewhereIn1993Renderer.m */; };
 		571804881A620951006BB4C5 /* SomewhereIn1993Renderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 571804861A620951006BB4C5 /* SomewhereIn1993Renderer.h */; };
-		5718048B1A620CD9006BB4C5 /* MorningCityRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 571804891A620CD9006BB4C5 /* MorningCityRenderer.m */; };
 		5718048C1A620CD9006BB4C5 /* MorningCityRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 5718048A1A620CD9006BB4C5 /* MorningCityRenderer.h */; };
 		5718048E1A620CE3006BB4C5 /* MorningCity.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 5718048D1A620CE3006BB4C5 /* MorningCity.fsh */; };
 		571804921A636CE1006BB4C5 /* CircularIterator.m in Sources */ = {isa = PBXBuildFile; fileRef = 571804911A636CE1006BB4C5 /* CircularIterator.m */; };
-		571804941A63704C006BB4C5 /* ESRendererIterator.h in Headers */ = {isa = PBXBuildFile; fileRef = 571804931A63704C006BB4C5 /* ESRendererIterator.h */; };
-		571804961A637317006BB4C5 /* ESRendererIterator.m in Sources */ = {isa = PBXBuildFile; fileRef = 571804951A637317006BB4C5 /* ESRendererIterator.m */; };
-		571804991A639ED6006BB4C5 /* MusicPiratesRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 571804971A639ED6006BB4C5 /* MusicPiratesRenderer.m */; };
+		571804941A63704C006BB4C5 /* RendererIterator.h in Headers */ = {isa = PBXBuildFile; fileRef = 571804931A63704C006BB4C5 /* RendererIterator.h */; };
+		571804961A637317006BB4C5 /* RendererIterator.m in Sources */ = {isa = PBXBuildFile; fileRef = 571804951A637317006BB4C5 /* RendererIterator.m */; };
 		5718049A1A639ED6006BB4C5 /* MusicPiratesRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 571804981A639ED6006BB4C5 /* MusicPiratesRenderer.h */; };
 		5718049C1A639EF0006BB4C5 /* MusicPirates.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 5718049B1A639EF0006BB4C5 /* MusicPirates.fsh */; };
 		5718049E1A63A104006BB4C5 /* tex03.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5718049D1A63A104006BB4C5 /* tex03.jpg */; };
-		571804A01A648B9D006BB4C5 /* properties.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5718049F1A648B9D006BB4C5 /* properties.plist */; };
 		571804A21A6492AB006BB4C5 /* PropertiesLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = 571804A11A6492AB006BB4C5 /* PropertiesLoader.h */; };
 		571804A41A6492C2006BB4C5 /* PropertiesLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 571804A31A6492C2006BB4C5 /* PropertiesLoader.m */; };
+		571804A81A64D5DE006BB4C5 /* SeascapeScreenSaver.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5718049F1A648B9D006BB4C5 /* SeascapeScreenSaver.plist */; };
+		571804AA1A64DC17006BB4C5 /* starter.SeascapeScreenSaver.plist in Resources */ = {isa = PBXBuildFile; fileRef = 571804A91A64DC17006BB4C5 /* starter.SeascapeScreenSaver.plist */; };
+		571804AC1A64FF1D006BB4C5 /* ShaderTexture.h in Headers */ = {isa = PBXBuildFile; fileRef = 571804AB1A64FF1D006BB4C5 /* ShaderTexture.h */; };
+		571804AF1A64FF6D006BB4C5 /* ShaderTexture.m in Headers */ = {isa = PBXBuildFile; fileRef = 571804AD1A64FF6D006BB4C5 /* ShaderTexture.m */; };
+		571804B21A6500BD006BB4C5 /* Attributes.h in Headers */ = {isa = PBXBuildFile; fileRef = 571804B11A6500BD006BB4C5 /* Attributes.h */; };
+		571804B31A65A8FE006BB4C5 /* ShaderTexture.m in Sources */ = {isa = PBXBuildFile; fileRef = 571804AD1A64FF6D006BB4C5 /* ShaderTexture.m */; };
+		571804B51A65A98A006BB4C5 /* ShaderTextureData.m in Sources */ = {isa = PBXBuildFile; fileRef = 571804B41A65A98A006BB4C5 /* ShaderTextureData.m */; };
 		577E02DF1A60F42D007F9E2C /* SymmetricOrigins.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 577E02DD1A60F42D007F9E2C /* SymmetricOrigins.fsh */; };
 		577E02E01A60F42D007F9E2C /* CommonVertexShader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 577E02DE1A60F42D007F9E2C /* CommonVertexShader.vsh */; };
 		577E02E31A60F586007F9E2C /* SymmetricOriginsRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 577E02E11A60F586007F9E2C /* SymmetricOriginsRenderer.h */; };
-		577E02E41A60F586007F9E2C /* SymmetricOriginsRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 577E02E21A60F586007F9E2C /* SymmetricOriginsRenderer.m */; };
 		57C109F21A5DB4C7002D4F58 /* SeascapeScreenSaverView.h in Headers */ = {isa = PBXBuildFile; fileRef = 57C109DA1A5DB4C7002D4F58 /* SeascapeScreenSaverView.h */; };
 		57C109F31A5DB4C7002D4F58 /* SeascapeScreenSaverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 57C109DB1A5DB4C7002D4F58 /* SeascapeScreenSaverView.m */; };
-		57C109F41A5DB4C7002D4F58 /* ESRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 57C109DD1A5DB4C7002D4F58 /* ESRenderer.h */; };
+		57C109F41A5DB4C7002D4F58 /* Renderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 57C109DD1A5DB4C7002D4F58 /* Renderer.h */; };
 		57C109F51A5DB4C7002D4F58 /* GLUtil.c in Sources */ = {isa = PBXBuildFile; fileRef = 57C109DE1A5DB4C7002D4F58 /* GLUtil.c */; };
 		57C109F61A5DB4C7002D4F58 /* GLUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 57C109DF1A5DB4C7002D4F58 /* GLUtil.h */; };
 		57C109F71A5DB4C7002D4F58 /* ImageLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = 57C109E01A5DB4C7002D4F58 /* ImageLoader.h */; };
@@ -44,16 +47,22 @@
 		57C10A021A5DB4C7002D4F58 /* WobblerShader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 57C109EE1A5DB4C7002D4F58 /* WobblerShader.fsh */; };
 		57C10A031A5DB4C7002D4F58 /* WobblerShader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 57C109EF1A5DB4C7002D4F58 /* WobblerShader.vsh */; };
 		57C10A131A5DBAEA002D4F58 /* MountainsRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 57C10A0F1A5DBAEA002D4F58 /* MountainsRenderer.h */; };
-		57C10A141A5DBAEA002D4F58 /* MountainsRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 57C10A101A5DBAEA002D4F58 /* MountainsRenderer.m */; };
 		57C10A151A5DBAEA002D4F58 /* SeascapeRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 57C10A111A5DBAEA002D4F58 /* SeascapeRenderer.h */; };
-		57C10A161A5DBAEA002D4F58 /* SeascapeRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 57C10A121A5DBAEA002D4F58 /* SeascapeRenderer.m */; };
 		57C10A251A5E5BA2002D4F58 /* Mountains.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 57C10A211A5E5BA2002D4F58 /* Mountains.fsh */; };
-		57C10A271A5E5BA2002D4F58 /* SeascapeFragmentShader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 57C10A231A5E5BA2002D4F58 /* SeascapeFragmentShader.fsh */; };
+		57C10A271A5E5BA2002D4F58 /* Seascape.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 57C10A231A5E5BA2002D4F58 /* Seascape.fsh */; };
 		57C10A2B1A5E5FEF002D4F58 /* tex11.png in Resources */ = {isa = PBXBuildFile; fileRef = 57C10A291A5E5FEF002D4F58 /* tex11.png */; };
 		57C10A2C1A5E5FEF002D4F58 /* tex12.png in Resources */ = {isa = PBXBuildFile; fileRef = 57C10A2A1A5E5FEF002D4F58 /* tex12.png */; };
+		57D56E9A1A69D1A40041C679 /* AnimationController.h in Headers */ = {isa = PBXBuildFile; fileRef = 57D56E991A69D1A40041C679 /* AnimationController.h */; };
+		57D56E9C1A6A2ED20041C679 /* tex16.png in Resources */ = {isa = PBXBuildFile; fileRef = 57D56E9B1A6A2ED20041C679 /* tex16.png */; };
+		57D56E9E1A6A2F1F0041C679 /* RacingGame.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 57D56E9D1A6A2F1F0041C679 /* RacingGame.fsh */; };
+		57D56EA01A6AD5D50041C679 /* Tokyo.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 57D56E9F1A6AD5D50041C679 /* Tokyo.fsh */; };
+		57D56EA21A6AFF430041C679 /* FractalCondos.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 57D56EA11A6AFF430041C679 /* FractalCondos.fsh */; };
+		57D56EA41A6B00CF0041C679 /* Generators.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 57D56EA31A6B00CF0041C679 /* Generators.fsh */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		571367E71A68E65800B4193B /* ShaderToyRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShaderToyRenderer.m; sourceTree = "<group>"; };
+		571367E91A68E67500B4193B /* ShaderToyRenderer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShaderToyRenderer.h; sourceTree = "<group>"; };
 		571804831A620942006BB4C5 /* SomewhereIn1993.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = SomewhereIn1993.fsh; sourceTree = "<group>"; };
 		571804851A620951006BB4C5 /* SomewhereIn1993Renderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SomewhereIn1993Renderer.m; sourceTree = "<group>"; };
 		571804861A620951006BB4C5 /* SomewhereIn1993Renderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SomewhereIn1993Renderer.h; sourceTree = "<group>"; };
@@ -63,22 +72,29 @@
 		5718048F1A632CC8006BB4C5 /* CircularIterator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CircularIterator.h; sourceTree = "<group>"; };
 		571804901A636C61006BB4C5 /* CircularIteratorProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CircularIteratorProtocol.h; sourceTree = "<group>"; };
 		571804911A636CE1006BB4C5 /* CircularIterator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircularIterator.m; sourceTree = "<group>"; };
-		571804931A63704C006BB4C5 /* ESRendererIterator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESRendererIterator.h; sourceTree = "<group>"; };
-		571804951A637317006BB4C5 /* ESRendererIterator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESRendererIterator.m; sourceTree = "<group>"; };
+		571804931A63704C006BB4C5 /* RendererIterator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RendererIterator.h; path = ../Utilities/RendererIterator.h; sourceTree = "<group>"; };
+		571804951A637317006BB4C5 /* RendererIterator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RendererIterator.m; path = ../Utilities/RendererIterator.m; sourceTree = "<group>"; };
 		571804971A639ED6006BB4C5 /* MusicPiratesRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicPiratesRenderer.m; sourceTree = "<group>"; };
 		571804981A639ED6006BB4C5 /* MusicPiratesRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicPiratesRenderer.h; sourceTree = "<group>"; };
 		5718049B1A639EF0006BB4C5 /* MusicPirates.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = MusicPirates.fsh; sourceTree = "<group>"; };
 		5718049D1A63A104006BB4C5 /* tex03.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = tex03.jpg; sourceTree = "<group>"; };
-		5718049F1A648B9D006BB4C5 /* properties.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = properties.plist; sourceTree = "<group>"; };
+		5718049F1A648B9D006BB4C5 /* SeascapeScreenSaver.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SeascapeScreenSaver.plist; sourceTree = "<group>"; };
 		571804A11A6492AB006BB4C5 /* PropertiesLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PropertiesLoader.h; sourceTree = "<group>"; };
 		571804A31A6492C2006BB4C5 /* PropertiesLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PropertiesLoader.m; sourceTree = "<group>"; };
+		571804A61A64BAD2006BB4C5 /* ShaderToyRefactoring-00.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "ShaderToyRefactoring-00.txt"; sourceTree = "<group>"; };
+		571804A91A64DC17006BB4C5 /* starter.SeascapeScreenSaver.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = starter.SeascapeScreenSaver.plist; sourceTree = "<group>"; };
+		571804AB1A64FF1D006BB4C5 /* ShaderTexture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShaderTexture.h; sourceTree = "<group>"; };
+		571804AD1A64FF6D006BB4C5 /* ShaderTexture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShaderTexture.m; sourceTree = "<group>"; };
+		571804B11A6500BD006BB4C5 /* Attributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Attributes.h; sourceTree = "<group>"; };
+		571804B41A65A98A006BB4C5 /* ShaderTextureData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShaderTextureData.m; sourceTree = "<group>"; };
+		571804B61A65A9AA006BB4C5 /* ShaderTextureData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShaderTextureData.h; sourceTree = "<group>"; };
 		577E02DD1A60F42D007F9E2C /* SymmetricOrigins.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = SymmetricOrigins.fsh; sourceTree = "<group>"; };
 		577E02DE1A60F42D007F9E2C /* CommonVertexShader.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = CommonVertexShader.vsh; sourceTree = "<group>"; };
 		577E02E11A60F586007F9E2C /* SymmetricOriginsRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SymmetricOriginsRenderer.h; sourceTree = "<group>"; };
 		577E02E21A60F586007F9E2C /* SymmetricOriginsRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SymmetricOriginsRenderer.m; sourceTree = "<group>"; };
 		57C109DA1A5DB4C7002D4F58 /* SeascapeScreenSaverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeascapeScreenSaverView.h; sourceTree = "<group>"; };
 		57C109DB1A5DB4C7002D4F58 /* SeascapeScreenSaverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeascapeScreenSaverView.m; sourceTree = "<group>"; };
-		57C109DD1A5DB4C7002D4F58 /* ESRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESRenderer.h; sourceTree = "<group>"; };
+		57C109DD1A5DB4C7002D4F58 /* Renderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Renderer.h; sourceTree = "<group>"; };
 		57C109DE1A5DB4C7002D4F58 /* GLUtil.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = GLUtil.c; sourceTree = "<group>"; };
 		57C109DF1A5DB4C7002D4F58 /* GLUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLUtil.h; sourceTree = "<group>"; };
 		57C109E01A5DB4C7002D4F58 /* ImageLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageLoader.h; sourceTree = "<group>"; };
@@ -99,9 +115,15 @@
 		57C10A181A5DF068002D4F58 /* cmRenderUtils.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = cmRenderUtils.js; sourceTree = "<group>"; };
 		57C10A191A5DF068002D4F58 /* effects.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = effects.js; sourceTree = "<group>"; };
 		57C10A211A5E5BA2002D4F58 /* Mountains.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Mountains.fsh; sourceTree = "<group>"; };
-		57C10A231A5E5BA2002D4F58 /* SeascapeFragmentShader.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = SeascapeFragmentShader.fsh; sourceTree = "<group>"; };
+		57C10A231A5E5BA2002D4F58 /* Seascape.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Seascape.fsh; sourceTree = "<group>"; };
 		57C10A291A5E5FEF002D4F58 /* tex11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tex11.png; sourceTree = "<group>"; };
 		57C10A2A1A5E5FEF002D4F58 /* tex12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tex12.png; sourceTree = "<group>"; };
+		57D56E991A69D1A40041C679 /* AnimationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationController.h; sourceTree = "<group>"; };
+		57D56E9B1A6A2ED20041C679 /* tex16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tex16.png; sourceTree = "<group>"; };
+		57D56E9D1A6A2F1F0041C679 /* RacingGame.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = RacingGame.fsh; sourceTree = "<group>"; };
+		57D56E9F1A6AD5D50041C679 /* Tokyo.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Tokyo.fsh; sourceTree = "<group>"; };
+		57D56EA11A6AFF430041C679 /* FractalCondos.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = FractalCondos.fsh; sourceTree = "<group>"; };
+		57D56EA31A6B00CF0041C679 /* Generators.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Generators.fsh; sourceTree = "<group>"; };
 		57F14D891A5A29C900948DDB /* SeascapeScreenSaver.saver */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SeascapeScreenSaver.saver; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -116,13 +138,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		571804A51A64BAD2006BB4C5 /* DesignNotes */ = {
+			isa = PBXGroup;
+			children = (
+				571804A61A64BAD2006BB4C5 /* ShaderToyRefactoring-00.txt */,
+			);
+			name = DesignNotes;
+			path = SeascapeScreenSaver/DesignNotes;
+			sourceTree = "<group>";
+		};
 		57C109D71A5DB4C7002D4F58 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				57C109DC1A5DB4C7002D4F58 /* Utilities */,
 				57C10A0E1A5DBAEA002D4F58 /* ShaderToy */,
 				57C109DA1A5DB4C7002D4F58 /* SeascapeScreenSaverView.h */,
 				57C109DB1A5DB4C7002D4F58 /* SeascapeScreenSaverView.m */,
-				57C109DC1A5DB4C7002D4F58 /* Utilities */,
 				57C109E61A5DB4C7002D4F58 /* WobblerRenderer.h */,
 				57C109E71A5DB4C7002D4F58 /* WobblerRenderer.mm */,
 			);
@@ -133,7 +164,7 @@
 		57C109DC1A5DB4C7002D4F58 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				57C109DD1A5DB4C7002D4F58 /* ESRenderer.h */,
+				57C109DD1A5DB4C7002D4F58 /* Renderer.h */,
 				57C109DE1A5DB4C7002D4F58 /* GLUtil.c */,
 				57C109DF1A5DB4C7002D4F58 /* GLUtil.h */,
 				57C109E01A5DB4C7002D4F58 /* ImageLoader.h */,
@@ -142,13 +173,17 @@
 				57C109E31A5DB4C7002D4F58 /* ShaderUtil.h */,
 				57C109E41A5DB4C7002D4F58 /* ShaderUtil.m */,
 				57C109E51A5DB4C7002D4F58 /* Vector.h */,
+				571804B11A6500BD006BB4C5 /* Attributes.h */,
 				571804901A636C61006BB4C5 /* CircularIteratorProtocol.h */,
 				5718048F1A632CC8006BB4C5 /* CircularIterator.h */,
 				571804911A636CE1006BB4C5 /* CircularIterator.m */,
-				571804931A63704C006BB4C5 /* ESRendererIterator.h */,
-				571804951A637317006BB4C5 /* ESRendererIterator.m */,
 				571804A11A6492AB006BB4C5 /* PropertiesLoader.h */,
 				571804A31A6492C2006BB4C5 /* PropertiesLoader.m */,
+				571804AB1A64FF1D006BB4C5 /* ShaderTexture.h */,
+				571804AD1A64FF6D006BB4C5 /* ShaderTexture.m */,
+				571804B61A65A9AA006BB4C5 /* ShaderTextureData.h */,
+				571804B41A65A98A006BB4C5 /* ShaderTextureData.m */,
+				57D56E991A69D1A40041C679 /* AnimationController.h */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -157,7 +192,8 @@
 			isa = PBXGroup;
 			children = (
 				57C109E91A5DB4C7002D4F58 /* textures */,
-				5718049F1A648B9D006BB4C5 /* properties.plist */,
+				571804A91A64DC17006BB4C5 /* starter.SeascapeScreenSaver.plist */,
+				5718049F1A648B9D006BB4C5 /* SeascapeScreenSaver.plist */,
 			);
 			name = Resources;
 			path = SeascapeScreenSaver/Resources;
@@ -166,6 +202,7 @@
 		57C109E91A5DB4C7002D4F58 /* textures */ = {
 			isa = PBXGroup;
 			children = (
+				57D56E9B1A6A2ED20041C679 /* tex16.png */,
 				5718049D1A63A104006BB4C5 /* tex03.jpg */,
 				57C10A291A5E5FEF002D4F58 /* tex11.png */,
 				57C10A2A1A5E5FEF002D4F58 /* tex12.png */,
@@ -188,10 +225,12 @@
 		57C10A0E1A5DBAEA002D4F58 /* ShaderToy */ = {
 			isa = PBXGroup;
 			children = (
+				571804931A63704C006BB4C5 /* RendererIterator.h */,
+				571804951A637317006BB4C5 /* RendererIterator.m */,
 				571804981A639ED6006BB4C5 /* MusicPiratesRenderer.h */,
 				571804971A639ED6006BB4C5 /* MusicPiratesRenderer.m */,
-				571804891A620CD9006BB4C5 /* MorningCityRenderer.m */,
 				5718048A1A620CD9006BB4C5 /* MorningCityRenderer.h */,
+				571804891A620CD9006BB4C5 /* MorningCityRenderer.m */,
 				571804861A620951006BB4C5 /* SomewhereIn1993Renderer.h */,
 				571804851A620951006BB4C5 /* SomewhereIn1993Renderer.m */,
 				577E02E11A60F586007F9E2C /* SymmetricOriginsRenderer.h */,
@@ -200,6 +239,8 @@
 				57C10A101A5DBAEA002D4F58 /* MountainsRenderer.m */,
 				57C10A111A5DBAEA002D4F58 /* SeascapeRenderer.h */,
 				57C10A121A5DBAEA002D4F58 /* SeascapeRenderer.m */,
+				571367E91A68E67500B4193B /* ShaderToyRenderer.h */,
+				571367E71A68E65800B4193B /* ShaderToyRenderer.m */,
 			);
 			path = ShaderToy;
 			sourceTree = "<group>";
@@ -217,13 +258,17 @@
 		57C10A201A5E5BA2002D4F58 /* ShaderToy */ = {
 			isa = PBXGroup;
 			children = (
+				57D56EA31A6B00CF0041C679 /* Generators.fsh */,
+				57D56EA11A6AFF430041C679 /* FractalCondos.fsh */,
+				57D56E9F1A6AD5D50041C679 /* Tokyo.fsh */,
+				57D56E9D1A6A2F1F0041C679 /* RacingGame.fsh */,
 				5718049B1A639EF0006BB4C5 /* MusicPirates.fsh */,
 				5718048D1A620CE3006BB4C5 /* MorningCity.fsh */,
 				571804831A620942006BB4C5 /* SomewhereIn1993.fsh */,
 				577E02DD1A60F42D007F9E2C /* SymmetricOrigins.fsh */,
 				577E02DE1A60F42D007F9E2C /* CommonVertexShader.vsh */,
 				57C10A211A5E5BA2002D4F58 /* Mountains.fsh */,
-				57C10A231A5E5BA2002D4F58 /* SeascapeFragmentShader.fsh */,
+				57C10A231A5E5BA2002D4F58 /* Seascape.fsh */,
 			);
 			path = ShaderToy;
 			sourceTree = "<group>";
@@ -231,6 +276,7 @@
 		57F14D7F1A5A29C900948DDB = {
 			isa = PBXGroup;
 			children = (
+				571804A51A64BAD2006BB4C5 /* DesignNotes */,
 				57C10A171A5DF068002D4F58 /* JavaScript */,
 				57C109D71A5DB4C7002D4F58 /* Classes */,
 				57C109E81A5DB4C7002D4F58 /* Resources */,
@@ -261,15 +307,19 @@
 				5718048C1A620CD9006BB4C5 /* MorningCityRenderer.h in Headers */,
 				57C109F21A5DB4C7002D4F58 /* SeascapeScreenSaverView.h in Headers */,
 				57C109F91A5DB4C7002D4F58 /* Matrix.h in Headers */,
+				571804AF1A64FF6D006BB4C5 /* ShaderTexture.m in Headers */,
 				57C10A131A5DBAEA002D4F58 /* MountainsRenderer.h in Headers */,
 				571804881A620951006BB4C5 /* SomewhereIn1993Renderer.h in Headers */,
 				57C109F71A5DB4C7002D4F58 /* ImageLoader.h in Headers */,
-				57C109F41A5DB4C7002D4F58 /* ESRenderer.h in Headers */,
+				57D56E9A1A69D1A40041C679 /* AnimationController.h in Headers */,
+				571804AC1A64FF1D006BB4C5 /* ShaderTexture.h in Headers */,
+				571804B21A6500BD006BB4C5 /* Attributes.h in Headers */,
+				57C109F41A5DB4C7002D4F58 /* Renderer.h in Headers */,
 				57C109F61A5DB4C7002D4F58 /* GLUtil.h in Headers */,
 				571804A21A6492AB006BB4C5 /* PropertiesLoader.h in Headers */,
 				5718049A1A639ED6006BB4C5 /* MusicPiratesRenderer.h in Headers */,
 				57C109FD1A5DB4C7002D4F58 /* WobblerRenderer.h in Headers */,
-				571804941A63704C006BB4C5 /* ESRendererIterator.h in Headers */,
+				571804941A63704C006BB4C5 /* RendererIterator.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,20 +380,26 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				571804A81A64D5DE006BB4C5 /* SeascapeScreenSaver.plist in Resources */,
+				571804AA1A64DC17006BB4C5 /* starter.SeascapeScreenSaver.plist in Resources */,
 				5718049E1A63A104006BB4C5 /* tex03.jpg in Resources */,
 				5718048E1A620CE3006BB4C5 /* MorningCity.fsh in Resources */,
+				57D56E9C1A6A2ED20041C679 /* tex16.png in Resources */,
 				577E02E01A60F42D007F9E2C /* CommonVertexShader.vsh in Resources */,
+				57D56EA01A6AD5D50041C679 /* Tokyo.fsh in Resources */,
+				57D56EA41A6B00CF0041C679 /* Generators.fsh in Resources */,
 				57C10A251A5E5BA2002D4F58 /* Mountains.fsh in Resources */,
-				57C10A271A5E5BA2002D4F58 /* SeascapeFragmentShader.fsh in Resources */,
+				57C10A271A5E5BA2002D4F58 /* Seascape.fsh in Resources */,
+				57D56E9E1A6A2F1F0041C679 /* RacingGame.fsh in Resources */,
 				5718049C1A639EF0006BB4C5 /* MusicPirates.fsh in Resources */,
 				57C10A021A5DB4C7002D4F58 /* WobblerShader.fsh in Resources */,
 				577E02DF1A60F42D007F9E2C /* SymmetricOrigins.fsh in Resources */,
 				57C10A031A5DB4C7002D4F58 /* WobblerShader.vsh in Resources */,
+				57D56EA21A6AFF430041C679 /* FractalCondos.fsh in Resources */,
 				571804841A620942006BB4C5 /* SomewhereIn1993.fsh in Resources */,
 				57C109FF1A5DB4C7002D4F58 /* Day.jpg in Resources */,
 				57C10A2B1A5E5FEF002D4F58 /* tex11.png in Resources */,
 				57C10A2C1A5E5FEF002D4F58 /* tex12.png in Resources */,
-				571804A01A648B9D006BB4C5 /* properties.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -354,18 +410,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				571804B51A65A98A006BB4C5 /* ShaderTextureData.m in Sources */,
+				571804B31A65A8FE006BB4C5 /* ShaderTexture.m in Sources */,
 				57C109F51A5DB4C7002D4F58 /* GLUtil.c in Sources */,
 				57C109FB1A5DB4C7002D4F58 /* ShaderUtil.m in Sources */,
 				57C109FE1A5DB4C7002D4F58 /* WobblerRenderer.mm in Sources */,
 				571804921A636CE1006BB4C5 /* CircularIterator.m in Sources */,
 				57C109F81A5DB4C7002D4F58 /* ImageLoader.m in Sources */,
-				577E02E41A60F586007F9E2C /* SymmetricOriginsRenderer.m in Sources */,
-				57C10A141A5DBAEA002D4F58 /* MountainsRenderer.m in Sources */,
-				571804991A639ED6006BB4C5 /* MusicPiratesRenderer.m in Sources */,
-				5718048B1A620CD9006BB4C5 /* MorningCityRenderer.m in Sources */,
-				571804961A637317006BB4C5 /* ESRendererIterator.m in Sources */,
-				57C10A161A5DBAEA002D4F58 /* SeascapeRenderer.m in Sources */,
-				571804871A620951006BB4C5 /* SomewhereIn1993Renderer.m in Sources */,
+				571804961A637317006BB4C5 /* RendererIterator.m in Sources */,
+				571367E81A68E65800B4193B /* ShaderToyRenderer.m in Sources */,
 				57C109F31A5DB4C7002D4F58 /* SeascapeScreenSaverView.m in Sources */,
 				571804A41A6492C2006BB4C5 /* PropertiesLoader.m in Sources */,
 			);

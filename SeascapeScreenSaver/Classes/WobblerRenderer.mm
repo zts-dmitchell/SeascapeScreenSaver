@@ -36,7 +36,7 @@ enum {
 mat4 m_translation;
 
 
-- (id)init
+- (instancetype)init
 {
     if ((self = [super init]))
     {
@@ -73,7 +73,6 @@ mat4 m_translation;
         m_translation = mat4::Translate(0.0, 0.0, -2.0);
         
         glUseProgram(0);
-
     }
     
     return self;
