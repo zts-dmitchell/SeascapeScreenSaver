@@ -8,8 +8,18 @@
 		<array>
 			<string>tex16.png</string>
 		</array>
+		<key>Fire</key>
+		<array/>
+		<key>CubesAndSpheres</key>
+		<array/>
+		<key>MengerJourney</key>
+		<array/>
 		<key>FractalCondos</key>
 		<array/>
+		<key>AbandonedBase</key>
+		<array>
+			<string>tex02.jpg</string>
+		</array>
 		<key>Generators</key>
 		<array>
 			<string>tex16.png</string>
@@ -20,8 +30,15 @@
 		<array/>
 		<key>MainSequenceStar</key>
 		<array>
+			<string>tex09.jpg</string>
+			<string>tex09.jpg</string>
+		</array>
+		<key>Venice</key>
+		<array>
+			<string>tex09.jpg</string>
+			<string>tex00.jpg</string>
 			<string>tex11.png</string>
-			<string>Day.jpg</string>
+			<string>tex05.jpg</string>
 		</array>
 		<key>Mountains</key>
 		<array>
@@ -35,7 +52,7 @@
 		<key>MusicPirates</key>
 		<array>
 			<string>tex03.jpg</string>
-			<string>Day.jpg</string>
+			<string>tex05.jpg</string>
 		</array>
 		<key>MorningCity</key>
 		<array/>
