@@ -16,6 +16,10 @@
 		<array/>
 		<key>FractalCondos</key>
 		<array/>
+		<key>AbandonedBase</key>
+		<array>
+			<string>tex02.jpg</string>
+		</array>
 		<key>Generators</key>
 		<array>
 			<string>tex16.png</string>

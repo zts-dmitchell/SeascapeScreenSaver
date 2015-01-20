@@ -28,6 +28,8 @@
 		571804B31A65A8FE006BB4C5 /* ShaderTexture.m in Sources */ = {isa = PBXBuildFile; fileRef = 571804AD1A64FF6D006BB4C5 /* ShaderTexture.m */; };
 		571804B51A65A98A006BB4C5 /* ShaderTextureData.m in Sources */ = {isa = PBXBuildFile; fileRef = 571804B41A65A98A006BB4C5 /* ShaderTextureData.m */; };
 		573DDEE41A6DE38600949D2E /* Fire.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 573DDEE31A6DE38600949D2E /* Fire.fsh */; };
+		573DDEE61A6E1A6500949D2E /* tex02.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 573DDEE51A6E1A6500949D2E /* tex02.jpg */; };
+		573DDEE81A6E1AA100949D2E /* AbandonedBase.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 573DDEE71A6E1AA100949D2E /* AbandonedBase.fsh */; };
 		577E02DF1A60F42D007F9E2C /* SymmetricOrigins.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 577E02DD1A60F42D007F9E2C /* SymmetricOrigins.fsh */; };
 		577E02E01A60F42D007F9E2C /* CommonVertexShader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 577E02DE1A60F42D007F9E2C /* CommonVertexShader.vsh */; };
 		577E02E31A60F586007F9E2C /* SymmetricOriginsRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 577E02E11A60F586007F9E2C /* SymmetricOriginsRenderer.h */; };
@@ -97,6 +99,8 @@
 		571804B41A65A98A006BB4C5 /* ShaderTextureData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShaderTextureData.m; sourceTree = "<group>"; };
 		571804B61A65A9AA006BB4C5 /* ShaderTextureData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShaderTextureData.h; sourceTree = "<group>"; };
 		573DDEE31A6DE38600949D2E /* Fire.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Fire.fsh; sourceTree = "<group>"; };
+		573DDEE51A6E1A6500949D2E /* tex02.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = tex02.jpg; sourceTree = "<group>"; };
+		573DDEE71A6E1AA100949D2E /* AbandonedBase.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = AbandonedBase.fsh; sourceTree = "<group>"; };
 		577E02DD1A60F42D007F9E2C /* SymmetricOrigins.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = SymmetricOrigins.fsh; sourceTree = "<group>"; };
 		577E02DE1A60F42D007F9E2C /* CommonVertexShader.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = CommonVertexShader.vsh; sourceTree = "<group>"; };
 		577E02E11A60F586007F9E2C /* SymmetricOriginsRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SymmetricOriginsRenderer.h; sourceTree = "<group>"; };
@@ -218,6 +222,7 @@
 		57C109E91A5DB4C7002D4F58 /* textures */ = {
 			isa = PBXGroup;
 			children = (
+				573DDEE51A6E1A6500949D2E /* tex02.jpg */,
 				57D56EAD1A6CDC530041C679 /* tex09.jpg */,
 				57D56EAE1A6CDC530041C679 /* tex05.jpg */,
 				57D56EAF1A6CDC530041C679 /* tex00.jpg */,
@@ -277,6 +282,7 @@
 		57C10A201A5E5BA2002D4F58 /* ShaderToy */ = {
 			isa = PBXGroup;
 			children = (
+				573DDEE71A6E1AA100949D2E /* AbandonedBase.fsh */,
 				573DDEE31A6DE38600949D2E /* Fire.fsh */,
 				57D56EAB1A6CD8FA0041C679 /* Venice.fsh */,
 				57D56EA91A6CD3C70041C679 /* CubesAndSpheres.fsh */,
@@ -409,11 +415,13 @@
 				571804AA1A64DC17006BB4C5 /* starter.SeascapeScreenSaver.plist in Resources */,
 				5718049E1A63A104006BB4C5 /* tex03.jpg in Resources */,
 				5718048E1A620CE3006BB4C5 /* MorningCity.fsh in Resources */,
+				573DDEE61A6E1A6500949D2E /* tex02.jpg in Resources */,
 				57D56E9C1A6A2ED20041C679 /* tex16.png in Resources */,
 				577E02E01A60F42D007F9E2C /* CommonVertexShader.vsh in Resources */,
 				57D56EA01A6AD5D50041C679 /* Tokyo.fsh in Resources */,
 				57D56EB21A6CDC530041C679 /* tex00.jpg in Resources */,
 				57D56EA41A6B00CF0041C679 /* Generators.fsh in Resources */,
+				573DDEE81A6E1AA100949D2E /* AbandonedBase.fsh in Resources */,
 				57C10A251A5E5BA2002D4F58 /* Mountains.fsh in Resources */,
 				57D56EB11A6CDC530041C679 /* tex05.jpg in Resources */,
 				57C10A271A5E5BA2002D4F58 /* Seascape.fsh in Resources */,
