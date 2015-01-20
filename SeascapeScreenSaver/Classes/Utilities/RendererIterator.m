@@ -8,18 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "RendererIterator.h"
-#import "Renderer.h"
 #import "PropertiesLoader.h"
 #import "ShaderToyRenderer.h"
-
-// Renderers:
-#import "SeascapeRenderer.h"
-#import "WobblerRenderer.h"
-#import "MountainsRenderer.h"
-#import "SomewhereIn1993Renderer.h"
-#import "SymmetricOriginsRenderer.h"
-#import "MorningCityRenderer.h"
-
 
 @implementation RendererIterator
 
@@ -40,6 +30,7 @@
     return self;
 }
 
+
 -(BOOL) initializeRenderers {
     
     // It knows what to load.
@@ -53,15 +44,23 @@
         NSNumber* objNumber = [runInfo objectForKey:@"iterations-per-renderer"];
         
         self.iterationsPerRenderer = [objNumber intValue];
+        self.defaultIterationsPerRenderer = self.iterationsPerRenderer;
         
         NSLog(@"Iterations per renderer: %lu", self.iterationsPerRenderer);
         
         self.frameNumber = 0;
 
         self.shaderToys = [properties objectForKey:@"ShaderToys"];
+        self.shaderToys2 = [properties objectForKey:@"ShaderToys2"];
         
         if(self.shaderToys == nil) {
             NSLog(@"Unable to find 'ShaderToys' object. Adding deprecated default renderers.");
+            [self addDefaultRenderers];
+            return true;
+        }
+        
+        if(self.shaderToys2 == nil) {
+            NSLog(@"Unable to find 'ShaderToys2' object. Adding deprecated default renderers.");
             [self addDefaultRenderers];
             return true;
         }
@@ -71,8 +70,41 @@
         for(int i=0; i<allKeys.count; ++i) {
             
             value = [allKeys objectAtIndex:i];
-            [self addRenderer:[value description]];
-        }        
+            //[self addRenderer:[value description]];
+        }
+        
+        allKeys = [self.shaderToys2 allKeys];
+        NSDictionary* renderKeys;
+        
+        for(int i=0; i<allKeys.count; ++i) {
+            
+            renderKeys = [allKeys objectAtIndex:i];
+            
+            NSString* renderer = [renderKeys description];
+            
+            NSLog(@"Handling object %d: %@", i, renderer);
+            
+            // Get the "Config" dictionary, and check if this renderer is enabled.
+            NSDictionary* rendererChildrenDict = [self.shaderToys2 objectForKey:renderer];
+            
+            if(rendererChildrenDict != nil) {
+                
+                NSDictionary* config = [rendererChildrenDict objectForKey:@"Config"];
+                
+                if(config != nil) {
+                    NSNumber *enabled = [config objectForKey:@"enabled"];
+                    
+                    if(enabled != nil && [enabled boolValue] == NO) {
+                        NSLog(@"Renderer, %@, is not enabled. Skipping", renderer);
+                    } else {
+                        NSLog(@"Renderer, %@, is enabled (%@)", renderer, enabled);
+                        [self addRenderer:renderer];
+                    }
+                }
+            } else {
+                NSLog(@"No configuration settings for renderer: %@", renderer);
+            }
+        }
     } else {
         NSLog(@"Unable to load properties.");
         return false;
@@ -134,6 +166,48 @@
     NSArray* textures = [self.shaderToys objectForKey:rendererClassName];
     
     self.renderer = [[ShaderToyRenderer alloc] initWithShaderName:rendererClassName andShaderTextures:textures];
+    
+    NSDictionary* rendererDic = [self.shaderToys2 objectForKey:rendererClassName];
+    
+    if(rendererDic != nil) {
+        
+        // Handle the config. This one's a dictionary
+        NSDictionary* config = [rendererDic objectForKey:@"Config"];
+        
+        if(config != nil) {
+           
+            NSNumber* iterationsPerRenderer = [config objectForKey:@"iterations-per-renderer"];
+            
+            if(iterationsPerRenderer != nil) {
+                self.iterationsPerRenderer = [iterationsPerRenderer intValue];
+                
+                if(self.iterationsPerRenderer < 100) {
+                    NSLog(@"Minimum of 100 iterations.  Setting to default");
+                    self.iterationsPerRenderer = self.defaultIterationsPerRenderer;
+                }
+                
+                NSLog(@"Number of iterations per renderer (min 100): %lu", self.iterationsPerRenderer);
+
+            } else {
+                NSLog(@"Didn't find 'iterations-per-renderer' Going with default");
+                self.iterationsPerRenderer = self.defaultIterationsPerRenderer;
+            }
+            
+        } else {
+            NSLog(@"Didn't find config for renderer: %@", rendererClassName);
+        }
+        
+        // Handle the textures. This one's an NSArray
+        textures = [rendererDic objectForKey:@"Textures"];
+     
+        if(textures != nil) {
+            for(NSString* s in textures) {
+                NSLog(@"Found texture file: %@", s);
+            }
+        }
+        
+        self.renderer = [[ShaderToyRenderer alloc] initWithShaderName:rendererClassName andShaderTextures:textures];
+    }
     
     [self.renderer setFrameSize:self.screenSize];
 

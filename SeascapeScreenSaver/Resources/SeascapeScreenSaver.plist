@@ -2,6 +2,36 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>ShaderToys2</key>
+	<dict>
+		<key>Mountains</key>
+		<dict>
+			<key>Textures</key>
+			<array>
+				<string>tex11.png</string>
+				<string>Day.jpg</string>
+			</array>
+			<key>Config</key>
+			<dict>
+				<key>enabled</key>
+				<true/>
+				<key>iterations-per-renderer</key>
+				<integer>291</integer>
+			</dict>
+		</dict>
+		<key>SunsetOnTheSea</key>
+		<dict>
+			<key>Textures</key>
+			<array/>
+			<key>Config</key>
+			<dict>
+				<key>enabledbb</key>
+				<false/>
+				<key>iterations-per-renderer</key>
+				<integer>150</integer>
+			</dict>
+		</dict>
+	</dict>
 	<key>ShaderToys</key>
 	<dict>
 		<key>RacingGame</key>
