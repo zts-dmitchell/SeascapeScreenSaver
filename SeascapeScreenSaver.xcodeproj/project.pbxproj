@@ -30,6 +30,10 @@
 		573DDEE41A6DE38600949D2E /* Fire.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 573DDEE31A6DE38600949D2E /* Fire.fsh */; };
 		573DDEE61A6E1A6500949D2E /* tex02.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 573DDEE51A6E1A6500949D2E /* tex02.jpg */; };
 		573DDEE81A6E1AA100949D2E /* AbandonedBase.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 573DDEE71A6E1AA100949D2E /* AbandonedBase.fsh */; };
+		573DDEEA1A6E256300949D2E /* SunsetOnTheSea.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 573DDEE91A6E256300949D2E /* SunsetOnTheSea.fsh */; };
+		573DDEEC1A6F85CC00949D2E /* tex07.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 573DDEEB1A6F85CC00949D2E /* tex07.jpg */; };
+		573DDEEE1A6F864900949D2E /* tex06.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 573DDEED1A6F864900949D2E /* tex06.jpg */; };
+		573DDEF01A6F86E700949D2E /* Kepler256o.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 573DDEEF1A6F86E700949D2E /* Kepler256o.fsh */; };
 		577E02DF1A60F42D007F9E2C /* SymmetricOrigins.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 577E02DD1A60F42D007F9E2C /* SymmetricOrigins.fsh */; };
 		577E02E01A60F42D007F9E2C /* CommonVertexShader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 577E02DE1A60F42D007F9E2C /* CommonVertexShader.vsh */; };
 		577E02E31A60F586007F9E2C /* SymmetricOriginsRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 577E02E11A60F586007F9E2C /* SymmetricOriginsRenderer.h */; };
@@ -101,6 +105,10 @@
 		573DDEE31A6DE38600949D2E /* Fire.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Fire.fsh; sourceTree = "<group>"; };
 		573DDEE51A6E1A6500949D2E /* tex02.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = tex02.jpg; sourceTree = "<group>"; };
 		573DDEE71A6E1AA100949D2E /* AbandonedBase.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = AbandonedBase.fsh; sourceTree = "<group>"; };
+		573DDEE91A6E256300949D2E /* SunsetOnTheSea.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = SunsetOnTheSea.fsh; sourceTree = "<group>"; };
+		573DDEEB1A6F85CC00949D2E /* tex07.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = tex07.jpg; sourceTree = "<group>"; };
+		573DDEED1A6F864900949D2E /* tex06.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = tex06.jpg; sourceTree = "<group>"; };
+		573DDEEF1A6F86E700949D2E /* Kepler256o.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Kepler256o.fsh; sourceTree = "<group>"; };
 		577E02DD1A60F42D007F9E2C /* SymmetricOrigins.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = SymmetricOrigins.fsh; sourceTree = "<group>"; };
 		577E02DE1A60F42D007F9E2C /* CommonVertexShader.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = CommonVertexShader.vsh; sourceTree = "<group>"; };
 		577E02E11A60F586007F9E2C /* SymmetricOriginsRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SymmetricOriginsRenderer.h; sourceTree = "<group>"; };
@@ -222,6 +230,8 @@
 		57C109E91A5DB4C7002D4F58 /* textures */ = {
 			isa = PBXGroup;
 			children = (
+				573DDEED1A6F864900949D2E /* tex06.jpg */,
+				573DDEEB1A6F85CC00949D2E /* tex07.jpg */,
 				573DDEE51A6E1A6500949D2E /* tex02.jpg */,
 				57D56EAD1A6CDC530041C679 /* tex09.jpg */,
 				57D56EAE1A6CDC530041C679 /* tex05.jpg */,
@@ -282,6 +292,8 @@
 		57C10A201A5E5BA2002D4F58 /* ShaderToy */ = {
 			isa = PBXGroup;
 			children = (
+				573DDEEF1A6F86E700949D2E /* Kepler256o.fsh */,
+				573DDEE91A6E256300949D2E /* SunsetOnTheSea.fsh */,
 				573DDEE71A6E1AA100949D2E /* AbandonedBase.fsh */,
 				573DDEE31A6DE38600949D2E /* Fire.fsh */,
 				57D56EAB1A6CD8FA0041C679 /* Venice.fsh */,
@@ -426,17 +438,21 @@
 				57D56EB11A6CDC530041C679 /* tex05.jpg in Resources */,
 				57C10A271A5E5BA2002D4F58 /* Seascape.fsh in Resources */,
 				57D56EAA1A6CD3C70041C679 /* CubesAndSpheres.fsh in Resources */,
+				573DDEEC1A6F85CC00949D2E /* tex07.jpg in Resources */,
 				57D56E9E1A6A2F1F0041C679 /* RacingGame.fsh in Resources */,
 				57D56EA61A6CCB240041C679 /* MainSequenceStar.fsh in Resources */,
 				5718049C1A639EF0006BB4C5 /* MusicPirates.fsh in Resources */,
 				57C10A021A5DB4C7002D4F58 /* WobblerShader.fsh in Resources */,
 				577E02DF1A60F42D007F9E2C /* SymmetricOrigins.fsh in Resources */,
 				57C10A031A5DB4C7002D4F58 /* WobblerShader.vsh in Resources */,
+				573DDEEE1A6F864900949D2E /* tex06.jpg in Resources */,
 				57D56EA21A6AFF430041C679 /* FractalCondos.fsh in Resources */,
 				57D56EAC1A6CD8FA0041C679 /* Venice.fsh in Resources */,
 				571804841A620942006BB4C5 /* SomewhereIn1993.fsh in Resources */,
+				573DDEEA1A6E256300949D2E /* SunsetOnTheSea.fsh in Resources */,
 				57C109FF1A5DB4C7002D4F58 /* Day.jpg in Resources */,
 				57D56EB01A6CDC530041C679 /* tex09.jpg in Resources */,
+				573DDEF01A6F86E700949D2E /* Kepler256o.fsh in Resources */,
 				573DDEE41A6DE38600949D2E /* Fire.fsh in Resources */,
 				57C10A2B1A5E5FEF002D4F58 /* tex11.png in Resources */,
 				57C10A2C1A5E5FEF002D4F58 /* tex12.png in Resources */,
