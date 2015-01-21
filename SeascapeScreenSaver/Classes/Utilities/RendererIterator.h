@@ -40,11 +40,8 @@
 @property(nonatomic, assign) NSSize screenSize;
 @property (nonatomic, assign) unsigned long iterationsPerRenderer;
 @property (nonatomic, assign) unsigned long defaultIterationsPerRenderer;
-
 @property (nonatomic, assign) unsigned long frameNumber;
 @property (nonatomic, strong) NSDictionary* shaderToys;
-
-@property (nonatomic, strong) NSDictionary* shaderToys2;
 
 @end
 

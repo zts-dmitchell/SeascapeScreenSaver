@@ -50,7 +50,6 @@
         self.frameNumber = 0;
 
         self.shaderToys = [properties objectForKey:@"ShaderToys"];
-        self.shaderToys2 = [properties objectForKey:@"ShaderToys2"];
         
         if(self.shaderToys == nil) {
             NSLog(@"Unable to find 'ShaderToys' object. Adding deprecated default renderers.");
@@ -58,21 +57,7 @@
             return true;
         }
         
-        if(self.shaderToys2 == nil) {
-            NSLog(@"Unable to find 'ShaderToys2' object. Adding deprecated default renderers.");
-            [self addDefaultRenderers];
-            return true;
-        }
-        
         NSArray* allKeys = [self.shaderToys allKeys];
-        NSArray* value;
-        for(int i=0; i<allKeys.count; ++i) {
-            
-            value = [allKeys objectAtIndex:i];
-            //[self addRenderer:[value description]];
-        }
-        
-        allKeys = [self.shaderToys2 allKeys];
         NSDictionary* renderKeys;
         
         for(int i=0; i<allKeys.count; ++i) {
@@ -81,10 +66,8 @@
             
             NSString* renderer = [renderKeys description];
             
-            NSLog(@"Handling object %d: %@", i, renderer);
-            
             // Get the "Config" dictionary, and check if this renderer is enabled.
-            NSDictionary* rendererChildrenDict = [self.shaderToys2 objectForKey:renderer];
+            NSDictionary* rendererChildrenDict = [self.shaderToys objectForKey:renderer];
             
             if(rendererChildrenDict != nil) {
                 
@@ -165,11 +148,8 @@
     NSString* rendererClassName = [self next];
     
     NSLog(@"setNext: %@", rendererClassName);
-    NSArray* textures = [self.shaderToys objectForKey:rendererClassName];
-    
-    self.renderer = [[ShaderToyRenderer alloc] initWithShaderName:rendererClassName andShaderTextures:textures];
-    
-    NSDictionary* rendererDic = [self.shaderToys2 objectForKey:rendererClassName];
+    NSArray* textures;
+    NSDictionary* rendererDic = [self.shaderToys objectForKey:rendererClassName];
     
     if(rendererDic != nil) {
         

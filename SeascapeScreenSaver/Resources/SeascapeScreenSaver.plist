@@ -2,7 +2,7 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>ShaderToys2</key>
+	<key>ShaderToys</key>
 	<dict>
 		<key>MorningCity</key>
 		<dict/>
@@ -96,63 +96,6 @@
 				<string>tex16.png</string>
 			</array>
 		</dict>
-	</dict>
-	<key>ShaderToys</key>
-	<dict>
-		<key>RacingGame</key>
-		<array>
-			<string>tex16.png</string>
-		</array>
-		<key>SunsetOnTheSea</key>
-		<array/>
-		<key>Fire</key>
-		<array/>
-		<key>CubesAndSpheres</key>
-		<array/>
-		<key>MengerJourney</key>
-		<array/>
-		<key>FractalCondos</key>
-		<array/>
-		<key>AbandonedBase</key>
-		<array>
-			<string>tex02.jpg</string>
-		</array>
-		<key>Generators</key>
-		<array>
-			<string>tex16.png</string>
-		</array>
-		<key>Tokyo</key>
-		<array/>
-		<key>Seascape</key>
-		<array/>
-		<key>MainSequenceStar</key>
-		<array>
-			<string>tex09.jpg</string>
-			<string>tex09.jpg</string>
-		</array>
-		<key>Venice</key>
-		<array>
-			<string>tex09.jpg</string>
-			<string>tex00.jpg</string>
-			<string>tex11.png</string>
-			<string>tex05.jpg</string>
-		</array>
-		<key>Mountains</key>
-		<array>
-			<string>tex11.png</string>
-			<string>Day.jpg</string>
-		</array>
-		<key>SymmetricOrigins</key>
-		<array/>
-		<key>SomewhereIn1993</key>
-		<array/>
-		<key>MusicPirates</key>
-		<array>
-			<string>tex03.jpg</string>
-			<string>tex05.jpg</string>
-		</array>
-		<key>MorningCity</key>
-		<array/>
 	</dict>
 	<key>renderers</key>
 	<array>
