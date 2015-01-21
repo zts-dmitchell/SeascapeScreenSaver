@@ -12,7 +12,7 @@
 #import "ShaderUtil.h"
 #import "ImageLoader.h"
 #import "GLUtil.h"
-
+#include "MonitorDisplayInfo.h"
 #import <AppKit/AppKit.h>
 
 
@@ -171,10 +171,14 @@ enum {
         [self destroyVBO];
     }
     
+    const int monitorCount = MDI_GetDisplayCount();
+    const GLfloat scaleFactor = 1.0 / monitorCount;
     const GLfloat vertices[] =
-    { -1.0, -1.0,   1.0, -1.0,   -1.0,  1.0,
-        1.0, -1.0,   1.0,  1.0,   -1.0,  1.0 };
+    { -1.0 * scaleFactor, -1.0 * scaleFactor,   1.0 * scaleFactor, -1.0 * scaleFactor,   -1.0 * scaleFactor,  1.0 * scaleFactor,
+        1.0 * scaleFactor, -1.0 * scaleFactor,   1.0 * scaleFactor,  1.0 * scaleFactor,   -1.0 * scaleFactor,  1.0 * scaleFactor
+    };
     
+    NSLog(@"Screen scale factor: %f. Number of monitors detected: %d", scaleFactor, monitorCount);
     // Gen
     // Bind
     // Buffer

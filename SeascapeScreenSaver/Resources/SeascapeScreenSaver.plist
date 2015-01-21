@@ -52,7 +52,13 @@
 		<key>FractalCondos</key>
 		<dict/>
 		<key>MengerJourney</key>
-		<dict/>
+		<dict>
+			<key>Config</key>
+			<dict>
+				<key>iterations-per-renderer</key>
+				<integer>2000</integer>
+			</dict>
+		</dict>
 		<key>CubesAndSpheres</key>
 		<dict/>
 		<key>Fire</key>
@@ -123,7 +129,7 @@
 		<key>current-renderer</key>
 		<string>Seascape</string>
 		<key>iterations-per-renderer</key>
-		<integer>100</integer>
+		<integer>1000</integer>
 	</dict>
 </dict>
 </plist>
