@@ -4,6 +4,56 @@
 <dict>
 	<key>ShaderToys2</key>
 	<dict>
+		<key>MorningCity</key>
+		<dict/>
+		<key>SomewhereIn1993</key>
+		<dict/>
+		<key>SymmetricOrigins</key>
+		<dict/>
+		<key>Venice</key>
+		<dict>
+			<key>Textures</key>
+			<array>
+				<string>tex09.jpg</string>
+				<string>tex00.jpg</string>
+				<string>tex11.png</string>
+				<string>tex05.jpg</string>
+			</array>
+		</dict>
+		<key>MainSequenceStar</key>
+		<dict>
+			<key>Textures</key>
+			<array>
+				<string>tex09.jpg</string>
+				<string>tex09.jpg</string>
+			</array>
+		</dict>
+		<key>Seascape</key>
+		<dict/>
+		<key>Tokyo</key>
+		<dict/>
+		<key>Generators</key>
+		<dict>
+			<key>Textures</key>
+			<array>
+				<string>tex16.png</string>
+			</array>
+		</dict>
+		<key>FractalCondos</key>
+		<dict/>
+		<key>MengerJourney</key>
+		<dict/>
+		<key>CubesAndSpheres</key>
+		<dict/>
+		<key>Fire</key>
+		<dict/>
+		<key>AbandonedBase</key>
+		<dict>
+			<key>Textures</key>
+			<array>
+				<string>tex02.jpg</string>
+			</array>
+		</dict>
 		<key>Mountains</key>
 		<dict>
 			<key>Textures</key>
@@ -16,7 +66,7 @@
 				<key>enabled</key>
 				<true/>
 				<key>iterations-per-renderer</key>
-				<integer>291</integer>
+				<integer>400</integer>
 			</dict>
 		</dict>
 		<key>SunsetOnTheSea</key>
@@ -28,8 +78,23 @@
 				<key>enabledbb</key>
 				<false/>
 				<key>iterations-per-renderer</key>
-				<integer>150</integer>
+				<integer>500</integer>
 			</dict>
+		</dict>
+		<key>MusicPirates</key>
+		<dict>
+			<key>Textures</key>
+			<array>
+				<string>tex03.jpg</string>
+				<string>tex05.jpg</string>
+			</array>
+		</dict>
+		<key>RacingGame</key>
+		<dict>
+			<key>Textures</key>
+			<array>
+				<string>tex16.png</string>
+			</array>
 		</dict>
 	</dict>
 	<key>ShaderToys</key>
@@ -105,7 +170,7 @@
 		<key>current-renderer</key>
 		<string>Seascape</string>
 		<key>iterations-per-renderer</key>
-		<integer>500</integer>
+		<integer>100</integer>
 	</dict>
 </dict>
 </plist>

@@ -30,7 +30,6 @@
     return self;
 }
 
-
 -(BOOL) initializeRenderers {
     
     // It knows what to load.
@@ -100,9 +99,12 @@
                         NSLog(@"Renderer, %@, is enabled (%@)", renderer, enabled);
                         [self addRenderer:renderer];
                     }
+                } else {
+                    [self addRenderer:renderer];
                 }
             } else {
                 NSLog(@"No configuration settings for renderer: %@", renderer);
+                [self addRenderer:renderer];
             }
         }
     } else {
