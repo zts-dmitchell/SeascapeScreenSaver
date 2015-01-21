@@ -4,6 +4,16 @@
 <dict>
 	<key>ShaderToys</key>
 	<dict>
+		<key>Kepler256o</key>
+		<dict>
+			<key>Textures</key>
+			<array>
+				<string>tex06.jpg</string>
+				<string>tex07.jpg</string>
+				<string>tex11.png</string>
+				<string>tex03.jpg</string>
+			</array>
+		</dict>
 		<key>MorningCity</key>
 		<dict/>
 		<key>SomewhereIn1993</key>
