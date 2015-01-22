@@ -33,7 +33,7 @@ const int MAX_DISPLAYS = 16;
 int MDI_GetDisplayCount()
 {
     CGDisplayErr      dErr;
-    CGDisplayCount    displayCount, i;
+    CGDisplayCount    displayCount; //, i;
     CGDirectDisplayID mainDisplay;
     CGDisplayCount    maxDisplays = MAX_DISPLAYS;
     CGDirectDisplayID onlineDisplays[MAX_DISPLAYS];
