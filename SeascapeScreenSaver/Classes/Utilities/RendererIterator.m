@@ -103,6 +103,7 @@
     self.screenSize = screenSize;
     
     [self.renderer setFrameSize:screenSize];
+    //[self.renderer2 setFrameSize:screenSize];
 }
 
 -(void) addRenderersFromArray:(NSArray*) arrayOfRenderers {
@@ -188,10 +189,27 @@
             }
         }
         
+        const GLfloat vertices[] =
+        { -1.0, 0.0,   1.0, 0.0,   -1.0,  1.0,
+            1.0, 0.0,   1.0,  1.0,   -1.0,  1.0
+        };
+        
+        const GLfloat vertices2[] =
+        { -1.0, -1.0,   1.0, -1.0,   -1.0,  0.0,
+            1.0, -1.0,   1.0,  0.0,   -1.0,  0.0
+        };
+        
         self.renderer = [[ShaderToyRenderer alloc] initWithShaderName:rendererClassName andShaderTextures:textures];
+        //self.renderer = [[ShaderToyRenderer alloc] initWithShaderNameAndVertices:rendererClassName
+        //                                                          shaderTextures:textures
+        //                                                             andVertices:vertices];
+        //self.renderer2 = [[ShaderToyRenderer alloc] initWithShaderNameAndVertices:@"Venice"
+        //                                                          shaderTextures:textures
+        //                                                             andVertices:vertices2];
     }
     
     [self.renderer setFrameSize:self.screenSize];
+    //[self.renderer2 setFrameSize:self.screenSize];
 
     [self.animationController startAnimation];
 }
@@ -206,6 +224,7 @@
               self.currentClassname, self.frameNumber - 1);
     }
     
+    //[self.renderer2 render];
     [self.renderer render];
 }
 

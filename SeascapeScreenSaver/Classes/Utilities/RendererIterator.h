@@ -36,6 +36,7 @@
 -(void) render;
 
 @property(nonatomic, strong) id<Renderer> renderer;
+@property(nonatomic, strong) id<Renderer> renderer2;
 @property (nonatomic, strong) id<AnimationController> animationController;
 @property(nonatomic, assign) NSSize screenSize;
 @property (nonatomic, assign) unsigned long iterationsPerRenderer;

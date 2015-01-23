@@ -12,7 +12,7 @@
 #import "ShaderUtil.h"
 #import "ImageLoader.h"
 #import "GLUtil.h"
-
+#include "MonitorDisplayInfo.h"
 #import <AppKit/AppKit.h>
 
 
@@ -21,14 +21,29 @@ enum {
     ATTRIB_VERTEX,
 };
 
-@interface ShaderToyRenderer(PrivateMethods)
-- (BOOL) setupTextures;
-@end
-
 @implementation ShaderToyRenderer
 
 
--(instancetype) initWithShaderName:(NSString*) shader andShaderTextures:(NSArray*) arrayOfTextureFiles {
+-(instancetype) initWithShaderName:(NSString*) shader
+                 andShaderTextures:(NSArray*) arrayOfTextureFiles {
+/*
+    const GLfloat vertices[] =
+    { -1.0, 0.0,   1.0, 0.0,   -1.0,  1.0,
+        1.0, 0.0,   1.0,  1.0,   -1.0,  1.0
+    };
+    
+    const GLfloat vertices2[] =
+    { -1.0, -1.0,   1.0, -1.0,   -1.0,  0.0,
+        1.0, -1.0,   1.0,  0.0,   -1.0,  0.0
+    };
+*/
+    NSLog(@"It's the new one!!!");
+    return [self initWithShaderNameAndVertices:shader shaderTextures:arrayOfTextureFiles andVertices:nil];
+}
+
+-(instancetype) initWithShaderNameAndVertices:(NSString*) shader
+                               shaderTextures:(NSArray*) arrayOfTextureFiles
+                                  andVertices:(const GLfloat[]) vertices {
     
     if((self = [super init])) {
         
@@ -49,7 +64,7 @@ enum {
         
         glUseProgram(m_program);
         
-        [self createVBO];
+        [self createVBO:vertices];
         
         [self.shaderTextures prepareTextures:m_program];
         
@@ -165,15 +180,30 @@ enum {
 
 -(void) createVBO {
     
+    const int monitorCount = MDI_GetDisplayCount();
+    const GLfloat scaleFactor = 1.0 / monitorCount;
+    const GLfloat vertices[] =
+    { -1.0 * scaleFactor, -1.0 * scaleFactor,   1.0 * scaleFactor, -1.0 * scaleFactor,   -1.0 * scaleFactor,  1.0 * scaleFactor,
+        1.0 * scaleFactor, -1.0 * scaleFactor,   1.0 * scaleFactor,  1.0 * scaleFactor,   -1.0 * scaleFactor,  1.0 * scaleFactor
+    };
+
+    NSLog(@"Screen scale factor: %f. Number of monitors detected: %d", scaleFactor, monitorCount);
+
+    [self createVBO:vertices];
+}
+
+-(void) createVBO:(const GLfloat[]) vertices {
+    
     NSLog(@"Creating VBO");
+    
+    if(vertices == nil) {
+        [self createVBO];
+        return;
+    }
     
     if(m_buffers.VertexBuffer != -1) {
         [self destroyVBO];
     }
-    
-    const GLfloat vertices[] =
-    { -1.0, -1.0,   1.0, -1.0,   -1.0,  1.0,
-        1.0, -1.0,   1.0,  1.0,   -1.0,  1.0 };
     
     // Gen
     // Bind

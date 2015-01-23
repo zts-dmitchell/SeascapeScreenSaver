@@ -16,6 +16,8 @@
 		</dict>
 		<key>MorningCity</key>
 		<dict/>
+		<key>TrainRide</key>
+		<dict/>
 		<key>SomewhereIn1993</key>
 		<dict/>
 		<key>SymmetricOrigins</key>
@@ -30,6 +32,13 @@
 				<string>tex05.jpg</string>
 			</array>
 		</dict>
+		<key>DeformSquareTunnel</key>
+		<dict>
+			<key>Textures</key>
+			<array>
+				<string>tex00.jpg</string>
+			</array>
+		</dict>
 		<key>MainSequenceStar</key>
 		<dict>
 			<key>Textures</key>
@@ -42,6 +51,13 @@
 		<dict/>
 		<key>Tokyo</key>
 		<dict/>
+		<key>HexagonsDistance</key>
+		<dict>
+			<key>Textures</key>
+			<array>
+				<string>tex16.png</string>
+			</array>
+		</dict>
 		<key>Generators</key>
 		<dict>
 			<key>Textures</key>
@@ -52,7 +68,13 @@
 		<key>FractalCondos</key>
 		<dict/>
 		<key>MengerJourney</key>
-		<dict/>
+		<dict>
+			<key>Config</key>
+			<dict>
+				<key>iterations-per-renderer</key>
+				<integer>100</integer>
+			</dict>
+		</dict>
 		<key>CubesAndSpheres</key>
 		<dict/>
 		<key>Fire</key>
@@ -123,7 +145,7 @@
 		<key>current-renderer</key>
 		<string>Seascape</string>
 		<key>iterations-per-renderer</key>
-		<integer>100</integer>
+		<integer>2000</integer>
 	</dict>
 </dict>
 </plist>
