@@ -36,6 +36,9 @@
 		573DDEF01A6F86E700949D2E /* Kepler256o.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 573DDEEF1A6F86E700949D2E /* Kepler256o.fsh */; };
 		573DDEF31A70210800949D2E /* MonitorDisplayInfo.c in Sources */ = {isa = PBXBuildFile; fileRef = 573DDEF11A70210800949D2E /* MonitorDisplayInfo.c */; };
 		573DDEF41A70210800949D2E /* MonitorDisplayInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 573DDEF21A70210800949D2E /* MonitorDisplayInfo.h */; };
+		573DDEF81A71F97100949D2E /* TrainRide.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 573DDEF71A71F97100949D2E /* TrainRide.fsh */; };
+		573DDEFA1A72048B00949D2E /* HexagonsDistance.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 573DDEF91A72048B00949D2E /* HexagonsDistance.fsh */; };
+		573DDEFC1A7208F900949D2E /* DeformSquareTunnel.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 573DDEFB1A7208F900949D2E /* DeformSquareTunnel.fsh */; };
 		577E02DF1A60F42D007F9E2C /* SymmetricOrigins.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 577E02DD1A60F42D007F9E2C /* SymmetricOrigins.fsh */; };
 		577E02E01A60F42D007F9E2C /* CommonVertexShader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 577E02DE1A60F42D007F9E2C /* CommonVertexShader.vsh */; };
 		577E02E31A60F586007F9E2C /* SymmetricOriginsRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 577E02E11A60F586007F9E2C /* SymmetricOriginsRenderer.h */; };
@@ -113,6 +116,9 @@
 		573DDEEF1A6F86E700949D2E /* Kepler256o.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Kepler256o.fsh; sourceTree = "<group>"; };
 		573DDEF11A70210800949D2E /* MonitorDisplayInfo.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = MonitorDisplayInfo.c; sourceTree = "<group>"; };
 		573DDEF21A70210800949D2E /* MonitorDisplayInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MonitorDisplayInfo.h; sourceTree = "<group>"; };
+		573DDEF71A71F97100949D2E /* TrainRide.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = TrainRide.fsh; sourceTree = "<group>"; };
+		573DDEF91A72048B00949D2E /* HexagonsDistance.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = HexagonsDistance.fsh; sourceTree = "<group>"; };
+		573DDEFB1A7208F900949D2E /* DeformSquareTunnel.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = DeformSquareTunnel.fsh; sourceTree = "<group>"; };
 		577E02DD1A60F42D007F9E2C /* SymmetricOrigins.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = SymmetricOrigins.fsh; sourceTree = "<group>"; };
 		577E02DE1A60F42D007F9E2C /* CommonVertexShader.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = CommonVertexShader.vsh; sourceTree = "<group>"; };
 		577E02E11A60F586007F9E2C /* SymmetricOriginsRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SymmetricOriginsRenderer.h; sourceTree = "<group>"; };
@@ -298,6 +304,9 @@
 		57C10A201A5E5BA2002D4F58 /* ShaderToy */ = {
 			isa = PBXGroup;
 			children = (
+				573DDEFB1A7208F900949D2E /* DeformSquareTunnel.fsh */,
+				573DDEF91A72048B00949D2E /* HexagonsDistance.fsh */,
+				573DDEF71A71F97100949D2E /* TrainRide.fsh */,
 				573DDEEF1A6F86E700949D2E /* Kepler256o.fsh */,
 				573DDEE91A6E256300949D2E /* SunsetOnTheSea.fsh */,
 				573DDEE71A6E1AA100949D2E /* AbandonedBase.fsh */,
@@ -432,6 +441,7 @@
 				57D56EA81A6CD0210041C679 /* MengerJourney.fsh in Resources */,
 				571804A81A64D5DE006BB4C5 /* SeascapeScreenSaver.plist in Resources */,
 				571804AA1A64DC17006BB4C5 /* starter.SeascapeScreenSaver.plist in Resources */,
+				573DDEFA1A72048B00949D2E /* HexagonsDistance.fsh in Resources */,
 				5718049E1A63A104006BB4C5 /* tex03.jpg in Resources */,
 				5718048E1A620CE3006BB4C5 /* MorningCity.fsh in Resources */,
 				573DDEE61A6E1A6500949D2E /* tex02.jpg in Resources */,
@@ -445,12 +455,14 @@
 				57D56EB11A6CDC530041C679 /* tex05.jpg in Resources */,
 				57C10A271A5E5BA2002D4F58 /* Seascape.fsh in Resources */,
 				57D56EAA1A6CD3C70041C679 /* CubesAndSpheres.fsh in Resources */,
+				573DDEF81A71F97100949D2E /* TrainRide.fsh in Resources */,
 				573DDEEC1A6F85CC00949D2E /* tex07.jpg in Resources */,
 				57D56E9E1A6A2F1F0041C679 /* RacingGame.fsh in Resources */,
 				57D56EA61A6CCB240041C679 /* MainSequenceStar.fsh in Resources */,
 				5718049C1A639EF0006BB4C5 /* MusicPirates.fsh in Resources */,
 				57C10A021A5DB4C7002D4F58 /* WobblerShader.fsh in Resources */,
 				577E02DF1A60F42D007F9E2C /* SymmetricOrigins.fsh in Resources */,
+				573DDEFC1A7208F900949D2E /* DeformSquareTunnel.fsh in Resources */,
 				57C10A031A5DB4C7002D4F58 /* WobblerShader.vsh in Resources */,
 				573DDEEE1A6F864900949D2E /* tex06.jpg in Resources */,
 				57D56EA21A6AFF430041C679 /* FractalCondos.fsh in Resources */,

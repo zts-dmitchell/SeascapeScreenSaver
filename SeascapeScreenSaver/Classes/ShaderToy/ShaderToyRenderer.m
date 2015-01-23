@@ -43,7 +43,7 @@ enum {
 
 -(instancetype) initWithShaderNameAndVertices:(NSString*) shader
                                shaderTextures:(NSArray*) arrayOfTextureFiles
-                                  andVertices:(GLfloat[]) vertices {
+                                  andVertices:(const GLfloat[]) vertices {
     
     if((self = [super init])) {
         
@@ -103,8 +103,8 @@ enum {
 
 - (void)render {
     
-    //glClearColor(.01, .01, .01, 1.0f);
-    //glClear(GL_COLOR_BUFFER_BIT);
+    glClearColor(.01, .01, .01, 1.0f);
+    glClear(GL_COLOR_BUFFER_BIT);
     
     glUseProgram(m_program);
     
@@ -182,7 +182,7 @@ enum {
     
     const int monitorCount = MDI_GetDisplayCount();
     const GLfloat scaleFactor = 1.0 / monitorCount;
-    GLfloat vertices[] =
+    const GLfloat vertices[] =
     { -1.0 * scaleFactor, -1.0 * scaleFactor,   1.0 * scaleFactor, -1.0 * scaleFactor,   -1.0 * scaleFactor,  1.0 * scaleFactor,
         1.0 * scaleFactor, -1.0 * scaleFactor,   1.0 * scaleFactor,  1.0 * scaleFactor,   -1.0 * scaleFactor,  1.0 * scaleFactor
     };
@@ -192,7 +192,7 @@ enum {
     [self createVBO:vertices];
 }
 
--(void) createVBO:(GLfloat[]) vertices {
+-(void) createVBO:(const GLfloat[]) vertices {
     
     NSLog(@"Creating VBO");
     
