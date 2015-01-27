@@ -14,22 +14,42 @@
 				<string>tex03.jpg</string>
 			</array>
 		</dict>
+		<key>JoggingRat</key>
+		<dict/>
 		<key>MorningCity</key>
 		<dict/>
 		<key>TrainRide</key>
-		<dict/>
+		<dict>
+			<key>Config</key>
+			<dict>
+				<key>enabled</key>
+				<false/>
+			</dict>
+		</dict>
 		<key>SomewhereIn1993</key>
 		<dict/>
 		<key>SymmetricOrigins</key>
 		<dict/>
 		<key>Venice</key>
 		<dict>
+			<key>Config</key>
+			<dict>
+				<key>enabled</key>
+				<false/>
+			</dict>
 			<key>Textures</key>
 			<array>
 				<string>tex09.jpg</string>
 				<string>tex00.jpg</string>
 				<string>tex11.png</string>
 				<string>tex05.jpg</string>
+			</array>
+		</dict>
+		<key>Elevated</key>
+		<dict>
+			<key>Textures</key>
+			<array>
+				<string>tex12.png</string>
 			</array>
 		</dict>
 		<key>DeformSquareTunnel</key>
@@ -96,7 +116,7 @@
 			<key>Config</key>
 			<dict>
 				<key>enabled</key>
-				<true/>
+				<false/>
 				<key>iterations-per-renderer</key>
 				<integer>400</integer>
 			</dict>
@@ -145,7 +165,7 @@
 		<key>current-renderer</key>
 		<string>Seascape</string>
 		<key>iterations-per-renderer</key>
-		<integer>2000</integer>
+		<integer>300</integer>
 	</dict>
 </dict>
 </plist>

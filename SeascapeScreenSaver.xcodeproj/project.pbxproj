@@ -27,6 +27,8 @@
 		571804B21A6500BD006BB4C5 /* Attributes.h in Headers */ = {isa = PBXBuildFile; fileRef = 571804B11A6500BD006BB4C5 /* Attributes.h */; };
 		571804B31A65A8FE006BB4C5 /* ShaderTexture.m in Sources */ = {isa = PBXBuildFile; fileRef = 571804AD1A64FF6D006BB4C5 /* ShaderTexture.m */; };
 		571804B51A65A98A006BB4C5 /* ShaderTextureData.m in Sources */ = {isa = PBXBuildFile; fileRef = 571804B41A65A98A006BB4C5 /* ShaderTextureData.m */; };
+		5719A5EB1A7803BD00883CB0 /* JoggingRat.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 5719A5EA1A7803BD00883CB0 /* JoggingRat.fsh */; };
+		5719A5ED1A7812E000883CB0 /* Elevated.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 5719A5EC1A7812E000883CB0 /* Elevated.fsh */; };
 		573DDEE41A6DE38600949D2E /* Fire.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 573DDEE31A6DE38600949D2E /* Fire.fsh */; };
 		573DDEE61A6E1A6500949D2E /* tex02.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 573DDEE51A6E1A6500949D2E /* tex02.jpg */; };
 		573DDEE81A6E1AA100949D2E /* AbandonedBase.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 573DDEE71A6E1AA100949D2E /* AbandonedBase.fsh */; };
@@ -107,6 +109,8 @@
 		571804B11A6500BD006BB4C5 /* Attributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Attributes.h; sourceTree = "<group>"; };
 		571804B41A65A98A006BB4C5 /* ShaderTextureData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShaderTextureData.m; sourceTree = "<group>"; };
 		571804B61A65A9AA006BB4C5 /* ShaderTextureData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShaderTextureData.h; sourceTree = "<group>"; };
+		5719A5EA1A7803BD00883CB0 /* JoggingRat.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = JoggingRat.fsh; sourceTree = "<group>"; };
+		5719A5EC1A7812E000883CB0 /* Elevated.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Elevated.fsh; sourceTree = "<group>"; };
 		573DDEE31A6DE38600949D2E /* Fire.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Fire.fsh; sourceTree = "<group>"; };
 		573DDEE51A6E1A6500949D2E /* tex02.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = tex02.jpg; sourceTree = "<group>"; };
 		573DDEE71A6E1AA100949D2E /* AbandonedBase.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = AbandonedBase.fsh; sourceTree = "<group>"; };
@@ -304,6 +308,8 @@
 		57C10A201A5E5BA2002D4F58 /* ShaderToy */ = {
 			isa = PBXGroup;
 			children = (
+				5719A5EC1A7812E000883CB0 /* Elevated.fsh */,
+				5719A5EA1A7803BD00883CB0 /* JoggingRat.fsh */,
 				573DDEFB1A7208F900949D2E /* DeformSquareTunnel.fsh */,
 				573DDEF91A72048B00949D2E /* HexagonsDistance.fsh */,
 				573DDEF71A71F97100949D2E /* TrainRide.fsh */,
@@ -453,6 +459,7 @@
 				573DDEE81A6E1AA100949D2E /* AbandonedBase.fsh in Resources */,
 				57C10A251A5E5BA2002D4F58 /* Mountains.fsh in Resources */,
 				57D56EB11A6CDC530041C679 /* tex05.jpg in Resources */,
+				5719A5ED1A7812E000883CB0 /* Elevated.fsh in Resources */,
 				57C10A271A5E5BA2002D4F58 /* Seascape.fsh in Resources */,
 				57D56EAA1A6CD3C70041C679 /* CubesAndSpheres.fsh in Resources */,
 				573DDEF81A71F97100949D2E /* TrainRide.fsh in Resources */,
@@ -473,6 +480,7 @@
 				57D56EB01A6CDC530041C679 /* tex09.jpg in Resources */,
 				573DDEF01A6F86E700949D2E /* Kepler256o.fsh in Resources */,
 				573DDEE41A6DE38600949D2E /* Fire.fsh in Resources */,
+				5719A5EB1A7803BD00883CB0 /* JoggingRat.fsh in Resources */,
 				57C10A2B1A5E5FEF002D4F58 /* tex11.png in Resources */,
 				57C10A2C1A5E5FEF002D4F58 /* tex12.png in Resources */,
 			);
