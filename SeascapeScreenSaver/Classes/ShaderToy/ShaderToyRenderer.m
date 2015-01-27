@@ -26,18 +26,6 @@ enum {
 
 -(instancetype) initWithShaderName:(NSString*) shader
                  andShaderTextures:(NSArray*) arrayOfTextureFiles {
-/*
-    const GLfloat vertices[] =
-    { -1.0, 0.0,   1.0, 0.0,   -1.0,  1.0,
-        1.0, 0.0,   1.0,  1.0,   -1.0,  1.0
-    };
-    
-    const GLfloat vertices2[] =
-    { -1.0, -1.0,   1.0, -1.0,   -1.0,  0.0,
-        1.0, -1.0,   1.0,  0.0,   -1.0,  0.0
-    };
-*/
-    NSLog(@"It's the new one!!!");
     return [self initWithShaderNameAndVertices:shader shaderTextures:arrayOfTextureFiles andVertices:nil];
 }
 
@@ -94,7 +82,7 @@ enum {
     m_iResolution.x = newSize.width;
     m_iResolution.y = newSize.height;
     
-    NSLog(@"Setting frame size: %f w by %f h", newSize.width, newSize.height);
+    NSLog(@"Setting shader resolution size: %f w by %f h", m_iResolution.x, m_iResolution.y);
     
     m_iMouse.x = newSize.width / 2.0;
     m_iMouse.y = newSize.height / 2.0;
