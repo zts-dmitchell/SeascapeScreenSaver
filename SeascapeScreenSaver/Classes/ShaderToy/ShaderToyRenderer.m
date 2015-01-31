@@ -52,7 +52,7 @@ enum {
         
         glUseProgram(m_program);
         
-        [self createVBO:vertices];
+        [self createVBOWithVertices:vertices];
         
         [self.shaderTextures prepareTextures:m_program];
         
@@ -166,21 +166,25 @@ enum {
 
 #pragma mark VBO Stuff
 
--(void) createVBO {
+-(void) createVBOWithScaleFactor:(const GLfloat) scaleFactor {
     
-    const int monitorCount = MDI_GetDisplayCount();
-    const GLfloat scaleFactor = 1.0 / monitorCount;
     const GLfloat vertices[] =
     { -1.0 * scaleFactor, -1.0 * scaleFactor,   1.0 * scaleFactor, -1.0 * scaleFactor,   -1.0 * scaleFactor,  1.0 * scaleFactor,
         1.0 * scaleFactor, -1.0 * scaleFactor,   1.0 * scaleFactor,  1.0 * scaleFactor,   -1.0 * scaleFactor,  1.0 * scaleFactor
     };
-
-    NSLog(@"Screen scale factor: %f. Number of monitors detected: %d", scaleFactor, monitorCount);
-
-    [self createVBO:vertices];
+    
+    [self createVBOWithVertices:vertices];
 }
 
--(void) createVBO:(const GLfloat[]) vertices {
+-(void) createVBO {
+
+    const int monitorCount = MDI_GetDisplayCount();
+    const GLfloat scaleFactor = 1.0 / monitorCount;
+    
+    [self createVBOWithScaleFactor:scaleFactor];
+}
+
+-(void) createVBOWithVertices:(const GLfloat[]) vertices {
     
     NSLog(@"Creating VBO");
     

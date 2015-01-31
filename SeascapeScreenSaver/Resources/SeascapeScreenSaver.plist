@@ -4,8 +4,27 @@
 <dict>
 	<key>ShaderToys</key>
 	<dict>
+		<key>ToxicLake</key>
+		<dict>
+			<key>Textures</key>
+			<array>
+				<string>tex16.png</string>
+			</array>
+		</dict>
+		<key>Catacombs</key>
+		<dict>
+			<key>Textures</key>
+			<array>
+				<string>tex03.jpg</string>
+			</array>
+		</dict>
 		<key>Kepler256o</key>
 		<dict>
+			<key>Config</key>
+			<dict>
+				<key>multi-screen-display-factor</key>
+				<real>1</real>
+			</dict>
 			<key>Textures</key>
 			<array>
 				<string>tex06.jpg</string>
@@ -14,6 +33,10 @@
 				<string>tex03.jpg</string>
 			</array>
 		</dict>
+		<key>FamousSolid</key>
+		<dict/>
+		<key>WindWakerOcean</key>
+		<dict/>
 		<key>JoggingRat</key>
 		<dict/>
 		<key>MorningCity</key>
@@ -22,6 +45,8 @@
 		<dict>
 			<key>Config</key>
 			<dict>
+				<key>multi-screen-display-factor</key>
+				<real>0.25</real>
 				<key>enabled</key>
 				<false/>
 			</dict>
@@ -34,6 +59,8 @@
 		<dict>
 			<key>Config</key>
 			<dict>
+				<key>multi-screen-display-factor</key>
+				<real>0.5</real>
 				<key>enabled</key>
 				<false/>
 			</dict>
@@ -49,7 +76,7 @@
 		<dict>
 			<key>Textures</key>
 			<array>
-				<string>tex12.png</string>
+				<string>tex11.png</string>
 			</array>
 		</dict>
 		<key>DeformSquareTunnel</key>
@@ -70,7 +97,13 @@
 		<key>Seascape</key>
 		<dict/>
 		<key>Tokyo</key>
-		<dict/>
+		<dict>
+			<key>Config</key>
+			<dict>
+				<key>multi-screen-display-factor</key>
+				<real>0.5</real>
+			</dict>
+		</dict>
 		<key>HexagonsDistance</key>
 		<dict>
 			<key>Textures</key>
@@ -101,6 +134,11 @@
 		<dict/>
 		<key>AbandonedBase</key>
 		<dict>
+			<key>Config</key>
+			<dict>
+				<key>multi-screen-display-factor</key>
+				<real>0.5</real>
+			</dict>
 			<key>Textures</key>
 			<array>
 				<string>tex02.jpg</string>
@@ -115,6 +153,8 @@
 			</array>
 			<key>Config</key>
 			<dict>
+				<key>multi-screen-display-factor</key>
+				<real>0.5</real>
 				<key>enabled</key>
 				<false/>
 				<key>iterations-per-renderer</key>
@@ -143,6 +183,11 @@
 		</dict>
 		<key>RacingGame</key>
 		<dict>
+			<key>Config</key>
+			<dict>
+				<key>multi-screen-display-factor</key>
+				<real>0.5</real>
+			</dict>
 			<key>Textures</key>
 			<array>
 				<string>tex16.png</string>
