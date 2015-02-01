@@ -4,6 +4,13 @@
 <dict>
 	<key>ShaderToys</key>
 	<dict>
+		<key>SunriseSunset</key>
+		<dict>
+			<key>Textures</key>
+			<array>
+				<string>tex16.png</string>
+			</array>
+		</dict>
 		<key>ToxicLake</key>
 		<dict>
 			<key>Textures</key>
@@ -55,6 +62,10 @@
 				<integer>100</integer>
 			</dict>
 		</dict>
+		<key>Cosmic2</key>
+		<dict/>
+		<key>TheSun</key>
+		<dict/>
 		<key>WebGLTunnel</key>
 		<dict/>
 		<key>WindWakerOcean</key>
@@ -96,6 +107,11 @@
 		</dict>
 		<key>Elevated</key>
 		<dict>
+			<key>Config</key>
+			<dict>
+				<key>enabled</key>
+				<false/>
+			</dict>
 			<key>Textures</key>
 			<array>
 				<string>tex11.png</string>

@@ -147,8 +147,6 @@
     [self.animationController stopAnimation];
 
     NSString* rendererClassName = [self next];
-    
-    NSLog(@"setNext: %@", rendererClassName);
     NSArray* textures;
     NSDictionary* rendererDic = [self.shaderToys objectForKey:rendererClassName];
     
@@ -169,8 +167,6 @@
                     self.iterationsPerRenderer = self.defaultIterationsPerRenderer;
                 }
                 
-                NSLog(@"Number of iterations per renderer (min 100): %lu", self.iterationsPerRenderer);
-
             } else {
                 NSLog(@"Didn't find 'iterations-per-renderer' Going with default");
                 self.iterationsPerRenderer = self.defaultIterationsPerRenderer;
@@ -178,8 +174,12 @@
             
         } else {
             NSLog(@"Didn't find config for renderer: %@", rendererClassName);
+            self.iterationsPerRenderer = self.defaultIterationsPerRenderer;
         }
+
+        NSLog(@"Number of iterations for renderer '%@': %lu", rendererClassName, self.iterationsPerRenderer);
         
+
         // Handle the textures. This one's an NSArray
         textures = [rendererDic objectForKey:@"Textures"];
      
