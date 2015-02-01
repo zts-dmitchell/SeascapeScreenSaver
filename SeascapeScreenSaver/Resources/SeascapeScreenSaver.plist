@@ -18,6 +18,20 @@
 				<string>tex03.jpg</string>
 			</array>
 		</dict>
+		<key>IcyMountains</key>
+		<dict>
+			<key>Config</key>
+			<dict>
+				<key>multi-screen-display-factor</key>
+				<real>1</real>
+			</dict>
+			<key>Textures</key>
+			<array>
+				<string>tex05.jpg</string>
+				<string>tex02.jpg</string>
+				<string>tex16.png</string>
+			</array>
+		</dict>
 		<key>Kepler256o</key>
 		<dict>
 			<key>Config</key>
@@ -34,6 +48,14 @@
 			</array>
 		</dict>
 		<key>FamousSolid</key>
+		<dict>
+			<key>Config</key>
+			<dict>
+				<key>iterations-per-renderer</key>
+				<integer>100</integer>
+			</dict>
+		</dict>
+		<key>WebGLTunnel</key>
 		<dict/>
 		<key>WindWakerOcean</key>
 		<dict/>
@@ -60,7 +82,7 @@
 			<key>Config</key>
 			<dict>
 				<key>multi-screen-display-factor</key>
-				<real>0.5</real>
+				<real>0.25</real>
 				<key>enabled</key>
 				<false/>
 			</dict>
@@ -81,6 +103,11 @@
 		</dict>
 		<key>DeformSquareTunnel</key>
 		<dict>
+			<key>Config</key>
+			<dict>
+				<key>iterations-per-renderer</key>
+				<integer>2000</integer>
+			</dict>
 			<key>Textures</key>
 			<array>
 				<string>tex00.jpg</string>
@@ -125,7 +152,7 @@
 			<key>Config</key>
 			<dict>
 				<key>iterations-per-renderer</key>
-				<integer>100</integer>
+				<integer>2000</integer>
 			</dict>
 		</dict>
 		<key>CubesAndSpheres</key>
@@ -158,7 +185,7 @@
 				<key>enabled</key>
 				<false/>
 				<key>iterations-per-renderer</key>
-				<integer>400</integer>
+				<integer>100</integer>
 			</dict>
 		</dict>
 		<key>SunsetOnTheSea</key>

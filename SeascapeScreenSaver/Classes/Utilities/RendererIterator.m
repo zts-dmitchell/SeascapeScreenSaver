@@ -199,7 +199,10 @@
             1.0, -1.0,   1.0,  0.0,   -1.0,  0.0
         };
         
-        self.renderer = [[ShaderToyRenderer alloc] initWithShaderName:rendererClassName andShaderTextures:textures];
+        //self.renderer = [[ShaderToyRenderer alloc] initWithShaderName:rendererClassName andShaderTextures:textures];
+        self.renderer = [[ShaderToyRenderer alloc] initWithShaderName:rendererClassName
+                                                    andShaderTextures:textures
+                                                    withScalingFactor:0.95];
         //self.renderer = [[ShaderToyRenderer alloc] initWithShaderNameAndVertices:rendererClassName
         //                                                          shaderTextures:textures
         //                                                             andVertices:vertices];

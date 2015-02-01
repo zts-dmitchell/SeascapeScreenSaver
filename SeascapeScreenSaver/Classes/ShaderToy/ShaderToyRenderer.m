@@ -23,10 +23,26 @@ enum {
 
 @implementation ShaderToyRenderer
 
-
 -(instancetype) initWithShaderName:(NSString*) shader
                  andShaderTextures:(NSArray*) arrayOfTextureFiles {
-    return [self initWithShaderNameAndVertices:shader shaderTextures:arrayOfTextureFiles andVertices:nil];
+    
+    return [self initWithShaderNameAndVertices:shader
+                                shaderTextures:arrayOfTextureFiles
+                                   andVertices:nil];
+}
+
+-(instancetype) initWithShaderName:(NSString*) shader
+                 andShaderTextures:(NSArray*) arrayOfTextureFiles
+                 withScalingFactor:(GLfloat) scaleFactor {
+    
+    const GLfloat vertices[] =
+    { -1.0 * scaleFactor, -1.0 * scaleFactor,   1.0 * scaleFactor, -1.0 * scaleFactor,   -1.0 * scaleFactor,  1.0 * scaleFactor,
+        1.0 * scaleFactor, -1.0 * scaleFactor,   1.0 * scaleFactor,  1.0 * scaleFactor,   -1.0 * scaleFactor,  1.0 * scaleFactor
+    };
+    
+    return [self initWithShaderNameAndVertices:shader
+                                shaderTextures:arrayOfTextureFiles
+                                   andVertices:vertices];
 }
 
 -(instancetype) initWithShaderNameAndVertices:(NSString*) shader
@@ -132,8 +148,7 @@ enum {
 
 - (GLuint) bindAttributes {
     
-    if( m_program < 1 )
-    {
+    if( m_program < 1 ) {
         NSLog(@"Error: program variable not set. Make sure the context has been set.");
         return GL_INVALID_VALUE;
     }
