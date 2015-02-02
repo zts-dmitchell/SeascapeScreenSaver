@@ -105,6 +105,19 @@
 				<string>tex05.jpg</string>
 			</array>
 		</dict>
+		<key>AnotherFractal</key>
+		<dict>
+			<key>Config</key>
+			<dict>
+				<key>enabled</key>
+				<true/>
+			</dict>
+			<key>Textures</key>
+			<array>
+				<string>tex16.png</string>
+				<string>tex14.png</string>
+			</array>
+		</dict>
 		<key>Elevated</key>
 		<dict>
 			<key>Config</key>
