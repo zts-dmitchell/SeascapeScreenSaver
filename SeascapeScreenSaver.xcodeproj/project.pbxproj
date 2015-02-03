@@ -29,6 +29,7 @@
 		571804B51A65A98A006BB4C5 /* ShaderTextureData.m in Sources */ = {isa = PBXBuildFile; fileRef = 571804B41A65A98A006BB4C5 /* ShaderTextureData.m */; };
 		5719A5EB1A7803BD00883CB0 /* JoggingRat.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 5719A5EA1A7803BD00883CB0 /* JoggingRat.fsh */; };
 		5719A5ED1A7812E000883CB0 /* Elevated.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 5719A5EC1A7812E000883CB0 /* Elevated.fsh */; };
+		5719A5EF1A78479F00883CB0 /* Catacombs.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 5719A5EE1A78479F00883CB0 /* Catacombs.fsh */; };
 		573DDEE41A6DE38600949D2E /* Fire.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 573DDEE31A6DE38600949D2E /* Fire.fsh */; };
 		573DDEE61A6E1A6500949D2E /* tex02.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 573DDEE51A6E1A6500949D2E /* tex02.jpg */; };
 		573DDEE81A6E1AA100949D2E /* AbandonedBase.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 573DDEE71A6E1AA100949D2E /* AbandonedBase.fsh */; };
@@ -44,6 +45,16 @@
 		577E02DF1A60F42D007F9E2C /* SymmetricOrigins.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 577E02DD1A60F42D007F9E2C /* SymmetricOrigins.fsh */; };
 		577E02E01A60F42D007F9E2C /* CommonVertexShader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 577E02DE1A60F42D007F9E2C /* CommonVertexShader.vsh */; };
 		577E02E31A60F586007F9E2C /* SymmetricOriginsRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 577E02E11A60F586007F9E2C /* SymmetricOriginsRenderer.h */; };
+		579DB6DF1A7B60D500EEDF69 /* WindWakerOcean.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 579DB6DE1A7B60D500EEDF69 /* WindWakerOcean.fsh */; };
+		579DB6E11A7B61CD00EEDF69 /* ToxicLake.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 579DB6E01A7B61CD00EEDF69 /* ToxicLake.fsh */; };
+		579DB6E31A7C93CA00EEDF69 /* FamousSolid.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 579DB6E21A7C93CA00EEDF69 /* FamousSolid.fsh */; };
+		579DB6E51A7DBC9900EEDF69 /* IcyMountains.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 579DB6E41A7DBC9900EEDF69 /* IcyMountains.fsh */; };
+		579DB6E71A7DC4D500EEDF69 /* WebGLTunnel.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 579DB6E61A7DC4D500EEDF69 /* WebGLTunnel.fsh */; };
+		579DB6E91A7E035E00EEDF69 /* TheSun.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 579DB6E81A7E035E00EEDF69 /* TheSun.fsh */; };
+		579DB6EB1A7E0A3500EEDF69 /* SunriseSunset.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 579DB6EA1A7E0A3500EEDF69 /* SunriseSunset.fsh */; };
+		579DB6ED1A7E0DD300EEDF69 /* Cosmic2.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 579DB6EC1A7E0DD300EEDF69 /* Cosmic2.fsh */; };
+		579DB6EF1A7F2EE600EEDF69 /* AnotherFractalCartoon.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 579DB6EE1A7F2EE600EEDF69 /* AnotherFractalCartoon.fsh */; };
+		579DB6F11A80119A00EEDF69 /* tex14.png in Resources */ = {isa = PBXBuildFile; fileRef = 579DB6F01A80119A00EEDF69 /* tex14.png */; };
 		57C109F21A5DB4C7002D4F58 /* SeascapeScreenSaverView.h in Headers */ = {isa = PBXBuildFile; fileRef = 57C109DA1A5DB4C7002D4F58 /* SeascapeScreenSaverView.h */; };
 		57C109F31A5DB4C7002D4F58 /* SeascapeScreenSaverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 57C109DB1A5DB4C7002D4F58 /* SeascapeScreenSaverView.m */; };
 		57C109F41A5DB4C7002D4F58 /* Renderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 57C109DD1A5DB4C7002D4F58 /* Renderer.h */; };
@@ -111,6 +122,7 @@
 		571804B61A65A9AA006BB4C5 /* ShaderTextureData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShaderTextureData.h; sourceTree = "<group>"; };
 		5719A5EA1A7803BD00883CB0 /* JoggingRat.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = JoggingRat.fsh; sourceTree = "<group>"; };
 		5719A5EC1A7812E000883CB0 /* Elevated.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Elevated.fsh; sourceTree = "<group>"; };
+		5719A5EE1A78479F00883CB0 /* Catacombs.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Catacombs.fsh; sourceTree = "<group>"; };
 		573DDEE31A6DE38600949D2E /* Fire.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Fire.fsh; sourceTree = "<group>"; };
 		573DDEE51A6E1A6500949D2E /* tex02.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = tex02.jpg; sourceTree = "<group>"; };
 		573DDEE71A6E1AA100949D2E /* AbandonedBase.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = AbandonedBase.fsh; sourceTree = "<group>"; };
@@ -127,6 +139,16 @@
 		577E02DE1A60F42D007F9E2C /* CommonVertexShader.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = CommonVertexShader.vsh; sourceTree = "<group>"; };
 		577E02E11A60F586007F9E2C /* SymmetricOriginsRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SymmetricOriginsRenderer.h; sourceTree = "<group>"; };
 		577E02E21A60F586007F9E2C /* SymmetricOriginsRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SymmetricOriginsRenderer.m; sourceTree = "<group>"; };
+		579DB6DE1A7B60D500EEDF69 /* WindWakerOcean.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = WindWakerOcean.fsh; sourceTree = "<group>"; };
+		579DB6E01A7B61CD00EEDF69 /* ToxicLake.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = ToxicLake.fsh; sourceTree = "<group>"; };
+		579DB6E21A7C93CA00EEDF69 /* FamousSolid.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = FamousSolid.fsh; sourceTree = "<group>"; };
+		579DB6E41A7DBC9900EEDF69 /* IcyMountains.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = IcyMountains.fsh; sourceTree = "<group>"; };
+		579DB6E61A7DC4D500EEDF69 /* WebGLTunnel.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = WebGLTunnel.fsh; sourceTree = "<group>"; };
+		579DB6E81A7E035E00EEDF69 /* TheSun.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = TheSun.fsh; sourceTree = "<group>"; };
+		579DB6EA1A7E0A3500EEDF69 /* SunriseSunset.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = SunriseSunset.fsh; sourceTree = "<group>"; };
+		579DB6EC1A7E0DD300EEDF69 /* Cosmic2.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Cosmic2.fsh; sourceTree = "<group>"; };
+		579DB6EE1A7F2EE600EEDF69 /* AnotherFractalCartoon.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = AnotherFractalCartoon.fsh; sourceTree = "<group>"; };
+		579DB6F01A80119A00EEDF69 /* tex14.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tex14.png; sourceTree = "<group>"; };
 		57C109DA1A5DB4C7002D4F58 /* SeascapeScreenSaverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeascapeScreenSaverView.h; sourceTree = "<group>"; };
 		57C109DB1A5DB4C7002D4F58 /* SeascapeScreenSaverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeascapeScreenSaverView.m; sourceTree = "<group>"; };
 		57C109DD1A5DB4C7002D4F58 /* Renderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Renderer.h; sourceTree = "<group>"; };
@@ -246,6 +268,7 @@
 		57C109E91A5DB4C7002D4F58 /* textures */ = {
 			isa = PBXGroup;
 			children = (
+				579DB6F01A80119A00EEDF69 /* tex14.png */,
 				573DDEED1A6F864900949D2E /* tex06.jpg */,
 				573DDEEB1A6F85CC00949D2E /* tex07.jpg */,
 				573DDEE51A6E1A6500949D2E /* tex02.jpg */,
@@ -308,6 +331,16 @@
 		57C10A201A5E5BA2002D4F58 /* ShaderToy */ = {
 			isa = PBXGroup;
 			children = (
+				579DB6EE1A7F2EE600EEDF69 /* AnotherFractalCartoon.fsh */,
+				579DB6EC1A7E0DD300EEDF69 /* Cosmic2.fsh */,
+				579DB6EA1A7E0A3500EEDF69 /* SunriseSunset.fsh */,
+				579DB6E81A7E035E00EEDF69 /* TheSun.fsh */,
+				579DB6E61A7DC4D500EEDF69 /* WebGLTunnel.fsh */,
+				579DB6E41A7DBC9900EEDF69 /* IcyMountains.fsh */,
+				579DB6E21A7C93CA00EEDF69 /* FamousSolid.fsh */,
+				579DB6E01A7B61CD00EEDF69 /* ToxicLake.fsh */,
+				579DB6DE1A7B60D500EEDF69 /* WindWakerOcean.fsh */,
+				5719A5EE1A78479F00883CB0 /* Catacombs.fsh */,
 				5719A5EC1A7812E000883CB0 /* Elevated.fsh */,
 				5719A5EA1A7803BD00883CB0 /* JoggingRat.fsh */,
 				573DDEFB1A7208F900949D2E /* DeformSquareTunnel.fsh */,
@@ -445,7 +478,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				57D56EA81A6CD0210041C679 /* MengerJourney.fsh in Resources */,
+				5719A5EF1A78479F00883CB0 /* Catacombs.fsh in Resources */,
+				579DB6F11A80119A00EEDF69 /* tex14.png in Resources */,
 				571804A81A64D5DE006BB4C5 /* SeascapeScreenSaver.plist in Resources */,
+				579DB6E71A7DC4D500EEDF69 /* WebGLTunnel.fsh in Resources */,
 				571804AA1A64DC17006BB4C5 /* starter.SeascapeScreenSaver.plist in Resources */,
 				573DDEFA1A72048B00949D2E /* HexagonsDistance.fsh in Resources */,
 				5718049E1A63A104006BB4C5 /* tex03.jpg in Resources */,
@@ -459,20 +495,26 @@
 				573DDEE81A6E1AA100949D2E /* AbandonedBase.fsh in Resources */,
 				57C10A251A5E5BA2002D4F58 /* Mountains.fsh in Resources */,
 				57D56EB11A6CDC530041C679 /* tex05.jpg in Resources */,
+				579DB6E11A7B61CD00EEDF69 /* ToxicLake.fsh in Resources */,
 				5719A5ED1A7812E000883CB0 /* Elevated.fsh in Resources */,
 				57C10A271A5E5BA2002D4F58 /* Seascape.fsh in Resources */,
 				57D56EAA1A6CD3C70041C679 /* CubesAndSpheres.fsh in Resources */,
 				573DDEF81A71F97100949D2E /* TrainRide.fsh in Resources */,
 				573DDEEC1A6F85CC00949D2E /* tex07.jpg in Resources */,
 				57D56E9E1A6A2F1F0041C679 /* RacingGame.fsh in Resources */,
+				579DB6E91A7E035E00EEDF69 /* TheSun.fsh in Resources */,
 				57D56EA61A6CCB240041C679 /* MainSequenceStar.fsh in Resources */,
+				579DB6ED1A7E0DD300EEDF69 /* Cosmic2.fsh in Resources */,
 				5718049C1A639EF0006BB4C5 /* MusicPirates.fsh in Resources */,
 				57C10A021A5DB4C7002D4F58 /* WobblerShader.fsh in Resources */,
 				577E02DF1A60F42D007F9E2C /* SymmetricOrigins.fsh in Resources */,
 				573DDEFC1A7208F900949D2E /* DeformSquareTunnel.fsh in Resources */,
 				57C10A031A5DB4C7002D4F58 /* WobblerShader.vsh in Resources */,
 				573DDEEE1A6F864900949D2E /* tex06.jpg in Resources */,
+				579DB6E51A7DBC9900EEDF69 /* IcyMountains.fsh in Resources */,
+				579DB6DF1A7B60D500EEDF69 /* WindWakerOcean.fsh in Resources */,
 				57D56EA21A6AFF430041C679 /* FractalCondos.fsh in Resources */,
+				579DB6E31A7C93CA00EEDF69 /* FamousSolid.fsh in Resources */,
 				57D56EAC1A6CD8FA0041C679 /* Venice.fsh in Resources */,
 				571804841A620942006BB4C5 /* SomewhereIn1993.fsh in Resources */,
 				573DDEEA1A6E256300949D2E /* SunsetOnTheSea.fsh in Resources */,
@@ -482,7 +524,9 @@
 				573DDEE41A6DE38600949D2E /* Fire.fsh in Resources */,
 				5719A5EB1A7803BD00883CB0 /* JoggingRat.fsh in Resources */,
 				57C10A2B1A5E5FEF002D4F58 /* tex11.png in Resources */,
+				579DB6EF1A7F2EE600EEDF69 /* AnotherFractalCartoon.fsh in Resources */,
 				57C10A2C1A5E5FEF002D4F58 /* tex12.png in Resources */,
+				579DB6EB1A7E0A3500EEDF69 /* SunriseSunset.fsh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

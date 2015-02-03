@@ -55,6 +55,8 @@ typedef struct ShaderToyVec3 {
 }
 
 -(instancetype) initWithShaderName:(NSString*) shader andShaderTextures:(NSArray*) arrayOfTextureFiles;
+-(instancetype) initWithShaderName:(NSString*) shader
+                 andShaderTextures:(NSArray*) arrayOfTextureFiles withScalingFactor:(GLfloat)scaleFactor;
 -(instancetype) initWithShaderNameAndVertices:(NSString*) shader
                                shaderTextures:(NSArray*) arrayOfTextureFiles
                                   andVertices:(const GLfloat[]) vertices;

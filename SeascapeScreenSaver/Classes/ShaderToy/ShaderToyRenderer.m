@@ -23,10 +23,26 @@ enum {
 
 @implementation ShaderToyRenderer
 
-
 -(instancetype) initWithShaderName:(NSString*) shader
                  andShaderTextures:(NSArray*) arrayOfTextureFiles {
-    return [self initWithShaderNameAndVertices:shader shaderTextures:arrayOfTextureFiles andVertices:nil];
+    
+    return [self initWithShaderNameAndVertices:shader
+                                shaderTextures:arrayOfTextureFiles
+                                   andVertices:nil];
+}
+
+-(instancetype) initWithShaderName:(NSString*) shader
+                 andShaderTextures:(NSArray*) arrayOfTextureFiles
+                 withScalingFactor:(GLfloat) scaleFactor {
+    
+    const GLfloat vertices[] =
+    { -1.0 * scaleFactor, -1.0 * scaleFactor,   1.0 * scaleFactor, -1.0 * scaleFactor,   -1.0 * scaleFactor,  1.0 * scaleFactor,
+        1.0 * scaleFactor, -1.0 * scaleFactor,   1.0 * scaleFactor,  1.0 * scaleFactor,   -1.0 * scaleFactor,  1.0 * scaleFactor
+    };
+    
+    return [self initWithShaderNameAndVertices:shader
+                                shaderTextures:arrayOfTextureFiles
+                                   andVertices:vertices];
 }
 
 -(instancetype) initWithShaderNameAndVertices:(NSString*) shader
@@ -52,7 +68,7 @@ enum {
         
         glUseProgram(m_program);
         
-        [self createVBO:vertices];
+        [self createVBOWithVertices:vertices];
         
         [self.shaderTextures prepareTextures:m_program];
         
@@ -132,8 +148,7 @@ enum {
 
 - (GLuint) bindAttributes {
     
-    if( m_program < 1 )
-    {
+    if( m_program < 1 ) {
         NSLog(@"Error: program variable not set. Make sure the context has been set.");
         return GL_INVALID_VALUE;
     }
@@ -166,21 +181,25 @@ enum {
 
 #pragma mark VBO Stuff
 
--(void) createVBO {
+-(void) createVBOWithScaleFactor:(const GLfloat) scaleFactor {
     
-    const int monitorCount = MDI_GetDisplayCount();
-    const GLfloat scaleFactor = 1.0 / monitorCount;
     const GLfloat vertices[] =
     { -1.0 * scaleFactor, -1.0 * scaleFactor,   1.0 * scaleFactor, -1.0 * scaleFactor,   -1.0 * scaleFactor,  1.0 * scaleFactor,
         1.0 * scaleFactor, -1.0 * scaleFactor,   1.0 * scaleFactor,  1.0 * scaleFactor,   -1.0 * scaleFactor,  1.0 * scaleFactor
     };
-
-    NSLog(@"Screen scale factor: %f. Number of monitors detected: %d", scaleFactor, monitorCount);
-
-    [self createVBO:vertices];
+    
+    [self createVBOWithVertices:vertices];
 }
 
--(void) createVBO:(const GLfloat[]) vertices {
+-(void) createVBO {
+
+    const int monitorCount = MDI_GetDisplayCount();
+    const GLfloat scaleFactor = 1.0 / monitorCount;
+    
+    [self createVBOWithScaleFactor:scaleFactor];
+}
+
+-(void) createVBOWithVertices:(const GLfloat[]) vertices {
     
     NSLog(@"Creating VBO");
     
