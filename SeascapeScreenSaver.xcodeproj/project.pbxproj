@@ -53,7 +53,7 @@
 		579DB6E91A7E035E00EEDF69 /* TheSun.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 579DB6E81A7E035E00EEDF69 /* TheSun.fsh */; };
 		579DB6EB1A7E0A3500EEDF69 /* SunriseSunset.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 579DB6EA1A7E0A3500EEDF69 /* SunriseSunset.fsh */; };
 		579DB6ED1A7E0DD300EEDF69 /* Cosmic2.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 579DB6EC1A7E0DD300EEDF69 /* Cosmic2.fsh */; };
-		579DB6EF1A7F2EE600EEDF69 /* AnotherFractal.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 579DB6EE1A7F2EE600EEDF69 /* AnotherFractal.fsh */; };
+		579DB6EF1A7F2EE600EEDF69 /* AnotherFractalCartoon.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 579DB6EE1A7F2EE600EEDF69 /* AnotherFractalCartoon.fsh */; };
 		579DB6F11A80119A00EEDF69 /* tex14.png in Resources */ = {isa = PBXBuildFile; fileRef = 579DB6F01A80119A00EEDF69 /* tex14.png */; };
 		57C109F21A5DB4C7002D4F58 /* SeascapeScreenSaverView.h in Headers */ = {isa = PBXBuildFile; fileRef = 57C109DA1A5DB4C7002D4F58 /* SeascapeScreenSaverView.h */; };
 		57C109F31A5DB4C7002D4F58 /* SeascapeScreenSaverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 57C109DB1A5DB4C7002D4F58 /* SeascapeScreenSaverView.m */; };
@@ -147,7 +147,7 @@
 		579DB6E81A7E035E00EEDF69 /* TheSun.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = TheSun.fsh; sourceTree = "<group>"; };
 		579DB6EA1A7E0A3500EEDF69 /* SunriseSunset.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = SunriseSunset.fsh; sourceTree = "<group>"; };
 		579DB6EC1A7E0DD300EEDF69 /* Cosmic2.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Cosmic2.fsh; sourceTree = "<group>"; };
-		579DB6EE1A7F2EE600EEDF69 /* AnotherFractal.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = AnotherFractal.fsh; sourceTree = "<group>"; };
+		579DB6EE1A7F2EE600EEDF69 /* AnotherFractalCartoon.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = AnotherFractalCartoon.fsh; sourceTree = "<group>"; };
 		579DB6F01A80119A00EEDF69 /* tex14.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tex14.png; sourceTree = "<group>"; };
 		57C109DA1A5DB4C7002D4F58 /* SeascapeScreenSaverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeascapeScreenSaverView.h; sourceTree = "<group>"; };
 		57C109DB1A5DB4C7002D4F58 /* SeascapeScreenSaverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeascapeScreenSaverView.m; sourceTree = "<group>"; };
@@ -331,7 +331,7 @@
 		57C10A201A5E5BA2002D4F58 /* ShaderToy */ = {
 			isa = PBXGroup;
 			children = (
-				579DB6EE1A7F2EE600EEDF69 /* AnotherFractal.fsh */,
+				579DB6EE1A7F2EE600EEDF69 /* AnotherFractalCartoon.fsh */,
 				579DB6EC1A7E0DD300EEDF69 /* Cosmic2.fsh */,
 				579DB6EA1A7E0A3500EEDF69 /* SunriseSunset.fsh */,
 				579DB6E81A7E035E00EEDF69 /* TheSun.fsh */,
@@ -524,7 +524,7 @@
 				573DDEE41A6DE38600949D2E /* Fire.fsh in Resources */,
 				5719A5EB1A7803BD00883CB0 /* JoggingRat.fsh in Resources */,
 				57C10A2B1A5E5FEF002D4F58 /* tex11.png in Resources */,
-				579DB6EF1A7F2EE600EEDF69 /* AnotherFractal.fsh in Resources */,
+				579DB6EF1A7F2EE600EEDF69 /* AnotherFractalCartoon.fsh in Resources */,
 				57C10A2C1A5E5FEF002D4F58 /* tex12.png in Resources */,
 				579DB6EB1A7E0A3500EEDF69 /* SunriseSunset.fsh in Resources */,
 			);

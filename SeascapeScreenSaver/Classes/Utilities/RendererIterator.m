@@ -202,7 +202,7 @@
         //self.renderer = [[ShaderToyRenderer alloc] initWithShaderName:rendererClassName andShaderTextures:textures];
         self.renderer = [[ShaderToyRenderer alloc] initWithShaderName:rendererClassName
                                                     andShaderTextures:textures
-                                                    withScalingFactor:0.95];
+                                                    withScalingFactor:0.5];
         //self.renderer = [[ShaderToyRenderer alloc] initWithShaderNameAndVertices:rendererClassName
         //                                                          shaderTextures:textures
         //                                                             andVertices:vertices];

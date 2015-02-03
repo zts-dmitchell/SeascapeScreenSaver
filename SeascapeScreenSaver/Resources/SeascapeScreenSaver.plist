@@ -105,7 +105,7 @@
 				<string>tex05.jpg</string>
 			</array>
 		</dict>
-		<key>AnotherFractal</key>
+		<key>AnotherFractalCartoon</key>
 		<dict>
 			<key>Config</key>
 			<dict>
@@ -266,7 +266,7 @@
 		<key>current-renderer</key>
 		<string>Seascape</string>
 		<key>iterations-per-renderer</key>
-		<integer>300</integer>
+		<integer>1000</integer>
 	</dict>
 </dict>
 </plist>
