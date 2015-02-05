@@ -62,6 +62,14 @@
 				<integer>100</integer>
 			</dict>
 		</dict>
+		<key>FlyByNight</key>
+		<dict>
+			<key>Config</key>
+			<dict>
+				<key>iterations-per-renderer</key>
+				<integer>1000</integer>
+			</dict>
+		</dict>
 		<key>Cosmic2</key>
 		<dict/>
 		<key>TheSun</key>
@@ -133,10 +141,7 @@
 		<key>DeformSquareTunnel</key>
 		<dict>
 			<key>Config</key>
-			<dict>
-				<key>iterations-per-renderer</key>
-				<integer>2000</integer>
-			</dict>
+			<dict/>
 			<key>Textures</key>
 			<array>
 				<string>tex00.jpg</string>
@@ -266,7 +271,7 @@
 		<key>current-renderer</key>
 		<string>Seascape</string>
 		<key>iterations-per-renderer</key>
-		<integer>1000</integer>
+		<integer>100</integer>
 	</dict>
 </dict>
 </plist>

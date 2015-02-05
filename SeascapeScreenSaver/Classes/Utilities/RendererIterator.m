@@ -10,6 +10,7 @@
 #import "RendererIterator.h"
 #import "PropertiesLoader.h"
 #import "ShaderToyRenderer.h"
+#import <IOKit/ps/IOPowerSources.h>
 
 @implementation RendererIterator
 
@@ -31,6 +32,16 @@
 }
 
 -(BOOL) initializeRenderers {
+    
+    CFDictionaryRef powerDict = IOPSCopyExternalPowerAdapterDetails();
+    
+    if(powerDict == nil) {
+        NSLog(@"NOT PLUGGED IN!!!");
+    } else {
+        NSLog(@"PLUGGED IN!!!");
+        CFRelease(powerDict);
+    }
+    
     
     // It knows what to load.
     NSDictionary* properties = [PropertiesLoader loadProperties];
@@ -201,8 +212,7 @@
         
         //self.renderer = [[ShaderToyRenderer alloc] initWithShaderName:rendererClassName andShaderTextures:textures];
         self.renderer = [[ShaderToyRenderer alloc] initWithShaderName:rendererClassName
-                                                    andShaderTextures:textures
-                                                    withScalingFactor:0.5];
+                                                    andShaderTextures:textures];
         //self.renderer = [[ShaderToyRenderer alloc] initWithShaderNameAndVertices:rendererClassName
         //                                                          shaderTextures:textures
         //                                                             andVertices:vertices];

@@ -90,6 +90,7 @@
 		57D56EB01A6CDC530041C679 /* tex09.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 57D56EAD1A6CDC530041C679 /* tex09.jpg */; };
 		57D56EB11A6CDC530041C679 /* tex05.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 57D56EAE1A6CDC530041C679 /* tex05.jpg */; };
 		57D56EB21A6CDC530041C679 /* tex00.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 57D56EAF1A6CDC530041C679 /* tex00.jpg */; };
+		57D648121A8329A600C9AABB /* FlyByNight.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 57D648111A8329A600C9AABB /* FlyByNight.fsh */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -188,6 +189,7 @@
 		57D56EAD1A6CDC530041C679 /* tex09.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = tex09.jpg; sourceTree = "<group>"; };
 		57D56EAE1A6CDC530041C679 /* tex05.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = tex05.jpg; sourceTree = "<group>"; };
 		57D56EAF1A6CDC530041C679 /* tex00.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = tex00.jpg; sourceTree = "<group>"; };
+		57D648111A8329A600C9AABB /* FlyByNight.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = FlyByNight.fsh; sourceTree = "<group>"; };
 		57F14D891A5A29C900948DDB /* SeascapeScreenSaver.saver */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SeascapeScreenSaver.saver; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -331,6 +333,7 @@
 		57C10A201A5E5BA2002D4F58 /* ShaderToy */ = {
 			isa = PBXGroup;
 			children = (
+				57D648111A8329A600C9AABB /* FlyByNight.fsh */,
 				579DB6EE1A7F2EE600EEDF69 /* AnotherFractalCartoon.fsh */,
 				579DB6EC1A7E0DD300EEDF69 /* Cosmic2.fsh */,
 				579DB6EA1A7E0A3500EEDF69 /* SunriseSunset.fsh */,
@@ -491,6 +494,7 @@
 				577E02E01A60F42D007F9E2C /* CommonVertexShader.vsh in Resources */,
 				57D56EA01A6AD5D50041C679 /* Tokyo.fsh in Resources */,
 				57D56EB21A6CDC530041C679 /* tex00.jpg in Resources */,
+				57D648121A8329A600C9AABB /* FlyByNight.fsh in Resources */,
 				57D56EA41A6B00CF0041C679 /* Generators.fsh in Resources */,
 				573DDEE81A6E1AA100949D2E /* AbandonedBase.fsh in Resources */,
 				57C10A251A5E5BA2002D4F58 /* Mountains.fsh in Resources */,
