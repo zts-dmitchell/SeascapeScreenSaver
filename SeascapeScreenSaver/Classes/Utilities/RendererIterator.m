@@ -67,7 +67,10 @@
             [self addDefaultRenderers];
             return true;
         }
-        
+#define ONE_RENDERER
+#ifdef ONE_RENDERER
+        [self addRenderer:@"FlyByNight"];
+#else
         NSArray* allKeys = [self.shaderToys allKeys];
         NSDictionary* renderKeys;
         
@@ -101,6 +104,7 @@
                 [self addRenderer:renderer];
             }
         }
+#endif
     } else {
         NSLog(@"Unable to load properties.");
         return false;
@@ -200,19 +204,25 @@
             }
         }
         
-        const GLfloat vertices[] =
-        { -1.0, 0.0,   1.0, 0.0,   -1.0,  1.0,
-            1.0, 0.0,   1.0,  1.0,   -1.0,  1.0
-        };
-        
-        const GLfloat vertices2[] =
-        { -1.0, -1.0,   1.0, -1.0,   -1.0,  0.0,
-            1.0, -1.0,   1.0,  0.0,   -1.0,  0.0
-        };
+//        const GLfloat vertices[] =
+//        { -1.0, 0.0,   1.0, 0.0,   -1.0,  1.0,
+//            1.0, 0.0,   1.0,  1.0,   -1.0,  1.0
+//        };
+//        
+//        const GLfloat vertices2[] =
+//        { -1.0, -1.0,   1.0, -1.0,   -1.0,  0.0,
+//            1.0, -1.0,   1.0,  0.0,   -1.0,  0.0
+//        };
         
         //self.renderer = [[ShaderToyRenderer alloc] initWithShaderName:rendererClassName andShaderTextures:textures];
+#ifdef ONE_RENDERER
+        self.renderer = [[ShaderToyRenderer alloc] initWithShaderName:rendererClassName
+                                                    andShaderTextures:textures
+                                                    withScalingFactor:1.0];
+#else
         self.renderer = [[ShaderToyRenderer alloc] initWithShaderName:rendererClassName
                                                     andShaderTextures:textures];
+#endif
         //self.renderer = [[ShaderToyRenderer alloc] initWithShaderNameAndVertices:rendererClassName
         //                                                          shaderTextures:textures
         //                                                             andVertices:vertices];
