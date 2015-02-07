@@ -91,6 +91,9 @@
 		57D56EB11A6CDC530041C679 /* tex05.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 57D56EAE1A6CDC530041C679 /* tex05.jpg */; };
 		57D56EB21A6CDC530041C679 /* tex00.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 57D56EAF1A6CDC530041C679 /* tex00.jpg */; };
 		57D648121A8329A600C9AABB /* FlyByNight.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 57D648111A8329A600C9AABB /* FlyByNight.fsh */; };
+		57D648141A85B1F200C9AABB /* tex15.png in Resources */ = {isa = PBXBuildFile; fileRef = 57D648131A85B1F200C9AABB /* tex15.png */; };
+		57D648161A85B24300C9AABB /* tex08.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 57D648151A85B24300C9AABB /* tex08.jpg */; };
+		57D648181A85B28700C9AABB /* DeformTunnelRedux.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 57D648171A85B28700C9AABB /* DeformTunnelRedux.fsh */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -190,6 +193,9 @@
 		57D56EAE1A6CDC530041C679 /* tex05.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = tex05.jpg; sourceTree = "<group>"; };
 		57D56EAF1A6CDC530041C679 /* tex00.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = tex00.jpg; sourceTree = "<group>"; };
 		57D648111A8329A600C9AABB /* FlyByNight.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = FlyByNight.fsh; sourceTree = "<group>"; };
+		57D648131A85B1F200C9AABB /* tex15.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tex15.png; sourceTree = "<group>"; };
+		57D648151A85B24300C9AABB /* tex08.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = tex08.jpg; sourceTree = "<group>"; };
+		57D648171A85B28700C9AABB /* DeformTunnelRedux.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = DeformTunnelRedux.fsh; sourceTree = "<group>"; };
 		57F14D891A5A29C900948DDB /* SeascapeScreenSaver.saver */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SeascapeScreenSaver.saver; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -270,6 +276,8 @@
 		57C109E91A5DB4C7002D4F58 /* textures */ = {
 			isa = PBXGroup;
 			children = (
+				57D648151A85B24300C9AABB /* tex08.jpg */,
+				57D648131A85B1F200C9AABB /* tex15.png */,
 				579DB6F01A80119A00EEDF69 /* tex14.png */,
 				573DDEED1A6F864900949D2E /* tex06.jpg */,
 				573DDEEB1A6F85CC00949D2E /* tex07.jpg */,
@@ -333,6 +341,7 @@
 		57C10A201A5E5BA2002D4F58 /* ShaderToy */ = {
 			isa = PBXGroup;
 			children = (
+				57D648171A85B28700C9AABB /* DeformTunnelRedux.fsh */,
 				57D648111A8329A600C9AABB /* FlyByNight.fsh */,
 				579DB6EE1A7F2EE600EEDF69 /* AnotherFractalCartoon.fsh */,
 				579DB6EC1A7E0DD300EEDF69 /* Cosmic2.fsh */,
@@ -491,6 +500,8 @@
 				5718048E1A620CE3006BB4C5 /* MorningCity.fsh in Resources */,
 				573DDEE61A6E1A6500949D2E /* tex02.jpg in Resources */,
 				57D56E9C1A6A2ED20041C679 /* tex16.png in Resources */,
+				57D648181A85B28700C9AABB /* DeformTunnelRedux.fsh in Resources */,
+				57D648161A85B24300C9AABB /* tex08.jpg in Resources */,
 				577E02E01A60F42D007F9E2C /* CommonVertexShader.vsh in Resources */,
 				57D56EA01A6AD5D50041C679 /* Tokyo.fsh in Resources */,
 				57D56EB21A6CDC530041C679 /* tex00.jpg in Resources */,
@@ -503,6 +514,7 @@
 				5719A5ED1A7812E000883CB0 /* Elevated.fsh in Resources */,
 				57C10A271A5E5BA2002D4F58 /* Seascape.fsh in Resources */,
 				57D56EAA1A6CD3C70041C679 /* CubesAndSpheres.fsh in Resources */,
+				57D648141A85B1F200C9AABB /* tex15.png in Resources */,
 				573DDEF81A71F97100949D2E /* TrainRide.fsh in Resources */,
 				573DDEEC1A6F85CC00949D2E /* tex07.jpg in Resources */,
 				57D56E9E1A6A2F1F0041C679 /* RacingGame.fsh in Resources */,

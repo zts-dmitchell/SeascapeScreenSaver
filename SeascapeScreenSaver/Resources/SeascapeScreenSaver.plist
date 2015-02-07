@@ -11,6 +11,13 @@
 				<string>tex16.png</string>
 			</array>
 		</dict>
+		<key>DeformTunnelRedux</key>
+		<dict>
+			<key>Textures</key>
+			<array>
+				<string>tex08.jpg</string>
+			</array>
+		</dict>
 		<key>ToxicLake</key>
 		<dict>
 			<key>Textures</key>
@@ -186,7 +193,7 @@
 			<key>Config</key>
 			<dict>
 				<key>iterations-per-renderer</key>
-				<integer>2000</integer>
+				<integer>100</integer>
 			</dict>
 		</dict>
 		<key>CubesAndSpheres</key>

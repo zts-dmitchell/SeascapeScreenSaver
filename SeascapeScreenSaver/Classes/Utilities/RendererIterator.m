@@ -1,5 +1,5 @@
 //
-//  ESRendererIterator.m
+//  RendererIterator.m
 //  SeascapeScreenSaver
 //
 //  Created by David Mitchell on 1/11/15.
@@ -42,7 +42,6 @@
         CFRelease(powerDict);
     }
     
-    
     // It knows what to load.
     NSDictionary* properties = [PropertiesLoader loadProperties];
     
@@ -67,9 +66,10 @@
             [self addDefaultRenderers];
             return true;
         }
-#define ONE_RENDERER
+//#define ONE_RENDERER
 #ifdef ONE_RENDERER
         [self addRenderer:@"FlyByNight"];
+        [self addRenderer:@"Venice"];
 #else
         NSArray* allKeys = [self.shaderToys allKeys];
         NSDictionary* renderKeys;
@@ -80,29 +80,7 @@
             
             NSString* renderer = [renderKeys description];
             
-            // Get the "Config" dictionary, and check if this renderer is enabled.
-            NSDictionary* rendererChildrenDict = [self.shaderToys objectForKey:renderer];
-            
-            if(rendererChildrenDict != nil) {
-                
-                NSDictionary* config = [rendererChildrenDict objectForKey:@"Config"];
-                
-                if(config != nil) {
-                    NSNumber *enabled = [config objectForKey:@"enabled"];
-                    
-                    if(enabled != nil && [enabled boolValue] == NO) {
-                        NSLog(@"Renderer, %@, is not enabled. Skipping", renderer);
-                    } else {
-                        NSLog(@"Renderer, %@, is enabled (%@)", renderer, enabled);
-                        [self addRenderer:renderer];
-                    }
-                } else {
-                    [self addRenderer:renderer];
-                }
-            } else {
-                NSLog(@"No configuration settings for renderer: %@", renderer);
-                [self addRenderer:renderer];
-            }
+            [self addRenderer:renderer];
         }
 #endif
     } else {
@@ -119,18 +97,6 @@
     
     [self.renderer setFrameSize:screenSize];
     //[self.renderer2 setFrameSize:screenSize];
-}
-
--(void) addRenderersFromArray:(NSArray*) arrayOfRenderers {
-
-    for(NSString* renderer in arrayOfRenderers) {
-        if(NSClassFromString(renderer) == nil) {
-            NSLog(@"Renderer class not found: %@", renderer);
-        } else {
-            NSLog(@"Adding renderer: %@", renderer);
-            [self addRenderer:renderer];
-        }
-    }
 }
 
 -(void) addDefaultRenderers {
@@ -161,74 +127,91 @@
     
     [self.animationController stopAnimation];
 
-    NSString* rendererClassName = [self next];
-    NSArray* textures;
-    NSDictionary* rendererDic = [self.shaderToys objectForKey:rendererClassName];
+    bool lookingForRenderer = true;
     
-    if(rendererDic != nil) {
+    while(lookingForRenderer) {
         
-        // Handle the config. This one's a dictionary
-        NSDictionary* config = [rendererDic objectForKey:@"Config"];
-        
-        if(config != nil) {
-           
-            NSNumber* iterationsPerRenderer = [config objectForKey:@"iterations-per-renderer"];
+        NSString* renderer = [self next];
+        NSArray* textures;
+    
+        NSDictionary* rendererDic = [self.shaderToys objectForKey:renderer];
+    
+        if(rendererDic != nil) {
             
-            if(iterationsPerRenderer != nil) {
-                self.iterationsPerRenderer = [iterationsPerRenderer intValue];
+            // Handle the config. This one's a dictionary
+            NSDictionary* config = [rendererDic objectForKey:@"Config"];
+            
+            if(config != nil) {
+               
+                // Check if enabled
+                NSNumber *enabled = [config objectForKey:@"enabled"];
                 
-                if(self.iterationsPerRenderer < 100) {
-                    NSLog(@"Minimum of 100 iterations.  Setting to default");
+                if(enabled != nil && [enabled boolValue] == NO) {
+                    NSLog(@"Renderer, %@, is not enabled. Skipping", renderer);
+                    continue;
+                } else {
+                    NSLog(@"Renderer, %@, is enabled (%@)", renderer, enabled);
+                }
+                
+                NSNumber* iterationsPerRenderer = [config objectForKey:@"iterations-per-renderer"];
+                
+                if(iterationsPerRenderer != nil) {
+                    self.iterationsPerRenderer = [iterationsPerRenderer intValue];
+                    
+                    if(self.iterationsPerRenderer < 100) {
+                        NSLog(@"Minimum of 100 iterations.  Setting to default");
+                        self.iterationsPerRenderer = self.defaultIterationsPerRenderer;
+                    }
+                    
+                } else {
+                    NSLog(@"Didn't find 'iterations-per-renderer' Going with default");
                     self.iterationsPerRenderer = self.defaultIterationsPerRenderer;
                 }
                 
             } else {
-                NSLog(@"Didn't find 'iterations-per-renderer' Going with default");
+                NSLog(@"Didn't find config for renderer: %@", renderer);
                 self.iterationsPerRenderer = self.defaultIterationsPerRenderer;
             }
+
+            NSLog(@"Number of iterations for renderer '%@': %lu", renderer, self.iterationsPerRenderer);
             
-        } else {
-            NSLog(@"Didn't find config for renderer: %@", rendererClassName);
-            self.iterationsPerRenderer = self.defaultIterationsPerRenderer;
-        }
 
-        NSLog(@"Number of iterations for renderer '%@': %lu", rendererClassName, self.iterationsPerRenderer);
-        
-
-        // Handle the textures. This one's an NSArray
-        textures = [rendererDic objectForKey:@"Textures"];
-     
-        if(textures != nil) {
-            for(NSString* s in textures) {
-                NSLog(@"Found texture file: %@", s);
+            // Handle the textures. This one's an NSArray
+            textures = [rendererDic objectForKey:@"Textures"];
+         
+            if(textures != nil) {
+                for(NSString* s in textures) {
+                    NSLog(@"Found texture file: %@", s);
+                }
             }
+            
+    //        const GLfloat vertices[] =
+    //        { -1.0, 0.0,   1.0, 0.0,   -1.0,  1.0,
+    //            1.0, 0.0,   1.0,  1.0,   -1.0,  1.0
+    //        };
+    //        
+    //        const GLfloat vertices2[] =
+    //        { -1.0, -1.0,   1.0, -1.0,   -1.0,  0.0,
+    //            1.0, -1.0,   1.0,  0.0,   -1.0,  0.0
+    //        };
+            
+            //self.renderer = [[ShaderToyRenderer alloc] initWithShaderName:rendererClassName andShaderTextures:textures];
+    #ifdef ONE_RENDERER
+            self.renderer = [[ShaderToyRenderer alloc] initWithShaderName:renderer
+                                                        andShaderTextures:textures
+                                                        withScalingFactor:1.0];
+    #else
+            self.renderer = [[ShaderToyRenderer alloc] initWithShaderName:renderer
+                                                        andShaderTextures:textures];
+    #endif
+            //self.renderer = [[ShaderToyRenderer alloc] initWithShaderNameAndVertices:rendererClassName
+            //                                                          shaderTextures:textures
+            //                                                             andVertices:vertices];
+            //self.renderer2 = [[ShaderToyRenderer alloc] initWithShaderNameAndVertices:@"Venice"
+            //                                                          shaderTextures:textures
+            //                                                             andVertices:vertices2];
+            lookingForRenderer = false;
         }
-        
-//        const GLfloat vertices[] =
-//        { -1.0, 0.0,   1.0, 0.0,   -1.0,  1.0,
-//            1.0, 0.0,   1.0,  1.0,   -1.0,  1.0
-//        };
-//        
-//        const GLfloat vertices2[] =
-//        { -1.0, -1.0,   1.0, -1.0,   -1.0,  0.0,
-//            1.0, -1.0,   1.0,  0.0,   -1.0,  0.0
-//        };
-        
-        //self.renderer = [[ShaderToyRenderer alloc] initWithShaderName:rendererClassName andShaderTextures:textures];
-#ifdef ONE_RENDERER
-        self.renderer = [[ShaderToyRenderer alloc] initWithShaderName:rendererClassName
-                                                    andShaderTextures:textures
-                                                    withScalingFactor:1.0];
-#else
-        self.renderer = [[ShaderToyRenderer alloc] initWithShaderName:rendererClassName
-                                                    andShaderTextures:textures];
-#endif
-        //self.renderer = [[ShaderToyRenderer alloc] initWithShaderNameAndVertices:rendererClassName
-        //                                                          shaderTextures:textures
-        //                                                             andVertices:vertices];
-        //self.renderer2 = [[ShaderToyRenderer alloc] initWithShaderNameAndVertices:@"Venice"
-        //                                                          shaderTextures:textures
-        //                                                             andVertices:vertices2];
     }
     
     [self.renderer setFrameSize:self.screenSize];

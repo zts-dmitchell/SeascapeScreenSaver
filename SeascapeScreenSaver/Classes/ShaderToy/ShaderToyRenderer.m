@@ -7,13 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <AppKit/AppKit.h>
 #import "ShaderToyRenderer.h"
 #import "ShaderTexture.h"
 #import "ShaderUtil.h"
 #import "ImageLoader.h"
 #import "GLUtil.h"
 #include "MonitorDisplayInfo.h"
-#import <AppKit/AppKit.h>
 
 
 // Attribute index.
@@ -68,10 +68,11 @@ enum {
         
         glUseProgram(m_program);
         
+        [self.shaderTextures prepareTextures:m_program];
+
         [self createVBOWithVertices:vertices];
         
-        [self.shaderTextures prepareTextures:m_program];
-        
+
         glUseProgram(0);
     }
     
