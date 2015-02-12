@@ -77,6 +77,14 @@
 				<integer>1000</integer>
 			</dict>
 		</dict>
+		<key>Xyptonjtroz</key>
+		<dict>
+			<key>Config</key>
+			<dict>
+				<key>iterations-per-renderer</key>
+				<integer>2000</integer>
+			</dict>
+		</dict>
 		<key>Cosmic2</key>
 		<dict/>
 		<key>TheSun</key>
@@ -148,7 +156,10 @@
 		<key>DeformSquareTunnel</key>
 		<dict>
 			<key>Config</key>
-			<dict/>
+			<dict>
+				<key>enabled</key>
+				<false/>
+			</dict>
 			<key>Textures</key>
 			<array>
 				<string>tex00.jpg</string>
