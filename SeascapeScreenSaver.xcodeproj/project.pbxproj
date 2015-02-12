@@ -94,6 +94,7 @@
 		57D648141A85B1F200C9AABB /* tex15.png in Resources */ = {isa = PBXBuildFile; fileRef = 57D648131A85B1F200C9AABB /* tex15.png */; };
 		57D648161A85B24300C9AABB /* tex08.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 57D648151A85B24300C9AABB /* tex08.jpg */; };
 		57D648181A85B28700C9AABB /* DeformTunnelRedux.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 57D648171A85B28700C9AABB /* DeformTunnelRedux.fsh */; };
+		57D6481A1A8C4D5300C9AABB /* CarCarSpacecar.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 57D648191A8C4D5300C9AABB /* CarCarSpacecar.fsh */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -196,6 +197,7 @@
 		57D648131A85B1F200C9AABB /* tex15.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tex15.png; sourceTree = "<group>"; };
 		57D648151A85B24300C9AABB /* tex08.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = tex08.jpg; sourceTree = "<group>"; };
 		57D648171A85B28700C9AABB /* DeformTunnelRedux.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = DeformTunnelRedux.fsh; sourceTree = "<group>"; };
+		57D648191A8C4D5300C9AABB /* CarCarSpacecar.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = CarCarSpacecar.fsh; sourceTree = "<group>"; };
 		57F14D891A5A29C900948DDB /* SeascapeScreenSaver.saver */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SeascapeScreenSaver.saver; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -341,6 +343,7 @@
 		57C10A201A5E5BA2002D4F58 /* ShaderToy */ = {
 			isa = PBXGroup;
 			children = (
+				57D648191A8C4D5300C9AABB /* CarCarSpacecar.fsh */,
 				57D648171A85B28700C9AABB /* DeformTunnelRedux.fsh */,
 				57D648111A8329A600C9AABB /* FlyByNight.fsh */,
 				579DB6EE1A7F2EE600EEDF69 /* AnotherFractalCartoon.fsh */,
@@ -534,6 +537,7 @@
 				57D56EAC1A6CD8FA0041C679 /* Venice.fsh in Resources */,
 				571804841A620942006BB4C5 /* SomewhereIn1993.fsh in Resources */,
 				573DDEEA1A6E256300949D2E /* SunsetOnTheSea.fsh in Resources */,
+				57D6481A1A8C4D5300C9AABB /* CarCarSpacecar.fsh in Resources */,
 				57C109FF1A5DB4C7002D4F58 /* Day.jpg in Resources */,
 				57D56EB01A6CDC530041C679 /* tex09.jpg in Resources */,
 				573DDEF01A6F86E700949D2E /* Kepler256o.fsh in Resources */,
