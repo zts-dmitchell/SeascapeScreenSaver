@@ -96,6 +96,7 @@
 		57D648181A85B28700C9AABB /* DeformTunnelRedux.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 57D648171A85B28700C9AABB /* DeformTunnelRedux.fsh */; };
 		57D6481A1A8C4D5300C9AABB /* CarCarSpacecar.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 57D648191A8C4D5300C9AABB /* CarCarSpacecar.fsh */; };
 		57D6481C1A8C691A00C9AABB /* Xyptonjtroz.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 57D6481B1A8C691A00C9AABB /* Xyptonjtroz.fsh */; };
+		57D6481E1A8F049600C9AABB /* WormHole.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 57D6481D1A8F049600C9AABB /* WormHole.fsh */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -200,6 +201,7 @@
 		57D648171A85B28700C9AABB /* DeformTunnelRedux.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = DeformTunnelRedux.fsh; sourceTree = "<group>"; };
 		57D648191A8C4D5300C9AABB /* CarCarSpacecar.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = CarCarSpacecar.fsh; sourceTree = "<group>"; };
 		57D6481B1A8C691A00C9AABB /* Xyptonjtroz.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Xyptonjtroz.fsh; sourceTree = "<group>"; };
+		57D6481D1A8F049600C9AABB /* WormHole.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = WormHole.fsh; sourceTree = "<group>"; };
 		57F14D891A5A29C900948DDB /* SeascapeScreenSaver.saver */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SeascapeScreenSaver.saver; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -345,6 +347,7 @@
 		57C10A201A5E5BA2002D4F58 /* ShaderToy */ = {
 			isa = PBXGroup;
 			children = (
+				57D6481D1A8F049600C9AABB /* WormHole.fsh */,
 				57D6481B1A8C691A00C9AABB /* Xyptonjtroz.fsh */,
 				57D648191A8C4D5300C9AABB /* CarCarSpacecar.fsh */,
 				57D648171A85B28700C9AABB /* DeformTunnelRedux.fsh */,
@@ -516,6 +519,7 @@
 				573DDEE81A6E1AA100949D2E /* AbandonedBase.fsh in Resources */,
 				57C10A251A5E5BA2002D4F58 /* Mountains.fsh in Resources */,
 				57D56EB11A6CDC530041C679 /* tex05.jpg in Resources */,
+				57D6481E1A8F049600C9AABB /* WormHole.fsh in Resources */,
 				579DB6E11A7B61CD00EEDF69 /* ToxicLake.fsh in Resources */,
 				5719A5ED1A7812E000883CB0 /* Elevated.fsh in Resources */,
 				57C10A271A5E5BA2002D4F58 /* Seascape.fsh in Resources */,
