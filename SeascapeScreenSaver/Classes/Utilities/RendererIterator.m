@@ -10,7 +10,17 @@
 #import "RendererIterator.h"
 #import "PropertiesLoader.h"
 #import "ShaderToyRenderer.h"
+#include "MonitorDisplayInfo.h"
 #import <IOKit/ps/IOPowerSources.h>
+
+#pragma mark Constants
+static NSString * const kShaderToys = @"ShaderToys";
+static NSString * const kConfig = @"Config";
+static NSString * const kEnabled = @"enabled";
+static NSString * const kIterationsPerRenderer = @"iterations-per-renderer";
+static NSString * const kSingleScreenDisplayFactor = @"single-screen-display-factor";
+static NSString * const kMultiScreenDisplayFactor = @"multi-screen-display-factor";
+
 
 @implementation RendererIterator
 
@@ -50,7 +60,7 @@
         // get iterationsPerRenderer:
         NSDictionary* runInfo = [properties objectForKey:@"run-info"];
         
-        NSNumber* objNumber = [runInfo objectForKey:@"iterations-per-renderer"];
+        NSNumber* objNumber = [runInfo objectForKey:kIterationsPerRenderer];
         
         self.iterationsPerRenderer = [objNumber intValue];
         self.defaultIterationsPerRenderer = self.iterationsPerRenderer;
@@ -59,7 +69,7 @@
         
         self.frameNumber = 0;
 
-        self.shaderToys = [properties objectForKey:@"ShaderToys"];
+        self.shaderToys = [properties objectForKey:kShaderToys];
         
         if(self.shaderToys == nil) {
             NSLog(@"Unable to find 'ShaderToys' object. Adding deprecated default renderers.");
@@ -128,6 +138,7 @@
     [self.animationController stopAnimation];
 
     bool lookingForRenderer = true;
+    float scalingFactor = 1.0;
     
     while(lookingForRenderer) {
         
@@ -139,12 +150,12 @@
         if(rendererDic != nil) {
             
             // Handle the config. This one's a dictionary
-            NSDictionary* config = [rendererDic objectForKey:@"Config"];
+            NSDictionary* config = [rendererDic objectForKey:kConfig];
             
             if(config != nil) {
                
                 // Check if enabled
-                NSNumber *enabled = [config objectForKey:@"enabled"];
+                NSNumber *enabled = [config objectForKey:kEnabled];
                 
                 if(enabled != nil && [enabled boolValue] == NO) {
                     NSLog(@"Renderer, %@, is not enabled. Skipping", renderer);
@@ -153,7 +164,9 @@
                     NSLog(@"Renderer, %@, is enabled (%@)", renderer, enabled);
                 }
                 
-                NSNumber* iterationsPerRenderer = [config objectForKey:@"iterations-per-renderer"];
+                scalingFactor = [self getScalingFactor:config];
+                
+                NSNumber* iterationsPerRenderer = [config objectForKey:kIterationsPerRenderer];
                 
                 if(iterationsPerRenderer != nil) {
                     self.iterationsPerRenderer = [iterationsPerRenderer intValue];
@@ -202,7 +215,8 @@
                                                         withScalingFactor:1.0];
     #else
             self.renderer = [[ShaderToyRenderer alloc] initWithShaderName:renderer
-                                                        andShaderTextures:textures];
+                                                        andShaderTextures:textures
+                                                        withScalingFactor:scalingFactor];
     #endif
             //self.renderer = [[ShaderToyRenderer alloc] initWithShaderNameAndVertices:rendererClassName
             //                                                          shaderTextures:textures
@@ -218,6 +232,40 @@
     //[self.renderer2 setFrameSize:self.screenSize];
 
     [self.animationController startAnimation];
+}
+
+#define CLAMP(edge0, edge1, value)  \
+    (value < edge0 ? edge0 : value > edge1 ? edge1 : value);
+
+-(float) getScalingFactor:(NSDictionary*) config {
+
+    const int monitorCount = MDI_GetDisplayCount();
+    float scalingFactor = 1.0;
+
+    if(monitorCount == 1) {
+        
+        NSNumber *singleScalingFactor = [config objectForKey:kSingleScreenDisplayFactor];
+        
+        if(singleScalingFactor != nil ) {
+            scalingFactor =  [singleScalingFactor floatValue];
+            NSLog(@"SingleScreenDisplayFactor overridden: %f", scalingFactor);
+        } else {
+            NSLog(@"SingleScreenDisplayFactor: %f", scalingFactor);
+        }
+        
+    } else {
+
+        NSNumber *multiScalingFactor = [config objectForKey:kMultiScreenDisplayFactor];
+        
+        if(multiScalingFactor != nil ) {
+            scalingFactor =  [multiScalingFactor floatValue];
+            NSLog(@"MultiScreenDisplayFactor overridden: %f", scalingFactor);
+        } else {
+            NSLog(@"MultiScreenDisplayFactor: %f", scalingFactor);
+        }
+    }
+    
+    return CLAMP(0.1, 1.0, scalingFactor);
 }
 
 -(void) render {

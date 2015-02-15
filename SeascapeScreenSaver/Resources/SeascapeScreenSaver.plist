@@ -105,10 +105,12 @@
 		<dict>
 			<key>Config</key>
 			<dict>
+				<key>single-screen-display-factor</key>
+				<real>0.5</real>
 				<key>multi-screen-display-factor</key>
 				<real>0.25</real>
 				<key>enabled</key>
-				<false/>
+				<true/>
 			</dict>
 		</dict>
 		<key>SomewhereIn1993</key>
@@ -183,6 +185,8 @@
 		<dict>
 			<key>Config</key>
 			<dict>
+				<key>single-screen-display-factor</key>
+				<real>0.7</real>
 				<key>multi-screen-display-factor</key>
 				<real>0.5</real>
 			</dict>
@@ -202,7 +206,13 @@
 			</array>
 		</dict>
 		<key>FractalCondos</key>
-		<dict/>
+		<dict>
+			<key>Config</key>
+			<dict>
+				<key>single-screen-display-factor</key>
+				<real>0.25</real>
+			</dict>
+		</dict>
 		<key>MengerJourney</key>
 		<dict>
 			<key>Config</key>
