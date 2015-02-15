@@ -98,6 +98,7 @@
 		57D6481C1A8C691A00C9AABB /* Xyptonjtroz.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 57D6481B1A8C691A00C9AABB /* Xyptonjtroz.fsh */; };
 		57D6481E1A8F049600C9AABB /* WormHole.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 57D6481D1A8F049600C9AABB /* WormHole.fsh */; };
 		57D648201A8F080F00C9AABB /* StarNestRetro.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 57D6481F1A8F080F00C9AABB /* StarNestRetro.fsh */; };
+		57D648221A8F0B8600C9AABB /* ScreenSizeFactoring-01.txt in Resources */ = {isa = PBXBuildFile; fileRef = 57D648211A8F0B8600C9AABB /* ScreenSizeFactoring-01.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -204,6 +205,7 @@
 		57D6481B1A8C691A00C9AABB /* Xyptonjtroz.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Xyptonjtroz.fsh; sourceTree = "<group>"; };
 		57D6481D1A8F049600C9AABB /* WormHole.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = WormHole.fsh; sourceTree = "<group>"; };
 		57D6481F1A8F080F00C9AABB /* StarNestRetro.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = StarNestRetro.fsh; sourceTree = "<group>"; };
+		57D648211A8F0B8600C9AABB /* ScreenSizeFactoring-01.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "ScreenSizeFactoring-01.txt"; sourceTree = "<group>"; };
 		57F14D891A5A29C900948DDB /* SeascapeScreenSaver.saver */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SeascapeScreenSaver.saver; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -222,6 +224,7 @@
 			isa = PBXGroup;
 			children = (
 				571804A61A64BAD2006BB4C5 /* ShaderToyRefactoring-00.txt */,
+				57D648211A8F0B8600C9AABB /* ScreenSizeFactoring-01.txt */,
 			);
 			name = DesignNotes;
 			path = SeascapeScreenSaver/DesignNotes;
@@ -526,6 +529,7 @@
 				579DB6E11A7B61CD00EEDF69 /* ToxicLake.fsh in Resources */,
 				5719A5ED1A7812E000883CB0 /* Elevated.fsh in Resources */,
 				57D648201A8F080F00C9AABB /* StarNestRetro.fsh in Resources */,
+				57D648221A8F0B8600C9AABB /* ScreenSizeFactoring-01.txt in Resources */,
 				57C10A271A5E5BA2002D4F58 /* Seascape.fsh in Resources */,
 				57D56EAA1A6CD3C70041C679 /* CubesAndSpheres.fsh in Resources */,
 				57D6481C1A8C691A00C9AABB /* Xyptonjtroz.fsh in Resources */,

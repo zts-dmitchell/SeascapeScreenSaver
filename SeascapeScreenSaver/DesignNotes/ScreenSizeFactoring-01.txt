@@ -1,0 +1,60 @@
+Copyright (c) David Mitchell, 2015
+
+Notes Regarding the Factoring Screen Size Based on plist Value.
+
+Task: Add ability to adjust screen size.
+
+Motivation: Some shaders require a lot of GPU, and are:
+
+* unable to sufficiently run fullscreen on one monitor, or;
+* run fine on one screen, but not on two.
+
+
+The idea is to have a parameter indicating a factor for:
+
+* Single-monitor screen size - single-screen-display-factor
+* Dual-monitor screen size - multi-screen-display-factor
+
+The parameter will be clamped to the range, 0.1 to 1.0.
+The abscence of either indicates 1.0 (100% of screen size).
+The parameters will live under the Config 'NSDictionary' element.
+Type will be 'NSNumber'
+
+When there is one monitor, use 'single-screen-display-factor'.
+If it's missing, default to 1.0 (100%).
+If there are two monitors, use 'multi-screen-display-factor' for all screens. But,
+this could be enhanced to both settings.
+
+
+Single Monitor
+
+a. 100% fine
+b.  50% fine
+
+
+Multiple Monitors
+
+c. 100% fine on main, 100% fine on secondary
+d. 100% fine on main,  50% fine on secondary
+e.  50% fine on main,  50% fine on secondary
+
+Results:
+Shaders in case 'c' don't require setting.
+Shaders in case 'd' get 50% for secondary monitor, nothing for first
+Shaders in case 'e' get 50% for secondary monitor, 50% for first
+
+Always plan and prepare for the multi-monitor case.
+
+Pseudo Code:
+
+int monitorCount = 1.
+float factor = 1.0; // The default
+
+if(monitorCount == 1) {
+    if(config.single != nil)
+        factor = clamp(0.1, 1.0, cast config.single as float);
+
+} else {
+    if(config.multiple != nil)
+        factor = clamp(0.1, 1.0, cast config.multiple as float);
+}
