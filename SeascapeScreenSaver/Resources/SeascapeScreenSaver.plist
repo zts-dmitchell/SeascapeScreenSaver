@@ -108,7 +108,7 @@
 				<key>single-screen-display-factor</key>
 				<real>0.5</real>
 				<key>multi-screen-display-factor</key>
-				<real>0.25</real>
+				<real>0.5</real>
 				<key>enabled</key>
 				<true/>
 			</dict>
@@ -121,10 +121,12 @@
 		<dict>
 			<key>Config</key>
 			<dict>
+				<key>single-screen-display-factor</key>
+				<real>0.5</real>
 				<key>multi-screen-display-factor</key>
-				<real>0.25</real>
+				<real>0.5</real>
 				<key>enabled</key>
-				<false/>
+				<true/>
 			</dict>
 			<key>Textures</key>
 			<array>
@@ -151,6 +153,10 @@
 		<dict>
 			<key>Config</key>
 			<dict>
+				<key>single-screen-display-factor</key>
+				<real>0.5</real>
+				<key>multi-screen-display-factor</key>
+				<real>0.5</real>
 				<key>enabled</key>
 				<false/>
 			</dict>
@@ -180,7 +186,13 @@
 			</array>
 		</dict>
 		<key>Seascape</key>
-		<dict/>
+		<dict>
+			<key>Config</key>
+			<dict>
+				<key>multi-screen-display-factor</key>
+				<real>0.7</real>
+			</dict>
+		</dict>
 		<key>Tokyo</key>
 		<dict>
 			<key>Config</key>
@@ -209,8 +221,8 @@
 		<dict>
 			<key>Config</key>
 			<dict>
-				<key>single-screen-display-factor</key>
-				<real>0.25</real>
+				<key>multi-screen-display-factor</key>
+				<real>0.7</real>
 			</dict>
 		</dict>
 		<key>MengerJourney</key>
@@ -231,6 +243,8 @@
 		<dict>
 			<key>Config</key>
 			<dict>
+				<key>single-screen-display-factor</key>
+				<real>0.7</real>
 				<key>multi-screen-display-factor</key>
 				<real>0.5</real>
 			</dict>
