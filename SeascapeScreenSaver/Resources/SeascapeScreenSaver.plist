@@ -27,6 +27,11 @@
 		</dict>
 		<key>Catacombs</key>
 		<dict>
+			<key>Config</key>
+			<dict>
+				<key>multi-screen-display-factor</key>
+				<real>0.5</real>
+			</dict>
 			<key>Textures</key>
 			<array>
 				<string>tex03.jpg</string>
@@ -65,6 +70,8 @@
 		<dict>
 			<key>Config</key>
 			<dict>
+				<key>multi-screen-display-factor</key>
+				<real>0.7</real>
 				<key>iterations-per-renderer</key>
 				<integer>100</integer>
 			</dict>
@@ -73,6 +80,8 @@
 		<dict>
 			<key>Config</key>
 			<dict>
+				<key>multi-screen-display-factor</key>
+				<real>0.7</real>
 				<key>iterations-per-renderer</key>
 				<integer>1000</integer>
 			</dict>
@@ -81,6 +90,8 @@
 		<dict>
 			<key>Config</key>
 			<dict>
+				<key>multi-screen-display-factor</key>
+				<real>0.5</real>
 				<key>iterations-per-renderer</key>
 				<integer>2000</integer>
 			</dict>
@@ -96,7 +107,13 @@
 		<key>WebGLTunnel</key>
 		<dict/>
 		<key>WindWakerOcean</key>
-		<dict/>
+		<dict>
+			<key>Config</key>
+			<dict>
+				<key>multi-screen-display-factor</key>
+				<real>0.7</real>
+			</dict>
+		</dict>
 		<key>JoggingRat</key>
 		<dict/>
 		<key>MorningCity</key>
@@ -114,7 +131,13 @@
 			</dict>
 		</dict>
 		<key>SomewhereIn1993</key>
-		<dict/>
+		<dict>
+			<key>Config</key>
+			<dict>
+				<key>multi-screen-display-factor</key>
+				<real>0.7</real>
+			</dict>
+		</dict>
 		<key>SymmetricOrigins</key>
 		<dict/>
 		<key>Venice</key>
@@ -140,6 +163,8 @@
 		<dict>
 			<key>Config</key>
 			<dict>
+				<key>multi-screen-display-factor</key>
+				<real>0.7</real>
 				<key>enabled</key>
 				<true/>
 			</dict>
@@ -212,6 +237,11 @@
 		</dict>
 		<key>Generators</key>
 		<dict>
+			<key>Config</key>
+			<dict>
+				<key>multi-screen-display-factor</key>
+				<real>0.5</real>
+			</dict>
 			<key>Textures</key>
 			<array>
 				<string>tex16.png</string>
@@ -229,6 +259,8 @@
 		<dict>
 			<key>Config</key>
 			<dict>
+				<key>multi-screen-display-factor</key>
+				<real>0.7</real>
 				<key>iterations-per-renderer</key>
 				<integer>100</integer>
 			</dict>
@@ -276,14 +308,19 @@
 			<array/>
 			<key>Config</key>
 			<dict>
-				<key>enabledbb</key>
-				<false/>
-				<key>iterations-per-renderer</key>
-				<integer>500</integer>
+				<key>multi-screen-display-factor</key>
+				<real>0.7</real>
+				<key>enabled</key>
+				<true/>
 			</dict>
 		</dict>
 		<key>MusicPirates</key>
 		<dict>
+			<key>Config</key>
+			<dict>
+				<key>multi-screen-display-factor</key>
+				<real>0.7</real>
+			</dict>
 			<key>Textures</key>
 			<array>
 				<string>tex03.jpg</string>
