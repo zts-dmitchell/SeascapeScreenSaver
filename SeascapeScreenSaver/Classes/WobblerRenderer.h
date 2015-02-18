@@ -3,7 +3,7 @@
 //  Wobbler
 //
 //  Created by David Mitchell on 2/20/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//  Copyright 2011-2015 David Mitchell. All rights reserved.
 //
 
 #include "Renderer.h"

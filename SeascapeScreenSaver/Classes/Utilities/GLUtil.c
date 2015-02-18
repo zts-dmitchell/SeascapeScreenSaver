@@ -3,7 +3,7 @@
  *  Noise Image
  *
  *  Created by David Mitchell on 7/14/10.
- *  Copyright 2010 None, Inc. All rights reserved.
+ *  Copyright 2010-2015 David Mitchell. All rights reserved.
  *
  */
 #import <OpenGL/gl.h>

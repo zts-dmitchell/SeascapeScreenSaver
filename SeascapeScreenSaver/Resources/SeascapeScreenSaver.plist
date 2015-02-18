@@ -4,6 +4,18 @@
 <dict>
 	<key>ShaderToys</key>
 	<dict>
+		<key>Postcard</key>
+		<dict>
+			<key>Textures</key>
+			<array>
+				<string>tex16.png</string>
+			</array>
+			<key>Config</key>
+			<dict>
+				<key>multi-screen-display-factor</key>
+				<real>0.7</real>
+			</dict>
+		</dict>
 		<key>SunriseSunset</key>
 		<dict>
 			<key>Textures</key>

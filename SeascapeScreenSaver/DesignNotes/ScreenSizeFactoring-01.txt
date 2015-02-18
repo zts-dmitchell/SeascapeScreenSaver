@@ -1,4 +1,4 @@
-Copyright (c) David Mitchell, 2015
+Copyright (c) 2015 David Mitchell, 2015
 
 Notes Regarding the Factoring Screen Size Based on plist Value.
 
