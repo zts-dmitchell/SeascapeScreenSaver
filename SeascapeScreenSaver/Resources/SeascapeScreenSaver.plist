@@ -125,9 +125,11 @@
 				<key>single-screen-display-factor</key>
 				<real>0.5</real>
 				<key>multi-screen-display-factor</key>
-				<real>0.5</real>
+				<real>0.35</real>
 				<key>enabled</key>
 				<true/>
+                <key>iterations-per-renderer</key>
+                <integer>1000</integer>
 			</dict>
 		</dict>
 		<key>SomewhereIn1993</key>
