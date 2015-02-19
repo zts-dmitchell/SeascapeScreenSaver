@@ -4,6 +4,8 @@
 <dict>
 	<key>ShaderToys</key>
 	<dict>
+		<key>WobblerRenderer</key>
+		<dict/>
 		<key>Postcard</key>
 		<dict>
 			<key>Textures</key>
@@ -140,8 +142,8 @@
 				<real>0.35</real>
 				<key>enabled</key>
 				<true/>
-                <key>iterations-per-renderer</key>
-                <integer>1000</integer>
+				<key>iterations-per-renderer</key>
+				<integer>1000</integer>
 			</dict>
 		</dict>
 		<key>SomewhereIn1993</key>

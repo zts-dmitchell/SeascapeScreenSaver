@@ -11,6 +11,7 @@
 #import "PropertiesLoader.h"
 #import "ShaderToyRenderer.h"
 #include "MonitorDisplayInfo.h"
+#import "WobblerRenderer.h"
 #import <IOKit/ps/IOPowerSources.h>
 
 #pragma mark Constants
@@ -79,7 +80,7 @@ static NSString * const kMultiScreenDisplayFactor = @"multi-screen-display-facto
 //#define ONE_RENDERER
 #ifdef ONE_RENDERER
         [self addRenderer:@"FlyByNight"];
-        [self addRenderer:@"Venice"];
+        [self addRenderer:@"WobblerRenderer"];
 #else
         NSArray* allKeys = [self.shaderToys allKeys];
         NSDictionary* renderKeys;
@@ -209,15 +210,22 @@ static NSString * const kMultiScreenDisplayFactor = @"multi-screen-display-facto
     //        };
             
             //self.renderer = [[ShaderToyRenderer alloc] initWithShaderName:rendererClassName andShaderTextures:textures];
-    #ifdef ONE_RENDERER
-            self.renderer = [[ShaderToyRenderer alloc] initWithShaderName:renderer
-                                                        andShaderTextures:textures
-                                                        withScalingFactor:1.0];
-    #else
-            self.renderer = [[ShaderToyRenderer alloc] initWithShaderName:renderer
-                                                        andShaderTextures:textures
-                                                        withScalingFactor:scalingFactor];
-    #endif
+//    #ifdef ONE_RENDERER
+//            self.renderer = [[ShaderToyRenderer alloc] initWithShaderName:renderer
+//                                                        andShaderTextures:textures
+//                                                        withScalingFactor:1.0];
+//    #else
+//            self.renderer = [[ShaderToyRenderer alloc] initWithShaderName:renderer
+//                                                        andShaderTextures:textures
+//                                                        withScalingFactor:scalingFactor];
+            if([ renderer compare:@"WobblerRenderer"] == NSOrderedSame )
+                self.renderer = [[WobblerRenderer alloc] init];
+            else
+                self.renderer = [[ShaderToyRenderer alloc] initWithShaderName:renderer
+                                                            andShaderTextures:textures
+                                                            withScalingFactor:scalingFactor];
+            
+//    #endif
             //self.renderer = [[ShaderToyRenderer alloc] initWithShaderNameAndVertices:rendererClassName
             //                                                          shaderTextures:textures
             //                                                             andVertices:vertices];
