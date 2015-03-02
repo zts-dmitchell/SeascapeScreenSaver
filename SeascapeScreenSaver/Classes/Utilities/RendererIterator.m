@@ -15,12 +15,12 @@
 #import <IOKit/ps/IOPowerSources.h>
 
 #pragma mark Constants
-static NSString * const kShaderToys = @"ShaderToys";
-static NSString * const kConfig = @"Config";
-static NSString * const kEnabled = @"enabled";
-static NSString * const kIterationsPerRenderer = @"iterations-per-renderer";
-static NSString * const kSingleScreenDisplayFactor = @"single-screen-display-factor";
-static NSString * const kMultiScreenDisplayFactor = @"multi-screen-display-factor";
+static const NSString * const kShaderToys = @"ShaderToys";
+static const NSString * const kConfig = @"Config";
+static const NSString * const kEnabled = @"enabled";
+static const NSString * const kIterationsPerRenderer = @"iterations-per-renderer";
+static const NSString * const kSingleScreenDisplayFactor = @"single-screen-display-factor";
+static const NSString * const kMultiScreenDisplayFactor = @"multi-screen-display-factor";
 
 
 @implementation RendererIterator

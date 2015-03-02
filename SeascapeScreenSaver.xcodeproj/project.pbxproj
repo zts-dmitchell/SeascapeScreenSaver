@@ -99,6 +99,8 @@
 		57D6481E1A8F049600C9AABB /* WormHole.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 57D6481D1A8F049600C9AABB /* WormHole.fsh */; };
 		57D648201A8F080F00C9AABB /* StarNestRetro.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 57D6481F1A8F080F00C9AABB /* StarNestRetro.fsh */; };
 		57D648221A8F0B8600C9AABB /* ScreenSizeFactoring-01.txt in Resources */ = {isa = PBXBuildFile; fileRef = 57D648211A8F0B8600C9AABB /* ScreenSizeFactoring-01.txt */; };
+		57D648251AA41B9A00C9AABB /* TheFall.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 57D648231AA41B9A00C9AABB /* TheFall.fsh */; };
+		57D648261AA41B9A00C9AABB /* Postcard.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 57D648241AA41B9A00C9AABB /* Postcard.fsh */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -206,6 +208,8 @@
 		57D6481D1A8F049600C9AABB /* WormHole.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = WormHole.fsh; sourceTree = "<group>"; };
 		57D6481F1A8F080F00C9AABB /* StarNestRetro.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = StarNestRetro.fsh; sourceTree = "<group>"; };
 		57D648211A8F0B8600C9AABB /* ScreenSizeFactoring-01.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "ScreenSizeFactoring-01.txt"; sourceTree = "<group>"; };
+		57D648231AA41B9A00C9AABB /* TheFall.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = TheFall.fsh; sourceTree = "<group>"; };
+		57D648241AA41B9A00C9AABB /* Postcard.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Postcard.fsh; sourceTree = "<group>"; };
 		57F14D891A5A29C900948DDB /* SeascapeScreenSaver.saver */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SeascapeScreenSaver.saver; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -352,6 +356,8 @@
 		57C10A201A5E5BA2002D4F58 /* ShaderToy */ = {
 			isa = PBXGroup;
 			children = (
+				57D648231AA41B9A00C9AABB /* TheFall.fsh */,
+				57D648241AA41B9A00C9AABB /* Postcard.fsh */,
 				57D6481F1A8F080F00C9AABB /* StarNestRetro.fsh */,
 				57D6481D1A8F049600C9AABB /* WormHole.fsh */,
 				57D6481B1A8C691A00C9AABB /* Xyptonjtroz.fsh */,
@@ -517,6 +523,7 @@
 				57D56E9C1A6A2ED20041C679 /* tex16.png in Resources */,
 				57D648181A85B28700C9AABB /* DeformTunnelRedux.fsh in Resources */,
 				57D648161A85B24300C9AABB /* tex08.jpg in Resources */,
+				57D648261AA41B9A00C9AABB /* Postcard.fsh in Resources */,
 				577E02E01A60F42D007F9E2C /* CommonVertexShader.vsh in Resources */,
 				57D56EA01A6AD5D50041C679 /* Tokyo.fsh in Resources */,
 				57D56EB21A6CDC530041C679 /* tex00.jpg in Resources */,
@@ -542,6 +549,7 @@
 				579DB6ED1A7E0DD300EEDF69 /* Cosmic2.fsh in Resources */,
 				5718049C1A639EF0006BB4C5 /* MusicPirates.fsh in Resources */,
 				57C10A021A5DB4C7002D4F58 /* WobblerShader.fsh in Resources */,
+				57D648251AA41B9A00C9AABB /* TheFall.fsh in Resources */,
 				577E02DF1A60F42D007F9E2C /* SymmetricOrigins.fsh in Resources */,
 				573DDEFC1A7208F900949D2E /* DeformSquareTunnel.fsh in Resources */,
 				57C10A031A5DB4C7002D4F58 /* WobblerShader.vsh in Resources */,

@@ -18,6 +18,13 @@
 				<real>0.7</real>
 			</dict>
 		</dict>
+		<key>TheFall</key>
+		<dict>
+			<key>Textures</key>
+			<array>
+				<string>tex16.png</string>
+			</array>
+		</dict>
 		<key>SunriseSunset</key>
 		<dict>
 			<key>Textures</key>
