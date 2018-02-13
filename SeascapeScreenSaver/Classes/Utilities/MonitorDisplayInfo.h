@@ -15,6 +15,6 @@ CGError CGDisplayRegisterReconfigurationCallback (
                                                   void *userInfo
                                                   );
 
-int MDI_GetDisplayCount();
+int MDI_GetDisplayCount(void);
 
 #endif /* defined(__SeascapeScreenSaver__MonitorDisplayInfo__) */

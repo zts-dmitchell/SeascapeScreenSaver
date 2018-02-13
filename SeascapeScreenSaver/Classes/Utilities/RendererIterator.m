@@ -79,8 +79,10 @@ static const NSString * const kMultiScreenDisplayFactor = @"multi-screen-display
         }
 //#define ONE_RENDERER
 #ifdef ONE_RENDERER
-        [self addRenderer:@"FlyByNight"];
-        [self addRenderer:@"WobblerRenderer"];
+        [self addRenderer:@"SeascapeRenderer"];
+
+        //[self addRenderer:@"FlyByNight"];
+        //[self addRenderer:@"WobblerRenderer"];
 #else
         NSArray* allKeys = [self.shaderToys allKeys];
         NSDictionary* renderKeys;
