@@ -30,6 +30,7 @@
 		5719A5EB1A7803BD00883CB0 /* JoggingRat.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 5719A5EA1A7803BD00883CB0 /* JoggingRat.fsh */; };
 		5719A5ED1A7812E000883CB0 /* Elevated.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 5719A5EC1A7812E000883CB0 /* Elevated.fsh */; };
 		5719A5EF1A78479F00883CB0 /* Catacombs.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 5719A5EE1A78479F00883CB0 /* Catacombs.fsh */; };
+		5722091C205ED65400021743 /* ShaderToyTutorial.c in Resources */ = {isa = PBXBuildFile; fileRef = 5722091B205ED65400021743 /* ShaderToyTutorial.c */; };
 		573DDEE41A6DE38600949D2E /* Fire.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 573DDEE31A6DE38600949D2E /* Fire.fsh */; };
 		573DDEE61A6E1A6500949D2E /* tex02.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 573DDEE51A6E1A6500949D2E /* tex02.jpg */; };
 		573DDEE81A6E1AA100949D2E /* AbandonedBase.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 573DDEE71A6E1AA100949D2E /* AbandonedBase.fsh */; };
@@ -134,6 +135,7 @@
 		5719A5EA1A7803BD00883CB0 /* JoggingRat.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = JoggingRat.fsh; sourceTree = "<group>"; };
 		5719A5EC1A7812E000883CB0 /* Elevated.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Elevated.fsh; sourceTree = "<group>"; };
 		5719A5EE1A78479F00883CB0 /* Catacombs.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Catacombs.fsh; sourceTree = "<group>"; };
+		5722091B205ED65400021743 /* ShaderToyTutorial.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = ShaderToyTutorial.c; sourceTree = "<group>"; };
 		573DDEE31A6DE38600949D2E /* Fire.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Fire.fsh; sourceTree = "<group>"; };
 		573DDEE51A6E1A6500949D2E /* tex02.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = tex02.jpg; sourceTree = "<group>"; };
 		573DDEE71A6E1AA100949D2E /* AbandonedBase.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = AbandonedBase.fsh; sourceTree = "<group>"; };
@@ -283,6 +285,7 @@
 				57C109E91A5DB4C7002D4F58 /* textures */,
 				571804A91A64DC17006BB4C5 /* starter.SeascapeScreenSaver.plist */,
 				5718049F1A648B9D006BB4C5 /* SeascapeScreenSaver.plist */,
+				5722091B205ED65400021743 /* ShaderToyTutorial.c */,
 			);
 			name = Resources;
 			path = SeascapeScreenSaver/Resources;
@@ -566,6 +569,7 @@
 				57D56EB01A6CDC530041C679 /* tex09.jpg in Resources */,
 				573DDEF01A6F86E700949D2E /* Kepler256o.fsh in Resources */,
 				573DDEE41A6DE38600949D2E /* Fire.fsh in Resources */,
+				5722091C205ED65400021743 /* ShaderToyTutorial.c in Resources */,
 				5719A5EB1A7803BD00883CB0 /* JoggingRat.fsh in Resources */,
 				57C10A2B1A5E5FEF002D4F58 /* tex11.png in Resources */,
 				579DB6EF1A7F2EE600EEDF69 /* AnotherFractalCartoon.fsh in Resources */,
